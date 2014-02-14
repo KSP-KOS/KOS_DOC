@@ -1,0 +1,32 @@
+//------------------------------------------------------------------------
+// Main
+//------------------------------------------------------------------------
+
+// General
+//------------------------------------------------------------------------
+body {
+  background: $color-white;
+  font-family: $font-face-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $color-black;
+}
+
+// Sauce
+//------------------------------------------------------------------------
+.sauce {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  margin: 100px 0;
+
+  h1 {
+    @include replace-text-with-dimensions("sauce.png");
+    margin: 0 auto;
+  }
+  p {
+    font-weight: 300;
+    font-size: 2.2em;
+    color: #777;
+    margin-top: 50px;
+  }
+}

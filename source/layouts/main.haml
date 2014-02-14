@@ -1,0 +1,28 @@
+= partial "layouts/doctype"
+
+%head
+  -# Meta tags
+  = partial "layouts/meta"
+
+  -# Page title
+  %title= current_page.data.title
+
+  -# Stylesheets
+  = stylesheet_link_tag "application"
+
+  -# Application icons
+  = partial "layouts/icons"
+
+  -# HTML5Shiv
+  <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+%body{ class: current_page.data.classes || "" }
+  = yield
+
+  -# JavaScripts
+  = javascript_include_tag "http://code.jquery.com/jquery.min.js"
+  = javascript_include_tag "application"
+
+-# Need this to close the doctype partial
+</html>
+
