@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+<meta charset='utf-8'>
+<meta content='initial-scale=1.0' name='viewport'>
+<meta content='yes' name='apple-mobile-web-app-capable'>
+<meta content='black' name='apple-mobile-web-app-status-bar-style'>
+
+<title></title>
+<link href="../stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../stylesheets/stylesheet.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../stylesheets/pygment_trac.css" media="screen" rel="stylesheet" type="text/css" />
+<link href='favicon.ico' rel='shortcut icon'>
+<link href='touch-icon-iphone.png' rel='apple-touch-icon'>
+<link href='touch-icon-ipad.png' rel='apple-touch-icon' sizes='72x72'>
+<link href='touch-icon-iphone-retina.png' rel='apple-touch-icon' sizes='114x114'>
+<link href='touch-icon-ipad-retina.png' rel='apple-touch-icon' sizes='144x144'>
+
+<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class=''>
+<div class='wrapper'>
+<header>
+<h1 class='title'>kOS</h1>
+</header>
+<div id='container'>
+<p class='tagline'>Fully programmable autopilot mod for KSP. Originally By Nivekk</p>
+<div id='main' role='main'>
+<div class='download-bar'>
+<div class='inner'>
+<a class='download-button tar' href='https://github.com/erendrake/KOS/tarball/master'>
+<span>Download</span>
+</a>
+<a class='download-button zip' href='https://github.com/erendrake/KOS/zipball/master'>
+<span>Download</span>
+</a>
+<a class='code' href='https://github.com/erendrake/KOS'>
+View kOS on GitHub
+</a>
+</div>
+</div>
+<span class='blc'></span>
+<span class='trc'></span>
+<article class='markdown-body'>
+<h1 id="list">﻿LIST</h1>
+
+<p>If you want to make a collection of values, this is for you. Example</p>
+
+<pre><code>SET FOO TO LIST().   // Creates a new list in FOO variable
+SET FOO:ADD TO 5.    // Adds a new element to the end of the list
+SET FOO:ADD TO ALTITUDE. 
+SET FOO:ADD TO ETA:APOAPSIS. 
+PRINT FOO:LENGTH.    // Prints 3
+SET FOO:REMOVE TO 1. // Removes the second element from the list
+SET BAR TO FOO:COPY. // Makes a copy of the FOO list
+FOO:CLEAR.           // Removes all elements from the FOO list.
+</code></pre>
+
+<h1 id="for">FOR</h1>
+
+<p>Lists need to be iterated over sometimes, to help with this we have FOR.</p>
+
+<pre><code>SET FOO TO LIST().   // Creates a new list in FOO variable
+SET FOO:ADD TO 5.    // Adds a new element to the end of the list
+SET FOO:ADD TO ALTITUDE. // eg 10000
+SET FOO:ADD TO ETA:APOAPSIS. // eg 30 
+
+FOR BAR IN FOO { PRINT BAR. }. // Prints 5, then 10000, then 30
+PRINT BAR. // ERROR, BAR doesn't exist outside the for statement
+</code></pre>
+
+<h1 id="built-in-lists">Built-in Lists</h1>
+
+<p>Builds a list of various resources and saves them to a variable.</p>
+
+<ul>
+  <li>Bodies</li>
+  <li>Targets</li>
+  <li>Resources</li>
+  <li>Parts</li>
+  <li>Engines</li>
+  <li>Sensors </li>
+  <li>
+    <p>Nodes</p>
+
+    <p>EXAMPLE USAGE:
+  LIST ENGINES IN FOO // Creats a list of the currently active engines and puts it in the FOO variable</p>
+
+    <p>FOR BAR IN FOO {
+      PRINT BAR:THRUST.
+  }.</p>
+  </li>
+</ul>
+
+<h2 id="bodies">Bodies</h2>
+
+<p>All bodies in the system</p>
+
+<ul>
+  <li>NAME</li>
+  <li>DESCRIPTION</li>
+  <li>MASS - Double</li>
+  <li>POSITION - Vector</li>
+  <li>ALTITUDE - Double</li>
+  <li>APOAPSIS - Double</li>
+  <li>PERIAPSIS - Double</li>
+  <li>RADIUS - In Meters</li>
+  <li>MU - Gravatational Parameter</li>
+  <li>ATM
+    <ul>
+      <li>EXISTS - Bool</li>
+      <li>HASOXYGEN - bool</li>
+      <li>SCALE - double</li>
+      <li>HEIGHT - float</li>
+    </ul>
+  </li>
+  <li>VELOCITY  - Vector</li>
+  <li>DISTANCE - From active vessel</li>
+  <li>BODY - Parent Body</li>
+</ul>
+
+<h2 id="engines">Engines</h2>
+
+<p>Each active engine holds the following data.</p>
+
+<ul>
+  <li>MAXTHRUST</li>
+  <li>THRUST - Current Trust</li>
+  <li>FUELFLOW </li>
+  <li>ISP - Specific impulse</li>
+  <li>FLAMEOUT - bool</li>
+  <li>IGNITION - bool</li>
+</ul>
+
+<h2 id="targets">Targets</h2>
+
+<ul>
+  <li>Many Properties, Left side, Handel it! TODO</li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<p>Aggregate Resources of all parts</p>
+
+<ul>
+  <li>NAME</li>
+  <li>AMOUNT</li>
+  <li>CAPACITY</li>
+</ul>
+
+<h2 id="parts">Parts</h2>
+
+<p>This list can be long, use carefully </p>
+
+<ul>
+  <li>NAME</li>
+  <li>STAGE</li>
+  <li>UID </li>
+  <li>RESOURCES - List</li>
+</ul>
+
+<h2 id="sensors">Sensors</h2>
+
+<p>All Sensors on the craft (eg Pressure, Gravity, ect)</p>
+
+<ul>
+  <li>TYPE</li>
+  <li>ACTIVE - bool, can be set to activate/deactivate</li>
+  <li>READOUT</li>
+</ul>
+
+<h2 id="nodes">Nodes</h2>
+
+<p>All docked flights for the current vessel. </p>
+
+<ul>
+  <li>NAME</li>
+  <li>ID</li>
+  <li>PARTCOUNT</li>
+  <li>RESOURCES - List</li>
+</ul>
+
+<h1 id="printout-lists">Printout Lists</h1>
+
+<p>Outputs data to the console. Lists files by default.
+Example:</p>
+
+<pre><code>LIST.           // Lists files on the active volume
+LIST FILES.     // Lists files on the active volume
+LIST VOLUMES.   // Lists all volumes, with their numbers and names
+LIST BODIES.    // Lists celestial bodies and their distance
+LIST TARGETS.   // Lists target-able vessels in range
+LIST RESOURCES. // List of resources by stage
+LIST PARTS.     // Lists parts in vessel
+LIST ENGINES.   // List of engines
+</code></pre>
+
+</article>
+</div>
+</div>
+<footer>
+<div class='owner'>
+<p>
+<a class='avatar' href='https://github.com/erendrake'>
+<img height='48px' src='https://0.gravatar.com/avatar/165af1182d7a820a7dacba19befc2e9c?d=https%3A%2F%2Fidenticons.github.com%2Fdb79977913a22100d5b0a7622deb2905.png&amp;amp;r=x&amp;amp;s=60' width='48px'>
+</a>
+<a href='https://github.com/erendrake'>
+erendrake
+</a>
+maintains
+<a href='https://github.com/erendrake/kos'>
+kOS
+</a>
+</p>
+</div>
+</footer>
+<div class='current-section'>
+<a href='#top'>
+Scroll to top
+</a>
+<a class='tar' href='https://github.com/erendrake/KOS/tarball/master'>
+tar
+</a>
+<a class='zip' href='https://github.com/erendrake/KOS/zipball/master'></a>
+<p class='name'></p>
+</div>
+</div>
+<script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+<script src="../javascripts/application.js" type="text/javascript"></script>
+<script src="../javascripts/script.js" type="text/javascript"></script>
+</body>
+</html>
