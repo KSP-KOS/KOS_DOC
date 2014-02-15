@@ -15,6 +15,12 @@ set :css_dir,    'stylesheets'
 set :js_dir,     'javascripts'
 set :images_dir, 'images'
 
+set :haml, { ugly: true }
+set :markdown, layout_engine: :haml
+set :md, layout_engine: :haml
+
+page "*", :layout => "main"
+
 configure :build do
   activate :minify_css
   activate :minify_javascript

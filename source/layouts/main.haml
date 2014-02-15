@@ -19,7 +19,41 @@
   <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 %body{ class: current_page.data.classes || "" }
-  = yield
+  .wrapper
+    %header
+      %h1.title kOS
+    #container
+      %p.tagline Fully programmable autopilot mod for KSP. Originally By Nivekk
+      #main{:role => "main"}
+        .download-bar
+          .inner
+            %a.tar{:href=>"https://github.com/erendrake/KOS/tarball/master", :class=>"download-button"}
+              %span Download
+            %a.zip{:href=>"https://github.com/erendrake/KOS/zipball/master", :class=>"download-button"}
+              %span Download
+            %a.code{:href=>"https://github.com/erendrake/KOS"}
+              View kOS on GitHub
+        %span.blc
+        %span.trc
+        %article.markdown-body
+          = yield
+    %footer
+      .owner
+        %p
+          %a.avatar{:href=>"https://github.com/erendrake"}
+            %img{:height=>"48px",:width=>"48px",:src=>"https://0.gravatar.com/avatar/165af1182d7a820a7dacba19befc2e9c?d=https%3A%2F%2Fidenticons.github.com%2Fdb79977913a22100d5b0a7622deb2905.png&amp;r=x&amp;s=60"}
+          %a{:href=>"https://github.com/erendrake"}
+            erendrake
+          maintains
+          %a{:href=>"https://github.com/erendrake/kos"}
+            kOS
+    .current-section
+      %a{:href=>"#top"}
+        Scroll to top
+      %a.tar{:href=>"https://github.com/erendrake/KOS/tarball/master"}
+        tar
+      %a.zip{:href=>"https://github.com/erendrake/KOS/zipball/master"}
+      %p.name
 
   -# JavaScripts
   = javascript_include_tag "http://code.jquery.com/jquery.min.js"

@@ -1,4 +1,5 @@
-﻿# LIST
+﻿LIST
+======
 
 If you want to make a collection of values, this is for you. Example
     
@@ -11,7 +12,8 @@ If you want to make a collection of values, this is for you. Example
     SET BAR TO FOO:COPY. // Makes a copy of the FOO list
     FOO:CLEAR.           // Removes all elements from the FOO list.
 
-# FOR
+FOR
+======
 
 Lists need to be iterated over sometimes, to help with this we have FOR.
 
@@ -23,7 +25,8 @@ Lists need to be iterated over sometimes, to help with this we have FOR.
     FOR BAR IN FOO { PRINT BAR. }. // Prints 5, then 10000, then 30
     PRINT BAR. // ERROR, BAR doesn't exist outside the for statement
 
-### Built-in Lists
+Built-in Lists
+======
 
 Builds a list of various resources and saves them to a variable.
 
@@ -42,7 +45,8 @@ Builds a list of various resources and saves them to a variable.
         PRINT BAR:THRUST.
     }.
 
-#### Bodies
+Bodies
+------
 
 All bodies in the system
 
@@ -64,7 +68,8 @@ All bodies in the system
 * DISTANCE - From active vessel
 * BODY - Parent Body
 
-#### Engines
+Engines
+------
 
 Each active engine holds the following data.
     
@@ -75,11 +80,13 @@ Each active engine holds the following data.
 * FLAMEOUT - bool
 * IGNITION - bool
 
-#### Targets
+Targets
+------
 
 * Many Properties, Left side, Handel it! TODO
 
-#### Resources
+Resources
+------
 
 Aggregate Resources of all parts
 
@@ -87,7 +94,8 @@ Aggregate Resources of all parts
 * AMOUNT
 * CAPACITY
 
-#### Parts
+Parts
+------
 
 This list can be long, use carefully 
 
@@ -96,7 +104,8 @@ This list can be long, use carefully
 * UID 
 * RESOURCES - List
 
-#### Sensors
+Sensors
+------
 
 All Sensors on the craft (eg Pressure, Gravity, ect)
 
@@ -104,7 +113,8 @@ All Sensors on the craft (eg Pressure, Gravity, ect)
 * ACTIVE - bool, can be set to activate/deactivate
 * READOUT
 
-#### Nodes
+Nodes
+------
 
 All docked flights for the current vessel. 
 
@@ -113,7 +123,8 @@ All docked flights for the current vessel.
 * PARTCOUNT
 * RESOURCES - List
 
-### printout Lists
+Printout Lists
+======
 
 Outputs data to the console. Lists files by default.
 Example:
