@@ -1,5 +1,7 @@
-﻿LIST
-======
+﻿# List
+
+Structure
+=========
 
 If you want to make a collection of values, this is for you. Example
     

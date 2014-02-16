@@ -1,4 +1,7 @@
-﻿## === Structure ===
+﻿# Body
+
+Structure
+=========
 
 * NAME - string
 * DESCRIPTION - string

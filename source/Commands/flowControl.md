@@ -1,0 +1,80 @@
+### BREAK
+
+Breaks out of a loop.
+Example:
+
+    SET X TO 1.
+    UNTIL 0 {
+        SET X TO X + 1.
+        IF X > 10 { BREAK. }.       // Exits the loop when X is greater than 10
+    }.
+
+### IF
+
+Checks if the expression supplied returns true. If it does, IF executes the following command block.
+Example:
+
+    SET X TO 1.
+    IF X = 1 { PRINT "X equals one.". }.            // Prints "X equals one."
+    IF X > 10 { PRINT "X is greater than ten.". }.  // Does nothing
+
+If statements can make use of boolean operators.
+Example:
+
+    IF X = 1 AND Y > 4 { PRINT "Both conditions are true". }.
+    IF X = 1 OR Y > 4 { PRINT "At least one condition is true". }.
+
+### LOCK
+
+Locks a variable to an expression. On each cycle, the target variable will be freshly updated with the latest value from expression.
+Example:
+
+    SET X TO 1.
+    LOCK Y TO X + 2.
+    PRINT Y.       // Outputs 3
+    SET X TO 4.
+    PRINT Y.      // Outputs 6
+
+### ON
+
+Awaits a change in a boolean variable, then runs the selected command. This command is best used to listen for action group activations.
+Example:
+
+    ON AG3 PRINT “Action Group 3 Activated!”.
+    ON SAS PRINT “SAS system has been toggled”.
+
+### UNLOCK
+
+Releases a lock on a variable. See LOCK.
+Examples:
+
+    UNLOCK X.                // Releases a lock on variable X.
+    UNLOCK ALL.              // Releases ALL locks.
+
+### UNTIL
+
+Performs a loop until a certain condition is met.
+Example:
+
+    SET X to 1.
+    UNTIL X > 10 {          // Prints the numbers 1-10.
+        PRINT X.
+        SET X to X + 1.
+    }.
+
+### WAIT
+
+Halts execution for a specified amount of time, or until a specific set of criteria are met. Note that running a WAIT UNTIL statement can hang the machine forever if the criteria are never met.
+Examples:
+
+    WAIT 6.2.                     // Wait 6.2 seconds.
+    WAIT UNTIL X > 40.            // Wait until X becomes greater than 40.
+    WAIT UNTIL APOAPSIS > 150000. // You can see where this is going.
+
+### WHEN.. THEN
+
+Executes a command when a certain criteria are met. Unlike WAIT, WHEN does not halt execution.
+Example:
+
+    WHEN BCount < 99 THEN PRINT BCount + “ bottles of beer on the wall”.
+

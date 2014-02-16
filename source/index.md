@@ -41,35 +41,6 @@ You can use mathematical operations on numbers, like this:
 
 The system follows the order of operations, but currently the implementation is imperfect. For example, multiplication will always be performed before division, regardless of the order they come in. This will be fixed in a future release.
 
-Mathematical Functions
-======================
-
-Basic Functions
-------
-
-    ABS(1).             // Returns absolute value of input. e.g. 1
-    CEILING(1.887).     // Rounds up to the nearest whole number. e.g. 2
-    FLOOR(1.887).       // Rounds down to the nearest whole number. e.g. 1
-    LN(5)               // Gives the natural log of the provided number
-    LOG10(5)            // Gives the log base 10 of the provided number
-    MOD(21,6).          // Returns remainder of an integer division. e.g. 3
-    MIN(0,100).         // Returns The lower of the two e.g. 0
-    MAX(0,100).         // Returns The higher of the two e.g. 100
-    ROUND(1.887).       // Rounds to the nearest whole number. e.g. 2
-    ROUND(1.887, 2).    // Rounds to the nearest place value. e.g. 1.89
-    SQRT(7.89).         // Returns square root. e.g. 2.80891438103763
-
-Trigonometric Functions
-------
-
-    SIN(6).                 // Returns sine of input. e.g. 0.10452846326
-    COS(6).                 // Returns cosine. e.g. 0.99452189536
-    TAN(6).                 // Returns tangent. e.g. 0.10510423526
-    ARCSIN(0.67).           // Returns angle whose sine is input in degrees. e.g. 42.0670648
-    ARCCOS(0.67).           // Returns angle whose cosine is input in degrees. e.g. 47.9329352
-    ARCTAN(0.67).           // Returns angle whose tangent is input in degrees. e.g. 33.8220852
-    ARCTAN2(0.67, 0.89).    // Returns the angle whose tangent is the quotient of two specified numbers in degrees. e.g. 36.9727625
-
 ### Strings
 
 Strings are pieces of text that are generally meant to be printed to the screen. For example:
@@ -94,299 +65,58 @@ You can use math operations on Directions as well. The next example uses a rotat
 Command Reference
 =================
 
-### ADD
-
-Adds a maneuver node to the flight plan.
-
-Example:
-This statement adds a node that occurs 30 seconds from now, and has a delta-V of 100 m/s radial out, 0 m/s normal, and 200 m/s prograde.
-
-    ADD NODE(TIME + 30, 100, 0, 200).
-
-### REMOVE
-
-Removes maneuver node from flight plan. Cannot remove bare nodes e.g. ADD NODE().
-
-    SET X TO NODE(0,0,0,0).
-    ADD X.
-    REMOVE X.
-
-    ADD NODE(0,0,0,0).
-    REMOVE.             // Does not remove node.
-
-### BREAK
-
-Breaks out of a loop.
-Example:
-
-    SET X TO 1.
-    UNTIL 0 {
-        SET X TO X + 1.
-        IF X > 10 { BREAK. }.       // Exits the loop when X is greater than 10
-    }.
-
-### CLEARSCREEN
-
-Clears the screen and places the cursor at the top left.
-Example:
-
-    CLEARSCREEN.
-
-### COPY
-
-Copies a file to or from another volume. Volumes can be referenced by their ID numbers or their names if they’ve been given one. See LIST, SWITCH and RENAME.
-Example:
-
-    SWITCH TO 1.       // Makes volume 1 the active volume
-    COPY file1 FROM 0. // Copies a file called file1 from volume 0 to volume 1
-    COPY file2 TO 0.   // Copies a file called file1 from volume 1 to volume 0
-
-### DELETE
-
-Deletes a file. You can delete a file from the current volume, or from a named volume.
-Example:
-
-    DELETE file1.         // Deletes file1 from the active volume.
-    DELETE file1 FROM 1.  // Deletes file1 from volume 1
-
-### DECLARE
-
-Declares a variable at the current context level. Alternatively, a variable can be implicitly declared by a SET or LOCK statement.
-Example:
-
-    DECLARE X.
-
-### DECLARE PARAMETER
-
-Declares variables to be used as a parameter.
-Example:
-
-    DECLARE PARAMETER X.
-    DECLARE PARAMETER X,y.
-    RUN MYPROG(X).
-
-### EDIT
-
-Edits a program on the currently selected volume.
-Example:
-
-    EDIT filename.
-
-### IF
-
-Checks if the expression supplied returns true. If it does, IF executes the following command block.
-Example:
-
-    SET X TO 1.
-    IF X = 1 { PRINT "X equals one.". }.            // Prints "X equals one."
-    IF X > 10 { PRINT "X is greater than ten.". }.  // Does nothing
-
-If statements can make use of boolean operators.
-Example:
-
-    IF X = 1 AND Y > 4 { PRINT "Both conditions are true". }.
-    IF X = 1 OR Y > 4 { PRINT "At least one condition is true". }.
-
-### LISTS
-
-If you want to make a collection of values, this is for you. [Documentation](structure/list)
-
-    SET FOO TO LIST().   // Creates a new list in FOO variable
-    SET FOO:ADD TO 5.    // Adds a new element to the end of the list
-    PRINT FOO:LENGTH.    // Prints 3
-    FOO:CLEAR.           // Removes all elements from the FOO list.
-
-#### FOR
-
-Lists need to be iterated over sometimes, to help with this we have FOR.
-
-    SET FOO TO LIST().   // Creates a new list in FOO variable
-    SET FOO:ADD TO 5.    // Adds a new element to the end of the list
-    SET FOO:ADD TO ALTITUDE. // eg 10000
-    SET FOO:ADD TO ETA:APOAPSIS. // eg 30
-
-    FOR BAR IN FOO { PRINT BAR. }. // Prints 5, then 10000, then 30
-    PRINT BAR. // ERROR, BAR doesn't exist outside the for statement
-
-#### Built-in Lists
-
-Builds a list of various resources and saves them to a variable.
-
-    EXAMPLE:
-    LIST ENGINES IN FOO // Creats a list of the currently active engines and puts it in the FOO variable
-
-#### printout Lists
-
-Outputs data to the console. Lists files by default.
-Example:
-
-    EXAMPLE:
-    LIST.           // Lists files on the active volume
-    LIST ENGINES.   // List of engines
-
-### LOCK
-
-Locks a variable to an expression. On each cycle, the target variable will be freshly updated with the latest value from expression.
-Example:
-
-    SET X TO 1.
-    LOCK Y TO X + 2.
-    PRINT Y.       // Outputs 3
-    SET X TO 4.
-    PRINT Y.      // Outputs 6
-
-### ON
-
-Awaits a change in a boolean variable, then runs the selected command. This command is best used to listen for action group activations.
-Example:
-
-    ON AG3 PRINT “Action Group 3 Activated!”.
-    ON SAS PRINT “SAS system has been toggled”.
-
-### PRINT
-
-Prints the selected text to the screen. Can print strings, or the result of an expression.
-Example:
-
-    PRINT “Hello”.
-    PRINT 4+1.
-    PRINT “4 times 8 is: “ + (4*8).
-
-### PRINT.. AT (COLUMN,LINE)
-
-Prints the selected text to the screen at specified location. Can print strings, or the result of an expression.
-Example:
-
-    PRINT “Hello” at (0,10).
-    PRINT 4+1 at (0,10).
-    PRINT “4 times 8 is: “ + (4*8) at (0,10).
-
-### LOG.. TO
-
-Logs the selected text to a file on the local volume. Can print strings, or the result of an expression.
-Example:
-
-    LOG “Hello” to mylog.
-    LOG 4+1 to mylog .
-    LOG “4 times 8 is: “ + (4*8) to mylog.
-
-### RENAME
-
-Renames a file or volume.
-Example:
-
-    RENAME VOLUME 1 TO AwesomeDisk
-    RENAME FILE MyFile TO AutoLaunch.
-
-### REMOVE
-
-Removes a maneuver node.
-Example:
-
-    REMOVE NEXTNODE.        // Removes the first maneuver node in the flight plan.
-
-### RUN
-
-Runs the specified file as a program.
-Example:
-
-    RUN AutoLaunch.
-
-### SET.. TO
-
-Sets the value of a variable. Declares the variable if it doesn’t already exist.
-Example:
-
-    SET X TO 1.
-
-### STAGE
-
-Executes the stage action on the current vessel.
-Example:
-
-    STAGE.
-
-### SWITCH TO
-
-Switches to the specified volume. Volumes can be specified by number, or it’s name (if it has one). See LIST and RENAME.
-Example:
-
-    SWITCH TO 0.                        // Switch to volume 0.
-    RENAME VOLUME 1 TO AwesomeDisk.     // Name volume 1 as AwesomeDisk.
-    SWITCH TO AwesomeDisk.              // Switch to volume 1.
-    PRINT VOLUME:NAME.                  // Prints "AwesomeDisk".
-
-### TOGGLE
-
-Toggles a variable between true or false. If the variable in question starts out as a number, it will be converted to a boolean and then toggled. This is useful for setting action groups, which are activated whenever their values are inverted.
-Example:
-
-    TOGGLE AG1.			// Fires action group 1.
-    TOGGLE SAS.			// Toggles SAS on or off.
-
-### UNLOCK
-
-Releases a lock on a variable. See LOCK.
-Examples:
-
-    UNLOCK X.                // Releases a lock on variable X.
-    UNLOCK ALL.              // Releases ALL locks.
-
-### UNTIL
-
-Performs a loop until a certain condition is met.
-Example:
-
-    SET X to 1.
-    UNTIL X > 10 {          // Prints the numbers 1-10.
-        PRINT X.
-        SET X to X + 1.
-    }.
-
-### WAIT
-
-Halts execution for a specified amount of time, or until a specific set of criteria are met. Note that running a WAIT UNTIL statement can hang the machine forever if the criteria are never met.
-Examples:
-
-    WAIT 6.2.                     // Wait 6.2 seconds.
-    WAIT UNTIL X > 40.            // Wait until X becomes greater than 40.
-    WAIT UNTIL APOAPSIS > 150000. // You can see where this is going.
-
-### WHEN.. THEN
-
-Executes a command when a certain criteria are met. Unlike WAIT, WHEN does not halt execution.
-Example:
-
-    WHEN BCount < 99 THEN PRINT BCount + “ bottles of beer on the wall”.
-
-### ..ON
-
-Sets a variable to true. This is useful for the RCS and SAS bindings.
-Example:
-
-    RCS ON 			// Turns on the RCS
-
-### ..OFF
-
-Sets a variable to false. This is useful for the RCS and SAS bindings.
-Example
-
-    RCS OFF			// Turns off the RCS
-
-### WARP
-
-Sets game warp to provided value(0-7).
-
-    SET WARP TO 5.      // Sets warp to 1000x.
-    SET WARP TO 0.      // Sets warp to 0x aka real time.
-
-### REBOOT
-
-Reboots the kOS module.
-
-### SHUTDOWN
-
-Causes kOS module to shutdown.
+* [Math](commands/math)
+    * Basic Functions
+    * Trigonometric Functions
+
+* [Navigation](commands/navigation)
+    * ADD
+    * REMOVE
+
+* [File IO](commands/file)
+    * COPY
+    * DELETE
+    * EDIT
+    * LOG.. TO
+    * RENAME
+    * REMOVE
+    * RUN
+    * SWITCH.. TO
+
+* [Flow Control](commands/flowControl)
+    * BREAK
+    * IF
+    * LOCK
+    * ON
+    * UNLOCK
+    * UNTIL
+    * WAIT
+    * WHEN.. THEN
+
+* [Terminal](commands/terminal)
+    * CLEARSCREEN
+    * PRINT
+    * PRINT.. AT
+    * REBOOT
+    * SHUTDOWN
+
+Structure Reference
+===================
+
+Structures are variables that can contain more than one piece of information.  Structures can be used with SET.. TO just like any other variable.
+Their subelements can be accessed by using : along with the name of the subelement.
+
+* [Atmosphere](/structure/atmosphere)
+* [Body](/structure/body)
+* [Direction](/structure/direction)
+* [Engine](/structure/engine)
+* [GeoCordinates](/structure/geocordinates)
+* [List](/structure/list)
+* [Node](/structure/node)
+* [Orbit](/structure/orbit)
+* [Time](/structure/time)
+* [Vector](/structure/vector)
+* [Vessel](/structure/vessel)
 
 Flight Statistics
 =================
@@ -408,20 +138,6 @@ You can get several useful vessel stats for your ships
     MAXTHRUST           // Combined thrust of active engines at full throttle (kN)
     VESSELNAME
 
-### TIME
-
-Returns time in various formats.
-
-    TIME                // Gets the current universal time
-    TIME:CLOCK          // Universal time in H:M:S format(1:50:26)
-    TIME:CALENDAR       // Year 1, day 134
-    TIME:YEAR           // 1
-    TIME:DAY            // 134
-    TIME:HOUR           // 1
-    TIME:MINUTE         // 50
-    TIME:SECOND         // 26
-    TIME:SECONDS          // Total Seconds
-
 ### Vectors
 
 These return a vector object, which can be used in conjuction with the LOCK command to set your vessel's steering.
@@ -429,7 +145,6 @@ These return a vector object, which can be used in conjuction with the LOCK comm
     PROGRADE
     RETROGRADE
     UP				// Directly away from current body
-
 
 ### Orbit geometry values
 
@@ -500,101 +215,6 @@ These values can be SET, TOGGLED, or LOCKED. Some values such as THROTTLE and ST
     STEERING			// Lock to a direction.
     WHEELTHROTTLE       // Seperate throttle for wheels
     WHEELSTEERING       // Seperate steering system for wheels
-
-Structures
-==========
-
-Structures are variables that can contain more than one piece of information. Structures can be used with SET.. TO just like any other variable. Changing valves works only with V() and NODE() at this time, cannot be used with lock.
-
-Their subelements can be accessed by using : along with the name of the subelement.
-
-### LATLNG (latitude, longitude)
-
-Represents a set of geo-coordinates.
-
-    SET X TO LATLNG(10, 20).            // Initialize point at lattitude 10, longitude 20
-    PRINT X:LAT.                        // Print 10.
-    PRINT X:LNG.                        // Print 20.
-    PRINT X:DISTANCE.                   // Print distance from vessel to x (same altitude is presumed)
-    PRINT LATLNG(10,20):HEADING.        // Print the heading to the point.
-    PRINT X:BEARING.                    // Print the heading to the point relative to vessel heading.
-
-### NODE (universalTime, radialOut, normal, prograde)
-
-Represents a maneuver node [Documentation](structure/node)
-
-    SET X TO NODE(TIME+60, 0, 0, 100).  // Creates a node 60 seconds from now with
-                                        // prograde=100 m/s
-    ADD X.                              // Adds the node to the flight plan.
-    PRINT X:PROGRADE.                   // Returns 100.
-    PRINT X:ETA.                        // Returns the ETA to the node.
-    PRINT X:DELTAV                      // Returns delta-v vector.
-    REMOVE X.                           // Remove node  from the flight plan.
-
-    SET X TO NODE(0, 0, 0, 0).          // Create a blank node.
-    ADD X.                              // Add Node to flight plan.
-    SET X:PROGRADE to 500.              // Set nodes prograde to 500m/s deltav.
-    SET X:ETA to 30.              // Set nodes time to 30 seconds from now.
-    PRINT X:OBT:APOAPSIS.                   // Returns nodes apoapsis.
-    PRINT X:OBT:PERIAPSIS.                  // Returns nodes periapsis.
-
-
-### HEADING (degreesFromNorth, pitchAboveHorizon)
-
-Represents a heading that's relative to the body of influence.
-
-    SET X TO HEADING(45, 10).           // Create a rotation facing northeast, 10 degrees above horizon
-
-### R (pitch, yaw, roll)
-
-Represents a rotation.
-
-    SET X TO PROGRADE + R(90,0,0).      // Initializes a direction to prograde plus a relative pitch of 90
-    LOCK STEERING TO X.                 // Steer the vessel in the direction suggested by direction X.
-
-### V (x, y, z)
-
-Represents a vector. [Documentation](structure/vector)
-
-    SET varname TO V(100,5,0).          // initializes a vector with x=100, y=5, z=0
-    varname:X.                          // Returns 100.
-    V(100,5,0):Y.                       // Returns 5.
-    V(100,5,0):Z.                       // Returns 0.
-    varname:MAG.                        // Returns the magnitude of the vector, in this case
-    SET varname:X TO 111.               // Changes vector x value to 111.
-    SET varname:MAG to 10.              // Changes magnitude of vector. e.g. V(9.98987,0.44999,0)
-
-### VESSELS
-
-All craft share a datastructure [Documentation](structure/vessel)
-
-
-#### VESSEL (vesselname)
-
-Represents a targetable vessel
-
-    SET X TO VESSEL("kerbRoller2").     // Initialize a reference to a vessel.
-    PRINT X:DISTANCE.                   // Print distance from current vessel to target.
-    PRINT X:HEADING.                    // Print the heading to the vessel.
-    PRINT X:BEARING.                    // Print the heading to the target vessel relative to vessel heading.
-
-#### SHIP
-
-Represents currently selected ship
-
-    PRINT SHIP.                            // returns VESSEL("kerbRoller2")
-    PRINT SHIP:DISTANCE.                   // Print distance from current vessel to target.
-    PRINT SHIP:HEADING.                    // Print the heading to the vessel.
-    PRINT SHIP:BEARING.                    // Print the heading to the target vessel relative to vessel heading.
-
-#### TARGET
-
-Represents targeted vessel or celestial body
-
-    SET TARGET TO "kerbRoller2".        // target kerbRoller2
-    PRINT TARGET:DISTANCE.              // Print distance from current vessel to target.
-    PRINT TARGET:HEADING.               // Print the heading to the target vessel.
-    PRINT TARGET:BEARING.               // Print the bearing to the target vessel relative to vessel heading.
 
 System Variables
 ==========================

@@ -1,7 +1,11 @@
-Engines
-------
+# Engine
 
-Each active engine holds the following data.
+Each engine holds the following data.
+
+Structure
+=========
+
+#### Getters
 
 * MAXTHRUST - Number (kilonewton)
 * THRUST - Number (kilonewton)

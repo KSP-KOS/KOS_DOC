@@ -21,7 +21,9 @@
 %body{ class: current_page.data.classes || "" }
   .wrapper
     %header
-      %h1.title kOS
+      %h1.title
+        %a{:href=>"/"}
+          kOS
     #container
       %p.tagline Fully programmable autopilot mod for KSP. Originally By Nivekk
       #main{:role => "main"}

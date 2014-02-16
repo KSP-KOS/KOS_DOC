@@ -15,3 +15,6 @@
 .DS_Store
 
 /.idea
+
+# layouts html are all just cache
+source/layouts/*.html

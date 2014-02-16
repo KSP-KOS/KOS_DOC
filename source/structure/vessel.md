@@ -1,4 +1,7 @@
-﻿## === Shared Structure ===
+﻿# Vessel
+
+Shared Structure
+================
 
 * DIRECTION - [Direction](../direction) To Active Ship
 * DISTANCE - Meters To Active Ship
@@ -10,12 +13,7 @@
 * VELOCITY - Structure 
     * ORBIT - [Vector](../vector)
     * SURFACE - [Vector](../vector)
-* GEOPOSITION - Structure
-    * LAT - Number (degrees)
-    * LNG - Number (degrees)
-    * DISTANCE - Number (meters)
-    * HEADING - Number (degrees)
-    * BEARING - Number (degrees)
+* GEOPOSITION - [GeoCordinates](../geocordinates)
 * LATITUDE - Number (degrees)
 * LONGITUDE - Number (degrees)
 * FACING - [Direction](../direction)

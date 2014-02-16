@@ -1,4 +1,7 @@
-﻿## === Structure ===
+﻿# Orbit
+
+Structure
+=========
 
 * APOAPSIS - Number (meters)
 * PERIAPSIS - Number (meters)

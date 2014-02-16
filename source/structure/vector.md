@@ -1,13 +1,18 @@
-## === Structure ===
-
-### V (x, y, z)
+# Vector
 
 Represents a vector. [Wiki](http://en.wikipedia.org/wiki/Euclidean_vector)
 
-* X - Number (meters/s)
-* Y - Number (meters/s)
-* Z - Number (meters/s)
+Structure
+=========
+
+* X - Number (degrees)
+* Y - Number (degrees)
+* Z - Number (degrees)
 * MAG - Number
+
+#### Creation
+
+V (x, y, z)
 
 #### Example
     SET varname TO V(100,5,0).          // initializes a vector with x=100, y=5, z=0
