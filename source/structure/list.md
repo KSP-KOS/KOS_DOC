@@ -30,11 +30,11 @@ Built-in Lists
 
 Builds a list of various resources and saves them to a variable.
 
-* Bodies  List of [Body](Vessels)
-* Targets List of [Vessel](Vessels)
+* Bodies - List of [Bodies](../body)
+* Targets - List of [Vessels](../vessel)
 * Resources
 * Parts
-* Engines
+* Engines - List of [Engines](../engines)
 * Sensors 
 * Elements
 
@@ -45,45 +45,6 @@ Builds a list of various resources and saves them to a variable.
         PRINT BAR:THRUST.
     }.
 
-Bodies
-------
-
-All bodies in the system
-
-* NAME
-* DESCRIPTION
-* MASS - Double
-* POSITION - Vector
-* ALTITUDE - Double
-* APOAPSIS - Double
-* PERIAPSIS - Double
-* RADIUS - In Meters
-* MU - Gravatational Parameter
-* ATM
-    * EXISTS - Bool
-    * HASOXYGEN - bool
-    * SCALE - double
-    * HEIGHT - float
-* VELOCITY  - Vector
-* DISTANCE - From active vessel
-* BODY - Parent Body
-
-Engines
-------
-
-Each active engine holds the following data.
-    
-* MAXTHRUST
-* THRUST - Current Trust
-* FUELFLOW 
-* ISP - Specific impulse
-* FLAMEOUT - bool
-* IGNITION - bool
-
-Targets
-------
-
-* Many Properties, Left side, Handel it! TODO
 
 Resources
 ------

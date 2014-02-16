@@ -1,43 +1,43 @@
 ﻿## === Shared Structure ===
 
-* DIRECTION - To Active Ship
-* DISTANCE - To Active Ship
+* DIRECTION - [Direction](../direction) To Active Ship
+* DISTANCE - Meters To Active Ship
 * BEARING - To Active Ship
 * HEADING - To Active Ship
-* PROGRADE - Direction
-* RETROGRADE - Direction
+* PROGRADE - [Direction](../direction)
+* RETROGRADE - [Direction](../direction)
 * MAXTHRUST - Max thrust of all active engines
 * VELOCITY - Structure 
-    * ORBIT - Vector
-    * SURFACE - Vector
+    * ORBIT - [Vector](../vector)
+    * SURFACE - [Vector](../vector)
 * GEOPOSITION - Structure
-    * LAT - double
-    * LNG - double
-    * DISTANCE - double
-    * HEADING - float
-    * BEARING - float
-* LATITUDE - float
-* LONGITUDE - float
-* FACING - Direction
-* UP - Direction
-* NORTH - Direction
+    * LAT - Number (degrees)
+    * LNG - Number (degrees)
+    * DISTANCE - Number (meters)
+    * HEADING - Number (degrees)
+    * BEARING - Number (degrees)
+* LATITUDE - Number (degrees)
+* LONGITUDE - Number (degrees)
+* FACING - [Direction](../direction)
+* UP - [Direction](../direction)
+* NORTH - [Direction](../direction)
 * BODY - [Body](Body)
-* ANGULARMOMENTUM - Direction
-* ANGULARVEL - Direction
-* MASS 
-* VERTICALSPEED
-* SURFACESPEED
-* AIRSPEED
-* VESSELNAME
-* ALTITUDE
-* APOAPSIS
-* PERIAPSIS
+* ANGULARMOMENTUM - [Direction](../direction)
+* ANGULARVEL - [Direction](../direction)
+* MASS - Number (kilogram)
+* VERTICALSPEED - Number (meters/s)
+* SURFACESPEED - Number (meters/s)
+* AIRSPEED - Number (meters/s)
+* VESSELNAME - string
+* ALTITUDE - Number (meters)
+* APOAPSIS - Number (meters)
+* PERIAPSIS - Number (meters)
 * SENSORS - Structure
-    * ACC
-    * PRES
-    * TEMP
-    * GRAV
-* TERMVELOCITY
+    * ACC - [Vector](../vector)
+    * PRES - Number (Atmosphere)
+    * TEMP - Number (Celsius)
+    * GRAV - [Vector](../vector)
+* TERMVELOCITY - Number (meters/s)
 * OBT - Structure - [Orbit](Orbit)
 
 #### VESSEL (vesselname)
