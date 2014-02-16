@@ -189,7 +189,7 @@ Example:
 
 ### LISTS
 
-If you want to make a collection of values, this is for you. [Documentation](/structure/list)
+If you want to make a collection of values, this is for you. [Documentation](structure/list)
 
     SET FOO TO LIST().   // Creates a new list in FOO variable
     SET FOO:ADD TO 5.    // Adds a new element to the end of the list
@@ -449,7 +449,7 @@ These values can be polled either for their altitude, or the vessel's ETA in rea
     ENCOUNTER           // Returns celestial body of encounter
     NEXTNODE            // Next node in flight plan.
 
-### Resources
+## Resources
 
 ### Resource Types
 
@@ -521,7 +521,7 @@ Represents a set of geo-coordinates.
 
 ### NODE (universalTime, radialOut, normal, prograde)
 
-Represents a maneuver node [Documentation](/structure/node)
+Represents a maneuver node [Documentation](structure/node)
 
     SET X TO NODE(TIME+60, 0, 0, 100).  // Creates a node 60 seconds from now with
                                         // prograde=100 m/s
@@ -554,7 +554,7 @@ Represents a rotation.
 
 ### V (x, y, z)
 
-Represents a vector. [Documentation](/structure/vector)
+Represents a vector. [Documentation](structure/vector)
 
     SET varname TO V(100,5,0).          // initializes a vector with x=100, y=5, z=0
     varname:X.                          // Returns 100.
@@ -566,7 +566,7 @@ Represents a vector. [Documentation](/structure/vector)
 
 ### VESSELS
 
-All craft share a datastructure [Documentation](/structure/vessel)
+All craft share a datastructure [Documentation](structure/vessel)
 
 
 #### VESSEL (vesselname)
