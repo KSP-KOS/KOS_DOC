@@ -30,8 +30,8 @@ Built-in Lists
 
 Builds a list of various resources and saves them to a variable.
 
-* Bodies
-* Targets
+* Bodies  List of [Body](Vessels)
+* Targets List of [Vessel](Vessels)
 * Resources
 * Parts
 * Engines

@@ -42,7 +42,7 @@ You can use mathematical operations on numbers, like this:
 The system follows the order of operations, but currently the implementation is imperfect. For example, multiplication will always be performed before division, regardless of the order they come in. This will be fixed in a future release.
 
 Mathematical Functions
-======
+======================
 
 Basic Functions
 ------
@@ -92,7 +92,7 @@ You can use math operations on Directions as well. The next example uses a rotat
     SET Direction TO UP + R(0,-45,0).  // Set direction 45 degress west of “UP”.
 
 Command Reference
------------------
+=================
 
 ### ADD
 
@@ -189,7 +189,7 @@ Example:
 
 ### LISTS
 
-If you want to make a collection of values, this is for you. [Full Documentation](List)
+If you want to make a collection of values, this is for you. [Full Documentation](/structure/List)
 
     SET FOO TO LIST().   // Creates a new list in FOO variable
     SET FOO:ADD TO 5.    // Adds a new element to the end of the list
@@ -521,7 +521,7 @@ Represents a set of geo-coordinates.
 
 ### NODE (universalTime, radialOut, normal, prograde)
 
-Represents a maneuver node.[Full Documentation](/wiki/Node)
+Represents a maneuver node [Full Documentation](/structure/Node)
 
     SET X TO NODE(TIME+60, 0, 0, 100).  // Creates a node 60 seconds from now with
                                         // prograde=100 m/s
@@ -566,7 +566,7 @@ Represents a vector.
 
 ### VESSELS
 
-All craft share a datastructure [Full Documentation](/wiki/Vessel)
+All craft share a datastructure [Full Documentation](/structure/Vessel)
 
 
 #### VESSEL (vesselname)
