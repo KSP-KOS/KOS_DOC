@@ -53,22 +53,94 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h1 id="engine">Engine</h1>
+<h3 id="break">BREAK</h3>
 
-<p>Each engine holds the following data.</p>
+<p>Breaks out of a loop.
+Example:</p>
 
-<h1 id="structure">Structure</h1>
+<pre><code>SET X TO 1.
+UNTIL 0 {
+    SET X TO X + 1.
+    IF X &gt; 10 { BREAK. }.       // Exits the loop when X is greater than 10
+}.
+</code></pre>
 
-<h4 id="getters">Getters</h4>
+<h3 id="if">IF</h3>
 
-<ul>
-  <li>MAXTHRUST - Number (kilonewton)</li>
-  <li>THRUST - Number (kilonewton)</li>
-  <li>FUELFLOW - Number (Liters/s? maybe)</li>
-  <li>ISP - Specific impulse <a href="http://en.wikipedia.org/wiki/Specific_impulse">Wiki</a></li>
-  <li>FLAMEOUT - bool</li>
-  <li>IGNITION - bool</li>
-</ul>
+<p>Checks if the expression supplied returns true. If it does, IF executes the following command block.
+Example:</p>
+
+<pre><code>SET X TO 1.
+IF X = 1 { PRINT "X equals one.". }.            // Prints "X equals one."
+IF X &gt; 10 { PRINT "X is greater than ten.". }.  // Does nothing
+</code></pre>
+
+<p>If statements can make use of boolean operators.
+Example:</p>
+
+<pre><code>IF X = 1 AND Y &gt; 4 { PRINT "Both conditions are true". }.
+IF X = 1 OR Y &gt; 4 { PRINT "At least one condition is true". }.
+</code></pre>
+
+<h3 id="lock">LOCK</h3>
+
+<p>Locks a variable to an expression. On each cycle, the target variable will be freshly updated with the latest value from expression.
+Example:</p>
+
+<pre><code>SET X TO 1.
+LOCK Y TO X + 2.
+PRINT Y.       // Outputs 3
+SET X TO 4.
+PRINT Y.      // Outputs 6
+</code></pre>
+
+<h3 id="on">ON</h3>
+
+<p>Awaits a change in a boolean variable, then runs the selected command. This command is best used to listen for action group activations.
+Example:</p>
+
+<pre><code>ON AG3 PRINT “Action Group 3 Activated!”.
+ON SAS PRINT “SAS system has been toggled”.
+</code></pre>
+
+<h3 id="unlock">UNLOCK</h3>
+
+<p>Releases a lock on a variable. See LOCK.
+Examples:</p>
+
+<pre><code>UNLOCK X.                // Releases a lock on variable X.
+UNLOCK ALL.              // Releases ALL locks.
+</code></pre>
+
+<h3 id="until">UNTIL</h3>
+
+<p>Performs a loop until a certain condition is met.
+Example:</p>
+
+<pre><code>SET X to 1.
+UNTIL X &gt; 10 {          // Prints the numbers 1-10.
+    PRINT X.
+    SET X to X + 1.
+}.
+</code></pre>
+
+<h3 id="wait">WAIT</h3>
+
+<p>Halts execution for a specified amount of time, or until a specific set of criteria are met. Note that running a WAIT UNTIL statement can hang the machine forever if the criteria are never met.
+Examples:</p>
+
+<pre><code>WAIT 6.2.                     // Wait 6.2 seconds.
+WAIT UNTIL X &gt; 40.            // Wait until X becomes greater than 40.
+WAIT UNTIL APOAPSIS &gt; 150000. // You can see where this is going.
+</code></pre>
+
+<h3 id="when-then">WHEN.. THEN</h3>
+
+<p>Executes a command when a certain criteria are met. Unlike WAIT, WHEN does not halt execution.
+Example:</p>
+
+<pre><code>WHEN BCount &lt; 99 THEN PRINT BCount + “ bottles of beer on the wall”.
+</code></pre>
 
 
 </article>

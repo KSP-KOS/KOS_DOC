@@ -53,22 +53,45 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h1 id="engine">Engine</h1>
+<h1 id="navigation">Navigation</h1>
 
-<p>Each engine holds the following data.</p>
+<h3 id="add">ADD</h3>
 
-<h1 id="structure">Structure</h1>
+<p>Adds a <a href="../structure/node">maneuver node</a> to the flight plan.</p>
 
-<h4 id="getters">Getters</h4>
+<p>Example:
+This statement adds a node that occurs 30 seconds from now, and has a delta-V of 100 m/s radial out, 0 m/s normal, and 200 m/s prograde.</p>
 
-<ul>
-  <li>MAXTHRUST - Number (kilonewton)</li>
-  <li>THRUST - Number (kilonewton)</li>
-  <li>FUELFLOW - Number (Liters/s? maybe)</li>
-  <li>ISP - Specific impulse <a href="http://en.wikipedia.org/wiki/Specific_impulse">Wiki</a></li>
-  <li>FLAMEOUT - bool</li>
-  <li>IGNITION - bool</li>
-</ul>
+<pre><code>ADD NODE(TIME + 30, 100, 0, 200).
+</code></pre>
+
+<h3 id="remove">REMOVE</h3>
+
+<p>Removes <a href="../structure/node">maneuver node</a> from flight plan. Cannot remove bare nodes e.g. ADD NODE().</p>
+
+<pre><code>SET X TO NODE(0,0,0,0).
+ADD X.
+REMOVE X.
+
+ADD NODE(0,0,0,0).
+REMOVE.             // Does not remove node.
+</code></pre>
+
+<h3 id="stage">STAGE</h3>
+
+<p>Executes the stage action on the current vessel.
+Example:</p>
+
+<pre><code>STAGE.
+</code></pre>
+
+<h3 id="warp">WARP</h3>
+
+<p>Sets game warp to provided value(0-7).</p>
+
+<pre><code>SET WARP TO 5.      // Sets warp to 1000x.
+SET WARP TO 0.      // Sets warp to 0x aka real time.
+</code></pre>
 
 
 </article>

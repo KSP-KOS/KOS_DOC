@@ -53,22 +53,35 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h1 id="engine">Engine</h1>
+<h1 id="geocoordinates">GeoCoordinates</h1>
 
-<p>Each engine holds the following data.</p>
+<p>Represents a set of geo-coordinates.</p>
 
 <h1 id="structure">Structure</h1>
 
 <h4 id="getters">Getters</h4>
 
 <ul>
-  <li>MAXTHRUST - Number (kilonewton)</li>
-  <li>THRUST - Number (kilonewton)</li>
-  <li>FUELFLOW - Number (Liters/s? maybe)</li>
-  <li>ISP - Specific impulse <a href="http://en.wikipedia.org/wiki/Specific_impulse">Wiki</a></li>
-  <li>FLAMEOUT - bool</li>
-  <li>IGNITION - bool</li>
+  <li>LAT - Degrees</li>
+  <li>LNG - Degrees</li>
+  <li>DISTANCE - Number (meters from calling vessel)</li>
+  <li>HEADING</li>
+  <li>BEARING</li>
 </ul>
+
+<h4 id="creation">Creation</h4>
+
+<p>LATLNG (latitude, longitude)</p>
+
+<h4 id="example">Example</h4>
+
+<pre><code>SET X TO LATLNG(10, 20).            // Initialize point at lattitude 10, longitude 20
+PRINT X:LAT.                        // Print 10.
+PRINT X:LNG.                        // Print 20.
+PRINT X:DISTANCE.                   // Print distance from vessel to x (same altitude is presumed)
+PRINT LATLNG(10,20):HEADING.        // Print the heading to the point.
+PRINT X:BEARING.                    // Print the heading to the point relative to vessel heading.
+</code></pre>
 
 
 </article>

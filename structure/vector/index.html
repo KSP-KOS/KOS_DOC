@@ -25,7 +25,11 @@
 <body class=''>
 <div class='wrapper'>
 <header>
-<h1 class='title'>kOS</h1>
+<h1 class='title'>
+<a href='/'>
+kOS
+</a>
+</h1>
 </header>
 <div id='container'>
 <p class='tagline'>Fully programmable autopilot mod for KSP. Originally By Nivekk</p>
@@ -49,18 +53,22 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h2 id="structure-">=== Structure ===</h2>
-
-<h3 id="v-x-y-z">V (x, y, z)</h3>
+<h1 id="vector">Vector</h1>
 
 <p>Represents a vector. <a href="http://en.wikipedia.org/wiki/Euclidean_vector">Wiki</a></p>
 
+<h1 id="structure">Structure</h1>
+
 <ul>
-  <li>X - Number (meters/s)</li>
-  <li>Y - Number (meters/s)</li>
-  <li>Z - Number (meters/s)</li>
+  <li>X - Number (degrees)</li>
+  <li>Y - Number (degrees)</li>
+  <li>Z - Number (degrees)</li>
   <li>MAG - Number</li>
 </ul>
+
+<h4 id="creation">Creation</h4>
+
+<p>V (x, y, z)</p>
 
 <h4 id="example">Example</h4>
 <pre><code>SET varname TO V(100,5,0).          // initializes a vector with x=100, y=5, z=0

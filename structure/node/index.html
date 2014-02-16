@@ -25,7 +25,11 @@
 <body class=''>
 <div class='wrapper'>
 <header>
-<h1 class='title'>kOS</h1>
+<h1 class='title'>
+<a href='/'>
+kOS
+</a>
+</h1>
 </header>
 <div id='container'>
 <p class='tagline'>Fully programmable autopilot mod for KSP. Originally By Nivekk</p>
@@ -49,7 +53,11 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<p>﻿## === Structure ===</p>
+<p>﻿# Maneuver Node</p>
+
+<h1 id="structure">Structure</h1>
+
+<h4 id="getters">Getters</h4>
 
 <ul>
   <li>DELTAV or BURNVECTOR - <a href="../vector">Vector</a></li>
@@ -60,7 +68,7 @@ View kOS on GitHub
   <li>ORBIT- <a href="../orbit">Orbit</a></li>
 </ul>
 
-<h4 id="settable">Settable</h4>
+<h4 id="setters">Setters</h4>
 
 <ul>
   <li>ETA - Number (seconds)</li>
@@ -68,6 +76,29 @@ View kOS on GitHub
   <li>RADIALOUT - Number (meters/s)</li>
   <li>NORMAL - Number (meters/s)</li>
 </ul>
+
+<h4 id="creation">Creation</h4>
+
+<p>NODE (universalTime, radialOut, normal, prograde)</p>
+
+<h4 id="example">Example</h4>
+
+<pre><code>SET X TO NODE(TIME+60, 0, 0, 100).  // Creates a node 60 seconds from now with
+                                    // prograde=100 m/s
+ADD X.                              // Adds the node to the flight plan.
+PRINT X:PROGRADE.                   // Returns 100.
+PRINT X:ETA.                        // Returns the ETA to the node.
+PRINT X:DELTAV                      // Returns delta-v vector.
+REMOVE X.                           // Remove node  from the flight plan.
+
+SET X TO NODE(0, 0, 0, 0).          // Create a blank node.
+ADD X.                              // Add Node to flight plan.
+SET X:PROGRADE to 500.              // Set nodes prograde to 500m/s deltav.
+SET X:ETA to 30.              // Set nodes time to 30 seconds from now.
+PRINT X:OBT:APOAPSIS.                   // Returns nodes apoapsis.
+PRINT X:OBT:PERIAPSIS.                  // Returns nodes periapsis.
+</code></pre>
+
 
 </article>
 </div>

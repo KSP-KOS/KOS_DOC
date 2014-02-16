@@ -53,23 +53,34 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h1 id="engine">Engine</h1>
+<h1 id="time">Time</h1>
 
-<p>Each engine holds the following data.</p>
+<p>Returns time in various formats.</p>
 
 <h1 id="structure">Structure</h1>
 
-<h4 id="getters">Getters</h4>
-
 <ul>
-  <li>MAXTHRUST - Number (kilonewton)</li>
-  <li>THRUST - Number (kilonewton)</li>
-  <li>FUELFLOW - Number (Liters/s? maybe)</li>
-  <li>ISP - Specific impulse <a href="http://en.wikipedia.org/wiki/Specific_impulse">Wiki</a></li>
-  <li>FLAMEOUT - bool</li>
-  <li>IGNITION - bool</li>
-</ul>
+  <li>CLOCK - Time (HH:MM:SS)</li>
+  <li>CALENDAR - Date (Year #, day #)</li>
+  <li>YEAR - Number</li>
+  <li>DAY - Number (1-365)</li>
+  <li>HOUR - Number (0-23)</li>
+  <li>MINUTE - Number (0-59)</li>
+  <li>SECOND - Number (0-59)</li>
+  <li>
+    <p>SECONDS - Number (Total Seconds)</p>
 
+    <p>TIME                // Gets the current universal time
+  TIME:CLOCK          // Universal time in H:M:S format(1:50:26)
+  TIME:CALENDAR       // Year 1, day 134
+  TIME:YEAR           // 1
+  TIME:DAY            // 134
+  TIME:HOUR           // 1
+  TIME:MINUTE         // 50
+  TIME:SECOND         // 26
+  TIME:SECONDS          // Total Seconds</p>
+  </li>
+</ul>
 
 </article>
 </div>

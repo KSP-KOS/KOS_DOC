@@ -25,7 +25,11 @@
 <body class=''>
 <div class='wrapper'>
 <header>
-<h1 class='title'>kOS</h1>
+<h1 class='title'>
+<a href='/'>
+kOS
+</a>
+</h1>
 </header>
 <div id='container'>
 <p class='tagline'>Fully programmable autopilot mod for KSP. Originally By Nivekk</p>
@@ -89,34 +93,6 @@ PRINT X.             // Outputs 6.5
 
 <p>The system follows the order of operations, but currently the implementation is imperfect. For example, multiplication will always be performed before division, regardless of the order they come in. This will be fixed in a future release.</p>
 
-<h1 id="mathematical-functions">Mathematical Functions</h1>
-
-<h2 id="basic-functions">Basic Functions</h2>
-
-<pre><code>ABS(1).             // Returns absolute value of input. e.g. 1
-CEILING(1.887).     // Rounds up to the nearest whole number. e.g. 2
-FLOOR(1.887).       // Rounds down to the nearest whole number. e.g. 1
-LN(5)               // Gives the natural log of the provided number
-LOG10(5)            // Gives the log base 10 of the provided number
-MOD(21,6).          // Returns remainder of an integer division. e.g. 3
-MIN(0,100).         // Returns The lower of the two e.g. 0
-MAX(0,100).         // Returns The higher of the two e.g. 100
-ROUND(1.887).       // Rounds to the nearest whole number. e.g. 2
-ROUND(1.887, 2).    // Rounds to the nearest place value. e.g. 1.89
-SQRT(7.89).         // Returns square root. e.g. 2.80891438103763
-</code></pre>
-
-<h2 id="trigonometric-functions">Trigonometric Functions</h2>
-
-<pre><code>SIN(6).                 // Returns sine of input. e.g. 0.10452846326
-COS(6).                 // Returns cosine. e.g. 0.99452189536
-TAN(6).                 // Returns tangent. e.g. 0.10510423526
-ARCSIN(0.67).           // Returns angle whose sine is input in degrees. e.g. 42.0670648
-ARCCOS(0.67).           // Returns angle whose cosine is input in degrees. e.g. 47.9329352
-ARCTAN(0.67).           // Returns angle whose tangent is input in degrees. e.g. 33.8220852
-ARCTAN2(0.67, 0.89).    // Returns the angle whose tangent is the quotient of two specified numbers in degrees. e.g. 36.9727625
-</code></pre>
-
 <h3 id="strings">Strings</h3>
 
 <p>Strings are pieces of text that are generally meant to be printed to the screen. For example:</p>
@@ -144,333 +120,72 @@ SET Direction TO R(0,90,0).        // Set by a rotation in degrees
 
 <h1 id="command-reference">Command Reference</h1>
 
-<h3 id="add">ADD</h3>
-
-<p>Adds a maneuver node to the flight plan.</p>
-
-<p>Example:
-This statement adds a node that occurs 30 seconds from now, and has a delta-V of 100 m/s radial out, 0 m/s normal, and 200 m/s prograde.</p>
-
-<pre><code>ADD NODE(TIME + 30, 100, 0, 200).
-</code></pre>
-
-<h3 id="remove">REMOVE</h3>
-
-<p>Removes maneuver node from flight plan. Cannot remove bare nodes e.g. ADD NODE().</p>
-
-<pre><code>SET X TO NODE(0,0,0,0).
-ADD X.
-REMOVE X.
-
-ADD NODE(0,0,0,0).
-REMOVE.             // Does not remove node.
-</code></pre>
-
-<h3 id="break">BREAK</h3>
-
-<p>Breaks out of a loop.
-Example:</p>
-
-<pre><code>SET X TO 1.
-UNTIL 0 {
-    SET X TO X + 1.
-    IF X &gt; 10 { BREAK. }.       // Exits the loop when X is greater than 10
-}.
-</code></pre>
-
-<h3 id="clearscreen">CLEARSCREEN</h3>
-
-<p>Clears the screen and places the cursor at the top left.
-Example:</p>
-
-<pre><code>CLEARSCREEN.
-</code></pre>
-
-<h3 id="copy">COPY</h3>
-
-<p>Copies a file to or from another volume. Volumes can be referenced by their ID numbers or their names if they’ve been given one. See LIST, SWITCH and RENAME.
-Example:</p>
-
-<pre><code>SWITCH TO 1.       // Makes volume 1 the active volume
-COPY file1 FROM 0. // Copies a file called file1 from volume 0 to volume 1
-COPY file2 TO 0.   // Copies a file called file1 from volume 1 to volume 0
-</code></pre>
-
-<h3 id="delete">DELETE</h3>
-
-<p>Deletes a file. You can delete a file from the current volume, or from a named volume.
-Example:</p>
-
-<pre><code>DELETE file1.         // Deletes file1 from the active volume.
-DELETE file1 FROM 1.  // Deletes file1 from volume 1
-</code></pre>
-
-<h3 id="declare">DECLARE</h3>
-
-<p>Declares a variable at the current context level. Alternatively, a variable can be implicitly declared by a SET or LOCK statement.
-Example:</p>
-
-<pre><code>DECLARE X.
-</code></pre>
-
-<h3 id="declare-parameter">DECLARE PARAMETER</h3>
-
-<p>Declares variables to be used as a parameter.
-Example:</p>
-
-<pre><code>DECLARE PARAMETER X.
-DECLARE PARAMETER X,y.
-RUN MYPROG(X).
-</code></pre>
-
-<h3 id="edit">EDIT</h3>
-
-<p>Edits a program on the currently selected volume.
-Example:</p>
-
-<pre><code>EDIT filename.
-</code></pre>
-
-<h3 id="if">IF</h3>
-
-<p>Checks if the expression supplied returns true. If it does, IF executes the following command block.
-Example:</p>
-
-<pre><code>SET X TO 1.
-IF X = 1 { PRINT "X equals one.". }.            // Prints "X equals one."
-IF X &gt; 10 { PRINT "X is greater than ten.". }.  // Does nothing
-</code></pre>
-
-<p>If statements can make use of boolean operators.
-Example:</p>
-
-<pre><code>IF X = 1 AND Y &gt; 4 { PRINT "Both conditions are true". }.
-IF X = 1 OR Y &gt; 4 { PRINT "At least one condition is true". }.
-</code></pre>
-
-<h3 id="lists">LISTS</h3>
-
-<p>If you want to make a collection of values, this is for you. <a href="structure/list">Documentation</a></p>
-
-<pre><code>SET FOO TO LIST().   // Creates a new list in FOO variable
-SET FOO:ADD TO 5.    // Adds a new element to the end of the list
-PRINT FOO:LENGTH.    // Prints 3
-FOO:CLEAR.           // Removes all elements from the FOO list.
-</code></pre>
-
-<h4 id="for">FOR</h4>
-
-<p>Lists need to be iterated over sometimes, to help with this we have FOR.</p>
-
-<pre><code>SET FOO TO LIST().   // Creates a new list in FOO variable
-SET FOO:ADD TO 5.    // Adds a new element to the end of the list
-SET FOO:ADD TO ALTITUDE. // eg 10000
-SET FOO:ADD TO ETA:APOAPSIS. // eg 30
-
-FOR BAR IN FOO { PRINT BAR. }. // Prints 5, then 10000, then 30
-PRINT BAR. // ERROR, BAR doesn't exist outside the for statement
-</code></pre>
-
-<h4 id="built-in-lists">Built-in Lists</h4>
-
-<p>Builds a list of various resources and saves them to a variable.</p>
-
-<pre><code>EXAMPLE:
-LIST ENGINES IN FOO // Creats a list of the currently active engines and puts it in the FOO variable
-</code></pre>
-
-<h4 id="printout-lists">printout Lists</h4>
-
-<p>Outputs data to the console. Lists files by default.
-Example:</p>
-
-<pre><code>EXAMPLE:
-LIST.           // Lists files on the active volume
-LIST ENGINES.   // List of engines
-</code></pre>
-
-<h3 id="lock">LOCK</h3>
-
-<p>Locks a variable to an expression. On each cycle, the target variable will be freshly updated with the latest value from expression.
-Example:</p>
-
-<pre><code>SET X TO 1.
-LOCK Y TO X + 2.
-PRINT Y.       // Outputs 3
-SET X TO 4.
-PRINT Y.      // Outputs 6
-</code></pre>
-
-<h3 id="on">ON</h3>
-
-<p>Awaits a change in a boolean variable, then runs the selected command. This command is best used to listen for action group activations.
-Example:</p>
-
-<pre><code>ON AG3 PRINT “Action Group 3 Activated!”.
-ON SAS PRINT “SAS system has been toggled”.
-</code></pre>
-
-<h3 id="print">PRINT</h3>
-
-<p>Prints the selected text to the screen. Can print strings, or the result of an expression.
-Example:</p>
-
-<pre><code>PRINT “Hello”.
-PRINT 4+1.
-PRINT “4 times 8 is: “ + (4*8).
-</code></pre>
-
-<h3 id="print-at-columnline">PRINT.. AT (COLUMN,LINE)</h3>
-
-<p>Prints the selected text to the screen at specified location. Can print strings, or the result of an expression.
-Example:</p>
-
-<pre><code>PRINT “Hello” at (0,10).
-PRINT 4+1 at (0,10).
-PRINT “4 times 8 is: “ + (4*8) at (0,10).
-</code></pre>
-
-<h3 id="log-to">LOG.. TO</h3>
-
-<p>Logs the selected text to a file on the local volume. Can print strings, or the result of an expression.
-Example:</p>
-
-<pre><code>LOG “Hello” to mylog.
-LOG 4+1 to mylog .
-LOG “4 times 8 is: “ + (4*8) to mylog.
-</code></pre>
-
-<h3 id="rename">RENAME</h3>
-
-<p>Renames a file or volume.
-Example:</p>
-
-<pre><code>RENAME VOLUME 1 TO AwesomeDisk
-RENAME FILE MyFile TO AutoLaunch.
-</code></pre>
-
-<h3 id="remove-1">REMOVE</h3>
-
-<p>Removes a maneuver node.
-Example:</p>
-
-<pre><code>REMOVE NEXTNODE.        // Removes the first maneuver node in the flight plan.
-</code></pre>
-
-<h3 id="run">RUN</h3>
-
-<p>Runs the specified file as a program.
-Example:</p>
-
-<pre><code>RUN AutoLaunch.
-</code></pre>
-
-<h3 id="set-to">SET.. TO</h3>
-
-<p>Sets the value of a variable. Declares the variable if it doesn’t already exist.
-Example:</p>
-
-<pre><code>SET X TO 1.
-</code></pre>
-
-<h3 id="stage">STAGE</h3>
-
-<p>Executes the stage action on the current vessel.
-Example:</p>
-
-<pre><code>STAGE.
-</code></pre>
-
-<h3 id="switch-to">SWITCH TO</h3>
-
-<p>Switches to the specified volume. Volumes can be specified by number, or it’s name (if it has one). See LIST and RENAME.
-Example:</p>
-
-<pre><code>SWITCH TO 0.                        // Switch to volume 0.
-RENAME VOLUME 1 TO AwesomeDisk.     // Name volume 1 as AwesomeDisk.
-SWITCH TO AwesomeDisk.              // Switch to volume 1.
-PRINT VOLUME:NAME.                  // Prints "AwesomeDisk".
-</code></pre>
-
-<h3 id="toggle">TOGGLE</h3>
-
-<p>Toggles a variable between true or false. If the variable in question starts out as a number, it will be converted to a boolean and then toggled. This is useful for setting action groups, which are activated whenever their values are inverted.
-Example:</p>
-
-<pre><code>TOGGLE AG1.			// Fires action group 1.
-TOGGLE SAS.			// Toggles SAS on or off.
-</code></pre>
-
-<h3 id="unlock">UNLOCK</h3>
-
-<p>Releases a lock on a variable. See LOCK.
-Examples:</p>
-
-<pre><code>UNLOCK X.                // Releases a lock on variable X.
-UNLOCK ALL.              // Releases ALL locks.
-</code></pre>
-
-<h3 id="until">UNTIL</h3>
-
-<p>Performs a loop until a certain condition is met.
-Example:</p>
-
-<pre><code>SET X to 1.
-UNTIL X &gt; 10 {          // Prints the numbers 1-10.
-    PRINT X.
-    SET X to X + 1.
-}.
-</code></pre>
-
-<h3 id="wait">WAIT</h3>
-
-<p>Halts execution for a specified amount of time, or until a specific set of criteria are met. Note that running a WAIT UNTIL statement can hang the machine forever if the criteria are never met.
-Examples:</p>
-
-<pre><code>WAIT 6.2.                     // Wait 6.2 seconds.
-WAIT UNTIL X &gt; 40.            // Wait until X becomes greater than 40.
-WAIT UNTIL APOAPSIS &gt; 150000. // You can see where this is going.
-</code></pre>
-
-<h3 id="when-then">WHEN.. THEN</h3>
-
-<p>Executes a command when a certain criteria are met. Unlike WAIT, WHEN does not halt execution.
-Example:</p>
-
-<pre><code>WHEN BCount &lt; 99 THEN PRINT BCount + “ bottles of beer on the wall”.
-</code></pre>
-
-<h3 id="on-1">..ON</h3>
-
-<p>Sets a variable to true. This is useful for the RCS and SAS bindings.
-Example:</p>
-
-<pre><code>RCS ON 			// Turns on the RCS
-</code></pre>
-
-<h3 id="off">..OFF</h3>
-
-<p>Sets a variable to false. This is useful for the RCS and SAS bindings.
-Example</p>
-
-<pre><code>RCS OFF			// Turns off the RCS
-</code></pre>
-
-<h3 id="warp">WARP</h3>
-
-<p>Sets game warp to provided value(0-7).</p>
-
-<pre><code>SET WARP TO 5.      // Sets warp to 1000x.
-SET WARP TO 0.      // Sets warp to 0x aka real time.
-</code></pre>
-
-<h3 id="reboot">REBOOT</h3>
-
-<p>Reboots the kOS module.</p>
-
-<h3 id="shutdown">SHUTDOWN</h3>
-
-<p>Causes kOS module to shutdown.</p>
+<ul>
+  <li><a href="commands/math">Math</a>
+    <ul>
+      <li>Basic Functions</li>
+      <li>Trigonometric Functions</li>
+    </ul>
+  </li>
+  <li><a href="commands/navigation">Navigation</a>
+    <ul>
+      <li>ADD</li>
+      <li>REMOVE</li>
+    </ul>
+  </li>
+  <li><a href="commands/file">File IO</a>
+    <ul>
+      <li>COPY</li>
+      <li>DELETE</li>
+      <li>EDIT</li>
+      <li>LOG.. TO</li>
+      <li>RENAME</li>
+      <li>REMOVE</li>
+      <li>RUN</li>
+      <li>SWITCH.. TO</li>
+    </ul>
+  </li>
+  <li><a href="commands/flowControl">Flow Control</a>
+    <ul>
+      <li>BREAK</li>
+      <li>IF</li>
+      <li>LOCK</li>
+      <li>ON</li>
+      <li>UNLOCK</li>
+      <li>UNTIL</li>
+      <li>WAIT</li>
+      <li>WHEN.. THEN</li>
+    </ul>
+  </li>
+  <li><a href="commands/terminal">Terminal</a>
+    <ul>
+      <li>CLEARSCREEN</li>
+      <li>PRINT</li>
+      <li>PRINT.. AT</li>
+      <li>REBOOT</li>
+      <li>SHUTDOWN</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="structure-reference">Structure Reference</h1>
+
+<p>Structures are variables that can contain more than one piece of information.  Structures can be used with SET.. TO just like any other variable.
+Their subelements can be accessed by using : along with the name of the subelement.</p>
+
+<ul>
+  <li><a href="/structure/atmosphere">Atmosphere</a></li>
+  <li><a href="/structure/body">Body</a></li>
+  <li><a href="/structure/direction">Direction</a></li>
+  <li><a href="/structure/engine">Engine</a></li>
+  <li><a href="/structure/geocordinates">GeoCordinates</a></li>
+  <li><a href="/structure/list">List</a></li>
+  <li><a href="/structure/node">Node</a></li>
+  <li><a href="/structure/orbit">Orbit</a></li>
+  <li><a href="/structure/time">Time</a></li>
+  <li><a href="/structure/vector">Vector</a></li>
+  <li><a href="/structure/vessel">Vessel</a></li>
+</ul>
 
 <h1 id="flight-statistics">Flight Statistics</h1>
 
@@ -490,21 +205,6 @@ COMMRANGE           // returns commrange
 MASS
 MAXTHRUST           // Combined thrust of active engines at full throttle (kN)
 VESSELNAME
-</code></pre>
-
-<h3 id="time">TIME</h3>
-
-<p>Returns time in various formats.</p>
-
-<pre><code>TIME                // Gets the current universal time
-TIME:CLOCK          // Universal time in H:M:S format(1:50:26)
-TIME:CALENDAR       // Year 1, day 134
-TIME:YEAR           // 1
-TIME:DAY            // 134
-TIME:HOUR           // 1
-TIME:MINUTE         // 50
-TIME:SECOND         // 26
-TIME:SECONDS          // Total Seconds
 </code></pre>
 
 <h3 id="vectors">Vectors</h3>
@@ -590,106 +290,6 @@ AGX             // Where x = 1 through 10. Use toggle, example: TOGGLE AG1.
 STEERING			// Lock to a direction.
 WHEELTHROTTLE       // Seperate throttle for wheels
 WHEELSTEERING       // Seperate steering system for wheels
-</code></pre>
-
-<h1 id="structures">Structures</h1>
-
-<p>Structures are variables that can contain more than one piece of information. Structures can be used with SET.. TO just like any other variable. Changing valves works only with V() and NODE() at this time, cannot be used with lock.</p>
-
-<p>Their subelements can be accessed by using : along with the name of the subelement.</p>
-
-<h3 id="latlng-latitude-longitude">LATLNG (latitude, longitude)</h3>
-
-<p>Represents a set of geo-coordinates.</p>
-
-<pre><code>SET X TO LATLNG(10, 20).            // Initialize point at lattitude 10, longitude 20
-PRINT X:LAT.                        // Print 10.
-PRINT X:LNG.                        // Print 20.
-PRINT X:DISTANCE.                   // Print distance from vessel to x (same altitude is presumed)
-PRINT LATLNG(10,20):HEADING.        // Print the heading to the point.
-PRINT X:BEARING.                    // Print the heading to the point relative to vessel heading.
-</code></pre>
-
-<h3 id="node-universaltime-radialout-normal-prograde">NODE (universalTime, radialOut, normal, prograde)</h3>
-
-<p>Represents a maneuver node <a href="structure/node">Documentation</a></p>
-
-<pre><code>SET X TO NODE(TIME+60, 0, 0, 100).  // Creates a node 60 seconds from now with
-                                    // prograde=100 m/s
-ADD X.                              // Adds the node to the flight plan.
-PRINT X:PROGRADE.                   // Returns 100.
-PRINT X:ETA.                        // Returns the ETA to the node.
-PRINT X:DELTAV                      // Returns delta-v vector.
-REMOVE X.                           // Remove node  from the flight plan.
-
-SET X TO NODE(0, 0, 0, 0).          // Create a blank node.
-ADD X.                              // Add Node to flight plan.
-SET X:PROGRADE to 500.              // Set nodes prograde to 500m/s deltav.
-SET X:ETA to 30.              // Set nodes time to 30 seconds from now.
-PRINT X:OBT:APOAPSIS.                   // Returns nodes apoapsis.
-PRINT X:OBT:PERIAPSIS.                  // Returns nodes periapsis.
-</code></pre>
-
-<h3 id="heading-degreesfromnorth-pitchabovehorizon">HEADING (degreesFromNorth, pitchAboveHorizon)</h3>
-
-<p>Represents a heading that's relative to the body of influence.</p>
-
-<pre><code>SET X TO HEADING(45, 10).           // Create a rotation facing northeast, 10 degrees above horizon
-</code></pre>
-
-<h3 id="r-pitch-yaw-roll">R (pitch, yaw, roll)</h3>
-
-<p>Represents a rotation.</p>
-
-<pre><code>SET X TO PROGRADE + R(90,0,0).      // Initializes a direction to prograde plus a relative pitch of 90
-LOCK STEERING TO X.                 // Steer the vessel in the direction suggested by direction X.
-</code></pre>
-
-<h3 id="v-x-y-z">V (x, y, z)</h3>
-
-<p>Represents a vector. <a href="structure/vector">Documentation</a></p>
-
-<pre><code>SET varname TO V(100,5,0).          // initializes a vector with x=100, y=5, z=0
-varname:X.                          // Returns 100.
-V(100,5,0):Y.                       // Returns 5.
-V(100,5,0):Z.                       // Returns 0.
-varname:MAG.                        // Returns the magnitude of the vector, in this case
-SET varname:X TO 111.               // Changes vector x value to 111.
-SET varname:MAG to 10.              // Changes magnitude of vector. e.g. V(9.98987,0.44999,0)
-</code></pre>
-
-<h3 id="vessels">VESSELS</h3>
-
-<p>All craft share a datastructure <a href="structure/vessel">Documentation</a></p>
-
-<h4 id="vessel-vesselname">VESSEL (vesselname)</h4>
-
-<p>Represents a targetable vessel</p>
-
-<pre><code>SET X TO VESSEL("kerbRoller2").     // Initialize a reference to a vessel.
-PRINT X:DISTANCE.                   // Print distance from current vessel to target.
-PRINT X:HEADING.                    // Print the heading to the vessel.
-PRINT X:BEARING.                    // Print the heading to the target vessel relative to vessel heading.
-</code></pre>
-
-<h4 id="ship">SHIP</h4>
-
-<p>Represents currently selected ship</p>
-
-<pre><code>PRINT SHIP.                            // returns VESSEL("kerbRoller2")
-PRINT SHIP:DISTANCE.                   // Print distance from current vessel to target.
-PRINT SHIP:HEADING.                    // Print the heading to the vessel.
-PRINT SHIP:BEARING.                    // Print the heading to the target vessel relative to vessel heading.
-</code></pre>
-
-<h4 id="target">TARGET</h4>
-
-<p>Represents targeted vessel or celestial body</p>
-
-<pre><code>SET TARGET TO "kerbRoller2".        // target kerbRoller2
-PRINT TARGET:DISTANCE.              // Print distance from current vessel to target.
-PRINT TARGET:HEADING.               // Print the heading to the target vessel.
-PRINT TARGET:BEARING.               // Print the bearing to the target vessel relative to vessel heading.
 </code></pre>
 
 <h1 id="system-variables">System Variables</h1>

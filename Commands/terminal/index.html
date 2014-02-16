@@ -53,22 +53,41 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h1 id="engine">Engine</h1>
+<h3 id="clearscreen">CLEARSCREEN</h3>
 
-<p>Each engine holds the following data.</p>
+<p>Clears the screen and places the cursor at the top left.
+Example:</p>
 
-<h1 id="structure">Structure</h1>
+<pre><code>CLEARSCREEN.
+</code></pre>
 
-<h4 id="getters">Getters</h4>
+<h3 id="print">PRINT</h3>
 
-<ul>
-  <li>MAXTHRUST - Number (kilonewton)</li>
-  <li>THRUST - Number (kilonewton)</li>
-  <li>FUELFLOW - Number (Liters/s? maybe)</li>
-  <li>ISP - Specific impulse <a href="http://en.wikipedia.org/wiki/Specific_impulse">Wiki</a></li>
-  <li>FLAMEOUT - bool</li>
-  <li>IGNITION - bool</li>
-</ul>
+<p>Prints the selected text to the screen. Can print strings, or the result of an expression.
+Example:</p>
+
+<pre><code>PRINT “Hello”.
+PRINT 4+1.
+PRINT “4 times 8 is: “ + (4*8).
+</code></pre>
+
+<h3 id="print-at-columnline">PRINT.. AT (COLUMN,LINE)</h3>
+
+<p>Prints the selected text to the screen at specified location. Can print strings, or the result of an expression.
+Example:</p>
+
+<pre><code>PRINT “Hello” at (0,10).
+PRINT 4+1 at (0,10).
+PRINT “4 times 8 is: “ + (4*8) at (0,10).
+</code></pre>
+
+<h3 id="reboot">REBOOT</h3>
+
+<p>Reboots the kOS module.</p>
+
+<h3 id="shutdown">SHUTDOWN</h3>
+
+<p>Causes kOS module to shutdown.</p>
 
 
 </article>

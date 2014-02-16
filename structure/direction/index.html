@@ -53,22 +53,39 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h1 id="engine">Engine</h1>
+<h1 id="direction">Direction</h1>
 
-<p>Each engine holds the following data.</p>
+<p>Directions exist primarily to enable automated steering. You can initialize a direction using a vector or a rotation.</p>
 
 <h1 id="structure">Structure</h1>
 
-<h4 id="getters">Getters</h4>
-
 <ul>
-  <li>MAXTHRUST - Number (kilonewton)</li>
-  <li>THRUST - Number (kilonewton)</li>
-  <li>FUELFLOW - Number (Liters/s? maybe)</li>
-  <li>ISP - Specific impulse <a href="http://en.wikipedia.org/wiki/Specific_impulse">Wiki</a></li>
-  <li>FLAMEOUT - bool</li>
-  <li>IGNITION - bool</li>
+  <li>PITCH - Number (degrees)</li>
+  <li>YAW - Number (degrees)</li>
+  <li>ROLL - Number (degrees)</li>
+  <li>VECTOR - <a href="../vector">Vector</a></li>
 </ul>
+
+<h4 id="creation">Creation</h4>
+
+<p>R (pitch, yaw, roll)
+HEADING (degreesFromNorth, pitchAboveHorizon)</p>
+
+<h4 id="example">Example</h4>
+
+<pre><code>SET X TO PROGRADE + R(90,0,0).      // Initializes a direction to prograde plus a relative pitch of 90
+LOCK STEERING TO X.                 // Steer the vessel in the direction suggested by direction X.
+
+SET Y TO HEADING(45, 10).           // Create a rotation facing northeast, 10 degrees above horizon
+LOCK STEERING TO Y.                 // Steer the vessel in the direction suggested by direction X.
+
+SET Direction TO R(0,90,0).        // Set by a rotation in degrees
+</code></pre>
+
+<p>You can use math operations on Directions as well. The next example uses a rotation of “UP” which is a system variable describing a vector directly away from the celestial body you are under the influence of.</p>
+
+<pre><code>SET Direction TO UP + R(0,-45,0).  // Set direction 45 degress west of “UP”.
+</code></pre>
 
 
 </article>

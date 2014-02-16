@@ -53,22 +53,80 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h1 id="engine">Engine</h1>
+<h1 id="file-io">File I/O</h1>
 
-<p>Each engine holds the following data.</p>
+<h3 id="copy">COPY</h3>
 
-<h1 id="structure">Structure</h1>
+<p>Copies a file to or from another volume. Volumes can be referenced by their ID numbers or their names if they’ve been given one. See LIST, SWITCH and RENAME.
+Example:</p>
 
-<h4 id="getters">Getters</h4>
+<pre><code>SWITCH TO 1.       // Makes volume 1 the active volume
+COPY file1 FROM 0. // Copies a file called file1 from volume 0 to volume 1
+COPY file2 TO 0.   // Copies a file called file1 from volume 1 to volume 0
+</code></pre>
 
-<ul>
-  <li>MAXTHRUST - Number (kilonewton)</li>
-  <li>THRUST - Number (kilonewton)</li>
-  <li>FUELFLOW - Number (Liters/s? maybe)</li>
-  <li>ISP - Specific impulse <a href="http://en.wikipedia.org/wiki/Specific_impulse">Wiki</a></li>
-  <li>FLAMEOUT - bool</li>
-  <li>IGNITION - bool</li>
-</ul>
+<h3 id="delete">DELETE</h3>
+
+<p>Deletes a file. You can delete a file from the current volume, or from a named volume.
+Example:</p>
+
+<pre><code>DELETE file1.         // Deletes file1 from the active volume.
+DELETE file1 FROM 1.  // Deletes file1 from volume 1
+</code></pre>
+
+<h3 id="edit">EDIT</h3>
+
+<p>Edits a program on the currently selected volume.
+Example:</p>
+
+<pre><code>EDIT filename.
+</code></pre>
+
+<h3 id="log-to">LOG.. TO</h3>
+
+<p>Logs the selected text to a file on the local volume. Can print strings, or the result of an expression.
+Example:</p>
+
+<pre><code>LOG “Hello” to mylog.
+LOG 4+1 to mylog .
+LOG “4 times 8 is: “ + (4*8) to mylog.
+</code></pre>
+
+<h3 id="rename">RENAME</h3>
+
+<p>Renames a file or volume.
+Example:</p>
+
+<pre><code>RENAME VOLUME 1 TO AwesomeDisk
+RENAME FILE MyFile TO AutoLaunch.
+</code></pre>
+
+<h3 id="remove">REMOVE</h3>
+
+<p>Removes a maneuver node.
+Example:</p>
+
+<pre><code>REMOVE NEXTNODE.        // Removes the first maneuver node in the flight plan.
+</code></pre>
+
+<h3 id="run">RUN</h3>
+
+<p>Runs the specified file as a program.
+Example:</p>
+
+<pre><code>RUN AutoLaunch.
+</code></pre>
+
+<h3 id="switch-to">SWITCH TO</h3>
+
+<p>Switches to the specified volume. Volumes can be specified by number, or it’s name (if it has one). See LIST and RENAME.
+Example:</p>
+
+<pre><code>SWITCH TO 0.                        // Switch to volume 0.
+RENAME VOLUME 1 TO AwesomeDisk.     // Name volume 1 as AwesomeDisk.
+SWITCH TO AwesomeDisk.              // Switch to volume 1.
+PRINT VOLUME:NAME.                  // Prints "AwesomeDisk".
+</code></pre>
 
 
 </article>
