@@ -1,5 +1,7 @@
 ﻿# Vessel
 
+All vessels share a structure
+
 Shared Structure
 ================
 

@@ -1,5 +1,7 @@
 ﻿# Maneuver Node
 
+A planned velocity change along an orbit
+
 Structure
 =========
 

@@ -1,5 +1,7 @@
 ﻿# Orbit
 
+The path the vessel/body will take with no intervention
+
 Structure
 =========
 

@@ -1,9 +1,24 @@
 ﻿# List
 
+Collection of Any time in kOS
+
 Structure
 =========
 
-If you want to make a collection of values, this is for you. Example
+### Getters
+* CLEAR
+* LENGTH
+* COPY
+* ITERATOR
+
+
+### Setters
+* ADD
+* CONTAINS
+* REMOVE - Number (index)
+
+
+Example:
     
     SET FOO TO LIST().   // Creates a new list in FOO variable
     SET FOO:ADD TO 5.    // Adds a new element to the end of the list

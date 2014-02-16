@@ -1,4 +1,6 @@
-# Engine
+# Atmosphere
+
+A Structure closely tied to [Body](/KOS/structure/body)
 
 Structure
 =========

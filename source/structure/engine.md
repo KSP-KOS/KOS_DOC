@@ -1,6 +1,6 @@
 # Engine
 
-Each engine holds the following data.
+Main propulsion of every mission.
 
 Structure
 =========
