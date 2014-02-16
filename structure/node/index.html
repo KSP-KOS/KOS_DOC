@@ -11,9 +11,9 @@
 <meta content='black' name='apple-mobile-web-app-status-bar-style'>
 
 <title></title>
-<link href="../stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="../stylesheets/stylesheet.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="../stylesheets/pygment_trac.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../../stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../../stylesheets/stylesheet.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../../stylesheets/pygment_trac.css" media="screen" rel="stylesheet" type="text/css" />
 <link href='favicon.ico' rel='shortcut icon'>
 <link href='touch-icon-iphone.png' rel='apple-touch-icon'>
 <link href='touch-icon-ipad.png' rel='apple-touch-icon' sizes='72x72'>
@@ -52,26 +52,22 @@ View kOS on GitHub
 <p>﻿## === Structure ===</p>
 
 <ul>
-  <li>APOAPSIS</li>
-  <li>PERIAPSIS</li>
-  <li>BODY - <a href="body">Body</a></li>
-  <li>PERIOD - Seconds</li>
-  <li>INCLINATION - degree</li>
-  <li>ECCENTRICITY - double</li>
-  <li>SEMIMAJORAXIS - double</li>
-  <li>SEMIMINORAXIS - double</li>
-  <li>TRANSITION - Enum
-    <ul>
-      <li>INITIAL</li>
-      <li>FINAL</li>
-      <li>ENCOUNTER</li>
-      <li>ESCAPE</li>
-      <li>MANEUVER</li>
-    </ul>
-  </li>
-  <li>PATCHES - List of Orbits</li>
+  <li>DELTAV or BURNVECTOR - Vector</li>
+  <li>ETA - Seconds</li>
+  <li>PROGRADE - Double</li>
+  <li>RADIALOUT - Double</li>
+  <li>NORMAL - Double</li>
+  <li>ORBIT- <a href="Orbit">Orbit</a></li>
 </ul>
 
+<h4 id="settable">Settable</h4>
+
+<ul>
+  <li>ETA - Seconds</li>
+  <li>PROGRADE - Double</li>
+  <li>RADIALOUT - Double</li>
+  <li>NORMAL - Double</li>
+</ul>
 
 </article>
 </div>
@@ -100,7 +96,7 @@ Scroll to top
 </div>
 </div>
 <script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
-<script src="../javascripts/application.js" type="text/javascript"></script>
-<script src="../javascripts/script.js" type="text/javascript"></script>
+<script src="../../javascripts/application.js" type="text/javascript"></script>
+<script src="../../javascripts/script.js" type="text/javascript"></script>
 </body>
 </html>
