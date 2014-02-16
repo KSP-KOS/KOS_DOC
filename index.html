@@ -250,7 +250,7 @@ IF X = 1 OR Y &gt; 4 { PRINT "At least one condition is true". }.
 
 <h3 id="lists">LISTS</h3>
 
-<p>If you want to make a collection of values, this is for you. <a href="/structure/List">Full Documentation</a></p>
+<p>If you want to make a collection of values, this is for you. <a href="/structure/list">Documentation</a></p>
 
 <pre><code>SET FOO TO LIST().   // Creates a new list in FOO variable
 SET FOO:ADD TO 5.    // Adds a new element to the end of the list
@@ -612,7 +612,7 @@ PRINT X:BEARING.                    // Print the heading to the point relative t
 
 <h3 id="node-universaltime-radialout-normal-prograde">NODE (universalTime, radialOut, normal, prograde)</h3>
 
-<p>Represents a maneuver node <a href="/structure/Node">Full Documentation</a></p>
+<p>Represents a maneuver node <a href="/structure/node">Documentation</a></p>
 
 <pre><code>SET X TO NODE(TIME+60, 0, 0, 100).  // Creates a node 60 seconds from now with
                                     // prograde=100 m/s
@@ -647,7 +647,7 @@ LOCK STEERING TO X.                 // Steer the vessel in the direction suggest
 
 <h3 id="v-x-y-z">V (x, y, z)</h3>
 
-<p>Represents a vector.</p>
+<p>Represents a vector. <a href="/structure/vector">Documentation</a></p>
 
 <pre><code>SET varname TO V(100,5,0).          // initializes a vector with x=100, y=5, z=0
 varname:X.                          // Returns 100.
@@ -660,7 +660,7 @@ SET varname:MAG to 10.              // Changes magnitude of vector. e.g. V(9.989
 
 <h3 id="vessels">VESSELS</h3>
 
-<p>All craft share a datastructure <a href="/structure/Vessel">Full Documentation</a></p>
+<p>All craft share a datastructure <a href="/structure/vessel">Documentation</a></p>
 
 <h4 id="vessel-vesselname">VESSEL (vesselname)</h4>
 

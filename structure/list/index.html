@@ -81,11 +81,11 @@ PRINT BAR. // ERROR, BAR doesn't exist outside the for statement
 <p>Builds a list of various resources and saves them to a variable.</p>
 
 <ul>
-  <li>Bodies  List of <a href="Vessels">Body</a></li>
-  <li>Targets List of <a href="Vessels">Vessel</a></li>
+  <li>Bodies - List of <a href="../body">Bodies</a></li>
+  <li>Targets - List of <a href="../vessel">Vessels</a></li>
   <li>Resources</li>
   <li>Parts</li>
-  <li>Engines</li>
+  <li>Engines - List of <a href="../engines">Engines</a></li>
   <li>Sensors </li>
   <li>
     <p>Elements</p>
@@ -97,52 +97,6 @@ PRINT BAR. // ERROR, BAR doesn't exist outside the for statement
       PRINT BAR:THRUST.
   }.</p>
   </li>
-</ul>
-
-<h2 id="bodies">Bodies</h2>
-
-<p>All bodies in the system</p>
-
-<ul>
-  <li>NAME</li>
-  <li>DESCRIPTION</li>
-  <li>MASS - Double</li>
-  <li>POSITION - Vector</li>
-  <li>ALTITUDE - Double</li>
-  <li>APOAPSIS - Double</li>
-  <li>PERIAPSIS - Double</li>
-  <li>RADIUS - In Meters</li>
-  <li>MU - Gravatational Parameter</li>
-  <li>ATM
-    <ul>
-      <li>EXISTS - Bool</li>
-      <li>HASOXYGEN - bool</li>
-      <li>SCALE - double</li>
-      <li>HEIGHT - float</li>
-    </ul>
-  </li>
-  <li>VELOCITY  - Vector</li>
-  <li>DISTANCE - From active vessel</li>
-  <li>BODY - Parent Body</li>
-</ul>
-
-<h2 id="engines">Engines</h2>
-
-<p>Each active engine holds the following data.</p>
-
-<ul>
-  <li>MAXTHRUST</li>
-  <li>THRUST - Current Trust</li>
-  <li>FUELFLOW </li>
-  <li>ISP - Specific impulse</li>
-  <li>FLAMEOUT - bool</li>
-  <li>IGNITION - bool</li>
-</ul>
-
-<h2 id="targets">Targets</h2>
-
-<ul>
-  <li>Many Properties, Left side, Handel it! TODO</li>
 </ul>
 
 <h2 id="resources">Resources</h2>
