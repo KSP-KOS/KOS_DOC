@@ -36,7 +36,7 @@ Builds a list of various resources and saves them to a variable.
 * Parts
 * Engines
 * Sensors 
-* Nodes
+* Elements
 
     EXAMPLE USAGE:
     LIST ENGINES IN FOO // Creats a list of the currently active engines and puts it in the FOO variable
@@ -113,7 +113,7 @@ All Sensors on the craft (eg Pressure, Gravity, ect)
 * ACTIVE - bool, can be set to activate/deactivate
 * READOUT
 
-Nodes
+Elements
 ------
 
 All docked flights for the current vessel. 
