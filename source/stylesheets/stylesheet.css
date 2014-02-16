@@ -226,6 +226,45 @@ p.tagline {
   margin-right: 8px;
 }
 
+a.forum,
+a.forum span {
+    background: transparent url(../images/forum.png) no-repeat 0 0;
+    width: 30px;
+    height: 21px;
+    opacity: 0.8;
+    display: inline-block;
+    text-indent: -10000px;
+    -moz-opacity: 0.8;
+    filter:alpha(opacity=8);
+    -webkit-transition: opacity ease-in-out 0.3s;
+}
+
+a.spaceport,
+a.spaceport span {
+    background: transparent url(../images/spaceport.png) no-repeat 0 0;
+    width: 30px;
+    height: 21px;
+    opacity: 0.8;
+    display: inline-block;
+    text-indent: -10000px;
+    -moz-opacity: 0.8;
+    filter:alpha(opacity=8);
+    -webkit-transition: opacity ease-in-out 0.3s;
+}
+
+a.reddit,
+a.reddit span {
+    background: transparent url(../images/reddit.png) no-repeat 0 0;
+    width: 30px;
+    height: 21px;
+    opacity: 0.8;
+    display: inline-block;
+    text-indent: -10000px;
+    -moz-opacity: 0.8;
+    filter:alpha(opacity=8);
+    -webkit-transition: opacity ease-in-out 0.3s;
+}
+
 a.zip,
 a.zip span {
   background: transparent url(../images/zip.png) no-repeat 0 0;
