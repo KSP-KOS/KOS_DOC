@@ -1,6 +1,6 @@
 ﻿# List
 
-Collection of Any time in kOS
+Collection of Any type in kOS
 
 Structure
 =========
