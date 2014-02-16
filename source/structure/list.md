@@ -32,11 +32,11 @@ Built-in Lists
 
 Builds a list of various resources and saves them to a variable.
 
-* Bodies - List of [Bodies](../body)
-* Targets - List of [Vessels](../vessel)
+* Bodies - List of [Bodies](/KOS/structure/body)
+* Targets - List of [Vessels](/KOS/structure/vessel)
 * Resources
 * Parts
-* Engines - List of [Engines](../engines)
+* Engines - List of [Engines](/KOS/structure/engines)
 * Sensors 
 * Elements
 

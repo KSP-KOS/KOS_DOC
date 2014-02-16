@@ -3,7 +3,7 @@ Navigation
 
 ### ADD
 
-Adds a [maneuver node](../structure/node) to the flight plan.
+Adds a [maneuver node](/KOS/structure/node) to the flight plan.
 
 Example:
 This statement adds a node that occurs 30 seconds from now, and has a delta-V of 100 m/s radial out, 0 m/s normal, and 200 m/s prograde.
@@ -12,7 +12,7 @@ This statement adds a node that occurs 30 seconds from now, and has a delta-V of
 
 ### REMOVE
 
-Removes [maneuver node](../structure/node) from flight plan. Cannot remove bare nodes e.g. ADD NODE().
+Removes [maneuver node](/KOS/structure/node) from flight plan. Cannot remove bare nodes e.g. ADD NODE().
 
     SET X TO NODE(0,0,0,0).
     ADD X.
