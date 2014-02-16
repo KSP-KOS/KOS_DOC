@@ -69,9 +69,11 @@ Command Reference
     * Basic Functions
     * Trigonometric Functions
 
-* [Navigation](/KOS/command/navigation)
+* [Flight](/KOS/command/flight)
     * ADD
     * REMOVE
+    * STAGE
+    * WARP
 
 * [File IO](/KOS/command/file)
     * COPY
