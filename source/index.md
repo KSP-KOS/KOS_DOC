@@ -65,15 +65,15 @@ You can use math operations on Directions as well. The next example uses a rotat
 Command Reference
 =================
 
-* [Math](commands/math)
+* [Math](command/math)
     * Basic Functions
     * Trigonometric Functions
 
-* [Navigation](commands/navigation)
+* [Navigation](command/navigation)
     * ADD
     * REMOVE
 
-* [File IO](commands/file)
+* [File IO](command/file)
     * COPY
     * DELETE
     * EDIT
@@ -83,7 +83,7 @@ Command Reference
     * RUN
     * SWITCH.. TO
 
-* [Flow Control](commands/flowControl)
+* [Flow Control](command/flowControl)
     * BREAK
     * IF
     * LOCK
@@ -93,7 +93,7 @@ Command Reference
     * WAIT
     * WHEN.. THEN
 
-* [Terminal](commands/terminal)
+* [Terminal](command/terminal)
     * CLEARSCREEN
     * PRINT
     * PRINT.. AT
