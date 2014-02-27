@@ -5,25 +5,25 @@ All vessels share a structure
 Shared Structure
 ================
 
-* DIRECTION - [Direction](/KOS/structure/direction) To Active Ship
+* DIRECTION - [Direction](/KOS_DOC/structure/direction) To Active Ship
 * DISTANCE - Meters To Active Ship
 * BEARING - To Active Ship
 * HEADING - To Active Ship
-* PROGRADE - [Direction](/KOS/structure/direction)
-* RETROGRADE - [Direction](/KOS/structure/direction)
+* PROGRADE - [Direction](/KOS_DOC/structure/direction)
+* RETROGRADE - [Direction](/KOS_DOC/structure/direction)
 * MAXTHRUST - Max thrust of all active engines
 * VELOCITY - Structure 
-    * ORBIT - [Vector](/KOS/structure/vector)
-    * SURFACE - [Vector](/KOS/structure/vector)
-* GEOPOSITION - [GeoCordinates](/KOS/structure/geocordinates)
+    * ORBIT - [Vector](/KOS_DOC/structure/vector)
+    * SURFACE - [Vector](/KOS_DOC/structure/vector)
+* GEOPOSITION - [GeoCordinates](/KOS_DOC/structure/geocordinates)
 * LATITUDE - Number (degrees)
 * LONGITUDE - Number (degrees)
-* FACING - [Direction](/KOS/structure/direction)
-* UP - [Direction](/KOS/structure/direction)
-* NORTH - [Direction](/KOS/structure/direction)
+* FACING - [Direction](/KOS_DOC/structure/direction)
+* UP - [Direction](/KOS_DOC/structure/direction)
+* NORTH - [Direction](/KOS_DOC/structure/direction)
 * BODY - [Body](Body)
-* ANGULARMOMENTUM - [Direction](/KOS/structure/direction)
-* ANGULARVEL - [Direction](/KOS/structure/direction)
+* ANGULARMOMENTUM - [Direction](/KOS_DOC/structure/direction)
+* ANGULARVEL - [Direction](/KOS_DOC/structure/direction)
 * MASS - Number (kilogram)
 * VERTICALSPEED - Number (meters/s)
 * SURFACESPEED - Number (meters/s)
@@ -33,12 +33,12 @@ Shared Structure
 * APOAPSIS - Number (meters)
 * PERIAPSIS - Number (meters)
 * SENSORS - Structure
-    * ACC - [Vector](/KOS/structure/vector)
+    * ACC - [Vector](/KOS_DOC/structure/vector)
     * PRES - Number (Atmosphere)
     * TEMP - Number (Celsius)
-    * GRAV - [Vector](/KOS/structure/vector)
+    * GRAV - [Vector](/KOS_DOC/structure/vector)
 * TERMVELOCITY - Number (meters/s)
-* OBT - Structure - [Orbit](/KOS/structure/orbit)
+* OBT - Structure - [Orbit](/KOS_DOC/structure/orbit)
 
 #### VESSEL (vesselname)
 

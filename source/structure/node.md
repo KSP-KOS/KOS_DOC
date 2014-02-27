@@ -7,12 +7,12 @@ Structure
 
 #### Getters
 
-* DELTAV or BURNVECTOR - [Vector](/KOS/structure/vector)
+* DELTAV or BURNVECTOR - [Vector](/KOS_DOC/structure/vector)
 * ETA - Number (seconds)
 * PROGRADE - Number (meters/s)
 * RADIALOUT - Number (meters/s)
 * NORMAL - Number (meters/s)
-* ORBIT- [Orbit](/KOS/structure/orbit)
+* ORBIT- [Orbit](/KOS_DOC/structure/orbit)
 
 #### Setters
 

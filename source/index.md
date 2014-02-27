@@ -65,17 +65,17 @@ You can use math operations on Directions as well. The next example uses a rotat
 Command Reference
 =================
 
-* [Math](/KOS/command/math)
+* [Math](/KOS_DOC/command/math)
     * Basic Functions
     * Trigonometric Functions
 
-* [Flight](/KOS/command/flight)
+* [Flight](/KOS_DOC/command/flight)
     * ADD
     * REMOVE
     * STAGE
     * WARP
 
-* [File IO](/KOS/command/file)
+* [File IO](/KOS_DOC/command/file)
     * COPY
     * DELETE
     * EDIT
@@ -85,7 +85,7 @@ Command Reference
     * RUN
     * SWITCH.. TO
 
-* [Flow Control](/KOS/command/flowControl)
+* [Flow Control](/KOS_DOC/command/flowControl)
     * BREAK
     * IF
     * LOCK
@@ -95,7 +95,7 @@ Command Reference
     * WAIT
     * WHEN.. THEN
 
-* [Terminal](/KOS/command/terminal)
+* [Terminal](/KOS_DOC/command/terminal)
     * CLEARSCREEN
     * PRINT
     * PRINT.. AT
@@ -108,17 +108,17 @@ Structure Reference
 Structures are variables that can contain more than one piece of information.  Structures can be used with SET.. TO just like any other variable.
 Their subelements can be accessed by using : along with the name of the subelement.
 
-* [Atmosphere](/KOS/structure/atmosphere)
-* [Body](/KOS/structure/body)
-* [Direction](/KOS/structure/direction)
-* [Engine](/KOS/structure/engine)
-* [GeoCordinates](/KOS/structure/geocordinates)
-* [List](/KOS/structure/list)
-* [Node](/KOS/structure/node)
-* [Orbit](/KOS/structure/orbit)
-* [Time](/KOS/structure/time)
-* [Vector](/KOS/structure/vector)
-* [Vessel](/KOS/structure/vessel)
+* [Atmosphere](/KOS_DOC/structure/atmosphere)
+* [Body](/KOS_DOC/structure/body)
+* [Direction](/KOS_DOC/structure/direction)
+* [Engine](/KOS_DOC/structure/engine)
+* [GeoCordinates](/KOS_DOC/structure/geocordinates)
+* [List](/KOS_DOC/structure/list)
+* [Node](/KOS_DOC/structure/node)
+* [Orbit](/KOS_DOC/structure/orbit)
+* [Time](/KOS_DOC/structure/time)
+* [Vector](/KOS_DOC/structure/vector)
+* [Vessel](/KOS_DOC/structure/vessel)
 
 Flight Statistics
 =================
