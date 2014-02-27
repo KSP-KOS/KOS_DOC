@@ -26,7 +26,7 @@
 <div class='wrapper'>
 <header>
 <h1 class='title'>
-<a href='/KOS/'>
+<a href='/KOS_DOC/'>
 kOS
 </a>
 </h1>
@@ -39,7 +39,7 @@ kOS
 <a class='download-button spaceport' href='http://kerbalspaceport.com/kos-autopilot/'>
 <span>Spaceport</span>
 </a>
-<a class='download-button reddit' href='http://www.reddit.com/r/Kos/'>
+<a class='download-button reddit' href='http://www.reddit.com/r/KOS_DOC/'>
 <span>Reddit</span>
 </a>
 <a class='download-button forum' href='http://forum.kerbalspaceprogram.com/threads/68089'>
@@ -55,9 +55,9 @@ View kOS on GitHub
 <article class='markdown-body'>
 <h1 id="navigation">Navigation</h1>
 
-<h3 id="add">ADD</h3>
+<h2 id="add-1">ADD $1</h2>
 
-<p>Adds a <a href="/KOS/structure/node">maneuver node</a> to the flight plan.</p>
+<p>Adds a <a href="/KOS_DOC/structure/node">maneuver node</a> to the flight plan.</p>
 
 <p>Example:
 This statement adds a node that occurs 30 seconds from now, and has a delta-V of 100 m/s radial out, 0 m/s normal, and 200 m/s prograde.</p>
@@ -65,11 +65,12 @@ This statement adds a node that occurs 30 seconds from now, and has a delta-V of
 <pre><code>ADD NODE(TIME + 30, 100, 0, 200).
 </code></pre>
 
-<h3 id="remove">REMOVE</h3>
+<h2 id="remove-1">REMOVE $1</h2>
 
-<p>Removes <a href="/KOS/structure/node">maneuver node</a> from flight plan. Cannot remove bare nodes e.g. ADD NODE().</p>
+<p>Removes <a href="/KOS_DOC/structure/node">maneuver node</a> from flight plan. Cannot remove bare nodes e.g. ADD NODE().</p>
 
-<pre><code>SET X TO NODE(0,0,0,0).
+<pre><code>REMOVE NEXTNODE.        // Removes the first maneuver node in the flight plan.
+SET X TO NODE(0,0,0,0).
 ADD X.
 REMOVE X.
 
@@ -77,7 +78,7 @@ ADD NODE(0,0,0,0).
 REMOVE.             // Does not remove node.
 </code></pre>
 
-<h3 id="stage">STAGE</h3>
+<h2 id="stage">STAGE</h2>
 
 <p>Executes the stage action on the current vessel.
 Example:</p>
@@ -85,7 +86,7 @@ Example:</p>
 <pre><code>STAGE.
 </code></pre>
 
-<h3 id="warp">WARP</h3>
+<h2 id="warp">WARP</h2>
 
 <p>Sets game warp to provided value(0-7).</p>
 

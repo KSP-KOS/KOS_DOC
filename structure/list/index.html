@@ -26,7 +26,7 @@
 <div class='wrapper'>
 <header>
 <h1 class='title'>
-<a href='/KOS/'>
+<a href='/KOS_DOC/'>
 kOS
 </a>
 </h1>
@@ -39,7 +39,7 @@ kOS
 <a class='download-button spaceport' href='http://kerbalspaceport.com/kos-autopilot/'>
 <span>Spaceport</span>
 </a>
-<a class='download-button reddit' href='http://www.reddit.com/r/Kos/'>
+<a class='download-button reddit' href='http://www.reddit.com/r/KOS_DOC/'>
 <span>Reddit</span>
 </a>
 <a class='download-button forum' href='http://forum.kerbalspaceprogram.com/threads/68089'>
@@ -85,42 +85,6 @@ SET FOO:REMOVE TO 1. // Removes the second element from the list
 SET BAR TO FOO:COPY. // Makes a copy of the FOO list
 FOO:CLEAR.           // Removes all elements from the FOO list.
 </code></pre>
-
-<h1 id="for">FOR</h1>
-
-<p>Lists need to be iterated over sometimes, to help with this we have FOR.</p>
-
-<pre><code>SET FOO TO LIST().   // Creates a new list in FOO variable
-SET FOO:ADD TO 5.    // Adds a new element to the end of the list
-SET FOO:ADD TO ALTITUDE. // eg 10000
-SET FOO:ADD TO ETA:APOAPSIS. // eg 30 
-
-FOR BAR IN FOO { PRINT BAR. }. // Prints 5, then 10000, then 30
-PRINT BAR. // ERROR, BAR doesn't exist outside the for statement
-</code></pre>
-
-<h1 id="built-in-lists">Built-in Lists</h1>
-
-<p>Builds a list of various resources and saves them to a variable.</p>
-
-<ul>
-  <li>Bodies - List of <a href="/KOS/structure/body">Bodies</a></li>
-  <li>Targets - List of <a href="/KOS/structure/vessel">Vessels</a></li>
-  <li>Resources</li>
-  <li>Parts</li>
-  <li>Engines - List of <a href="/KOS/structure/engines">Engines</a></li>
-  <li>Sensors </li>
-  <li>
-    <p>Elements</p>
-
-    <p>EXAMPLE USAGE:
-  LIST ENGINES IN FOO // Creats a list of the currently active engines and puts it in the FOO variable</p>
-
-    <p>FOR BAR IN FOO {
-      PRINT BAR:THRUST.
-  }.</p>
-  </li>
-</ul>
 
 <h2 id="resources">Resources</h2>
 

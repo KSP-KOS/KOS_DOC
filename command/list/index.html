@@ -53,26 +53,77 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<p>﻿# Body</p>
+<h1 id="for-1-in-2">FOR $1 IN $2</h1>
 
-<p>Celestial Body</p>
+<p>Lists need to be iterated over sometimes, to help with this we have FOR.</p>
 
-<h1 id="structure">Structure</h1>
+<h4 id="arguments">Arguments</h4>
+<p>$1: Local variable that is only in scope for that iteration
+$2: The <a href="/KOS_DOC/structure/list">List</a> you would like to iterate over</p>
 
+<p>Example:</p>
+
+<pre><code>SET FOO TO LIST().   // Creates a new list in FOO variable
+SET FOO:ADD TO 5.    // Adds a new element to the end of the list
+SET FOO:ADD TO ALTITUDE. // eg 10000
+SET FOO:ADD TO ETA:APOAPSIS. // eg 30
+
+FOR BAR IN FOO { PRINT BAR. }. // Prints 5, then 10000, then 30
+PRINT BAR. // ERROR, BAR doesn't exist outside the for statement
+</code></pre>
+
+<h1 id="list-1-in-2">LIST $1 IN $2</h1>
+
+<p>The active <a href="/KOS_DOC/structure/vessel">Vessel</a> has some default collections, this command stores them in a variable</p>
+
+<h4 id="arguments-1">Arguments</h4>
+<p>$1: Collection name, See "Built-in Lists" below
+$2: The variable name you would like to store the new <a href="/KOS_DOC/structure/list">List</a> in</p>
+
+<p>Example:</p>
+
+<pre><code>LIST BODIES IN FOO. //Lists all [Bodies](/KOS_DOC/structure/body) in the system
+
+FOR BAR IN FOO {
+    PRINT BAR:NAME. //Will print the name of every [body](/KOS_DOC/structure/body) in the system
+}.
+</code></pre>
+
+<h1 id="list-1-from-2-in-3">LIST $1 FROM $2 IN $3</h1>
+
+<p>The every <a href="/KOS_DOC/structure/vessel">Vessel</a> has some default collections, this command stores them in a variable</p>
+
+<h4 id="arguments-2">Arguments</h4>
+<p>$1: Collection name, See "Built-in Lists" below
+$2: <a href="/KOS_DOC/structure/vessel">Vessel</a> object or the string name of the vessel you would like to get a list from
+$2: The variable name you would like to store the new <a href="/KOS_DOC/structure/list">List</a> in</p>
+
+<p>Example:</p>
+
+<pre><code>LIST RESOURCES FROM SOMEVESSEL IN FOO. //Adds variable FOO that contains a list of RESOURCES for the named vessel
+
+FOR BAR IN FOO {
+    PRINT BAR:NAME. //Will print the name of every [body](/KOS_DOC/structure/body) in the system
+}.
+</code></pre>
+
+<h2 id="built-in-lists">Built-in Lists</h2>
+
+<p>These are the names of the lists available</p>
+
+<h5 id="universal-lists">Universal Lists</h5>
 <ul>
-  <li>NAME - string</li>
-  <li>DESCRIPTION - string</li>
-  <li>MASS - Number (kilogram)</li>
-  <li>POSITION - <a href="/KOS_DOC/structure/vector">Vector</a></li>
-  <li>ALTITUDE - Number (meters)</li>
-  <li>APOAPSIS - Number (meters)</li>
-  <li>PERIAPSIS - Number (meters)</li>
-  <li>RADIUS - Number (meters)</li>
-  <li>MU - Number <a href="http://en.wikipedia.org/wiki/Standard_gravitational_parameter">Wikipedia</a></li>
-  <li>ATM - <a href="/KOS_DOC/structure/atmosphere">Atmosphere</a></li>
-  <li>VELOCITY  - <a href="/KOS_DOC/structure/vector">Vector</a></li>
-  <li>DISTANCE - From active <a href="/KOS_DOC/structure/vessel">Vessel</a></li>
-  <li>BODY - Parent <a href="/KOS_DOC/structure/body">Body</a></li>
+  <li>Bodies - List of <a href="/KOS_DOC/structure/body">Bodies</a></li>
+  <li>Targets - List of <a href="/KOS_DOC/structure/vessel">Vessels</a></li>
+</ul>
+
+<h5 id="vessel-lists">Vessel Lists</h5>
+<ul>
+  <li>Resources</li>
+  <li>Parts</li>
+  <li>Engines - List of <a href="/KOS_DOC/structure/engines">Engines</a></li>
+  <li>Sensors</li>
+  <li>Elements</li>
 </ul>
 
 </article>
