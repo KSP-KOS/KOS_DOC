@@ -73,6 +73,7 @@ Command Reference
     * ADD
     * REMOVE
     * STAGE
+    * HEADING
     * WARP
 
 * [File IO](/KOS_DOC/command/file)

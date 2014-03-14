@@ -4,8 +4,8 @@ FOR $1 IN $2
 Lists need to be iterated over sometimes, to help with this we have FOR.
 
 #### Arguments
-$1: Local variable that is only in scope for that iteration
-$2: The [List](/KOS_DOC/structure/list) you would like to iterate over
+* $1: Local variable that is only in scope for that iteration
+* $2: The [List](/KOS_DOC/structure/list) you would like to iterate over
 
 Example:
 
@@ -24,8 +24,8 @@ LIST $1 IN $2
 The active [Vessel](/KOS_DOC/structure/vessel) has some default collections, this command stores them in a variable
 
 #### Arguments
-$1: Collection name, See "Built-in Lists" below
-$2: The variable name you would like to store the new [List](/KOS_DOC/structure/list) in
+* $1: Collection name, See "Built-in Lists" below
+* $2: The variable name you would like to store the new [List](/KOS_DOC/structure/list) in
 
 Example:
 
@@ -41,9 +41,9 @@ LIST $1 FROM $2 IN $3
 The every [Vessel](/KOS_DOC/structure/vessel) has some default collections, this command stores them in a variable
 
 #### Arguments
-$1: Collection name, See "Built-in Lists" below
-$2: [Vessel](/KOS_DOC/structure/vessel) object or the string name of the vessel you would like to get a list from
-$2: The variable name you would like to store the new [List](/KOS_DOC/structure/list) in
+* $1: Collection name, See "Built-in Lists" below
+* $2: [Vessel](/KOS_DOC/structure/vessel) object or the string name of the vessel you would like to get a list from
+* $2: The variable name you would like to store the new [List](/KOS_DOC/structure/list) in
 
 Example:
 
