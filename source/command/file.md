@@ -4,8 +4,8 @@ File I/O
 ## COPY $1 FROM/TO $2
 
 #### Arguments
-$1: Name of target file.
-$2: Target volume.
+* $1: Name of target file.
+* $2: Target volume.
 
 Copies a file to or from another volume. Volumes can be referenced by their ID numbers or their names if they’ve been given one. See LIST, SWITCH and RENAME.
 Example:
@@ -19,8 +19,8 @@ Example:
 Deletes a file. You can delete a file from the current volume, or from a named volume.
 
 #### Arguments
-$1: Name of target file.
-$2: (optional) Target volume.
+* $1: Name of target file.
+* $2: (optional) Target volume.
 
 Example:
 
@@ -32,7 +32,7 @@ Example:
 Edits a program on the currently selected volume.
 
 #### Arguments
-$1: Name of file for editing.
+* $1: Name of file for editing.
 
 Example:
 
@@ -43,8 +43,8 @@ Example:
 Logs the selected text to a file on the local volume. Can print strings, or the result of an expression.
 
 #### Arguments
-$1: Value you would like to log.
-$2: Name of file to log into.
+* $1: Value you would like to log.
+* $2: Name of file to log into.
 
 Example:
 
@@ -57,8 +57,8 @@ Example:
 Renames a file or volume.
 
 #### Arguments
-$1: Volume/File Name you would like to change.
-$2: New name for $1.
+* $1: Volume/File Name you would like to change.
+* $2: New name for $1.
 
 Example:
 
@@ -70,7 +70,7 @@ Example:
 Runs the specified file as a program.
 
 #### Arguments
-$1: File to run
+* $1: File to run
 
 Example:
 
@@ -81,7 +81,7 @@ Example:
 Switches to the specified volume. Volumes can be specified by number, or it’s name (if it has one). See LIST and RENAME.
 
 #### Arguments
-$1: Volume name/number
+* $1: Volume name/number
 
 Example:
 

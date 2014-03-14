@@ -8,7 +8,8 @@ Adds a [maneuver node](/KOS_DOC/structure/node) to the flight plan.
 Example:
 This statement adds a node that occurs 30 seconds from now, and has a delta-V of 100 m/s radial out, 0 m/s normal, and 200 m/s prograde.
 
-    ADD NODE(TIME + 30, 100, 0, 200).
+    SET FOO TO NODE(TIME + 30, 100, 0, 200).
+    ADD FOO.
 
 ## REMOVE $1
 
@@ -35,8 +36,8 @@ Example:
 Establishes a Heading using two terms, pitch and relation to north
 
 #### Arguments
-$1: Pitch above the horizion in degrees.
-$2: Offset from North in degrees.
+* $1: Pitch above the horizion in degrees.
+* $2: Offset from North in degrees.
 
     SET FOO TO HEADING(20,180).
     LOCK STEERING TO FOO.
