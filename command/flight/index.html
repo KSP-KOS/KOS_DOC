@@ -62,7 +62,8 @@ View kOS on GitHub
 <p>Example:
 This statement adds a node that occurs 30 seconds from now, and has a delta-V of 100 m/s radial out, 0 m/s normal, and 200 m/s prograde.</p>
 
-<pre><code>ADD NODE(TIME + 30, 100, 0, 200).
+<pre><code>SET FOO TO NODE(TIME + 30, 100, 0, 200).
+ADD FOO.
 </code></pre>
 
 <h2 id="remove-1">REMOVE $1</h2>
@@ -91,12 +92,15 @@ Example:</p>
 <p>Establishes a Heading using two terms, pitch and relation to north</p>
 
 <h4 id="arguments">Arguments</h4>
-<p>$1: Pitch above the horizion in degrees.
-$2: Offset from North in degrees.</p>
+<ul>
+  <li>$1: Pitch above the horizion in degrees.</li>
+  <li>
+    <p>$2: Offset from North in degrees.</p>
 
-<pre><code>SET FOO TO HEADING(20,180).
-LOCK STEERING TO FOO.
-</code></pre>
+    <p>SET FOO TO HEADING(20,180).
+  LOCK STEERING TO FOO.</p>
+  </li>
+</ul>
 
 <h2 id="warp">WARP</h2>
 

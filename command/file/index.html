@@ -58,8 +58,10 @@ View kOS on GitHub
 <h2 id="copy-1-fromto-2">COPY $1 FROM/TO $2</h2>
 
 <h4 id="arguments">Arguments</h4>
-<p>$1: Name of target file.
-$2: Target volume.</p>
+<ul>
+  <li>$1: Name of target file.</li>
+  <li>$2: Target volume.</li>
+</ul>
 
 <p>Copies a file to or from another volume. Volumes can be referenced by their ID numbers or their names if they’ve been given one. See LIST, SWITCH and RENAME.
 Example:</p>
@@ -74,8 +76,10 @@ COPY file2 TO 0.   // Copies a file called file1 from volume 1 to volume 0
 <p>Deletes a file. You can delete a file from the current volume, or from a named volume.</p>
 
 <h4 id="arguments-1">Arguments</h4>
-<p>$1: Name of target file.
-$2: (optional) Target volume.</p>
+<ul>
+  <li>$1: Name of target file.</li>
+  <li>$2: (optional) Target volume.</li>
+</ul>
 
 <p>Example:</p>
 
@@ -88,7 +92,9 @@ DELETE file1 FROM 1.  // Deletes file1 from volume 1
 <p>Edits a program on the currently selected volume.</p>
 
 <h4 id="arguments-2">Arguments</h4>
-<p>$1: Name of file for editing.</p>
+<ul>
+  <li>$1: Name of file for editing.</li>
+</ul>
 
 <p>Example:</p>
 
@@ -100,8 +106,10 @@ DELETE file1 FROM 1.  // Deletes file1 from volume 1
 <p>Logs the selected text to a file on the local volume. Can print strings, or the result of an expression.</p>
 
 <h4 id="arguments-3">Arguments</h4>
-<p>$1: Value you would like to log.
-$2: Name of file to log into.</p>
+<ul>
+  <li>$1: Value you would like to log.</li>
+  <li>$2: Name of file to log into.</li>
+</ul>
 
 <p>Example:</p>
 
@@ -115,8 +123,10 @@ LOG “4 times 8 is: “ + (4*8) to mylog.
 <p>Renames a file or volume.</p>
 
 <h4 id="arguments-4">Arguments</h4>
-<p>$1: Volume/File Name you would like to change.
-$2: New name for $1.</p>
+<ul>
+  <li>$1: Volume/File Name you would like to change.</li>
+  <li>$2: New name for $1.</li>
+</ul>
 
 <p>Example:</p>
 
@@ -129,7 +139,9 @@ RENAME FILE MyFile TO AutoLaunch.
 <p>Runs the specified file as a program.</p>
 
 <h4 id="arguments-5">Arguments</h4>
-<p>$1: File to run</p>
+<ul>
+  <li>$1: File to run</li>
+</ul>
 
 <p>Example:</p>
 
@@ -141,7 +153,9 @@ RENAME FILE MyFile TO AutoLaunch.
 <p>Switches to the specified volume. Volumes can be specified by number, or it’s name (if it has one). See LIST and RENAME.</p>
 
 <h4 id="arguments-6">Arguments</h4>
-<p>$1: Volume name/number</p>
+<ul>
+  <li>$1: Volume name/number</li>
+</ul>
 
 <p>Example:</p>
 
