@@ -1,5 +1,9 @@
-FOR $1 IN $2
+Lists
 ======
+
+***
+
+## FOR $1 IN $2
 
 Lists need to be iterated over sometimes, to help with this we have FOR.
 
@@ -18,8 +22,9 @@ Example:
     PRINT BAR. // ERROR, BAR doesn't exist outside the for statement
 
 
-LIST $1 IN $2
-======
+***
+
+### LIST $1 IN $2
 
 The active [Vessel](/KOS_DOC/structure/vessel) has some default collections, this command stores them in a variable
 
@@ -35,8 +40,9 @@ Example:
         PRINT BAR:NAME. //Will print the name of every [body](/KOS_DOC/structure/body) in the system
     }.
 
-LIST $1 FROM $2 IN $3
-======
+***
+
+### LIST $1 FROM $2 IN $3
 
 The every [Vessel](/KOS_DOC/structure/vessel) has some default collections, this command stores them in a variable
 
@@ -53,8 +59,9 @@ Example:
         PRINT BAR:NAME. //Will print the name of every [body](/KOS_DOC/structure/body) in the system
     }.
 
-Built-in Lists
-------
+***
+
+# Built-in Lists
 
 These are the names of the lists available
 

@@ -1,6 +1,8 @@
 Navigation
 ==========
 
+***
+
 ## ADD $1
 
 Adds a [maneuver node](/KOS_DOC/structure/node) to the flight plan.
@@ -10,6 +12,8 @@ This statement adds a node that occurs 30 seconds from now, and has a delta-V of
 
     SET FOO TO NODE(TIME + 30, 100, 0, 200).
     ADD FOO.
+
+***
 
 ## REMOVE $1
 
@@ -23,6 +27,7 @@ Removes [maneuver node](/KOS_DOC/structure/node) from flight plan. Cannot remove
     ADD NODE(0,0,0,0).
     REMOVE.             // Does not remove node.
 
+***
 
 ## STAGE
 
@@ -30,6 +35,8 @@ Executes the stage action on the current vessel.
 Example:
 
     STAGE.
+
+***
 
 ## HEADING $1 $2
 
@@ -39,8 +46,12 @@ Establishes a Heading using two terms, pitch and relation to north
 * $1: Pitch above the horizion in degrees.
 * $2: Offset from North in degrees.
 
+Example:
+
     SET FOO TO HEADING(20,180).
     LOCK STEERING TO FOO.
+
+***
 
 ## WARP
 

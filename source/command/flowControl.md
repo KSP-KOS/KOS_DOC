@@ -1,3 +1,8 @@
+Flow Control
+======
+
+***
+
 ### BREAK
 
 Breaks out of a loop.
@@ -8,6 +13,8 @@ Example:
         SET X TO X + 1.
         IF X > 10 { BREAK. }.       // Exits the loop when X is greater than 10
     }.
+
+***
 
 ### IF
 
@@ -24,6 +31,8 @@ Example:
     IF X = 1 AND Y > 4 { PRINT "Both conditions are true". }.
     IF X = 1 OR Y > 4 { PRINT "At least one condition is true". }.
 
+***
+
 ### LOCK
 
 Locks a variable to an expression. On each cycle, the target variable will be freshly updated with the latest value from expression.
@@ -35,6 +44,8 @@ Example:
     SET X TO 4.
     PRINT Y.      // Outputs 6
 
+***
+
 ### ON
 
 Awaits a change in a boolean variable, then runs the selected command. This command is best used to listen for action group activations.
@@ -43,6 +54,8 @@ Example:
     ON AG3 PRINT “Action Group 3 Activated!”.
     ON SAS PRINT “SAS system has been toggled”.
 
+***
+
 ### UNLOCK
 
 Releases a lock on a variable. See LOCK.
@@ -50,6 +63,8 @@ Examples:
 
     UNLOCK X.                // Releases a lock on variable X.
     UNLOCK ALL.              // Releases ALL locks.
+
+***
 
 ### UNTIL
 
@@ -62,6 +77,8 @@ Example:
         SET X to X + 1.
     }.
 
+***
+
 ### WAIT
 
 Halts execution for a specified amount of time, or until a specific set of criteria are met. Note that running a WAIT UNTIL statement can hang the machine forever if the criteria are never met.
@@ -70,6 +87,8 @@ Examples:
     WAIT 6.2.                     // Wait 6.2 seconds.
     WAIT UNTIL X > 40.            // Wait until X becomes greater than 40.
     WAIT UNTIL APOAPSIS > 150000. // You can see where this is going.
+
+***
 
 ### WHEN.. THEN
 

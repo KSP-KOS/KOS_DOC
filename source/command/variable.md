@@ -1,9 +1,16 @@
+Variable
+======
+
+***
+
 ### DECLARE
 
 Declares a variable at the current context level. Alternatively, a variable can be implicitly declared by a SET or LOCK statement.
 Example:
 
     DECLARE X.
+
+***
 
 ### DECLARE PARAMETER
 
@@ -14,12 +21,16 @@ Example:
     DECLARE PARAMETER X,y.
     RUN MYPROG(X).
 
+***
+
 ### SET.. TO
 
 Sets the value of a variable. Declares the variable if it doesn’t already exist.
 Example:
 
     SET X TO 1.
+
+***
 
 ### TOGGLE
 
@@ -29,12 +40,16 @@ Example:
     TOGGLE AG1.			// Fires action group 1.
     TOGGLE SAS.			// Toggles SAS on or off.
 
+***
+
 ### ..ON
 
 Sets a variable to true. This is useful for the RCS and SAS bindings.
 Example:
 
     RCS ON 			// Turns on the RCS
+
+***
 
 ### ..OFF
 

@@ -1,6 +1,8 @@
 File I/O
 ========
 
+***
+
 ## COPY $1 FROM/TO $2
 
 #### Arguments
@@ -13,6 +15,8 @@ Example:
     SWITCH TO 1.       // Makes volume 1 the active volume
     COPY file1 FROM 0. // Copies a file called file1 from volume 0 to volume 1
     COPY file2 TO 0.   // Copies a file called file1 from volume 1 to volume 0
+
+***
 
 ## DELETE $1 FROM $2
 
@@ -27,6 +31,8 @@ Example:
     DELETE file1.         // Deletes file1 from the active volume.
     DELETE file1 FROM 1.  // Deletes file1 from volume 1
 
+***
+
 ## EDIT $1
 
 Edits a program on the currently selected volume.
@@ -37,6 +43,8 @@ Edits a program on the currently selected volume.
 Example:
 
     EDIT filename.
+
+***
 
 ## LOG $1 TO $2
 
@@ -52,6 +60,8 @@ Example:
     LOG 4+1 to mylog .
     LOG “4 times 8 is: “ + (4*8) to mylog.
 
+***
+
 ## RENAME $1 TO $2
 
 Renames a file or volume.
@@ -65,6 +75,8 @@ Example:
     RENAME VOLUME 1 TO AwesomeDisk
     RENAME FILE MyFile TO AutoLaunch.
 
+***
+
 ## RUN $1
 
 Runs the specified file as a program.
@@ -75,6 +87,8 @@ Runs the specified file as a program.
 Example:
 
     RUN AutoLaunch.
+
+***
 
 ## SWITCH TO $1
 

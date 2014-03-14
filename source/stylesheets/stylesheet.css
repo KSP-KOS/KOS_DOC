@@ -560,6 +560,15 @@ footer .owner p a {
   float: left;
 }
 
+.markdown-body hr {
+    background: url(../images/hr.png) repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    color: #CCCCCC;
+    height: 4px;
+    margin: 0;
+    padding: 0;
+}
+
 .markdown-body img {
   max-width: 100%;
   /*@include box-sizing(border-box);*/
