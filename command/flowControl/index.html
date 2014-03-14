@@ -53,6 +53,10 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
+<h1 id="flow-control">Flow Control</h1>
+
+<hr />
+
 <h3 id="break">BREAK</h3>
 
 <p>Breaks out of a loop.
@@ -64,6 +68,8 @@ UNTIL 0 {
     IF X &gt; 10 { BREAK. }.       // Exits the loop when X is greater than 10
 }.
 </code></pre>
+
+<hr />
 
 <h3 id="if">IF</h3>
 
@@ -82,6 +88,8 @@ Example:</p>
 IF X = 1 OR Y &gt; 4 { PRINT "At least one condition is true". }.
 </code></pre>
 
+<hr />
+
 <h3 id="lock">LOCK</h3>
 
 <p>Locks a variable to an expression. On each cycle, the target variable will be freshly updated with the latest value from expression.
@@ -94,6 +102,8 @@ SET X TO 4.
 PRINT Y.      // Outputs 6
 </code></pre>
 
+<hr />
+
 <h3 id="on">ON</h3>
 
 <p>Awaits a change in a boolean variable, then runs the selected command. This command is best used to listen for action group activations.
@@ -103,6 +113,8 @@ Example:</p>
 ON SAS PRINT “SAS system has been toggled”.
 </code></pre>
 
+<hr />
+
 <h3 id="unlock">UNLOCK</h3>
 
 <p>Releases a lock on a variable. See LOCK.
@@ -111,6 +123,8 @@ Examples:</p>
 <pre><code>UNLOCK X.                // Releases a lock on variable X.
 UNLOCK ALL.              // Releases ALL locks.
 </code></pre>
+
+<hr />
 
 <h3 id="until">UNTIL</h3>
 
@@ -124,6 +138,8 @@ UNTIL X &gt; 10 {          // Prints the numbers 1-10.
 }.
 </code></pre>
 
+<hr />
+
 <h3 id="wait">WAIT</h3>
 
 <p>Halts execution for a specified amount of time, or until a specific set of criteria are met. Note that running a WAIT UNTIL statement can hang the machine forever if the criteria are never met.
@@ -133,6 +149,8 @@ Examples:</p>
 WAIT UNTIL X &gt; 40.            // Wait until X becomes greater than 40.
 WAIT UNTIL APOAPSIS &gt; 150000. // You can see where this is going.
 </code></pre>
+
+<hr />
 
 <h3 id="when-then">WHEN.. THEN</h3>
 

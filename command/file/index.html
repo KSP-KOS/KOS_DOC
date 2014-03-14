@@ -55,6 +55,8 @@ View kOS on GitHub
 <article class='markdown-body'>
 <h1 id="file-io">File I/O</h1>
 
+<hr />
+
 <h2 id="copy-1-fromto-2">COPY $1 FROM/TO $2</h2>
 
 <h4 id="arguments">Arguments</h4>
@@ -70,6 +72,8 @@ Example:</p>
 COPY file1 FROM 0. // Copies a file called file1 from volume 0 to volume 1
 COPY file2 TO 0.   // Copies a file called file1 from volume 1 to volume 0
 </code></pre>
+
+<hr />
 
 <h2 id="delete-1-from-2">DELETE $1 FROM $2</h2>
 
@@ -87,6 +91,8 @@ COPY file2 TO 0.   // Copies a file called file1 from volume 1 to volume 0
 DELETE file1 FROM 1.  // Deletes file1 from volume 1
 </code></pre>
 
+<hr />
+
 <h2 id="edit-1">EDIT $1</h2>
 
 <p>Edits a program on the currently selected volume.</p>
@@ -100,6 +106,8 @@ DELETE file1 FROM 1.  // Deletes file1 from volume 1
 
 <pre><code>EDIT filename.
 </code></pre>
+
+<hr />
 
 <h2 id="log-1-to-2">LOG $1 TO $2</h2>
 
@@ -118,6 +126,8 @@ LOG 4+1 to mylog .
 LOG “4 times 8 is: “ + (4*8) to mylog.
 </code></pre>
 
+<hr />
+
 <h2 id="rename-1-to-2">RENAME $1 TO $2</h2>
 
 <p>Renames a file or volume.</p>
@@ -134,6 +144,8 @@ LOG “4 times 8 is: “ + (4*8) to mylog.
 RENAME FILE MyFile TO AutoLaunch.
 </code></pre>
 
+<hr />
+
 <h2 id="run-1">RUN $1</h2>
 
 <p>Runs the specified file as a program.</p>
@@ -147,6 +159,8 @@ RENAME FILE MyFile TO AutoLaunch.
 
 <pre><code>RUN AutoLaunch.
 </code></pre>
+
+<hr />
 
 <h2 id="switch-to-1">SWITCH TO $1</h2>
 

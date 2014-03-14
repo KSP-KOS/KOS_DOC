@@ -55,6 +55,8 @@ View kOS on GitHub
 <article class='markdown-body'>
 <h1 id="navigation">Navigation</h1>
 
+<hr />
+
 <h2 id="add-1">ADD $1</h2>
 
 <p>Adds a <a href="/KOS_DOC/structure/node">maneuver node</a> to the flight plan.</p>
@@ -65,6 +67,8 @@ This statement adds a node that occurs 30 seconds from now, and has a delta-V of
 <pre><code>SET FOO TO NODE(TIME + 30, 100, 0, 200).
 ADD FOO.
 </code></pre>
+
+<hr />
 
 <h2 id="remove-1">REMOVE $1</h2>
 
@@ -79,6 +83,8 @@ ADD NODE(0,0,0,0).
 REMOVE.             // Does not remove node.
 </code></pre>
 
+<hr />
+
 <h2 id="stage">STAGE</h2>
 
 <p>Executes the stage action on the current vessel.
@@ -87,6 +93,8 @@ Example:</p>
 <pre><code>STAGE.
 </code></pre>
 
+<hr />
+
 <h2 id="heading-1-2">HEADING $1 $2</h2>
 
 <p>Establishes a Heading using two terms, pitch and relation to north</p>
@@ -94,13 +102,16 @@ Example:</p>
 <h4 id="arguments">Arguments</h4>
 <ul>
   <li>$1: Pitch above the horizion in degrees.</li>
-  <li>
-    <p>$2: Offset from North in degrees.</p>
-
-    <p>SET FOO TO HEADING(20,180).
-  LOCK STEERING TO FOO.</p>
-  </li>
+  <li>$2: Offset from North in degrees.</li>
 </ul>
+
+<p>Example:</p>
+
+<pre><code>SET FOO TO HEADING(20,180).
+LOCK STEERING TO FOO.
+</code></pre>
+
+<hr />
 
 <h2 id="warp">WARP</h2>
 
