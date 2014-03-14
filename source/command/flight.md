@@ -30,6 +30,17 @@ Example:
 
     STAGE.
 
+## HEADING $1 $2
+
+Establishes a Heading using two terms, pitch and relation to north
+
+#### Arguments
+$1: Pitch above the horizion in degrees.
+$2: Offset from North in degrees.
+
+    SET FOO TO HEADING(20,180).
+    LOCK STEERING TO FOO.
+
 ## WARP
 
 Sets game warp to provided value(0-7).
