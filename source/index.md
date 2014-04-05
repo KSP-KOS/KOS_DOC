@@ -1,4 +1,3 @@
-
 kOS Mod Overview
 ================
 
@@ -193,6 +192,8 @@ These values can be polled either for their altitude, or the vessel's ETA in rea
 
 Flight Control
 ==============
+
+A summary page describing the basics of controlling the flight of a ship [can be found here](/KSP-KOS/summary_topics/ship_control)
 
 These values can be SET, TOGGLED, or LOCKED. Some values such as THROTTLE and STEERING explicity require the use of lock.
 
