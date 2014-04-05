@@ -19,7 +19,7 @@ of controlling the craft consists primarily of the following two commands:
     means the throttle is at the halfway point, and so on.
 * LOCK STEERING TO _value_ .
     * Where _value_ is one of the following:
-        * a [Direction]{/KOS_DOC/structure/direction}. There are two ways to express a direction:
+        * a [Direction](/KOS_DOC/structure/direction). There are two ways to express a direction:
             * A Rotation expressed as R(_pitch_,_yaw_,_roll_).  Note that pitch, yaw, and roll are
             not based on the horizon, but based on an internal coordinate system used by KSP that
             is hard to use.  Thankfully you can force the rotation into a sensible frame of
@@ -32,7 +32,7 @@ of controlling the craft consists primarily of the following two commands:
             * A heading expressed as HEADING(_compass_,_pitch_).
                 * LOCK STEERING TO HEADING( 180, 30 ).
                     *for example will aim 30 degrees above the horizon, due south.
-        * a [Vector]{/KOS_DOC/structure/vector}.
+        * a [Vector](/KOS_DOC/structure/vector).
             * Any vector can also be used to lock steering.  Examples:
                 * LOCK STEERING TO V(100,50,10).
                     * Note that the internal coordinate system for X,Y,and Z is quite complex to explain.
@@ -93,6 +93,31 @@ neutral.  You can set to values smaller in magnitude than -1 and 1 for gentler c
 * STARBOARD - translate left/right, like pressing "J" and "L" on the keybaord.  Needs RCS ON to be effective.
 * TOP - translate up/down, like pressing "I" and "K" on the keybaord.  Needs RCS ON to be effective.
 * MAINTHROTTLE - -1 to 1, same as THROTTLE.
+
+#### Examples:
+
+```
+print "Gently pushing forward for 3 seconds.".
+SET SHIP:CONTROL:FORE TO 0.2.
+SET now to time:seconds.
+WAIT until time:seconds > now + 3.
+SET SHIP:CONTROL:FORE to 0.0.
+
+print "Gently Pushing leftward for 3 seconds.".
+SET SHIP:CONTROL:STARBOARD TO -0.2.
+SET now to time:seconds.
+WAIT until time:seconds > now + 3.
+SET SHIP:CONTROL:STARBOARD to 0.0.
+
+print "Starting an upward rotation.".
+SET SHIP:CONTROL:PITCH TO 0.2.
+SET now to time:seconds.
+WAIT until time:seconds > now + 0.5.
+SET SHIP:CONTROL:PITCH to 0.0.
+
+print "Giving control back to the player now.".
+SET SHIP:CONTROL:NEUTRALIZE to True.
+```
 
 The following can be read to see the ship's current situation:
 * ROTATION - Vector
