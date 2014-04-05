@@ -5,6 +5,7 @@ All vessels share a structure
 Shared Structure
 ================
 
+* CONTROL - [Control](/KOS_DOC/structure/control) for raw flying a ship.
 * DIRECTION - [Direction](/KOS_DOC/structure/direction) To Active Ship
 * DISTANCE - Meters To Active Ship
 * BEARING - To Active Ship
