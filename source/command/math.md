@@ -30,5 +30,11 @@ Trigonometric Functions
 Vector Functions
 ------
 
-*,+,VDOT,VCRS,VXCL,VANG.
-[See Vector page](../../structure/vector) for explanations.
+    *
+    +
+    VDOT or VECTORDOTPRODUCT
+    VCRS or VECTORCROSSPRODUCT
+    VXCL or VECTOREXCLUDE
+    VANG of VECTORANGLE
+
+[See Vector page](../../structure/vector) for explanations of the above.
