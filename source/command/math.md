@@ -27,3 +27,8 @@ Trigonometric Functions
     ARCTAN(0.67).           // Returns angle whose tangent is input in degrees. e.g. 33.8220852
     ARCTAN2(0.67, 0.89).    // Returns the angle whose tangent is the quotient of two specified numbers in degrees. e.g. 36.9727625
 
+Vector Functions
+------
+
+*,+,VDOT,VCRS,VXCL,VANG.
+[See Vector page](../../structure/vector) for explanations.
