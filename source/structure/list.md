@@ -17,17 +17,28 @@ Structure
 * CONTAINS
 * REMOVE - Number (index)
 
+### Access to individual elements
+* "list#x" operator: access the element at postion x (counting starts at zero).  Works for get or set.
+* FOR VAR IN LIST { ... }.  : a loop in which var iterates over all the items of list.
 
 Example:
     
-    SET FOO TO LIST().   // Creates a new list in FOO variable
-    SET FOO:ADD TO 5.    // Adds a new element to the end of the list
+    SET FOO TO LIST().       // Creates a new list in FOO variable
+    SET FOO:ADD TO 5.        // Adds a new element to the end of the list
     SET FOO:ADD TO ALTITUDE. 
     SET FOO:ADD TO ETA:APOAPSIS. 
-    PRINT FOO:LENGTH.    // Prints 3
-    SET FOO:REMOVE TO 1. // Removes the second element from the list
-    SET BAR TO FOO:COPY. // Makes a copy of the FOO list
-    FOO:CLEAR.           // Removes all elements from the FOO list.
+    PRINT FOO:LENGTH.        // Prints 3
+    PRINT FOO#0.             // Prints 5.
+    PRINT FOO#1.             // Prints altitude number.
+    PRINT FOO#2.             // Prints eta:apoapsis number.
+    SET x TO 2. PRINT FOO#x. // Prints the same thing as FOO#2.
+    SET FOO#0 to 4.          // Replace the 5 at position 0 with a 4.
+    SET FOO:REMOVE TO 1.     // Removes the second element from the list
+    SET BAR TO FOO:COPY.     // Makes a copy of the FOO list
+    FOO:CLEAR.               // Removes all elements from the FOO list.
+    FOR var in FOO {         // --.
+      print var.             //   |-- Print all the contents of FOO.
+    }.                       // --'
 
 Resources
 ------
