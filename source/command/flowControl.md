@@ -103,6 +103,8 @@ Order of operations is as follows:
     
 Boolean is a type that can be stored in a variable and used that way as well.
 
+If a number is used as if it was a Boolean variable, it will be interpreted in the standard way (zero means false, anything else means true).
+
 Example:
 
     IF X = 1 AND Y > 4 { PRINT "Both conditions are true". }.
@@ -113,4 +115,5 @@ Example:
     IF MYCHECK { PRINT "mycheck is true." }.
     LOCK CONTINUOUSCHECK TO X < 0.
     WHEN CONTINUOUSCHECK THEN { PRINT "X has just become negative.". }.
+    IF count { PRINT "count isn't zero.". }.
     
