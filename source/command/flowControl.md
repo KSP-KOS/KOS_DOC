@@ -102,6 +102,7 @@ Order of operations is as follows:
     NOT
     
 Boolean is a type that can be stored in a variable and used that way as well.
+The constants True and False (case insensitive) may be used as values for boolean variables.
 
 If a number is used as if it was a Boolean variable, it will be interpreted in the standard way (zero means false, anything else means true).
 
@@ -115,5 +116,15 @@ Example:
     IF MYCHECK { PRINT "mycheck is true." }.
     LOCK CONTINUOUSCHECK TO X < 0.
     WHEN CONTINUOUSCHECK THEN { PRINT "X has just become negative.". }.
+    IF True { PRINT "This statement happens unconditionally." }.
+    IF False { PRINT "This statement never happens." }.
+    IF 1 { PRINT "This statement happens unconditionally." }.
+    IF 0 { PRINT "This statement never happens." }.
     IF count { PRINT "count isn't zero.". }.
-    
+    //
+    // More complex example:
+    SET done to false.
+    UNTIL done {
+      PRINT "Still not done according to the complex check.".
+      SET done to (x < 0 or y > 7) and (3*z > 7).
+    }.
