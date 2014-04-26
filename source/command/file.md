@@ -1,6 +1,8 @@
 File I/O
 ========
 
+Note: All filenames (program names) must be valid Identifiers.  (for example, you can't have a filename called "this is my-file".)
+
 ***
 
 ## COPY $1 FROM/TO $2
