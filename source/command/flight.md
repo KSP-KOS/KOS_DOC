@@ -1,5 +1,8 @@
+
 Navigation
 ==========
+
+See [ship control](KOS_DOC/summary_topics/ship_control) for a more detailed explanation for how to control flight.
 
 ***
 
