@@ -95,10 +95,12 @@ Example:
 ### (Boolean operators)
 All conditional statements, like IF, can make use of boolean operators.
 Order of operations is as follows:
-    * = < > <= >= <>
-    * AND
-    * OR
-    * NOT
+
+    = < > <= >= <>
+    AND
+    OR
+    NOT
+    
 Boolean is a type that can be stored in a variable and used that way as well.
 
 Example:
