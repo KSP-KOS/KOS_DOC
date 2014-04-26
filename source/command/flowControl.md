@@ -25,12 +25,6 @@ Example:
     IF X = 1 { PRINT "X equals one.". }.            // Prints "X equals one."
     IF X > 10 { PRINT "X is greater than ten.". }.  // Does nothing
 
-If statements can make use of boolean operators.
-Example:
-
-    IF X = 1 AND Y > 4 { PRINT "Both conditions are true". }.
-    IF X = 1 OR Y > 4 { PRINT "At least one condition is true". }.
-
 ***
 
 ### LOCK
@@ -97,3 +91,24 @@ Example:
 
     WHEN BCount < 99 THEN PRINT BCount + “ bottles of beer on the wall”.
 
+***
+### (Boolean operators)
+All conditional statements, like IF, can make use of boolean operators.
+Order of operations is as follows:
+    * = < > <= >= <>
+    * AND
+    * OR
+    * NOT
+Boolean is a type that can be stored in a variable and used that way as well.
+
+Example:
+
+    IF X = 1 AND Y > 4 { PRINT "Both conditions are true". }.
+    IF X = 1 OR Y > 4 { PRINT "At least one condition is true". }.
+    IF NOT (X = 1 or Y > 4) { PRINT "Neither condition is true". }.
+    IF X <> 1 { PRINT "X is not 1". }.
+    SET MYCHECK TO NOT (X = 1 or Y > 4).
+    IF MYCHECK { PRINT "mycheck is true." }.
+    LOCK CONTINUOUSCHECK TO X < 0.
+    WHEN CONTINUOUSCHECK THEN { PRINT "X has just become negative.". }.
+    
