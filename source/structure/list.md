@@ -52,6 +52,7 @@ A 2-D Array is a List who's elements are themselves also Lists.  A 3-D Array is 
 * "list#x#y" or "list[x][y]": access the element at position x,y of the 2-D array (list of lists).
 * The elements of the array need not be uniform (any mix of strings, numbers, strucures is allowed).
 * The dimensions of the array need not be uniform (row 1 might have 3 columns while row 2 has 5 columns).
+* 
 Example:
 
     SET FOO TO LIST().         // Empty list.
