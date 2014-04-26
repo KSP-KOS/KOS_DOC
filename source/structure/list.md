@@ -50,7 +50,7 @@ Example:
 ### Multidimensional Arrays
 A 2-D Array is a List who's elements are themselves also Lists.  A 3-D Array is a List of Lists of Lists.  Any number of dimensions is posible.
 * "list#x#y" or "list[x][y]": access the element at position x,y of the 2-D array (list of lists).
-* The elements of the array need not be uniform (any mix of strings, numbers, strucures is allowed).
+* The elements of the array need not be uniform (any mix of strings, numbers, structures is allowed).
 * The dimensions of the array need not be uniform (row 1 might have 3 columns while row 2 has 5 columns).
 
 Example:
