@@ -19,8 +19,8 @@ Structure
 
 ### Access to individual elements
 All list indexes start counting at zero.  (The list elements are numbered from 0 to N-1 rather than from 1 to N.)
-* "list#x" operator: access the element at postion x.  Works for get or set.  X must be a hardcoded number or a variable name.
-* "list[expression] operator: another syntax to acceess the element at position 'expression'.  Works for get or set.  Any arbitrary complex expression may be used with this syntax, not just a number or variable name.
+* list#x operator: access the element at postion x.  Works for get or set.  X must be a hardcoded number or a variable name.
+* list[expression] operator: another syntax to acceess the element at position 'expression'.  Works for get or set.  Any arbitrary complex expression may be used with this syntax, not just a number or variable name.
 * FOR VAR IN LIST { ... }.  : a loop in which var iterates over all the items of list from item 0 to item LENGTH-1.
 
 
