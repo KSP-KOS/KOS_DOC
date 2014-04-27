@@ -38,6 +38,8 @@ Example:
     SET X TO 4.
     PRINT Y.      // Outputs 6
 
+Unlike variables created with the SET or DECLARE commands, LOCK variables are local to the current program.  If program A calls program B, and program B issues a LOCK command, program A will not be able to read that LOCK variable's result.
+
 ***
 
 ### ON
