@@ -5,7 +5,7 @@ Variable
 
 ### DECLARE
 
-Declares a variable at the current context level. Alternatively, a variable can be implicitly declared by a SET or LOCK statement.
+Declares a global variable. Alternatively, a variable can be implicitly declared by any SET or LOCK statement.
 Example:
 
     DECLARE X.
@@ -21,11 +21,13 @@ Example:
     DECLARE PARAMETER X,y.
     RUN MYPROG(X).
 
+Note: Unlike normal variables, Parameter variables are local to the program.  When program A calls program B and passes parameters to it, program B can alter their values without affecting the values of the variables in program A.
+
 ***
 
 ### SET.. TO
 
-Sets the value of a variable. Declares the variable if it doesn’t already exist.
+Sets the value of a variable. Declares a global variable if it doesn’t already exist.
 Example:
 
     SET X TO 1.
