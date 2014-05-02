@@ -45,7 +45,7 @@ kOS
 <a class='download-button forum' href='http://forum.kerbalspaceprogram.com/threads/68089'>
 <span>Forum</span>
 </a>
-<a class='code' href='https://github.com/erendrake/KOS'>
+<a class='code' href='https://github.com/KSP-KOS/KOS'>
 View kOS on GitHub
 </a>
 </div>
@@ -81,13 +81,6 @@ IF X = 1 { PRINT "X equals one.". }.            // Prints "X equals one."
 IF X &gt; 10 { PRINT "X is greater than ten.". }.  // Does nothing
 </code></pre>
 
-<p>If statements can make use of boolean operators.
-Example:</p>
-
-<pre><code>IF X = 1 AND Y &gt; 4 { PRINT "Both conditions are true". }.
-IF X = 1 OR Y &gt; 4 { PRINT "At least one condition is true". }.
-</code></pre>
-
 <hr />
 
 <h3 id="lock">LOCK</h3>
@@ -101,6 +94,8 @@ PRINT Y.       // Outputs 3
 SET X TO 4.
 PRINT Y.      // Outputs 6
 </code></pre>
+
+<p>Unlike variables created with the SET or DECLARE commands, LOCK variables are local to the current program.  If program A calls program B, and program B issues a LOCK command, program A will not be able to read that LOCK variable's result.</p>
 
 <hr />
 
@@ -160,6 +155,46 @@ Example:</p>
 <pre><code>WHEN BCount &lt; 99 THEN PRINT BCount + “ bottles of beer on the wall”.
 </code></pre>
 
+<hr />
+<p>### (Boolean operators)
+All conditional statements, like IF, can make use of boolean operators.
+Order of operations is as follows:</p>
+
+<ul>
+  <li>= &lt; &gt; &lt;= &gt;= &lt;&gt;</li>
+  <li>AND</li>
+  <li>OR</li>
+  <li>NOT</li>
+</ul>
+
+<p>Boolean is a type that can be stored in a variable and used that way as well.
+The constants True and False (case insensitive) may be used as values for boolean variables.</p>
+
+<p>If a number is used as if it was a Boolean variable, it will be interpreted in the standard way (zero means false, anything else means true).</p>
+
+<p>Example:</p>
+
+<pre><code>IF X = 1 AND Y &gt; 4 { PRINT "Both conditions are true". }.
+IF X = 1 OR Y &gt; 4 { PRINT "At least one condition is true". }.
+IF NOT (X = 1 or Y &gt; 4) { PRINT "Neither condition is true". }.
+IF X &lt;&gt; 1 { PRINT "X is not 1". }.
+SET MYCHECK TO NOT (X = 1 or Y &gt; 4).
+IF MYCHECK { PRINT "mycheck is true." }.
+LOCK CONTINUOUSCHECK TO X &lt; 0.
+WHEN CONTINUOUSCHECK THEN { PRINT "X has just become negative.". }.
+IF True { PRINT "This statement happens unconditionally." }.
+IF False { PRINT "This statement never happens." }.
+IF 1 { PRINT "This statement happens unconditionally." }.
+IF 0 { PRINT "This statement never happens." }.
+IF count { PRINT "count isn't zero.". }.
+//
+// More complex example:
+SET done to false.
+UNTIL done {
+  PRINT "Still not done according to the complex check.".
+  SET done to (x &lt; 0 or y &gt; 7) and (3*z &gt; 7).
+}.
+</code></pre>
 
 </article>
 </div>
@@ -174,7 +209,7 @@ Example:</p>
 erendrake
 </a>
 maintains
-<a href='https://github.com/erendrake/kos'>
+<a href='https://github.com/KSP-KOS/KOS'>
 kOS
 </a>
 </p>

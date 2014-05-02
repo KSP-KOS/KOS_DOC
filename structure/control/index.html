@@ -53,36 +53,36 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h1 id="geocoordinates">GeoCoordinates</h1>
-
-<p>Represents a set of geo-coordinates.</p>
-
-<h1 id="structure">Structure</h1>
-
-<h4 id="getters">Getters</h4>
+<h4 id="shipcontrol-or-vesselcontrol-has-the-following-components">SHIP:CONTROL or VESSEL:CONTROL has the following components:</h4>
 
 <ul>
-  <li>LAT - Degrees</li>
-  <li>LNG - Degrees</li>
-  <li>DISTANCE - Number (meters from calling vessel)</li>
-  <li>HEADING</li>
-  <li>BEARING</li>
+  <li>GETTERS</li>
+  <li>YAW - Rotation (1 to -1)</li>
+  <li>PITCH - Rotation (1 to -1)</li>
+  <li>ROLL - Rotation (1 to -1)</li>
+  <li>FORE - Translation (1 to -1)</li>
+  <li>STARBOARD - Translation (1 to -1)</li>
+  <li>TOP - Translation (1 to -1)</li>
+  <li>ROTATION - Vector</li>
+  <li>TRANSLATION - Vector</li>
+  <li>NEUTRAL - bool,</li>
+  <li>MAINTHROTTLE (1 to -1)</li>
+  <li>WHEELTHROTTLE (1 to -1)</li>
+  <li>WHEELSTEER (1 to -1)</li>
+  <li>SETTERS</li>
+  <li>YAW - Rotation (1 to -1)</li>
+  <li>PITCH - Rotation (1 to -1)</li>
+  <li>ROLL - Rotation (1 to -1)</li>
+  <li>FORE - Translation (1 to -1)</li>
+  <li>STARBOARD - Translation (1 to -1)</li>
+  <li>TOP - Translation (1 to -1)</li>
+  <li>ROTATION - Vector</li>
+  <li>TRANSLATION - Vector</li>
+  <li>NEUTRALIZE - bool, releases vessel control,</li>
+  <li>MAINTHROTTLE (1 to -1)</li>
+  <li>WHEELTHROTTLE (1 to -1)</li>
+  <li>WHEELSTEER (1 to -1)</li>
 </ul>
-
-<h4 id="creation">Creation</h4>
-
-<p>LATLNG (latitude, longitude)</p>
-
-<h4 id="example">Example</h4>
-
-<pre><code>SET X TO LATLNG(10, 20).            // Initialize point at lattitude 10, longitude 20
-PRINT X:LAT.                        // Print 10.
-PRINT X:LNG.                        // Print 20.
-PRINT X:DISTANCE.                   // Print distance from vessel to x (same altitude is presumed)
-PRINT LATLNG(10,20):HEADING.        // Print the heading to the point.
-PRINT X:BEARING.                    // Print the heading to the point relative to vessel heading.
-</code></pre>
-
 
 </article>
 </div>

@@ -45,7 +45,7 @@ kOS
 <a class='download-button forum' href='http://forum.kerbalspaceprogram.com/threads/68089'>
 <span>Forum</span>
 </a>
-<a class='code' href='https://github.com/erendrake/KOS'>
+<a class='code' href='https://github.com/KSP-KOS/KOS'>
 View kOS on GitHub
 </a>
 </div>
@@ -59,7 +59,7 @@ View kOS on GitHub
 
 <h3 id="declare">DECLARE</h3>
 
-<p>Declares a variable at the current context level. Alternatively, a variable can be implicitly declared by a SET or LOCK statement.
+<p>Declares a global variable. Alternatively, a variable can be implicitly declared by any SET or LOCK statement.
 Example:</p>
 
 <pre><code>DECLARE X.
@@ -77,11 +77,13 @@ DECLARE PARAMETER X,y.
 RUN MYPROG(X).
 </code></pre>
 
+<p>Note: Unlike normal variables, Parameter variables are local to the program.  When program A calls program B and passes parameters to it, program B can alter their values without affecting the values of the variables in program A.</p>
+
 <hr />
 
 <h3 id="set-to">SET.. TO</h3>
 
-<p>Sets the value of a variable. Declares the variable if it doesn’t already exist.
+<p>Sets the value of a variable. Declares a global variable if it doesn’t already exist.
 Example:</p>
 
 <pre><code>SET X TO 1.
@@ -132,7 +134,7 @@ Example</p>
 erendrake
 </a>
 maintains
-<a href='https://github.com/erendrake/kos'>
+<a href='https://github.com/KSP-KOS/KOS'>
 kOS
 </a>
 </p>
