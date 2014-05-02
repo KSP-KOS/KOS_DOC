@@ -213,14 +213,20 @@ print "Giving control back to the player now.".
 SET SHIP:CONTROL:NEUTRALIZE to True.
 </code></pre>
 
-<p>The following can be read to see the ship's current situation:
-* ROTATION - Vector
-* TRANSLATION - Vector</p>
+<p>The following suffixes can be read to see the ship's current situation:</p>
+
+<ul>
+  <li>SHIP:CONTROL:ROTATION - Vector</li>
+  <li>SHIP:CONTROL:TRANSLATION - Vector</li>
+</ul>
 
 <h4 id="unlocking-controls-1">UNLOCKING controls:</h4>
 <p>Once any of the SET SHIP:CONTROL commands have been used to control the ship, then the manual control by the
-player is locked out.  To give control back to the player you must execute:
-* SET SHIP:CONTROL:NEUTRALIZE to TRUE.</p>
+player is locked out.  To give control back to the player you must execute:</p>
+
+<ul>
+  <li>SET SHIP:CONTROL:NEUTRALIZE to TRUE.</li>
+</ul>
 
 <h4 id="advantagesdisadvantages-1">Advantages/Disadvantages:</h4>
 <p>The control over RCS translation requires the use of Raw control.  Also, with raw control you can choose how
