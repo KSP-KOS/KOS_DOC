@@ -58,42 +58,83 @@ View kOS on GitHub
 <p>This page describes an overview of how to control a ship.  For full details
 on the structures and commands seen here, look elsewhere in the documentation.</p>
 
-<p>There are two styles of control:
-* "Cooked" - Give a goal direction to seek, and let kOS find the way to manuever toward it.
-* "Raw" - Control the craft just like a manual pilot would do from a keyboard or joystick.</p>
+<p>There are two styles of control:</p>
+
+<ul>
+  <li>
+    <p>"Cooked" - Give a goal direction to seek, and let kOS find the way to manuever toward it.</p>
+  </li>
+  <li>
+    <p>"Raw" - Control the craft just like a manual pilot would do from a keyboard or joystick.</p>
+  </li>
+</ul>
 
 <h1 id="cooked-control">"Cooked" Control</h1>
 <p>In this style of controlling the craft, you do not steer the craft directly, but instead
 select a goal direction and let kOS pick the way to steer toward that goal. This method
-of controlling the craft consists primarily of the following two commands:
-* LOCK THROTTLE TO <em>value</em> .
-    * Where <em>value</em> is a floating point number betwen 0.0 and 1.0.  A value of 0.0 means the
-    throttle is idle, and a value of 1.0 means the throttle is at maximum.  A value of 0.5 
-    means the throttle is at the halfway point, and so on.
-* LOCK STEERING TO <em>value</em> .
-    * Where <em>value</em> is one of the following:
-        * a <a href="/KOS_DOC/structure/direction">Direction</a>. There are two ways to express a direction:
-            * A Rotation expressed as R(<em>pitch</em>,<em>yaw</em>,<em>roll</em>).  Note that pitch, yaw, and roll are
-            not based on the horizon, but based on an internal coordinate system used by KSP that
-            is hard to use.  Thankfully you can force the rotation into a sensible frame of
-            reference by adding a rotation to a known direction first.  For example:
-                * LOCK STEERING TO Up + R(20,0,0).
-            To select a direction that is 20 degrees off from straight up, or
-                * LOCK STEERING TO North + R(0,90,0).
-            To select a direction that is due east, aimed at the horizon.
-            'UP' and 'NORTH' are the only two predefined rotations.
-            * A heading expressed as HEADING(<em>compass</em>,<em>pitch</em>).
-                * LOCK STEERING TO HEADING( 180, 30 ).
-                    *for example will aim 30 degrees above the horizon, due south.
-        * a <a href="/KOS_DOC/structure/vector">Vector</a>.
-            * Any vector can also be used to lock steering.  Examples:
-                * LOCK STEERING TO V(100,50,10).
-                    * Note that the internal coordinate system for X,Y,and Z is quite complex to explain.
-                * LOCK STEERING TO (-1) * SHIP:VELOCITY:SURFACE.
-                    * Aim in the opposite of the surface velocity direction.
-                * LOCK STEERING TO VCRS( SHIP:VELOCITY:ORBIT, BODY:POSITION).
-                    * Aim at a vector which is the cross product of velocity and direction down to the
-                    SOI planet - in other words, aim at the "Normal" direction to the orbit.</p>
+of controlling the craft consists primarily of the following two commands:</p>
+
+<p><code>
+   LOCK THROTTLE TO _value_ .
+</code>
+Where <em>value</em> is a floating point number betwen 0.0 and 1.0.  A value of 0.0 means the
+throttle is idle, and a value of 1.0 means the throttle is at maximum.  A value of 0.5 
+means the throttle is at the halfway point, and so on.</p>
+
+<p><code>
+   LOCK STEERING TO _value_ .
+</code>
+Where <em>value</em> is one of the following:</p>
+
+<ul>
+  <li>
+    <p>a <a href="/KOS_DOC/structure/vector">Vector</a>.</p>
+  </li>
+  <li>
+    <p>a <a href="/KOS_DOC/structure/direction">Direction</a>.</p>
+  </li>
+</ul>
+
+<p>There are two ways to express a Direction:</p>
+
+<ul>
+  <li>
+    <p>a Rotation expressed as R(<em>pitch</em>,<em>yaw</em>,<em>roll</em>).</p>
+  </li>
+  <li>
+    <p>a heading expressed as HEADING(<em>compass</em>,<em>pitch</em>).</p>
+  </li>
+</ul>
+
+<p>'UP' and 'NORTH' are the only two predefined rotations.</p>
+
+<p>Note that pitch, yaw, and roll are not based on the horizon, but based on an internal coordinate system used by KSP that is hard to use.  Thankfully you can force the rotation into a sensible frame of reference by adding a rotation to a known direction first.  For example:</p>
+
+<p>Rotation and Heading steering
+Example:</p>
+
+<pre><code>// To select a direction that is 20 degrees off from straight up:
+LOCK STEERING TO Up + R(20,0,0).
+// To select a direction that is due east, aimed at the horizon:
+LOCK STEERING TO North + R(0,90,0).
+// Aim 30 degrees above the horizon, due south.
+LOCK STEERING TO HEADING( 180, 30 ).
+</code></pre>
+
+<p>Vector steering
+Example:</p>
+
+<pre><code>//
+// Note that the internal coordinate system for X,Y,and Z is quite complex to explain.
+LOCK STEERING TO V(100,50,10).
+//
+// Aim in the opposite of the surface velocity direction:
+LOCK STEERING TO (-1) * SHIP:VELOCITY:SURFACE.
+//
+// Aim at a vector which is the cross product of velocity and direction down to the
+// SOI planet - in other words, aim at the "Normal" direction to the orbit:
+LOCK STEERING TO VCRS( SHIP:VELOCITY:ORBIT, BODY:POSITION).
+</code></pre>
 
 <p>Like all LOCK expressions, the steering and throttle continually update 'magically' on their own when
 using this style of control.  If you lock your steering to velocity, then as your velocity changes, your
