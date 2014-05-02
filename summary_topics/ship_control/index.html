@@ -188,30 +188,30 @@ neutral.  You can set to values smaller in magnitude than -1 and 1 for gentler c
   <li>MAINTHROTTLE - -1 to 1, same as THROTTLE.</li>
 </ul>
 
-<h4 id="examples">Examples:</h4>
+<p>Ship Raw Steering
+Example:</p>
 
-<p>```
-print "Gently pushing forward for 3 seconds.".
+<pre><code>print "Gently pushing forward for 3 seconds.".
 SET SHIP:CONTROL:FORE TO 0.2.
 SET now to time:seconds.
 WAIT until time:seconds &gt; now + 3.
-SET SHIP:CONTROL:FORE to 0.0.</p>
+SET SHIP:CONTROL:FORE to 0.0.
 
-<p>print "Gently Pushing leftward for 3 seconds.".
+print "Gently Pushing leftward for 3 seconds.".
 SET SHIP:CONTROL:STARBOARD TO -0.2.
 SET now to time:seconds.
 WAIT until time:seconds &gt; now + 3.
-SET SHIP:CONTROL:STARBOARD to 0.0.</p>
+SET SHIP:CONTROL:STARBOARD to 0.0.
 
-<p>print "Starting an upward rotation.".
+print "Starting an upward rotation.".
 SET SHIP:CONTROL:PITCH TO 0.2.
 SET now to time:seconds.
 WAIT until time:seconds &gt; now + 0.5.
-SET SHIP:CONTROL:PITCH to 0.0.</p>
+SET SHIP:CONTROL:PITCH to 0.0.
 
-<p>print "Giving control back to the player now.".
+print "Giving control back to the player now.".
 SET SHIP:CONTROL:NEUTRALIZE to True.
-```</p>
+</code></pre>
 
 <p>The following can be read to see the ship's current situation:
 * ROTATION - Vector
