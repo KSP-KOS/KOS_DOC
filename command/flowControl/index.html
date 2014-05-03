@@ -189,32 +189,36 @@ flow of the program.  Both the main program and the
 THEN clause will both be executing simultaneously.
 The body of the THEN clause may be in curly braces.</p>
 
-<p>Example:
-    //
-    WHEN BCount &lt; 99 THEN PRINT BCount + “ bottles of beer on the wall”.
-    //
-    // Watch in the background for when the altitude is high enough.
-    // Once it is, then turn on the solar panels and action group 1:
-    WHEN altitude &gt; 70000 THEN {
-        PRINT "ACTIVATING PANELS AND AG 1.".
-        PANELS ON.
-        AG1 ON.
-    }.</p>
+<p>Example:</p>
+
+<pre><code>//
+WHEN BCount &lt; 99 THEN PRINT BCount + “ bottles of beer on the wall”.
+//
+// Watch in the background for when the altitude is high enough.
+// Once it is, then turn on the solar panels and action group 1:
+WHEN altitude &gt; 70000 THEN {
+    PRINT "ACTIVATING PANELS AND AG 1.".
+    PANELS ON.
+    AG1 ON.
+}.
+</code></pre>
 
 <p>A WHEN..THEN clause can be used to create any arbitrary
 background activity, and therefore a script with WHEN..THEN
 clauses in it is a bit like a multi-threaded program:</p>
 
-<p>Example:
-    // Unconditionally start the background thread now:
-    WHEN true THEN {
-        // Forever print the time on every multiple of 10 seconds
-        UNTIL false {
-            IF TIME:SECONDS % 10 = 0 {
-                PRINT "NOW " + TIME:SECONDS + " SECONDS PASSED.".
-            }.
+<p>Example:</p>
+
+<pre><code>// Unconditionally start the background thread now:
+WHEN true THEN {
+    // Forever print the time on every multiple of 10 seconds
+    UNTIL false {
+        IF TIME:SECONDS % 10 = 0 {
+            PRINT "NOW " + TIME:SECONDS + " SECONDS PASSED.".
         }.
-    }.</p>
+    }.
+}.
+</code></pre>
 
 <p>A WHEN..THEN clause always stops when the program that created it exits.</p>
 
