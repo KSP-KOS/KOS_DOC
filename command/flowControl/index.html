@@ -124,20 +124,6 @@ PRINT Y.      // Outputs 6
 
 <hr />
 
-<h3 id="on">ON</h3>
-
-<p>Sets up a trigger in the background that will run the selected command
-exactly once when the boolean variable changes state from true to false
-or from false to true. This command is best used to listen for action
-group activations. 
-Example:</p>
-
-<pre><code>ON AG3 PRINT “Action Group 3 Activated!”.
-ON SAS PRINT “SAS system has been toggled”.
-</code></pre>
-
-<hr />
-
 <h3 id="unlock">UNLOCK</h3>
 
 <p>Releases a lock on a variable, causing it to become undefined. See LOCK.
@@ -183,11 +169,30 @@ It starts a check in the background that will keep
 actively looking for the trigger condition while the
 rest of the code continures.  When it triggers, the
 body after the THEN will execute exactly once, after
-which the trigger is removed.  When the body of the
-THEN clause executes, it does not interrupt the main
-flow of the program.  Both the main program and the
-THEN clause will both be executing simultaneously.
-The body of the THEN clause may be in curly braces.</p>
+which the trigger is removed.</p>
+
+<p>The body of a THEN or an ON statement interrupts the normal flow
+of a kOS program.  When the event that triggers the body happens,
+the main kOS program is paused until the body of the THEN 
+completes.</p>
+
+<p>In addition, the entire Kerbal Space Program game is paused
+until the body of a WHEN/THEN or ON completes, so you need
+to ensure they perform small fast tasks.  <strong>Do not put a long
+lasting loop in the body of a WHEN/THEN or ON command.</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>IMPORTANT BREAKING CHANGE</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>CHANGE WITH 0.12</strong>  In previous versions of kOS, the body of a WHEN/THEN would execute simultaneously in the background with the rest of the main program.  This behavior has changed as of version 0.12 of kOS, as described above, and scripts that used to rely on this behavior will not work with version 0.12 of kOS.</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>Example:</p>
 
@@ -203,24 +208,33 @@ WHEN altitude &gt; 70000 THEN {
 }.
 </code></pre>
 
-<p>A WHEN..THEN clause can be used to create any arbitrary
-background activity, and therefore a script with WHEN..THEN
-clauses in it is a bit like a multi-threaded program:</p>
+<p>A WHEN..THEN trigger is removed when the program that created it exits,
+even if it has not occurred yet.</p>
+
+<h3 id="on">ON</h3>
+
+<p>The <em>ON</em> command is almost identical to the WHEN/THEN command.
+<em>ON</em> sets up a trigger in the background that will run the selected command
+exactly once when the boolean variable changes state from true to false
+or from false to true. This command is best used to listen for action
+group activations.</p>
+
+<p><em>How does it differ from WHEN/THEN?</em> : WHEN/THEN triggers whenever
+the conditional expression becomes true.  ON triggers whenever the
+boolean variable changes state EITHER from false to true OR from true to false.</p>
+
+<p>The body of an <em>ON</em> statement can be a list of commands inside 
+curly braces, just like for WHEN/THEN.  Also just like with WHEN/THEN, the
+body of the ON interrupts all of KSP while it runs, so it should be designed
+to be a short and finish quickly without getting stuck in a long loop.</p>
 
 <p>Example:</p>
 
-<pre><code>// Unconditionally start the background thread now:
-WHEN true THEN {
-    // Forever print the time on every multiple of 10 seconds
-    UNTIL false {
-        IF TIME:SECONDS % 10 = 0 {
-            PRINT "NOW " + TIME:SECONDS + " SECONDS PASSED.".
-        }.
-    }.
-}.
+<pre><code>ON AG3 PRINT “Action Group 3 Activated!”.
+ON SAS PRINT “SAS system has been toggled”.
 </code></pre>
 
-<p>A WHEN..THEN clause always stops when the program that created it exits.</p>
+<hr />
 
 <hr />
 <p>### (Boolean operators)
@@ -254,13 +268,6 @@ IF False { PRINT "This statement never happens." }.
 IF 1 { PRINT "This statement happens unconditionally." }.
 IF 0 { PRINT "This statement never happens." }.
 IF count { PRINT "count isn't zero.". }.
-//
-// More complex example:
-SET done to false.
-UNTIL done {
-  PRINT "Still not done according to the complex check.".
-  SET done to (x &lt; 0 or y &gt; 7) and (3*z &gt; 7).
-}.
 </code></pre>
 
 </article>
