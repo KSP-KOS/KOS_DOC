@@ -67,8 +67,13 @@ View kOS on GitHub
   <li>$2: Target volume.</li>
 </ul>
 
-<p>Copies a file to or from another volume. Volumes can be referenced by their ID numbers or their names if they’ve been given one. See LIST, SWITCH and RENAME.  Understanding <a href="/KOS_DOC/summary_topics/volumes">how volumes work</a> is important to understanding this command.
-Example:</p>
+<p>Copies a file to or from another volume. Volumes can be referenced by their ID numbers or their names if they’ve been given one. See LIST, SWITCH and RENAME.</p>
+
+<p>Understanding <a href="/KOS_DOC/summary_topics/volumes">how volumes work</a> is important to understanding this command.</p>
+
+<p>In order for a copy operation to work, the volumes being copied between must be within <a href="/KOS_DOC/summary_topics/commrange">CommRange</a>.</p>
+
+<p>Example:</p>
 
 <pre><code>SWITCH TO 1.       // Makes volume 1 the active volume
 COPY file1 FROM 0. // Copies a file called file1 from volume 0 to volume 1
@@ -86,6 +91,8 @@ COPY file2 TO 0.   // Copies a file called file1 from volume 1 to volume 0
   <li>$1: Name of target file.</li>
   <li>$2: (optional) Target volume.</li>
 </ul>
+
+<p>In order for a delete operation to work, the volume being deleted from must be within <a href="/KOS_DOC/summary_topics/commrange">CommRange</a>.</p>
 
 <p>Example:</p>
 
@@ -167,6 +174,8 @@ RENAME FILE MyFile TO AutoLaunch.
 <h2 id="switch-to-1">SWITCH TO $1</h2>
 
 <p>Switches to the specified volume. Volumes can be specified by number, or it’s name (if it has one). See LIST and RENAME. Understanding <a href="/KOS_DOC/summary_topics/volumes">how volumes work</a> is important to understanding this command.</p>
+
+<p>In order to use a volume, it must be within <a href="/KOS_DOC/summary_topics/commrange">CommRange</a>.</p>
 
 <h4 id="arguments-6">Arguments</h4>
 <ul>
