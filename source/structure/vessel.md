@@ -1,69 +1,41 @@
 ﻿# Vessel
 
-All vessels share a structure
+All vessels share a structure.
+
+To get a variable referring to any vessel you can do this:
+
+### getting a vessel variable:
+
+    SET MY_VESS TO VESSEL("Some Ship Name"). // Get a vessel by it's name.  The name is Case Sensitive.
+    SET MY_VESS TO SHIP.  // Save the current vessel in a variable, in case the current vessel changes.
+    SET MY_VESS TO TARGET.  // Save the target vessel in a variable, in case the target vessel changes.
 
 Shared Structure
 ================
 
-* CONTROL - [Control](/KOS_DOC/structure/control) for raw flying a ship.
-* DIRECTION - [Direction](/KOS_DOC/structure/direction) To Active Ship
-* DISTANCE - Meters To Active Ship
+Be aware that as of kOS 0.13, a vessel is now a type of [Orbitable](../orbitable/index.html)
+Much of what a Vessel can do can now by done by any orbitable object.  The documentation for those abilities has been moved to the orbitable page.
+
+Listed here are ONLY those terms that are not also shared by bodies.  For the list of terms shared in common with bodies, see the [Orbitable](../orbitable/index.html) page.
+
+Fields unique to Vessel:
+
+* CONTROL - [Control](../control/index.html) for raw flying a ship.
 * BEARING - To Active Ship
 * HEADING - To Active Ship
-* PROGRADE - [Direction](/KOS_DOC/structure/direction)
-* RETROGRADE - [Direction](/KOS_DOC/structure/direction)
 * MAXTHRUST - Max thrust of all active engines
-* VELOCITY - Structure 
-    * ORBIT - [Vector](/KOS_DOC/structure/vector)
-    * SURFACE - [Vector](/KOS_DOC/structure/vector)
-* GEOPOSITION - [GeoCordinates](/KOS_DOC/structure/geocordinates)
-* LATITUDE - Number (degrees)
-* LONGITUDE - Number (degrees)
-* FACING - [Direction](/KOS_DOC/structure/direction)
-* UP - [Direction](/KOS_DOC/structure/direction)
-* NORTH - [Direction](/KOS_DOC/structure/direction)
-* BODY - [Body](Body)
-* ANGULARMOMENTUM - [Direction](/KOS_DOC/structure/direction)
-* ANGULARVEL - [Direction](/KOS_DOC/structure/direction)
+* FACING - [Direction](../direction/index.html)
+* ANGULARMOMENTUM - [Direction](../direction/index.html)
+* ANGULARVEL - [Direction](../direction/index.html)
 * MASS - Number (kilogram)
 * VERTICALSPEED - Number (meters/s)
 * SURFACESPEED - Number (meters/s)
 * AIRSPEED - Number (meters/s)
 * VESSELNAME - string
-* ALTITUDE - Number (meters)
-* APOAPSIS - Number (meters)
-* PERIAPSIS - Number (meters)
 * SENSORS - Structure
-    * ACC - [Vector](/KOS_DOC/structure/vector)
+    * ACC - [Vector](../vector/index.html)
     * PRES - Number (Atmosphere)
     * TEMP - Number (Celsius)
-    * GRAV - [Vector](/KOS_DOC/structure/vector)
-* TERMVELOCITY - Number (meters/s)
-* OBT - Structure - [Orbit](/KOS_DOC/structure/orbit)
+    * GRAV - [Vector](../vector/index.html)
+* TERMVELOCITY - Number (meters/s) based on the vessel's current altitude above sea level, and its drag properties.
 
-#### VESSEL (vesselname)
-
-Represents a targetable vessel
-
-    SET X TO VESSEL("kerbRoller2").     // Initialize a reference to a vessel.
-    PRINT X:DISTANCE.                   // Print distance from current vessel to target.
-    PRINT X:HEADING.                    // Print the heading to the vessel.
-    PRINT X:BEARING.                    // Print the heading to the target vessel relative to vessel heading.
-    
-#### SHIP
-    
-Represents currently selected ship
-    
-    PRINT SHIP.                            // returns VESSEL("kerbRoller2")
-    PRINT SHIP:DISTANCE.                   // Print distance from current vessel to target.
-    PRINT SHIP:HEADING.                    // Print the heading to the vessel.
-    PRINT SHIP:BEARING.                    // Print the heading to the target vessel relative to vessel heading.
-    
-#### TARGET
-
-Represents targeted vessel or celestial body
-
-    SET TARGET TO "kerbRoller2".        // target kerbRoller2
-    PRINT TARGET:DISTANCE.              // Print distance from current vessel to target.
-    PRINT TARGET:HEADING.               // Print the heading to the target vessel.
-    PRINT TARGET:BEARING.               // Print the bearing to the target vessel relative to vessel heading.

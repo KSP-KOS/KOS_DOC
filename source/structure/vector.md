@@ -26,8 +26,8 @@ Assume S is a scalar, VA and VB are vectors:
 * ```VECTORCROSSPRODUCT(VA,VB)``` or ```VCRS(VA,VB)``` a vector, the [cross product](http://en.wikipedia.org/wiki/Cross_product) of VA and VB, in THAT order.
 * ```VECTORANGLE(VA,VB)``` or ```VANG(VA,VB)``` a scalar, the angle between VA and VB.
   *    Same result as ```arccos( (VDOT(VA,VB) / VDOT(VA,VB):MAG )```.
-* ```VECTOREXCLUDE(VA,VB)``` or ```VXCL(VA,VB)``` a vector, VA with all of VB excluded from it.
-  *    In other words, the projection of VA onto the plane that is normal to VB.
+* ```VECTOREXCLUDE(VA,VB)``` or ```VXCL(VA,VB)``` a vector, VB with all of VA excluded from it.
+  *    In other words, the projection of VB onto the plane that is normal to VA.
 
 #### Example
     SET varname TO V(100,5,0).          // initializes a vector with x=100, y=5, z=0

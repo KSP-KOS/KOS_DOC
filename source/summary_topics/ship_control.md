@@ -19,7 +19,7 @@ of controlling the craft consists primarily of the following two commands:
     means the throttle is at the halfway point, and so on.
 * LOCK STEERING TO _value_ .
     * Where _value_ is one of the following:
-        * a [Direction](/KOS_DOC/structure/direction). There are two ways to express a direction:
+        * a [Direction](../structure/direction/index.html). There are two ways to express a direction:
             * A Rotation expressed as R(_pitch_,_yaw_,_roll_).  Note that pitch, yaw, and roll are
             not based on the horizon, but based on an internal coordinate system used by KSP that
             is hard to use.  Thankfully you can force the rotation into a sensible frame of
@@ -32,7 +32,7 @@ of controlling the craft consists primarily of the following two commands:
             * A heading expressed as HEADING(_compass_,_pitch_).
                 * LOCK STEERING TO HEADING( 180, 30 ).
                     *for example will aim 30 degrees above the horizon, due south.
-        * a [Vector](/KOS_DOC/structure/vector).
+        * a [Vector](../structure/vector/index.html).
             * Any vector can also be used to lock steering.  Examples:
                 * LOCK STEERING TO V(100,50,10).
                     * Note that the internal coordinate system for X,Y,and Z is quite complex to explain.

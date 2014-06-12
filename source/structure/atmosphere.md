@@ -1,6 +1,6 @@
 # Atmosphere
 
-A Structure closely tied to [Body](/KOS_DOC/structure/body)
+A Structure closely tied to [Body](../body/index.html)
 
 Structure
 =========

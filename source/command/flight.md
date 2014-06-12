@@ -2,13 +2,13 @@
 Navigation
 ==========
 
-See [ship control](KOS_DOC/summary_topics/ship_control) for a more detailed explanation for how to control flight.
+See [ship control](../../summary_topics/ship_control/index.html) for a more detailed explanation for how to control flight.
 
 ***
 
 ## ADD $1
 
-Adds a [maneuver node](/KOS_DOC/structure/node) to the flight plan.
+Adds a [maneuver node](../../structure/node/index.html) to the flight plan.
 
 Example:
 This statement adds a node that occurs 30 seconds from now, and has a delta-V of 100 m/s radial out, 0 m/s normal, and 200 m/s prograde.
@@ -20,7 +20,7 @@ This statement adds a node that occurs 30 seconds from now, and has a delta-V of
 
 ## REMOVE $1
 
-Removes [maneuver node](/KOS_DOC/structure/node) from flight plan. Cannot remove bare nodes e.g. ADD NODE().
+Removes [maneuver node](../../structure/node/index.html) from flight plan. Cannot remove bare nodes e.g. ADD NODE().
 
     REMOVE NEXTNODE.        // Removes the first maneuver node in the flight plan.
     SET X TO NODE(0,0,0,0).

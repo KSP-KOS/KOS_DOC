@@ -8,10 +8,6 @@ Installation
 
 Like other mods, simply merge the contents of the zip file into your Kerbal Space Program folder.
 
-Usage
------
-
-Add the Compotronix SCS part to your vessel; it’s under the “Control” category in the Vehicle Assembly Building or Space Plane Hanger. After hitting launch, you can right-click on the part and select the “Open Terminal” option. This will give you access to the KerboScript interface where you can begin issuing commands and writing programs.
 
 KerboScript
 ===========
@@ -23,6 +19,53 @@ The language is designed to be easily accessible to novice programmers, therefor
 A typical command in KerboScript might look like this:
 
     PRINT “Hello World”.
+
+
+QUICK START: Hello World.
+=========================
+
+For the first introduction to how the mod works without taking the time to read all the instructions first, try the steps below.  (Please do come back to read the rest of the instructions after that, though.)
+
+* ![image of SCS part](images/scs_part) Add the Compotronix SCS part to your vessel; it’s under the “Control” category in the Vehicle Assembly Building or Space Plane Hanger.  It looks like the picture here.
+
+* Create a directory under your KSP base directory located here: KSP_BASE/Plugins/PluginData/Archive/, Where KSP_BASE is wherever you've installed Kerbal Space Program.
+
+* Create a text file called "test.txt" in that directory, using whatever text editor you like, and make it have the following contents:
+
+### "test.txt"
+
+    CLEARSCREEN.
+    PRINT "THROTTLING TO MAX.".
+    LOCK THROTTLE TO 1.
+    WAIT 2.
+    PRINT "HITTING FIRST STAGE.".
+    STAGE.
+    WAIT UNTIL ALTITUDE > 2000.
+    PRINT "TURNING OFF AUTOPILOT.  BACK TO MANUAL CONTROL.".
+
+* Put your rocket on the launchpad, and right-click the Comptronix SCS part you added in step 1 above.  From the popup menu, select "Open Terminal".
+
+* Make sure your staging list for your rocket is designed so that when you hit the first stage, you both unlock the tower clamps and activate the first stage engine in the same instant.  (The simple example program you typed in above assumes this is the case).
+
+* Type the following commands into the terminal, hitting enter after each line.
+
+###
+
+    SWITCH TO 0.
+    RUN TEST.
+
+You should see your rocket throttle up to max and then activate stage 1, then revert to manual control after an altitude of 2000m.  Not a very useful autopilot yet, but it demonstrates that the mod is working and shows you a small piece of how it works.
+
+
+
+CASE INSENSITIVE
+----------------
+Everything in Kerboscript is case-insensitive, including your own variable names and filenames.
+The only exception is when you perform a string comparison, ("Hello"="HELLO" will return false.)
+
+Most of the examples here will show the syntax in all-uppercase to help make it stand out from
+the explanatory text.
+
 
 Expressions
 -----------
@@ -50,32 +93,41 @@ To concatenate strings, you can use the + operator. This works with mixtures of 
 
     PRINT “4 plus 3 is: “ + (4+3).
 
-### Directions
+### Structures
 
-Directions exist primarily to enable automated steering. You can initialize a direction using a vector or a rotation.
+Structures are variables that contain more than one piece of information.  For example, a Vector has an X, a Y, and a Z component.  Structures can be used with SET.. TO just like any other variable.  To access the sub-elements of a structure, you use the colon operator (":").  Here are some examples:
 
-    SET Direction TO V(0,1,0).         // Set a direction by vector
-    SET Direction TO R(0,90,0).        // Set by a rotation in degrees
+    PRINT "The Mun's periapsis altitude is: " + MUN:PERIAPSIS.
+    PRINT "The ship's surface velocity is: " + SHIP:VELOCITY:SURFACE.
 
-You can use math operations on Directions as well. The next example uses a rotation of “UP” which is a system variable describing a vector directly away from the celestial body you are under the influence of.
+Many structures also let you set a specific component of them, for example:
 
-    SET Direction TO UP + R(0,-45,0).  // Set direction 45 degress west of “UP”.
+    SET VEC TO V(10,10,10).  // A vector with x,y,z components all set to 10.
+    SET VEC:X to VEC:X * 4.  // multiply just the X part of VEC by 4.
+    PRINT VEC.  // Results in V(40,10,10).
+
+A full list of structure types is listed further down this page.
+
 
 Command Reference
 =================
 
-* [Math](/KOS_DOC/command/math)
+This is not a complete list.  The examples here are just to give a taste of what exists.  For the full list of commands please click on each of the section headings.
+
+* [Math](command/math/index.html)
     * Basic Functions
     * Trigonometric Functions
 
-* [Flight](/KOS_DOC/command/flight)
+* [Flight](command/flight/index.html)
+    * LOCK STEERING
+    * LOCK THROTTLE
     * ADD
     * REMOVE
     * STAGE
     * HEADING
     * WARP
 
-* [File IO](/KOS_DOC/command/file)
+* [File IO](command/file/index.html)
     * COPY
     * DELETE
     * EDIT
@@ -85,7 +137,7 @@ Command Reference
     * RUN
     * SWITCH.. TO
 
-* [Flow Control](/KOS_DOC/command/flowControl)
+* [Flow Control](command/flowControl/index.html)
     * BREAK
     * IF
     * LOCK
@@ -95,12 +147,14 @@ Command Reference
     * WAIT
     * WHEN.. THEN
 
-* [Terminal](/KOS_DOC/command/terminal)
+* [Terminal](command/terminal/index.html)
     * CLEARSCREEN
     * PRINT
     * PRINT.. AT
     * REBOOT
     * SHUTDOWN
+
+
 
 Structure Reference
 ===================
@@ -108,123 +162,25 @@ Structure Reference
 Structures are variables that can contain more than one piece of information.  Structures can be used with SET.. TO just like any other variable.
 Their subelements can be accessed by using : along with the name of the subelement.
 
-* [Atmosphere](/KOS_DOC/structure/atmosphere)
-* [Body](/KOS_DOC/structure/body)
-* [Direction](/KOS_DOC/structure/direction)
-* [Engine](/KOS_DOC/structure/engine)
-* [GeoCordinates](/KOS_DOC/structure/geocordinates)
-* [List](/KOS_DOC/structure/list)
-* [Node](/KOS_DOC/structure/node)
-* [Orbit](/KOS_DOC/structure/orbit)
-* [Time](/KOS_DOC/structure/time)
-* [Vector](/KOS_DOC/structure/vector)
-* [Vessel](/KOS_DOC/structure/vessel)
+* [Atmosphere](structure/atmosphere/index.html)
+* [Body](structure/body/index.html)
+* [Direction](structure/direction/index.html)
+* [Engine](structure/engine/index.html)
+* [GeoCordinates](structure/geocordinates/index.html)
+* [List](structure/list/index.html)
+* [Node](structure/node/index.html)
+* [Orbit](structure/orbit/index.html)
+* [Orbitable](structure/orbitable/index.html)
+* [Time](structure/time/index.html)
+* [Vector](structure/vector/index.html)
+* [Vessel](structure/vessel/index.html)
 
-Flight Statistics
-=================
+BUILT-IN SPECIAL VARIABLE NAMES
+===============================
 
-You can get several useful vessel stats for your ships
-
-    ALTITUDE
-    ALT:RADAR           // Your radar altitude
-    BODY                // The current celestial body whose influence you are under
-    MISSIONTIME         // The current mission time
-    VELOCITY            // The current orbital velocity
-    VERTICALSPEED
-    SURFACESPEED
-    STATUS              // Current situation: LANDED, SPLASHED, PRELAUNCH, FLYING, SUB_ORBITAL, ORBITING, ESCAPING, or DOCKED
-    INLIGHT             // Returns true if not blocked by celestial body, always false without solar panel.
-    INCOMMRANGE         // returns true if in range
-    COMMRANGE           // returns commrange
-    MASS
-    MAXTHRUST           // Combined thrust of active engines at full throttle (kN)
-    VESSELNAME
-
-### Vectors
-
-These return a vector object, which can be used in conjuction with the LOCK command to set your vessel's steering.
-
-    PROGRADE
-    RETROGRADE
-    UP				// Directly away from current body
-
-### Orbit geometry values
-
-These values can be polled either for their altitude, or the vessel's ETA in reaching them. By default, altitude is returned.
-
-    APOAPSIS			// Altitude of apoapsis
-    ALT:APOAPSIS		// Altitude of apoapsis
-    PERIAPSIS			// Altitude of periapsis
-    ALT:PERIAPSIS		// Altitude of periapsis
-    ETA:APOAPSIS		// ETA to apoapsis
-    ETA:PERIAPSIS		// ETA to periapsis
-
-### Maneuver nodes
-
-    NODE                // Direction of next maneuver node, can be used with LOCK STEERING
-    ETA:NODE            // ETA to active maneuver node
-    ENCOUNTER           // Returns celestial body of encounter
-    NEXTNODE            // Next node in flight plan.
-
-## Resources
-
-### Resource Types
-
-    LIQUIDFUEL
-    OXIDIZER
-    ELECTRICCHARGE
-    MONOPROPELLANT
-    INTAKEAIR
-    SOLIDFUEL
-
-### Stage specific values
-
-    STAGE:LIQUIDFUEL            // Prints the available fuel for all active engines.
-    STAGE:OXIDIZER
-
-### Global values
-
-    PRINT <LiquidFuel>.                         // Print the total liquid fuel in all tanks. DEPRECATED
-    PRINT SHIP:LIQUIDFUEL.                      // Print the total liquid fuel in all tanks.
-    PRINT VESSEL("kerbRoller2"):LIQUIDFUEL.     // Print the total liquid fuel on kerbRoller2.
-    PRINT TARGET:LIQUIDFUEL.                    // Print the total liquid fuel on target.
+Some variable names have special meaning and will not work as identifiers.
+Understanding this list is crucial to using kOS effectively, as these special variables are the usual way to query flight state information.
 
 
-Flight Control
-==============
+[The full list of reserved variable names is on its own page](bindings/index.html)
 
-A summary page describing the basics of controlling the flight of a ship [can be found here](/KSP-KOS/summary_topics/ship_control)
-
-These values can be SET, TOGGLED, or LOCKED. Some values such as THROTTLE and STEERING explicity require the use of lock.
-
-### Controls which use ON and OFF
-
-    SAS				// For these five, use ON and OFF, example: SAS ON. RCS OFF.
-    GEAR
-    RCS
-    LIGHTS
-    BRAKES
-    LEGS
-    CHUTES	// Cannot be un-deployed.
-    PANELS
-
-### Controls that can be used with TOGGLE
-
-    ABORT
-    AGX             // Where x = 1 through 10. Use toggle, example: TOGGLE AG1.
-
-### Controls that must be used with LOCK
-
-    THROTTLE			// Lock to a decimal value between 0 and 1.
-    STEERING			// Lock to a direction.
-    WHEELTHROTTLE       // Seperate throttle for wheels
-    WHEELSTEERING       // Seperate steering system for wheels
-
-System Variables
-==========================
-Returns values about kOS and hardware
-
-    PRINT VERSION.            // Returns operating system version number. 0.8.6
-    PRINT VERSION:MAJOR.      // Returns major version number. e.g. 0
-    PRINT VERSION:MINOR.      // Returns minor version number. e.g. 8
-    PRINT SESSIONTIME.        // Returns amount of time, in seconds, from vessel load.

@@ -8,7 +8,7 @@ Structure
 * PITCH - Number (degrees)
 * YAW - Number (degrees)
 * ROLL - Number (degrees)
-* VECTOR - [Vector](/KOS_DOC/structure/vector)
+* VECTOR - [Vector](../vector/index.html)
 
 #### Creation
 

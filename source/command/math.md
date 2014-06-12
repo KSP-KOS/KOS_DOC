@@ -37,4 +37,4 @@ Vector Functions
     VXCL or VECTOREXCLUDE
     VANG of VECTORANGLE
 
-[See Vector page](../../structure/vector) for explanations of the above.
+[See Vector page](../../structure/vector/index.html) for explanations of the above.
