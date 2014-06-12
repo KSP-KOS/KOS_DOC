@@ -47,6 +47,8 @@ or kerboscript statements, but rather the smaller instruction opcodes that they 
 compiled into behind the scenes.  A single kerboscript statement might become anywhere
 from one to ten or so instructions when compiled.
 
+<a name="TRIGGERS"></a>
+
 ### TRIGGERS
 
 There are multiple things within kerboscript that run "in the background"
@@ -93,6 +95,8 @@ down during each update.
 Because of how triggers work, you cannot put a WAIT statement inside a trigger.
 If you try, it will have no effect.
 
+<a name="WAIT"></a>
+
 ### WAIT
 
 Any WAIT statement causes the kerboscript program to immediately stop executing
@@ -120,6 +124,8 @@ Similarly, if you just say:
 Then even though the condition is immediately true, it will still wait one physics
 tick to discover this fact and continue.
 
+
+<a name="FROZEN"></a>
 
 ### THE FROZEN UNIVERSE
 

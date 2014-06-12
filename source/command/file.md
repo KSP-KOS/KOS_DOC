@@ -12,6 +12,11 @@ Note: All filenames (program names) must be valid Identifiers.  (for example, yo
 * $2: Target volume.
 
 Copies a file to or from another volume. Volumes can be referenced by their ID numbers or their names if they’ve been given one. See LIST, SWITCH and RENAME.
+
+Understanding how [volumes work](../../summary_topics/volumes/index.html) is important to understanding this command.
+
+In order for a copy operation to work, the volumes being copied between must be within [CommRange](../../summary_topics/commrange/index.html).
+
 Example:
 
     SWITCH TO 1.       // Makes volume 1 the active volume
@@ -28,6 +33,8 @@ Deletes a file. You can delete a file from the current volume, or from a named v
 * $1: Name of target file.
 * $2: (optional) Target volume.
 
+In order for a delete operation to work, the volumes being copied between must be within [CommRange](../../summary_topics/commrange/index.html).
+
 Example:
 
     DELETE file1.         // Deletes file1 from the active volume.
@@ -41,6 +48,12 @@ Edits a program on the currently selected volume.
 
 #### Arguments
 * $1: Name of file for editing.
+
+NOTE: The Edit feature was lost in version 0.11 but is back again after version 0.12.2 under a new
+guise.  The new editor is unable to show a monospace font for a series of complex reasons involving
+how Unity works and how squad bundled the KSP game.  The editor works, but will be in a proporional
+width font, which isn't ideal for editing code.  The best way to edit code remains to use a text
+editor external to KSP, however for a fast peek at the code during play, this editor is useful.
 
 Example:
 
@@ -94,7 +107,9 @@ Example:
 
 ## SWITCH TO $1
 
-Switches to the specified volume. Volumes can be specified by number, or it’s name (if it has one). See LIST and RENAME.
+Switches to the specified volume. Volumes can be specified by number, or it’s name (if it has one). See LIST and RENAME.  Understanding how [volumes work](../../summary_topics/volumes/index.html) is important to understanding this command.
+
+In order for a switch operation to work, it must be within [CommRange](../../summary_topics/commrange/index.html).
 
 #### Arguments
 * $1: Volume name/number
