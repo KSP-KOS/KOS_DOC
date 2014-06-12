@@ -16,10 +16,9 @@ Shared Structure
 Be aware that as of kOS 0.13, a vessel is now a type of [Orbitable](../orbitable/index.html)
 Much of what a Vessel can do can now by done by any orbitable object.  The documentation for those abilities has been moved to the orbitable page.
 
-Listed here are ONLY those terms that are not also shared by bodies.  For the list of terms shared in common with bodies, see the [Orbitable](../orbitable/index.html) page.
+Suffixes of Vessel:
 
-Fields unique to Vessel:
-
+* Every suffix of [Orbitable](../orbitable/index.html)
 * CONTROL - [Control](../control/index.html) for raw flying a ship.
 * BEARING - To Active Ship
 * HEADING - To Active Ship

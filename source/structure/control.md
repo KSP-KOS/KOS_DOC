@@ -1,5 +1,8 @@
 #### SHIP:CONTROL or VESSEL:CONTROL has the following components:
 
+For more explanation on how to use RAW control to fly a ship,
+see the [page about flight control](../../summary_topics/ship_control/index.html).
+
 *    GETTERS
   *  YAW - Rotation (1 to -1)
   *  PITCH - Rotation (1 to -1)

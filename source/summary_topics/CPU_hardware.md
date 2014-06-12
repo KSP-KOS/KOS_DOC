@@ -40,7 +40,7 @@ wakes up and performs the following steps, in this order:
 * Run the conditional checks of all TRIGGERS (see below)
 * For any TRIGGERS who's conditional checks are true, execute the entire body of the trigger.
 * If there's a pending WAIT statement, check if it's done.  If so wake up.
-* If awake, then execute the next [CONFIG:IPU](../../structure/config/index.html) number of instructions of the main program.
+* If awake, then execute the next [CONFIG:IPU](../../structure/config/index.html#IPU) number of instructions of the main program.
 
 Note that the number of instructions being executed (CONFIG:IPU) are NOT lines of code
 or kerboscript statements, but rather the smaller instruction opcodes that they are
@@ -100,8 +100,8 @@ If you try, it will have no effect.
 ### WAIT
 
 Any WAIT statement causes the kerboscript program to immediately stop executing
-the main program where it is, even if far fewer than CONFIG:IPU instructions
-have been executed in this **physics tick**.  It will not continue the execution
+the main program where it is, even if far fewer than [CONFIG:IPU](../../structure/config/index.html#IPU)
+instructions have been executed in this **physics tick**.  It will not continue the execution
 until at least the next **physics tick**, when it will check to see if the WAIT
 condition is satisfied and it's time to wake up and continue.
 

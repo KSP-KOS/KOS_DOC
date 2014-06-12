@@ -12,36 +12,36 @@ NAMED VESSELS AND BODIES
 
 Variable Name | Can Read | Can Set | Type | Description
 ==============|==========|=========|======|============
-SHIP | yes | no | [Vessel](/KOS_DOC/structure/vessel) | Whichever vessel happens to be the one containing the CPU part that is running this Kerboscript code at the moment.  Your code can think of this as the "me" ship.  Many reserved words are aliases for saying SHIP:word (see section below).
-TARGET | yes | yes | [Vessel](/KOS_DOC/structure/vessel) or [Body](/KOS_DOC/structure/body) | Whichever [Orbitable](KOS_DOC/structure/orbitable) object happens to be the one selected as the current KSP target.  If set to a string, it will assume the string is the name of a vessel being targetted and set it to a vessel by that name.  For best results set it to Body("some name") or Vessel("some name") explicitly.
+SHIP | yes | no | [Vessel](../structure/vessel/index.html) | Whichever vessel happens to be the one containing the CPU part that is running this Kerboscript code at the moment.  Your code can think of this as the "me" ship.  Many reserved words are aliases for saying SHIP:word (see section below/index.html).
+TARGET | yes | yes | [Vessel](../structure/vessel/index.html) or [Body](../structure/body/index.html) | Whichever [Orbitable](../structure/orbitable/index.html) object happens to be the one selected as the current KSP target.  If set to a string, it will assume the string is the name of a vessel being targetted and set it to a vessel by that name.  For best results set it to Body("some name") or Vessel("some name") explicitly.
 
 All of the main celestial bodies in the game are reserved variable names as well:
 
 Variable Name | Can Read | Can Set | Type | Description
 ==============|==========|=========|======|============
-Sun | yes | no | [Body](KOS_KSP/structures/body) | The Sun
-Moho | yes | no | [Body](KOS_KSP/structures/body) | A planet
-Eve | yes | no | [Body](KOS_KSP/structures/body) | A planet
-Gilly | yes | no | [Body](KOS_KSP/structures/body) | A moon of Eve
-Kerbin | yes | no | [Body](KOS_KSP/structures/body) | A planet
-Mun | yes | no | [Body](KOS_KSP/structures/body) | A moon of Eve
-Minmus | yes | no | [Body](KOS_KSP/structures/body) | A moon of Eve
-Duna | yes | no | [Body](KOS_KSP/structures/body) | A planet
-Ike | yes | no | [Body](KOS_KSP/structures/body) | A moon of Duna
-Jool | yes | no | [Body](KOS_KSP/structures/body) | A planet
-Laythe | yes | no | [Body](KOS_KSP/structures/body) | A moon of Jool
-Vall | yes | no | [Body](KOS_KSP/structures/body) | A moon of Jool
-Tylo | yes | no | [Body](KOS_KSP/structures/body) | A moon of Jool
-Bop | yes | no | [Body](KOS_KSP/structures/body) | A moon of Jool
-Pol | yes | no | [Body](KOS_KSP/structures/body) | A moon of Jool
-Eeloo | yes | no | [Body](KOS_KSP/structures/body) | A dwarf planet.
+Sun | yes | no | [Body](../structures/body/index.html) | The Sun
+Moho | yes | no | [Body](../structures/body/index.html) | A planet
+Eve | yes | no | [Body](../structures/body/index.html) | A planet
+Gilly | yes | no | [Body](../structures/body/index.html) | A moon of Eve
+Kerbin | yes | no | [Body](../structures/body/index.html) | A planet
+Mun | yes | no | [Body](../structures/body/index.html) | A moon of Eve
+Minmus | yes | no | [Body](../structures/body/index.html) | A moon of Eve
+Duna | yes | no | [Body](../structures/body/index.html) | A planet
+Ike | yes | no | [Body](../structures/body/index.html) | A moon of Duna
+Jool | yes | no | [Body](../structures/body/index.html) | A planet
+Laythe | yes | no | [Body](../structures/body/index.html) | A moon of Jool
+Vall | yes | no | [Body](../structures/body/index.html) | A moon of Jool
+Tylo | yes | no | [Body](../structures/body/index.html) | A moon of Jool
+Bop | yes | no | [Body](../structures/body/index.html) | A moon of Jool
+Pol | yes | no | [Body](../structures/body/index.html) | A moon of Jool
+Eeloo | yes | no | [Body](../structures/body/index.html) | A dwarf planet.
 
 
 Alias shortcuts for SHIP fields
 -------------------------------
 
 The following are all alias shortcuts for accessing the fields of the SHIP vessel.
-To see their definition, please consult the [Vessel](/KOS_DOC/strcuture/vessel)
+To see their definition, please consult the [Vessel](../strcuture/vessel/index.html)
 page, as they are all just instances of the standard vessel suffixes.
 
 Variable | Same as
@@ -82,7 +82,7 @@ VESSELNAME | Same as SHIP:NAME
 Resource Types
 --------------
 
-Any time there is a resource on the ship it can be queried.  The resources are the values that appear when you click on the upper-right corner of the screen in the KSP window. ![Resources](/KOS_DOC/images/resources.png)
+Any time there is a resource on the ship it can be queried.  The resources are the values that appear when you click on the upper-right corner of the screen in the KSP window. ![Resources](../images/resources.png)
 
     LIQUIDFUEL
     OXIDIZER
@@ -137,7 +137,7 @@ ETA:TRANSITION | number | The number of seconds until the current ship will leav
 ENCOUNTER
 ---------
 
-The body being encountered next by the current vessel.  Returns the special string "None" if there is no expected encounter, or an object of type [Body](/KOS_DOC/structures/body) if an encounter is expected.
+The body being encountered next by the current vessel.  Returns the special string "None" if there is no expected encounter, or an object of type [Body](../structures/body/index.html) if an encounter is expected.
 
 
 
@@ -177,12 +177,12 @@ AG10 | yes | yes | Action Group 10.
 Flight Control
 --------------
 
-A summary page describing the basics of controlling the flight of a ship [can be found here](/KSP-KOS/summary_topics/ship_control)
+A summary page describing the basics of controlling the flight of a ship [can be found here](../summary_topics/ship_control/index.html)
 
 ### Controls that must be used with LOCK
 
     THROTTLE			// Lock to a decimal value between 0 and 1.
-    STEERING			// Lock to a direction, either a [Vector](/KOS_DOC/structures/vector) or a [Rotation](/KOS_DOC/structures/rotation) .
+    STEERING			// Lock to a direction, either a Vector or a Direction.
     WHEELTHROTTLE       // Seperate throttle for wheels
     WHEELSTEERING       // Seperate steering system for wheels
 
@@ -196,12 +196,21 @@ Returns values about kOS and hardware
     PRINT VERSION:MAJOR.      // Returns major version number. e.g. 0
     PRINT VERSION:MINOR.      // Returns minor version number. e.g. 8
     PRINT SESSIONTIME.        // Returns amount of time, in seconds, from vessel load.
+    
 
 NOTE the following important difference:
 
 SESSIONTIME is the time since the last time this vessel was loaded from on-rails into full physics.
 
 TIME is the time since the entire saved game campaign started, in the kerbal universe's time.  i.e. TIME = 0  means a brand new campaign was just started.
+
+Config
+------
+
+CONFIG is a special variable name that refers to the configuration settings for
+the kOS mod, and can be used to set or get various options.
+
+[CONFIG has its own page](../structure/config/index.html) for further details.
 
 Game State
 ----------
@@ -210,7 +219,7 @@ Variables that have something to do with the state of the universe.
 
 Variable | Type | Meaning
 =========|======|=========
-TIME | [Time](../../structure/time/index.html) | Simulated amount of time that passed since the beginning of the game's universe epoch.  (A brand new campaign that just started begins at TIME zero.)
+TIME | [Time](../structure/time/index.html) | Simulated amount of time that passed since the beginning of the game's universe epoch.  (A brand new campaign that just started begins at TIME zero.)
 MAPVIEW | boolean | Both settable and gettable.  If you query MAPVIEW, it's true if on the map screen, and false if on the flight view screen.  If you SET MAPVIEW, you can cause the game to switch between mapview and flight view or visa versa.
 
 TIME is a useful system variable for calculating the passage of time between taking
@@ -223,4 +232,4 @@ slower than the real time.  For any script program trying to calculate physical
 properties of the KSP universe, the time that matters is the simulated time, which
 is what TIME returns.
 
-It's important to be aware of the [frozen update nature](TODO) of the kOS computer when reading TIME.
+It's important to be aware of the [frozen update nature](../summary_topics/CPU_hardware/index.html#FROZEN) of the kOS computer when reading TIME.

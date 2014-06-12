@@ -19,6 +19,7 @@ can also use all the terms described for Orbital objects too.
 Structure
 =========
 
+* Every suffix of [Orbitable](../orbitable/index.html)
 * NAME - string
 * DESCRIPTION - string
 * MASS - Number (kilogram)

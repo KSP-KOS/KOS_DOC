@@ -34,6 +34,19 @@ Example:
 
 ***
 
+### LOCK.. TO
+
+Declares that the idenifier will refer to an expression that is always re-evaluated on the fly every time it is used.
+Example:
+
+    SET Y TO 1.
+    LOCK X TO Y + 1.
+    PRINT X. // prints "2"
+    SET Y TO 2.
+    PRINT X. // prints "3"
+
+***
+
 ### TOGGLE
 
 Toggles a variable between true or false. If the variable in question starts out as a number, it will be converted to a boolean and then toggled. This is useful for setting action groups, which are activated whenever their values are inverted.
