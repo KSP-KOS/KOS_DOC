@@ -69,9 +69,9 @@ View kOS on GitHub
 
 <p>Copies a file to or from another volume. Volumes can be referenced by their ID numbers or their names if they’ve been given one. See LIST, SWITCH and RENAME.</p>
 
-<p>Understanding <a href="/KOS_DOC/summary_topics/volumes">how volumes work</a> is important to understanding this command.</p>
+<p>Understanding how <a href="../../summary_topics/volumes/index.html">volumes work</a> is important to understanding this command.</p>
 
-<p>In order for a copy operation to work, the volumes being copied between must be within <a href="/KOS_DOC/summary_topics/commrange">CommRange</a>.</p>
+<p>In order for a copy operation to work, the volumes being copied between must be within <a href="../../summary_topics/commrange/index.html">CommRange</a>.</p>
 
 <p>Example:</p>
 
@@ -92,7 +92,7 @@ COPY file2 TO 0.   // Copies a file called file1 from volume 1 to volume 0
   <li>$2: (optional) Target volume.</li>
 </ul>
 
-<p>In order for a delete operation to work, the volume being deleted from must be within <a href="/KOS_DOC/summary_topics/commrange">CommRange</a>.</p>
+<p>In order for a delete operation to work, the volumes being copied between must be within <a href="../../summary_topics/commrange/index.html">CommRange</a>.</p>
 
 <p>Example:</p>
 
@@ -110,6 +110,12 @@ DELETE file1 FROM 1.  // Deletes file1 from volume 1
 <ul>
   <li>$1: Name of file for editing.</li>
 </ul>
+
+<p>NOTE: The Edit feature was lost in version 0.11 but is back again after version 0.12.2 under a new
+guise.  The new editor is unable to show a monospace font for a series of complex reasons involving
+how Unity works and how squad bundled the KSP game.  The editor works, but will be in a proporional
+width font, which isn't ideal for editing code.  The best way to edit code remains to use a text
+editor external to KSP, however for a fast peek at the code during play, this editor is useful.</p>
 
 <p>Example:</p>
 
@@ -173,9 +179,9 @@ RENAME FILE MyFile TO AutoLaunch.
 
 <h2 id="switch-to-1">SWITCH TO $1</h2>
 
-<p>Switches to the specified volume. Volumes can be specified by number, or it’s name (if it has one). See LIST and RENAME. Understanding <a href="/KOS_DOC/summary_topics/volumes">how volumes work</a> is important to understanding this command.</p>
+<p>Switches to the specified volume. Volumes can be specified by number, or it’s name (if it has one). See LIST and RENAME.  Understanding how <a href="../../summary_topics/volumes/index.html">volumes work</a> is important to understanding this command.</p>
 
-<p>In order to use a volume, it must be within <a href="/KOS_DOC/summary_topics/commrange">CommRange</a>.</p>
+<p>In order for a switch operation to work, it must be within <a href="../../summary_topics/commrange/index.html">CommRange</a>.</p>
 
 <h4 id="arguments-6">Arguments</h4>
 <ul>

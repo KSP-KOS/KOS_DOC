@@ -91,6 +91,20 @@ Example:</p>
 
 <hr />
 
+<h3 id="lock-to">LOCK.. TO</h3>
+
+<p>Declares that the idenifier will refer to an expression that is always re-evaluated on the fly every time it is used.
+Example:</p>
+
+<pre><code>SET Y TO 1.
+LOCK X TO Y + 1.
+PRINT X. // prints "2"
+SET Y TO 2.
+PRINT X. // prints "3"
+</code></pre>
+
+<hr />
+
 <h3 id="toggle">TOGGLE</h3>
 
 <p>Toggles a variable between true or false. If the variable in question starts out as a number, it will be converted to a boolean and then toggled. This is useful for setting action groups, which are activated whenever their values are inverted.

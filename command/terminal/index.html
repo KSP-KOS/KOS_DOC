@@ -53,7 +53,7 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h1 id="terminal">Terminal</h1>
+<h1 id="terminal-and-game-environment">Terminal and game environment</h1>
 
 <hr />
 
@@ -87,6 +87,27 @@ Example:</p>
 <pre><code>PRINT “Hello” at (0,10).
 PRINT 4+1 at (0,10).
 PRINT “4 times 8 is: “ + (4*8) at (0,10).
+</code></pre>
+
+<hr />
+
+<h3 id="mapview">MAPVIEW</h3>
+
+<p>A variable that controls or queries whether or not the game is in map view:</p>
+
+<p>Querying:</p>
+
+<pre><code>IF MAPVIEW {
+    PRINT "You are looking at the map.".
+} ELSE {
+    PRINT "You are looking at the flight view.".
+}.
+</code></pre>
+
+<p>Setting:</p>
+
+<pre><code>SET MAPVIEW TO TRUE.  // Switches the game to the map view.
+SET MAPVIEW TO FALSE. // Switches the game to the flight view.
 </code></pre>
 
 <hr />

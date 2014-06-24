@@ -55,83 +55,52 @@ View kOS on GitHub
 <article class='markdown-body'>
 <p>﻿# Vessel</p>
 
-<p>All vessels share a structure</p>
+<p>All vessels share a structure.</p>
+
+<p>To get a variable referring to any vessel you can do this:</p>
+
+<h3 id="getting-a-vessel-variable">getting a vessel variable:</h3>
+
+<pre><code>SET MY_VESS TO VESSEL("Some Ship Name"). // Get a vessel by it's name.  The name is Case Sensitive.
+SET MY_VESS TO SHIP.  // Save the current vessel in a variable, in case the current vessel changes.
+SET MY_VESS TO TARGET.  // Save the target vessel in a variable, in case the target vessel changes.
+</code></pre>
 
 <h1 id="shared-structure">Shared Structure</h1>
 
+<p>Be aware that as of kOS 0.13, a vessel is now a type of <a href="../orbitable/index.html">Orbitable</a>
+Much of what a Vessel can do can now by done by any orbitable object.  The documentation for those abilities has been moved to the orbitable page.</p>
+
+<p>Suffixes of Vessel:</p>
+
 <ul>
-  <li>CONTROL - <a href="/KOS_DOC/structure/control">Control</a> for raw flying a ship.</li>
-  <li>DIRECTION - <a href="/KOS_DOC/structure/direction">Direction</a> To Active Ship</li>
-  <li>DISTANCE - Meters To Active Ship</li>
-  <li>BEARING - To Active Ship</li>
-  <li>HEADING - To Active Ship</li>
-  <li>PROGRADE - <a href="/KOS_DOC/structure/direction">Direction</a></li>
-  <li>RETROGRADE - <a href="/KOS_DOC/structure/direction">Direction</a></li>
-  <li>MAXTHRUST - Max thrust of all active engines</li>
-  <li>VELOCITY - Structure 
+  <li>Every suffix of <a href="../orbitable/index.html">Orbitable</a> is callable from VESSEL, as well as…
     <ul>
-      <li>ORBIT - <a href="/KOS_DOC/structure/vector">Vector</a></li>
-      <li>SURFACE - <a href="/KOS_DOC/structure/vector">Vector</a></li>
+      <li>CONTROL - <a href="../control/index.html">Control</a> for raw flying a ship.</li>
+      <li>BEARING - To <a href="../../summary_topics/CPU_Vessel/index.html">CPU Vessel</a></li>
+      <li>HEADING - To <a href="../../summary_topics/CPU_Vessel/index.html">CPU Vessel</a></li>
+      <li>MAXTHRUST - Max thrust of all active engines</li>
+      <li>FACING - <a href="../direction/index.html">Direction</a></li>
+      <li>ANGULARMOMENTUM = <a href="../direction/index.html">Direction</a> in [SHIP-RAW reference frame]](../../ref_frame/index.html).  Despite the name, this is technically not momentum information.</li>
+      <li>ANGULARVEL = <a href="../direction/index.html">Direction</a> in [SHIP-RAW reference frame]](../../ref_frame/index.html).  Despite the name, this is technically not a velocity.  It only tells you the axis of rotation, not the speed of rotation around that axis.</li>
+      <li>MASS - Number (kilogram)</li>
+      <li>VERTICALSPEED - Number (meters/s)</li>
+      <li>SURFACESPEED - Number (meters/s)</li>
+      <li>AIRSPEED - Number (meters/s)</li>
+      <li>VESSELNAME - string</li>
+      <li>SENSORS - Structure
+        <ul>
+          <li>ACC - <a href="../vector/index.html">Vector</a></li>
+          <li>PRES - Number (Atmosphere)</li>
+          <li>TEMP - Number (Celsius)</li>
+          <li>GRAV - <a href="../vector/index.html">Vector</a></li>
+        </ul>
+      </li>
+      <li>TERMVELOCITY - Number (meters/s) based on the vessel's current altitude above sea level, and its drag properties.</li>
+      <li>LOADED - Boolean - true if the vessel is fully loaded into the complete KSP physics engine (false if it's "on rails").</li>
     </ul>
   </li>
-  <li>GEOPOSITION - <a href="/KOS_DOC/structure/geocordinates">GeoCordinates</a></li>
-  <li>LATITUDE - Number (degrees)</li>
-  <li>LONGITUDE - Number (degrees)</li>
-  <li>FACING - <a href="/KOS_DOC/structure/direction">Direction</a></li>
-  <li>UP - <a href="/KOS_DOC/structure/direction">Direction</a></li>
-  <li>NORTH - <a href="/KOS_DOC/structure/direction">Direction</a></li>
-  <li>BODY - <a href="Body">Body</a></li>
-  <li>ANGULARMOMENTUM - <a href="/KOS_DOC/structure/direction">Direction</a></li>
-  <li>ANGULARVEL - <a href="/KOS_DOC/structure/direction">Direction</a></li>
-  <li>MASS - Number (kilogram)</li>
-  <li>VERTICALSPEED - Number (meters/s)</li>
-  <li>SURFACESPEED - Number (meters/s)</li>
-  <li>AIRSPEED - Number (meters/s)</li>
-  <li>VESSELNAME - string</li>
-  <li>ALTITUDE - Number (meters)</li>
-  <li>APOAPSIS - Number (meters)</li>
-  <li>PERIAPSIS - Number (meters)</li>
-  <li>SENSORS - Structure
-    <ul>
-      <li>ACC - <a href="/KOS_DOC/structure/vector">Vector</a></li>
-      <li>PRES - Number (Atmosphere)</li>
-      <li>TEMP - Number (Celsius)</li>
-      <li>GRAV - <a href="/KOS_DOC/structure/vector">Vector</a></li>
-    </ul>
-  </li>
-  <li>TERMVELOCITY - Number (meters/s)</li>
-  <li>OBT - Structure - <a href="/KOS_DOC/structure/orbit">Orbit</a></li>
 </ul>
-
-<h4 id="vessel-vesselname">VESSEL (vesselname)</h4>
-
-<p>Represents a targetable vessel</p>
-
-<pre><code>SET X TO VESSEL("kerbRoller2").     // Initialize a reference to a vessel.
-PRINT X:DISTANCE.                   // Print distance from current vessel to target.
-PRINT X:HEADING.                    // Print the heading to the vessel.
-PRINT X:BEARING.                    // Print the heading to the target vessel relative to vessel heading.
-</code></pre>
-
-<h4 id="ship">SHIP</h4>
-
-<p>Represents currently selected ship</p>
-
-<pre><code>PRINT SHIP.                            // returns VESSEL("kerbRoller2")
-PRINT SHIP:DISTANCE.                   // Print distance from current vessel to target.
-PRINT SHIP:HEADING.                    // Print the heading to the vessel.
-PRINT SHIP:BEARING.                    // Print the heading to the target vessel relative to vessel heading.
-</code></pre>
-
-<h4 id="target">TARGET</h4>
-
-<p>Represents targeted vessel or celestial body</p>
-
-<pre><code>SET TARGET TO "kerbRoller2".        // target kerbRoller2
-PRINT TARGET:DISTANCE.              // Print distance from current vessel to target.
-PRINT TARGET:HEADING.               // Print the heading to the target vessel.
-PRINT TARGET:BEARING.               // Print the bearing to the target vessel relative to vessel heading.
-</code></pre>
 
 </article>
 </div>

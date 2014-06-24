@@ -71,9 +71,11 @@ UNTIL 0 {
 
 <hr />
 
-<h3 id="if--else">IF / ELSE</h3>
+<h3 id="ifelse">IF/ELSE</h3>
 
-<p>Checks if the expression supplied returns true. If it does, IF executes the following command block. Can aalso have an optional ELSE clause to execute when the IF condition is not true.  ELSE can have another IF after it, to make a chain of if/else conditions. </p>
+<p>Checks if the expression supplied returns true. If it does, IF executes the following command block.
+Can also have an optional ELSE to execute when the IF condition is not true.  ELSE can have another
+IF after it, to make a chain of if/else conditions.</p>
 
 <p>Example:</p>
 
@@ -86,19 +88,19 @@ IF X &gt; 10 { PRINT "X is large".  } ELSE { PRINT "X is small".  }.
 //
 // An if-else ladder:
 IF X = 0 {
-    PRINT "zero".
+PRINT "zero".
 } ELSE IF X &lt; 0 {
-    PRINT "negative".
+PRINT "negative".
 } ELSE {
-    PRINT "positive".
+PRINT "positive".
 }.
 </code></pre>
 
 <p>Although a period (.) is usally optional after the end of a set of curly braces like so:</p>
 
-<p>{  }.</p>
+<p>{ }.</p>
 
-<p>In the case where you are using the ELSE keyword, you must <strong>not</strong> end the previous IF body with a period, as that terminates the IF command and causes the ELSE keyword to be without a matching IF.</p>
+<p>In the case where you are using the ELSE keyword, you must <em>not</em> end the previous IF body with a period, as that terminates the IF command and causes the ELSE keyword to be without a matching IF.</p>
 
 <p>Example:</p>
 
@@ -110,8 +112,10 @@ IF X &gt; 10 { PRINT "Large". }. ELSE { PRINT "Small". }.  // syntax error - ELS
 
 <h3 id="lock">LOCK</h3>
 
-<p>Locks a variable to an expression. On each cycle, the target variable will be freshly updated with the latest value from expression.
-Example:</p>
+<p>Locks an identifier to an expression. Each time the identifier is used in an expression, its
+value will be re-calculated on the fly.</p>
+
+<p>Example:</p>
 
 <pre><code>SET X TO 1.
 LOCK Y TO X + 2.
@@ -122,11 +126,14 @@ PRINT Y.      // Outputs 6
 
 <p>Unlike variables created with the SET or DECLARE commands, LOCK variables are local to the current program.  If program A calls program B, and program B issues a LOCK command, program A will not be able to read that LOCK variable's result.</p>
 
+<p>NOTE THAT if a lock expression is used with a flight control such as THROTTLE or STEERING, then it will
+get continually evaluated in the background <a href="../../summary_topics/CPU_hardware/index.html#TRIGGERS">each update tick</a>.</p>
+
 <hr />
 
 <h3 id="unlock">UNLOCK</h3>
 
-<p>Releases a lock on a variable, causing it to become undefined. See LOCK.
+<p>Releases a lock on a variable. See LOCK.
 Examples:</p>
 
 <pre><code>UNLOCK X.                // Releases a lock on variable X.
@@ -147,6 +154,24 @@ UNTIL X &gt; 10 {          // Prints the numbers 1-10.
 }.
 </code></pre>
 
+<p>Note that if you are creating a loop in which you are watching a physical value that you expect to
+change each iteration, it's vital that you insert a small WAIT at the bottom of the loop like so:</p>
+
+<pre><code>SET PREV_TIME to TIME:SECONDS.
+SET PREV_VEL to SHIP:VELOCITY.
+SET ACCEL to V(9999,9999,9999).
+PRINT "Waiting for accellerations to stop.".
+UNTIL ACCEL:MAG &lt; 0.5 {
+    SET ACCEL TO (SHIP:VELOCITY - PREV_VEL) / (TIME:SECONDS - PREV_TIME).
+    SET PREV_TIME to TIME:SECONDS.
+    SET PREV_VEL to SHIP:VELOCITY.
+
+    WAIT 0.001.  // This line is Vitally Important.
+}.
+</code></pre>
+
+<p>The full explanation why is <a href="../../summary_topics/CPU_hardware/index.html#FROZEN">in the CPU hardware description page</a>.</p>
+
 <hr />
 
 <h3 id="wait">WAIT</h3>
@@ -159,40 +184,23 @@ WAIT UNTIL X &gt; 40.            // Wait until X becomes greater than 40.
 WAIT UNTIL APOAPSIS &gt; 150000. // You can see where this is going.
 </code></pre>
 
+<p>Note that any WAIT statement, no matter what the actual expression is, will always result in
+a wait time that lasts at least <a href="../../summary_topics/CPU_hardware/index.html#WAIT">one physics tick</a>.</p>
+
 <hr />
+<p><a name="WHEN"></a></p>
 
 <h3 id="when-then">WHEN.. THEN</h3>
 
-<p>Executes a command when a certain criteria are met.
-Unlike WAIT, WHEN does not halt execution.
-It starts a check in the background that will keep
-actively looking for the trigger condition while the
-rest of the code continures.  When it triggers, the
-body after the THEN will execute exactly once, after
-which the trigger is removed.</p>
+<p>Executes a command when a certain criteria are met. Unlike WAIT, WHEN does not halt execution. It starts a check in the background that will keep actively looking for the trigger condition while the rest of the code continures. When it triggers, the body after the THEN will execute exactly once, after which the trigger is removed.  (Unless the <a href="#PRESERVE">PRESERVE command</a> is used, in which case the trigger is not removed).</p>
 
-<p>The body of a THEN or an ON statement interrupts the normal flow
-of a kOS program.  When the event that triggers the body happens,
-the main kOS program is paused until the body of the THEN 
-completes.</p>
+<p>The body of a THEN or an ON statement interrupts the normal flow of a kOS program. When the event that triggers the body happens, the main kOS program is paused until the body of the THEN completes.</p>
 
-<p>In addition, the entire Kerbal Space Program game is paused
-until the body of a WHEN/THEN or ON completes, so you need
-to ensure they perform small fast tasks.  <strong>Do not put a long
-lasting loop in the body of a WHEN/THEN or ON command.</strong></p>
+<p>In addition, the entire Kerbal Space Program game is paused until the body of a WHEN/THEN or ON completes, so you need to ensure they perform small fast tasks. Do not put a long lasting loop in the body of a WHEN/THEN or ON command.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th><strong>IMPORTANT BREAKING CHANGE</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>CHANGE WITH 0.12</strong>  In previous versions of kOS, the body of a WHEN/THEN would execute simultaneously in the background with the rest of the main program.  This behavior has changed as of version 0.12 of kOS, as described above, and scripts that used to rely on this behavior will not work with version 0.12 of kOS.</td>
-    </tr>
-  </tbody>
-</table>
+<p>IMPORTANT BREAKING CHANGE
+|——|
+| CHANGE WITH 0.12 In previous versions of kOS, the body of a WHEN/THEN would execute simultaneously in the background with the rest of the main program. This behavior has changed as of version 0.12 of kOS, as described above, and scripts that used to rely on this behavior will not work with version 0.12 of kOS. |</p>
 
 <p>Example:</p>
 
@@ -202,44 +210,92 @@ WHEN BCount &lt; 99 THEN PRINT BCount + “ bottles of beer on the wall”.
 // Watch in the background for when the altitude is high enough.
 // Once it is, then turn on the solar panels and action group 1:
 WHEN altitude &gt; 70000 THEN {
-    PRINT "ACTIVATING PANELS AND AG 1.".
-    PANELS ON.
-    AG1 ON.
+PRINT "ACTIVATING PANELS AND AG 1.".
+PANELS ON.
+AG1 ON.
 }.
 </code></pre>
 
-<p>A WHEN..THEN trigger is removed when the program that created it exits,
-even if it has not occurred yet.</p>
+<p>A WHEN..THEN trigger is removed when the program that created it exits, even if it has not occurred yet.</p>
+
+<p>The <a href="#PRESERVE">PRESERVE keyword</a> can be used inside the THEN clause of a WHEN statement.</p>
+
+<p>If you are going to make extensive use of WHEN..THEN triggers, it's important to understand
+more details of how they <a href="../../summary_topics/CPU_hardware/index.html#TRIGGERS">work in the kOS CPU</a>.</p>
+
+<hr />
+<p><a name="ON"></a></p>
 
 <h3 id="on">ON</h3>
 
-<p>The <em>ON</em> command is almost identical to the WHEN/THEN command.
-<em>ON</em> sets up a trigger in the background that will run the selected command
-exactly once when the boolean variable changes state from true to false
-or from false to true. This command is best used to listen for action
-group activations.</p>
+<p>The ON command is almost identical to the WHEN/THEN command. ON sets up a trigger in the background that will run the selected command exactly once when the boolean variable changes state from true to false or from false to true. This command is best used to listen for action group activations.</p>
 
-<p><em>How does it differ from WHEN/THEN?</em> : WHEN/THEN triggers whenever
-the conditional expression becomes true.  ON triggers whenever the
-boolean variable changes state EITHER from false to true OR from true to false.</p>
+<p>Just like with the WHEN/THEN command, the <a href="#PRESERVE">PRESERVE command</a> can be used inside the
+code block to cause the trigger to remain active and not go away.</p>
 
-<p>The body of an <em>ON</em> statement can be a list of commands inside 
-curly braces, just like for WHEN/THEN.  Also just like with WHEN/THEN, the
-body of the ON interrupts all of KSP while it runs, so it should be designed
-to be a short and finish quickly without getting stuck in a long loop.</p>
+<p>How does it differ from WHEN/THEN? : WHEN/THEN triggers whenever the conditional expression becomes true. ON triggers whenever the boolean variable changes state EITHER from false to true OR from true to false.</p>
+
+<p>The body of an ON statement can be a list of commands inside curly braces, just like for WHEN/THEN. Also just like with WHEN/THEN, the body of the ON interrupts all of KSP while it runs, so it should be designed to be a short and finish quickly without getting stuck in a long loop.</p>
 
 <p>Example:</p>
 
-<pre><code>ON AG3 PRINT “Action Group 3 Activated!”.
+<pre><code>ON AG3 {
+   PRINT “Action Group 3 Activated!”.
+}.
 ON SAS PRINT “SAS system has been toggled”.
+ON AG1 {
+    PRINT "Action Group 1 activated.".
+    PRESERVE.
+}.
+</code></pre>
+
+<p>If you are going to make extensive use of ON triggers, it's important to understand
+more details of how they <a href="../../summary_topics/CPU_hardware/index.html#TRIGGERS">work in the kOS CPU</a>.</p>
+
+<hr />
+<p><a name="PRESERVE"></a></p>
+
+<h3 id="preserve">PRESERVE</h3>
+
+<p>PRESERVE is a command keyword that is only valid inside of <a href="#WHEN">WHEN..THEN</a> and <a href="#ON">ON</a> code blocks.</p>
+
+<p>When a <a href="#WHEN">WHEN..THEN</a> or <a href="#ON">ON</a> condition is triggered, the default behavior is to
+execute the code block body exactly once and only once, and then the trigger condition is
+removed and the trigger will never occur again.</p>
+
+<p>To alter this, execute the 'PRESERVE' command anywhere within the body of the code being executed
+and it tells the kOS computer to keep the trigger condition active.  When it finishes executing the
+code block of the trigger, if PRESERVE has happened anywhere within that run of the block of code,
+it will not remove the trigger.  Instead it will allow it to re-trigger,
+possibly as soon as the very next tick.  If the PRESERVE keyword is executed again and again each
+time the trigger occurs, the trigger could remain active indefinitely.</p>
+
+<p>Example:</p>
+
+<pre><code>SET NUMSTAGES TO 5.
+SET STAGE_COOLDOWN_START TO 0.
+//
+// Set up a continuous background check to keep looking for if there's
+// no fuel in the current stage, and if there is, then activate the next
+// stage, but no more often than once every half second.
+// Once more than NUMSTAGES have happened, allow the check to stop executing.
+// Keep the check alive until that happens.
+//
+WHEN (TIME:SECONDS &gt; STAGE_COOLDOWN_START + 0.5) AND STAGE:LIQUIDFUEL = 0 {
+    SET STAGE_COOLDOWN_START TO TIME:SECONDS.
+    STAGE.
+    SET NUMSTAGES TO NUMSTAGES - 1.
+    IF NUMSTAGES &gt; 0 {
+        PRESERVE.
+    }.
+}.
+// 
+// Continue to the rest of the code
 </code></pre>
 
 <hr />
 
-<hr />
-<p>### (Boolean operators)
-All conditional statements, like IF, can make use of boolean operators.
-Order of operations is as follows:</p>
+<h3 id="boolean-operators-all-conditional-statements-like-if-can-make-use-of-boolean-operators-order-of-operations-is-as-follows">(Boolean operators) All conditional statements, like IF, can make use of boolean operators. Order of operations is as follows:</h3>
 
 <ul>
   <li>= &lt; &gt; &lt;= &gt;= &lt;&gt;</li>
@@ -248,8 +304,7 @@ Order of operations is as follows:</p>
   <li>NOT</li>
 </ul>
 
-<p>Boolean is a type that can be stored in a variable and used that way as well.
-The constants True and False (case insensitive) may be used as values for boolean variables.</p>
+<p>Boolean is a type that can be stored in a variable and used that way as well. The constants True and False (case insensitive) may be used as values for boolean variables.</p>
 
 <p>If a number is used as if it was a Boolean variable, it will be interpreted in the standard way (zero means false, anything else means true).</p>
 
@@ -269,6 +324,7 @@ IF 1 { PRINT "This statement happens unconditionally." }.
 IF 0 { PRINT "This statement never happens." }.
 IF count { PRINT "count isn't zero.". }.
 </code></pre>
+
 
 </article>
 </div>

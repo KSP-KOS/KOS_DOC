@@ -53,34 +53,45 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h3 id="comm-range-for-remote-updates">Comm Range For Remote Updates.</h3>
+<h2 id="comm-range-for-remote-updates">Comm Range For Remote Updates.</h2>
+
+<h3 id="notice-as-of-kos-0122-the-commrange-checks-are-temporarily-disabled-in">NOTICE: AS OF KOS 0.12.2, the COMMRANGE checks are temporarily disabled in</h3>
+<p>the stock game and the future of this feature is still fuzzy, and will likely be
+releated to RemoteTech2 in some way.  (i.e. if you don't use RemoteTech2, then there
+will be no check for range anymore).</p>
+
+<p>In 0.12.2, the following shortcut is used instead:</p>
+
+<p>COMMRANGE always returns a Very Big Number, and</p>
+
+<p>INRANGE always returns true.</p>
+
+<h3 id="if-you-are-using-a-version-of-kos--0122-then-most-of-what-this-page-says-wont-be-true">If you are using a version of koS &gt;= 0.12.2, then most of what this page says won't be true.</h3>
+
+<p>~~~~~~~~~~~~~~~</p>
 
 <p>Kerbin must be within CommRange of the vessel in order for the following operations to work:</p>
 
 <ul>
-  <li>COPY a file from a local volume to <a href="/KOS_DOC/summary_topics/volumes">Archive</a></li>
-  <li>COPY a file from <a href="/KOS_DOC/summary_topics/volumes">Archive</a> to a local volume.</li>
+  <li>COPY a file from a local volume to Archive</li>
+  <li>COPY a file from Archive to a local volume.</li>
   <li>LIST the files on the Archive.</li>
 </ul>
 
-<p>You can always find out whether or not the vessel is within transmission range of Kerbin
-using the following:</p>
+<p>You can always find out whether or not the vessel is within transmission range of Kerbin using the following:</p>
 
 <ul>
-  <li><code>PRINT COMMRANGE. // Shows a number, in meters.</code> </li>
-  <li><code>PRINT INCOMMRANGE.  // Shows a boolean true/false, for whether or not you are in range.</code></li>
+  <li>PRINT COMMRANGE. // Shows a number, in meters.</li>
+  <li>PRINT INCOMMRANGE. // Shows a boolean true/false, for whether or not you are in range.</li>
 </ul>
 
-<p>A future plan is to implement a feature that when the RemoteTech mod is installed, kOS will
-query RemoteTech to ask whether or not the vessel is in communications range, and allow
-RemoteTech to override the calculation described below.</p>
+<p>A future plan is to implement a feature that when the RemoteTech mod is installed, kOS will query RemoteTech to ask whether or not the vessel is in communications range, and allow RemoteTech to override the calculation described below.</p>
 
-<p><strong>The system described below is meant to be used only when RemoteTech2 is not installed.</strong></p>
+<p>The system described below is meant to be used only when RemoteTech2 is not installed.</p>
 
-<h4 id="how-to-calculate-communications-range">How to calculate communications range</h4>
+<h3 id="how-to-calculate-communications-range">How to calculate communications range</h3>
 
-<p>Communications range is decided by how many antennae are installed, and of what type.
-There are three categories of antenna:</p>
+<p>Communications range is decided by how many antennae are installed, and of what type. There are three categories of antenna:</p>
 
 <ul>
   <li>longAntenna: (The Communotron 16 'stick')</li>
@@ -90,129 +101,121 @@ There are three categories of antenna:</p>
 
 <p>The number of meters of range is decided by this formula:</p>
 
-<ul>
-  <li>max range = ( (100,000 + L*1,000,000) *100^M * 200^D ) meters </li>
-</ul>
-
-<p>Where:
-* L = number of longAntenna's on the vessel.
-* M = number of mediumDishAntenna's on the vessel.
-* D = number of commDish's on the vessel.</p>
+<p>max range = ( (100,000 + L*1,000,000) *100^M * 200^D ) meters
+Where: * L = number of longAntenna's on the vessel. * M = number of mediumDishAntenna's on the vessel. * D = number of commDish's on the vessel.</p>
 
 <table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Number of Long antennae</th>
-      <th style="text-align: left">Number of mediumDishAntennae</th>
-      <th style="text-align: left">Number of Dish antennae</th>
-      <th style="text-align: left">Max range</th>
-      <th>Context for comparison</th>
-    </tr>
-  </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">100 km</td>
+      <td>Number of Long antennae</td>
+      <td>Number of mediumDishAntennae</td>
+      <td>Number of Dish antennae</td>
+      <td>Max range</td>
+      <td>Context for comparison</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>100 km</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">1</td>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">1100 km</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1100 km</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">2</td>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">2100 km</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2100 km</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">1</td>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">10,000 km</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>10,000 km</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">1</td>
-      <td style="text-align: left">20,000 km</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>20,000 km</td>
       <td>Mun-to-Kerbin = 12,000 km</td>
     </tr>
     <tr>
-      <td style="text-align: left">1</td>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">1</td>
-      <td style="text-align: left">220,000 km</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>220,000 km</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">2</td>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">1</td>
-      <td style="text-align: left">420,000 km</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>420,000 km</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">2</td>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">1,000,000 km</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1,000,000 km</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">2</td>
-      <td style="text-align: left">4,000,000 km</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>4,000,000 km</td>
       <td>Almost the closest distance Moho gets to the Sun.</td>
     </tr>
     <tr>
-      <td style="text-align: left">1</td>
-      <td style="text-align: left">1</td>
-      <td style="text-align: left">1</td>
-      <td style="text-align: left">22,000,000 km</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>22,000,000 km</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">1</td>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">2</td>
-      <td style="text-align: left">44,000,000 km</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>44,000,000 km</td>
       <td>A bit bigger than the 'diameter' of Duna's orbit of the Sun.</td>
     </tr>
     <tr>
-      <td style="text-align: left">2</td>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">2</td>
-      <td style="text-align: left">84,000,000 km</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>84,000,000 km</td>
       <td>A bit bigger than the biggest distance between Jool and the Sun.</td>
     </tr>
     <tr>
-      <td style="text-align: left">3</td>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">2</td>
-      <td style="text-align: left">124,000,000 km</td>
+      <td>3</td>
+      <td>0</td>
+      <td>2</td>
+      <td>124,000,000 km</td>
       <td>A bit bigger than the biggest distance between Eeloo and the Sun.</td>
     </tr>
     <tr>
-      <td style="text-align: left">1</td>
-      <td style="text-align: left">2</td>
-      <td style="text-align: left">1</td>
-      <td style="text-align: left">2,200,000,000 km</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2,200,000,000 km</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">1</td>
-      <td style="text-align: left">0</td>
-      <td style="text-align: left">3</td>
-      <td style="text-align: left">8,800,000,000 km</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>8,800,000,000 km</td>
       <td>Larger than any distance in the Kerbal system.</td>
     </tr>
   </tbody>

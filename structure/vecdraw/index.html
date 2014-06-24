@@ -53,33 +53,58 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<p>﻿# Orbit</p>
+<h3 id="vecrdaw">VECRDAW</h3>
 
-<p>The path the vessel/body will take with no intervention</p>
+<p>A structure that allows you to make a drawing of a vector on the screen in map view or in
+flight view.</p>
 
-<h1 id="structure">Structure</h1>
-
+<h3 id="all-suffixes-can-be-gotten-and-set">All suffixes can be Gotten and Set:</h3>
 <ul>
-  <li>APOAPSIS - Number (meters)</li>
-  <li>PERIAPSIS - Number (meters)</li>
-  <li>BODY - <a href="../body/index.html">Body</a></li>
-  <li>PERIOD - Number (seconds) <a href="http://en.wikipedia.org/wiki/Orbital_period">Wiki</a></li>
-  <li>INCLINATION - Number (degree) <a href="http://en.wikipedia.org/wiki/Orbital_inclination">Wiki</a></li>
-  <li>ECCENTRICITY - Number <a href="http://en.wikipedia.org/wiki/Orbital_eccentricity">Wiki</a></li>
-  <li>SEMIMAJORAXIS - Number (meters) <a href="http://en.wikipedia.org/wiki/Semi-major_axis">Wiki</a></li>
-  <li>SEMIMINORAXIS - Number (meters)</li>
-  <li>PATCHES - list of <a href="../orbit/index.html">Orbit</a></li>
-  <li>TRANSITION - Enum
-    <ul>
-      <li>INITIAL</li>
-      <li>FINAL</li>
-      <li>ENCOUNTER</li>
-      <li>ESCAPE</li>
-      <li>MANEUVER</li>
-    </ul>
-  </li>
+  <li>START - Vector - position of the tail of the vector to draw in SHIP-RAW coords.  V(0,0,0) means the ship Center of Mass.</li>
+  <li>VEC - Vector - The vector to draw, SHIP-RAW Coords.</li>
+  <li>COLOR (or COLOUR works too) - <a href="../rgba/index.html">RGBA</a> - The color to draw the vector.  (There is a hardcoded fade effect where the tail is a bit more transparent than the head.)</li>
+  <li>LABEL - String - Text to show on-screen at the midpoint of the vector.</li>
+  <li>SCALE - Number - scalar to multiply by both the START and the VEC</li>
+  <li>SHOW - Boolean - Set to true to make the arrow appear, false to hide it. Defaults to false until you're ready to set it to true.</li>
 </ul>
 
+<h3 id="two-ways-to-make-a-vecdraw">Two ways to make a VECDRAW:</h3>
+
+<p>Build the suffix fields one at a time:</p>
+
+<pre><code>SET anArrow TO VECDRAW().
+SET anArrow:START TO V(0,0,0).
+SET anArrow:VEC TO V(a,b,c).
+SET anArrow:COLOR TO RGB(1,0,0).
+SET anArrow:LABEL TO "See the arrow?".
+SET anArrow:SCALE TO 5.0.
+SET anArrow:SHOW TO true.
+</code></pre>
+
+<p>Build the vecdraw all at once with the VECDRAWARGS() function:</p>
+
+<pre><code>SET anArrow TO VECDRAW( v(0,0,0), v(a,b,c), rgb(1,0,0), "See the arrow?", 5.0, true ).
+</code></pre>
+
+<p>The above two examples make the same thing.</p>
+
+<p>The arrow should be visible on both the map view and the in-flight view,
+but on the map view it will have to be a long arrow to be visible.</p>
+
+<p>VECDRAW's do not auto-update for changes in the vector like a LOCK
+would, but if you repeatedly SET the :VEC suffix in a loop, it will
+adjust the arrow picture to match as you do so.</p>
+
+<p>Example:</p>
+
+<pre><code>set xAxis to vecdraw( V(0,0,0), V(1,0,0), RGB(1.0,0.5,0.5), "X axis", 5, true ).
+set yAxis to vecdraw( V(0,0,0), V(0,1,0), RGB(0.5,1.0,0.5), "Y axis", 5, true ).
+set zAxis to vecdraw( V(0,0,0), V(0,0,1), RGB(0.5,0.5,1.0), "Z axis", 5, true ).
+</code></pre>
+
+<p>To make a vecdraw dissappear, you can either set its :SHOW to false or just UNSET the variable, or re-assign it.</p>
+
+<p>An example using vecdraw can be seen in the <a href="../../command/prediction.md">documentation for POSITIONAT</a></p>
 
 </article>
 </div>

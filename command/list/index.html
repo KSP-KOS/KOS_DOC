@@ -64,7 +64,7 @@ View kOS on GitHub
 <h4 id="arguments">Arguments</h4>
 <ul>
   <li>$1: Local variable that is only in scope for that iteration</li>
-  <li>$2: The <a href="/KOS_DOC/structure/list">List</a> you would like to iterate over</li>
+  <li>$2: The <a href="../../structure/list/index.html">List</a> you would like to iterate over</li>
 </ul>
 
 <p>Example:</p>
@@ -82,20 +82,20 @@ PRINT BAR. // ERROR, BAR doesn't exist outside the for statement
 
 <h3 id="list-1-in-2">LIST $1 IN $2</h3>
 
-<p>The active <a href="/KOS_DOC/structure/vessel">Vessel</a> has some default collections, this command stores them in a variable</p>
+<p>The active <a href="../../structure/vessel/index.html">Vessel</a> has some default collections, this command stores them in a variable</p>
 
 <h4 id="arguments-1">Arguments</h4>
 <ul>
   <li>$1: Collection name, See "Built-in Lists" below</li>
-  <li>$2: The variable name you would like to store the new <a href="/KOS_DOC/structure/list">List</a> in</li>
+  <li>$2: The variable name you would like to store the new <a href="../../structure/list/index.html">List</a> in</li>
 </ul>
 
 <p>Example:</p>
 
-<pre><code>LIST BODIES IN FOO. //Lists all [Bodies](/KOS_DOC/structure/body) in the system
+<pre><code>LIST BODIES IN FOO. //Lists all [Bodies](../../structure/body/index.html) in the system
 
 FOR BAR IN FOO {
-    PRINT BAR:NAME. //Will print the name of every [body](/KOS_DOC/structure/body) in the system
+    PRINT BAR:NAME. //Will print the name of every [body](../../structure/body/index.html) in the system
 }.
 </code></pre>
 
@@ -103,13 +103,13 @@ FOR BAR IN FOO {
 
 <h3 id="list-1-from-2-in-3">LIST $1 FROM $2 IN $3</h3>
 
-<p>The every <a href="/KOS_DOC/structure/vessel">Vessel</a> has some default collections, this command stores them in a variable</p>
+<p>The every <a href="../../structure/vessel/index.html">Vessel</a> has some default collections, this command stores them in a variable</p>
 
 <h4 id="arguments-2">Arguments</h4>
 <ul>
   <li>$1: Collection name, See "Built-in Lists" below</li>
-  <li>$2: <a href="/KOS_DOC/structure/vessel">Vessel</a> object or the string name of the vessel you would like to get a list from</li>
-  <li>$2: The variable name you would like to store the new <a href="/KOS_DOC/structure/list">List</a> in</li>
+  <li>$2: <a href="../../structure/vessel/index.html">Vessel</a> object or the string name of the vessel you would like to get a list from</li>
+  <li>$3: The variable name you would like to store the new <a href="../../structure/list/index.html">List</a> in</li>
 </ul>
 
 <p>Example:</p>
@@ -117,7 +117,7 @@ FOR BAR IN FOO {
 <pre><code>LIST RESOURCES FROM SOMEVESSEL IN FOO. //Adds variable FOO that contains a list of RESOURCES for the named vessel
 
 FOR BAR IN FOO {
-    PRINT BAR:NAME. //Will print the name of every [body](/KOS_DOC/structure/body) in the system
+    PRINT BAR:NAME. //Will print the name of every [body](../../structure/body/index.html) in the system
 }.
 </code></pre>
 
@@ -129,17 +129,18 @@ FOR BAR IN FOO {
 
 <h5 id="universal-lists">Universal Lists</h5>
 <ul>
-  <li>Bodies - List of <a href="/KOS_DOC/structure/body">Bodies</a></li>
-  <li>Targets - List of <a href="/KOS_DOC/structure/vessel">Vessels</a></li>
+  <li>Bodies - List of <a href="../../structure/body/index.html">Bodies</a></li>
+  <li>Targets - List of <a href="../../structure/vessel/index.html">Vessels</a></li>
 </ul>
 
 <h5 id="vessel-lists">Vessel Lists</h5>
 <ul>
-  <li>Resources</li>
-  <li>Parts</li>
-  <li>Engines - List of <a href="/KOS_DOC/structure/engines">Engines</a></li>
-  <li>Sensors</li>
+  <li>Resources - List of <a href="../../structure/resource/index.html">Resources</a></li>
+  <li>Part - List of <a href="../../structure/part/index.html">Parts</a>s</li>
+  <li>Engines - List of <a href="../../structure/engine/index.html">Engines</a></li>
+  <li>Sensors - List of <a href="../../structure/sensor/index.html">Sensors</a></li>
   <li>Elements</li>
+  <li>DockingPorts - list of <a href="../../structure/dockingport/index.html">DockingPorts</a></li>
 </ul>
 
 </article>

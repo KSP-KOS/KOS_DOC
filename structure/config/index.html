@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+<meta charset='utf-8'>
+<meta content='initial-scale=1.0' name='viewport'>
+<meta content='yes' name='apple-mobile-web-app-capable'>
+<meta content='black' name='apple-mobile-web-app-status-bar-style'>
+
+<title></title>
+<link href="../../stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../../stylesheets/stylesheet.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../../stylesheets/pygment_trac.css" media="screen" rel="stylesheet" type="text/css" />
+<link href='favicon.ico' rel='shortcut icon'>
+<link href='touch-icon-iphone.png' rel='apple-touch-icon'>
+<link href='touch-icon-ipad.png' rel='apple-touch-icon' sizes='72x72'>
+<link href='touch-icon-iphone-retina.png' rel='apple-touch-icon' sizes='114x114'>
+<link href='touch-icon-ipad-retina.png' rel='apple-touch-icon' sizes='144x144'>
+
+<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class=''>
+<div class='wrapper'>
+<header>
+<h1 class='title'>
+<a href='/KOS_DOC/'>
+kOS
+</a>
+</h1>
+</header>
+<div id='container'>
+<p class='tagline'>Fully programmable autopilot mod for KSP. Originally By Nivekk</p>
+<div id='main' role='main'>
+<div class='download-bar'>
+<div class='inner'>
+<a class='download-button spaceport' href='http://kerbalspaceport.com/kos-autopilot/'>
+<span>Spaceport</span>
+</a>
+<a class='download-button reddit' href='http://www.reddit.com/r/KOS_DOC/'>
+<span>Reddit</span>
+</a>
+<a class='download-button forum' href='http://forum.kerbalspaceprogram.com/threads/68089'>
+<span>Forum</span>
+</a>
+<a class='code' href='https://github.com/KSP-KOS/KOS'>
+View kOS on GitHub
+</a>
+</div>
+</div>
+<span class='blc'></span>
+<span class='trc'></span>
+<article class='markdown-body'>
+<h1 id="config">Config</h1>
+
+<p>Config is a special variable name that allows your kerboscript programs to
+set or get the values stored in the kOS plugin's config file.</p>
+
+<hr />
+
+<p><a name="IPU"></a></p>
+
+<h3 id="configipu">CONFIG:IPU</h3>
+
+<p>An integer.  Gettable and Settable.  Configures the InstructionsPerUpdate setting.</p>
+
+<p>This is the number of kRISC psuedo-machine-langauge instructions that each kOS CPU will attempt to execute from the main program per <a href="../../summary_topics/CPU_hardeare/index.html">physics update tick</a>.</p>
+
+<hr />
+
+<p><a name="UCP"></a></p>
+
+<h3 id="configucp">CONFIG:UCP</h3>
+
+<p>A boolean.  Gettable and Settable.  Configures the UseCompressedPersistence setting.</p>
+
+<p>If true, then the contents of the kOS local volume 'files' stored inside the campaign
+save's persistence file will be stored using a compression algorithm that has the
+advantage of making them take less space, but at the cost of making the data 
+impossible to decipher with the naked human eye when looking at the persistence file.</p>
+
+<hr />
+
+<p><a name="STAT"></a></p>
+
+<h3 id="configstat">CONFIG:STAT</h3>
+
+<p>A boolean.  Gettable and Settable.  Configures the ShowStatistics setting.</p>
+
+<p>If true, then executing a program will log numbers to the screen showing
+execution speed statistics.</p>
+
+<hr />
+
+<p><a name="RT2"></a></p>
+
+<h3 id="configrt2">CONFIG:RT2</h3>
+
+<p>A boolean.  Gettable and Settable.  Configures the EnableRT2Integration setting.</p>
+
+<p>If true, then the kOS mod will attempt to interact with the Remote Tech 2 mod,
+letting RT2 make decisions about whether or not a vessel is within communications
+range rather than having kOS use its own more primitive algorithm for it.</p>
+
+<p>Due to a long stall in the development of the RT2 mod, this setting should still
+be considered experimental at this point.</p>
+
+<hr />
+
+<p><a name="ARCH"></a></p>
+
+<h3 id="configarch">CONFIG:ARCH</h3>
+
+<p>A boolean.  Gettable and Settable.  Configures the StartOnArchive setting.</p>
+
+<p>If true, then when a vessel is first loaded onto the launchpad or runway, the
+initial default volume will be set to volume 0, the archive, instead of volume 1,
+the local drive.</p>
+
+<hr />
+
+<p><a name="SAFE"></a></p>
+
+<h3 id="configsafe">CONFIG:SAFE</h3>
+
+<p>A boolean.  Gettable and Settable.  Configures the EnableSafeMode setting.</p>
+
+<p>If true, then it enables the following error messages: </p>
+
+<pre><code>Tried to push NaN into the stack.
+Tried to push Infinity into the stack.
+</code></pre>
+
+<p>They will be triggered any time any mathematical operation would result in
+something that is not a real number, such as dividing by zero, or trying to
+take the square root of a negative number, or the arccos of a number larger
+than 1.  Performing such an operation will immediately terminate the
+program with one of the error messages shown above.</p>
+
+<p>If false, then these operations are permitted, but the result may lead to
+code that does not function correctly if you are not careful about how you
+use it.  Using a value that is not a real number may result in freezing
+Kerbal Space Program itself if that value is used in a variable that is
+passed into Kerbal Space Program's API routines.  KSP's own API interface does
+not seem to have any protective checks in place and will faithfully try to use
+whatever values its given.</p>
+
+<hr />
+
+</article>
+</div>
+</div>
+<footer>
+<div class='owner'>
+<p>
+<a class='avatar' href='https://github.com/erendrake'>
+<img height='48px' src='https://0.gravatar.com/avatar/165af1182d7a820a7dacba19befc2e9c?d=https%3A%2F%2Fidenticons.github.com%2Fdb79977913a22100d5b0a7622deb2905.png&amp;amp;r=x&amp;amp;s=60' width='48px'>
+</a>
+<a href='https://github.com/erendrake'>
+erendrake
+</a>
+maintains
+<a href='https://github.com/KSP-KOS/KOS'>
+kOS
+</a>
+</p>
+</div>
+</footer>
+<div class='current-section'>
+<a href='#top'>
+Scroll to top
+</a>
+<p class='name'></p>
+</div>
+</div>
+<script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+<script src="../../javascripts/application.js" type="text/javascript"></script>
+<script src="../../javascripts/script.js" type="text/javascript"></script>
+</body>
+</html>

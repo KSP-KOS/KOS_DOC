@@ -11,9 +11,9 @@
 <meta content='black' name='apple-mobile-web-app-status-bar-style'>
 
 <title></title>
-<link href="../../stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="../../stylesheets/stylesheet.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="../../stylesheets/pygment_trac.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../stylesheets/stylesheet.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../stylesheets/pygment_trac.css" media="screen" rel="stylesheet" type="text/css" />
 <link href='favicon.ico' rel='shortcut icon'>
 <link href='touch-icon-iphone.png' rel='apple-touch-icon'>
 <link href='touch-icon-ipad.png' rel='apple-touch-icon' sizes='72x72'>
@@ -53,31 +53,21 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<p>﻿# Orbit</p>
+<h1 id="engine">Engine</h1>
 
-<p>The path the vessel/body will take with no intervention</p>
+<p>Main propulsion of every mission.</p>
 
 <h1 id="structure">Structure</h1>
 
+<h4 id="getters">Getters</h4>
+
 <ul>
-  <li>APOAPSIS - Number (meters)</li>
-  <li>PERIAPSIS - Number (meters)</li>
-  <li>BODY - <a href="../body/index.html">Body</a></li>
-  <li>PERIOD - Number (seconds) <a href="http://en.wikipedia.org/wiki/Orbital_period">Wiki</a></li>
-  <li>INCLINATION - Number (degree) <a href="http://en.wikipedia.org/wiki/Orbital_inclination">Wiki</a></li>
-  <li>ECCENTRICITY - Number <a href="http://en.wikipedia.org/wiki/Orbital_eccentricity">Wiki</a></li>
-  <li>SEMIMAJORAXIS - Number (meters) <a href="http://en.wikipedia.org/wiki/Semi-major_axis">Wiki</a></li>
-  <li>SEMIMINORAXIS - Number (meters)</li>
-  <li>PATCHES - list of <a href="../orbit/index.html">Orbit</a></li>
-  <li>TRANSITION - Enum
-    <ul>
-      <li>INITIAL</li>
-      <li>FINAL</li>
-      <li>ENCOUNTER</li>
-      <li>ESCAPE</li>
-      <li>MANEUVER</li>
-    </ul>
-  </li>
+  <li>MAXTHRUST - Number (kilonewton)</li>
+  <li>THRUST - Number (kilonewton)</li>
+  <li>FUELFLOW - Number (Liters/s? maybe)</li>
+  <li>ISP - Specific impulse <a href="http://en.wikipedia.org/wiki/Specific_impulse">Wiki</a></li>
+  <li>FLAMEOUT - bool</li>
+  <li>IGNITION - bool</li>
 </ul>
 
 
@@ -108,7 +98,7 @@ Scroll to top
 </div>
 </div>
 <script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
-<script src="../../javascripts/application.js" type="text/javascript"></script>
-<script src="../../javascripts/script.js" type="text/javascript"></script>
+<script src="../javascripts/application.js" type="text/javascript"></script>
+<script src="../javascripts/script.js" type="text/javascript"></script>
 </body>
 </html>

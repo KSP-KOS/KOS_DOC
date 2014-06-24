@@ -53,32 +53,31 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<p>﻿# Orbit</p>
+<h1 id="orbitablevelocity">OrbitableVelocity</h1>
 
-<p>The path the vessel/body will take with no intervention</p>
+<p>When any <a href="../direction/index.html">Orbitable</a> object returns its :VELOCITY suffix, it
+returns it as a structure containing a pair of both its orbit-frame velocity and its surface-frame velocity at the same instant of time.</p>
 
-<h1 id="structure">Structure</h1>
+<p>To obtain its velocity as a vector you must pick whether you want the oribtal or surface velocities by
+giving a further suffix:</p>
 
 <ul>
-  <li>APOAPSIS - Number (meters)</li>
-  <li>PERIAPSIS - Number (meters)</li>
-  <li>BODY - <a href="../body/index.html">Body</a></li>
-  <li>PERIOD - Number (seconds) <a href="http://en.wikipedia.org/wiki/Orbital_period">Wiki</a></li>
-  <li>INCLINATION - Number (degree) <a href="http://en.wikipedia.org/wiki/Orbital_inclination">Wiki</a></li>
-  <li>ECCENTRICITY - Number <a href="http://en.wikipedia.org/wiki/Orbital_eccentricity">Wiki</a></li>
-  <li>SEMIMAJORAXIS - Number (meters) <a href="http://en.wikipedia.org/wiki/Semi-major_axis">Wiki</a></li>
-  <li>SEMIMINORAXIS - Number (meters)</li>
-  <li>PATCHES - list of <a href="../orbit/index.html">Orbit</a></li>
-  <li>TRANSITION - Enum
-    <ul>
-      <li>INITIAL</li>
-      <li>FINAL</li>
-      <li>ENCOUNTER</li>
-      <li>ESCAPE</li>
-      <li>MANEUVER</li>
-    </ul>
-  </li>
+  <li>ORBIT : Type Vector : Returns the orbital velocity.</li>
+  <li>SURFACE : Type Vector : Returns the surface-frame velocity.  Note that this is the surface velocity relative to the surface of the SOI body, not the orbiting object itself.  (i.e. Mun:VELOCITY:SURFACE returns the Mun's velocity relative to the surface of its SOI body, Kerbin).</li>
 </ul>
+
+<p>Examples:</p>
+
+<pre><code>SET VORB TO SHIP:VELOCITY:ORBIT
+SET VSRF TO SHIP:VELOCITY:SURFACE
+SET MUNORB TO MUN:VELOCITY:ORBIT
+SET MUNSRF TO MUN:VELOCITY:SURFACE
+</code></pre>
+
+<p>Note: At first glance it may seem that MUN:VELOCITY:SURFACE is wrong because it creates a
+vector in the opposite direction from MUN:VELOCITY:ORBIT.  But this is actually correct.
+Kerbin's surface rotates once every 6 hours, and the Mun takes a lot longer than 6
+hours to orbit Kerbin.  Therefore relative to Kerbin's surface, the mun is going backward.</p>
 
 
 </article>
