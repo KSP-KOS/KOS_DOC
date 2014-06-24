@@ -64,7 +64,16 @@ View kOS on GitHub
 <ul>
   <li>All the suffixes of <a href="../part/index.html">Part</a> plus…
     <ul>
-      <li>STATE - String - "DOCKED", etc - TODO: put the list of possible strings here.</li>
+      <li>STATE - String - One of the following values:
+        <ul>
+          <li>"Ready" - Docking port is not yet attached and will attach if it touches another.</li>
+          <li>"Docked (docker)" - One port in the joined pair is called the docker, and has this state</li>
+          <li>"Docked (dockee)" - One port in the joined pair is called the dockee, and has this state</li>
+          <li>"Docked (same vessel)" - Sometimes KSP says this instead.  It's unclear what it means.</li>
+          <li>"Disabled" - Docking port will refuse to dock if it bumps another docking port.</li>
+          <li>"PreAttached" - Temp state during the "wobbling" while two ports are magnetically touching but not yet docked solidly.  During this state the two vessels are still tracked as separate vessels and haven't become one yet.</li>
+        </ul>
+      </li>
       <li>FACING - <a href="../direction/index.html">Direction</a> the way the port is oriented.</li>
       <li>DOCKEDVESSELNAME - String - name of the vessel docked to the port.</li>
       <li>TARGETABLE - boolean - True if this part can be picked with SET TARGET TO…</li>
