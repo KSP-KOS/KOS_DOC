@@ -12,7 +12,7 @@ NAMED VESSELS AND BODIES
 
 Variable Name | Can Read | Can Set | Type | Description
 ==============|==========|=========|======|============
-SHIP | yes | no | [Vessel](../structure/vessel/index.html) | Whichever vessel happens to be the one containing the CPU part that is running this Kerboscript code at the moment.  Your code can think of this as the "me" ship.  Many reserved words are aliases for saying SHIP:word (see section below/index.html).
+SHIP | yes | no | [Vessel](../structure/vessel/index.html) | Whichever vessel happens to be the one containing the CPU part that is running this Kerboscript code at the moment.  This is the [CPU Vessel](../summary_topics/CPU_vessel/index.html).
 TARGET | yes | yes | [Vessel](../structure/vessel/index.html) or [Body](../structure/body/index.html) | Whichever [Orbitable](../structure/orbitable/index.html) object happens to be the one selected as the current KSP target.  If set to a string, it will assume the string is the name of a vessel being targetted and set it to a vessel by that name.  For best results set it to Body("some name") or Vessel("some name") explicitly.
 
 All of the main celestial bodies in the game are reserved variable names as well:

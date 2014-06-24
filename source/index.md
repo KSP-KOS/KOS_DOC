@@ -114,6 +114,8 @@ Command Reference
 
 This is not a complete list.  The examples here are just to give a taste of what exists.  For the full list of commands please click on each of the section headings.
 
+* [Full list of reserved variable names](bindings/index.html)
+    
 * [Math](command/math/index.html)
     * Basic Functions
     * Trigonometric Functions
@@ -126,6 +128,11 @@ This is not a complete list.  The examples here are just to give a taste of what
     * STAGE
     * HEADING
     * WARP
+
+* [Prediction](command/prediction/index.html)
+    * POSITIONAT
+    * VELOCITYAT
+    * ORBITAT
 
 * [File IO](command/file/index.html)
     * COPY
@@ -163,13 +170,19 @@ Their subelements can be accessed by using : along with the name of the subeleme
 * [Atmosphere](structure/atmosphere/index.html)
 * [Body](structure/body/index.html)
 * [Direction](structure/direction/index.html)
+* [DockingPort](structure/dockingport/index.html)
 * [Engine](structure/engine/index.html)
 * [GeoCordinates](structure/geocordinates/index.html)
 * [List](structure/list/index.html)
 * [Node](structure/node/index.html)
 * [Orbit](structure/orbit/index.html)
 * [Orbitable](structure/orbitable/index.html)
+* [OrbitableVelocity](structure/orbitablevelocity/index.html)
+* [Part](structure/part/index.html)
+* [Resource](structure/resource/index.html)
+* [Sensor](structure/sensor/index.html)
 * [Time](structure/time/index.html)
+* [Vecdraw](structure/vecdraw/index.html)
 * [Vector](structure/vector/index.html)
 * [Vessel](structure/vessel/index.html)
 

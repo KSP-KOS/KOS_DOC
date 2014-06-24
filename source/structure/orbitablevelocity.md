@@ -11,8 +11,10 @@ giving a further suffix:
 
 Examples:
 
-    SHIP:VELOCITY:ORBIT
-    MUN:VELOCITY:SURFACE
+    SET VORB TO SHIP:VELOCITY:ORBIT
+    SET VSRF TO SHIP:VELOCITY:SURFACE
+    SET MUNORB TO MUN:VELOCITY:ORBIT
+    SET MUNSRF TO MUN:VELOCITY:SURFACE
 
 Note: At first glance it may seem that MUN:VELOCITY:SURFACE is wrong because it creates a
 vector in the opposite direction from MUN:VELOCITY:ORBIT.  But this is actually correct.

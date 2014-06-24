@@ -3,6 +3,9 @@
 This page describes an overview of how to control a ship.  For full details
 on the structures and commands seen here, look elsewhere in the documentation.
 
+Unless otherwise stated, all controls that a kOS CPU attempts will be done on
+the [CPU Vessel](../summary_topics/CPU_vessel/index.html)
+
 There are two styles of control:
 * "Cooked" - Give a goal direction to seek, and let kOS find the way to manuever toward it.
 * "Raw" - Control the craft just like a manual pilot would do from a keyboard or joystick.

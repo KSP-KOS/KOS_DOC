@@ -18,23 +18,23 @@ Much of what a Vessel can do can now by done by any orbitable object.  The docum
 
 Suffixes of Vessel:
 
-* Every suffix of [Orbitable](../orbitable/index.html)
-* CONTROL - [Control](../control/index.html) for raw flying a ship.
-* BEARING - To Active Ship
-* HEADING - To Active Ship
-* MAXTHRUST - Max thrust of all active engines
-* FACING - [Direction](../direction/index.html)
-* ANGULARMOMENTUM - [Direction](../direction/index.html)
-* ANGULARVEL - [Direction](../direction/index.html)
-* MASS - Number (kilogram)
-* VERTICALSPEED - Number (meters/s)
-* SURFACESPEED - Number (meters/s)
-* AIRSPEED - Number (meters/s)
-* VESSELNAME - string
-* SENSORS - Structure
-    * ACC - [Vector](../vector/index.html)
-    * PRES - Number (Atmosphere)
-    * TEMP - Number (Celsius)
-    * GRAV - [Vector](../vector/index.html)
-* TERMVELOCITY - Number (meters/s) based on the vessel's current altitude above sea level, and its drag properties.
-
+* Every suffix of [Orbitable](../orbitable/index.html) is callable from VESSEL, as well as...
+  * CONTROL - [Control](../control/index.html) for raw flying a ship.
+  * BEARING - To [CPU Vessel](../../summary_topics/CPU_Vessel/index.html)
+  * HEADING - To [CPU Vessel](../../summary_topics/CPU_Vessel/index.html)
+  * MAXTHRUST - Max thrust of all active engines
+  * FACING - [Direction](../direction/index.html)
+  * ANGULARMOMENTUM = [Direction](../direction/index.html) in [SHIP-RAW reference frame]](../../ref_frame/index.html).  Despite the name, this is technically not momentum information.
+  * ANGULARVEL = [Direction](../direction/index.html) in [SHIP-RAW reference frame]](../../ref_frame/index.html).  Despite the name, this is technically not a velocity.  It only tells you the axis of rotation, not the speed of rotation around that axis.
+  * MASS - Number (kilogram)
+  * VERTICALSPEED - Number (meters/s)
+  * SURFACESPEED - Number (meters/s)
+  * AIRSPEED - Number (meters/s)
+  * VESSELNAME - string
+  * SENSORS - Structure
+      * ACC - [Vector](../vector/index.html)
+      * PRES - Number (Atmosphere)
+      * TEMP - Number (Celsius)
+      * GRAV - [Vector](../vector/index.html)
+  * TERMVELOCITY - Number (meters/s) based on the vessel's current altitude above sea level, and its drag properties.
+  * LOADED - Boolean - true if the vessel is fully loaded into the complete KSP physics engine (false if it's "on rails").

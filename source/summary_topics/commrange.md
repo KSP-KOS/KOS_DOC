@@ -1,5 +1,21 @@
 ## Comm Range For Remote Updates.
 
+### NOTICE: AS OF KOS 0.12.2, the COMMRANGE checks are temporarily disabled in
+the stock game and the future of this feature is still fuzzy, and will likely be
+releated to RemoteTech2 in some way.  (i.e. if you don't use RemoteTech2, then there
+will be no check for range anymore).
+
+In 0.12.2, the following shortcut is used instead:
+
+COMMRANGE always returns a Very Big Number, and
+
+INRANGE always returns true.
+
+
+### If you are using a version of koS >= 0.12.2, then most of what this page says won't be true.
+
+~~~~~~~~~~~~~~~
+
 Kerbin must be within CommRange of the vessel in order for the following operations to work:
 
 * COPY a file from a local volume to Archive

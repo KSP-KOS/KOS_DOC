@@ -49,7 +49,7 @@ The every [Vessel](../../structure/vessel/index.html) has some default collectio
 #### Arguments
 * $1: Collection name, See "Built-in Lists" below
 * $2: [Vessel](../../structure/vessel/index.html) object or the string name of the vessel you would like to get a list from
-* $2: The variable name you would like to store the new [List](../../structure/list/index.html) in
+* $3: The variable name you would like to store the new [List](../../structure/list/index.html) in
 
 Example:
 
@@ -70,8 +70,9 @@ These are the names of the lists available
 * Targets - List of [Vessels](../../structure/vessel/index.html)
 
 ##### Vessel Lists
-* Resources
-* Parts
-* Engines - List of [Engines](../../structure/engines/index.html)
-* Sensors
+* Resources - List of [Resources](../../structure/resource/index.html)
+* Part - List of [Parts](../../structure/part/index.html)s
+* Engines - List of [Engines](../../structure/engine/index.html)
+* Sensors - List of [Sensors](../../structure/sensor/index.html)
 * Elements
+* DockingPorts - list of [DockingPorts](../../structure/dockingport/index.html)

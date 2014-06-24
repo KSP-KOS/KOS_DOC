@@ -6,7 +6,7 @@ The coordinate system of Kerbal Space Program does some strange things that don'
 
 For nomenclature, the following terms are used in this documentation:
 
-* SHIP-RAW : The name of the reference frame in which the origin point is the executing SHIP, and the rotation is identical to KSP's native raw coordinate grid.
+* SHIP-RAW : The name of the reference frame in which the origin point is [CPU Vessel](../../summary_topics/CPU_vessel/index.html), and the rotation is identical to KSP's native raw coordinate grid.
 * SOI-RAW : The name of the reference frame in which the origin point is the center of the SOI body, and the rotation is identical to KSP's native raw coordinate grid.
 * RAW-RAW : The name of the reference fraem in which both the origin point and the rotation of the axes is identical to KSP's native raw coordinate grid.  (This is never exposed to the kerbalscript program, because the origin point is meaningless to work with.)
 
@@ -43,9 +43,7 @@ conversions for you to make this a bit simpler and keep everything consistent.
 
 Regardless of where the origin of the underlying KSP system is, in kOS, whenever
 a POSITION is reported, it will always be reported in a frame of reference where
-the origin is located at the current Vessel, where current vessel is defined to be
-the vessel which is the one running the code right now.  NOTE this is usually, but
-not always, the same thing as the currently focussed vessel.
+the origin is located at the c[CPU Vessel](../../summary_topics/CPU_vessel/index.html).
 
 However, for the sake of VELOCITY, the origin point of all vectors is usually not
 SHIP, but rather it's the SOI body's center.  This is because if the origin point
