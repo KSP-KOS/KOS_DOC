@@ -147,6 +147,7 @@ This is not a complete list.  The examples here are just to give a taste of what
 * [Flow Control](command/flowControl/index.html)
     * BREAK
     * IF
+    * FOR
     * LOCK
     * ON
     * UNLOCK
