@@ -19,6 +19,7 @@ Structure
 
 ### Access to individual elements
 All list indexes start counting at zero.  (The list elements are numbered from 0 to N-1 rather than from 1 to N.)
+
 * list#x operator: access the element at postion x.  Works for get or set.  X must be a hardcoded number or a variable name.
 * list[expression] operator: another syntax to acceess the element at position 'expression'.  Works for get or set.  Any arbitrary complex expression may be used with this syntax, not just a number or variable name.
 * FOR VAR IN LIST { ... }.  : a loop in which var iterates over all the items of list from item 0 to item LENGTH-1.
@@ -49,6 +50,7 @@ Example:
 
 ### Multidimensional Arrays
 A 2-D Array is a List who's elements are themselves also Lists.  A 3-D Array is a List of Lists of Lists.  Any number of dimensions is posible.
+
 * "list#x#y" or "list[x][y]": access the element at position x,y of the 2-D array (list of lists).
 * The elements of the array need not be uniform (any mix of strings, numbers, structures is allowed).
 * The dimensions of the array need not be uniform (row 1 might have 3 columns while row 2 has 5 columns).

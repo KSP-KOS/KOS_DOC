@@ -113,6 +113,31 @@ The full explanation why is [in the CPU hardware description page](../../summary
 
 ***
 
+### FOR
+
+Loops over a list collection, letting you access one element at a time.
+
+Syntax: FOR _variable1_ IN _variable2_ { code here }.
+
+Where:
+
+* _variable1_ is a variable to hold each element one at a time.
+* _varaible2_ is a LIST variable to iterate over.
+
+Example:
+
+    PRINT "Counting flamed out engines:".
+    SET numOUT to 0.
+    LIST ENGINES IN MyList.
+    FOR eng IN MyList {
+        IF ENG:FLAMEOUT {
+            set numOUT to numOUT + 1.
+        }.
+    }.
+    PRINT "There are " + numOut + "Flamed out engines.".
+
+***
+
 ### WAIT
 
 Halts execution for a specified amount of time, or until a specific set of criteria are met. Note that running a WAIT UNTIL statement can hang the machine forever if the criteria are never met.
