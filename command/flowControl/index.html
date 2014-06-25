@@ -174,6 +174,34 @@ UNTIL ACCEL:MAG &lt; 0.5 {
 
 <hr />
 
+<h3 id="for">FOR</h3>
+
+<p>Loops over a list collection, letting you access one element at a time.</p>
+
+<p>Syntax: FOR <em>variable1</em> IN <em>variable2</em> { code here }.</p>
+
+<p>Where:</p>
+
+<ul>
+  <li><em>variable1</em> is a variable to hold each element one at a time.</li>
+  <li><em>varaible2</em> is a LIST variable to iterate over.</li>
+</ul>
+
+<p>Example:</p>
+
+<pre><code>PRINT "Counting flamed out engines:".
+SET numOUT to 0.
+LIST ENGINES IN MyList.
+FOR eng IN MyList {
+    IF ENG:FLAMEOUT {
+        set numOUT to numOUT + 1.
+    }.
+}.
+PRINT "There are " + numOut + "Flamed out engines.".
+</code></pre>
+
+<hr />
+
 <h3 id="wait">WAIT</h3>
 
 <p>Halts execution for a specified amount of time, or until a specific set of criteria are met. Note that running a WAIT UNTIL statement can hang the machine forever if the criteria are never met.
