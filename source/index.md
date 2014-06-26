@@ -170,6 +170,7 @@ Their subelements can be accessed by using : along with the name of the subeleme
 
 * [Atmosphere](structure/atmosphere/index.html)
 * [Body](structure/body/index.html)
+* [Color](structure/rgba/index.html)
 * [Direction](structure/direction/index.html)
 * [DockingPort](structure/dockingport/index.html)
 * [Engine](structure/engine/index.html)
