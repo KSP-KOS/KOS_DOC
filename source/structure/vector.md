@@ -9,6 +9,9 @@ Structure
 * Y - Number (degrees)
 * Z - Number (degrees)
 * MAG - Number
+* VEC - Vector - This is a suffix that creates a COPY of this vector.  Useful if you want to copy a vector and then change the copy.  (Normally if you SET V2 TO V1, then V1 and V2 are two names for the same vector and changing one would change the other).
+* NORMALIZED - Vector - This creates a unit vector pointing in the same direction as this vector.  (The same effect as multiplying the vector by the scalar 1/MyVec:MAG. )
+* SQRMAGNITUDE - Number - The magnitude of the vector, squared.
 
 #### Creation
 
