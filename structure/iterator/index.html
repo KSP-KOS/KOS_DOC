@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+<meta charset='utf-8'>
+<meta content='initial-scale=1.0' name='viewport'>
+<meta content='yes' name='apple-mobile-web-app-capable'>
+<meta content='black' name='apple-mobile-web-app-status-bar-style'>
+
+<title></title>
+<link href="../../stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../../stylesheets/stylesheet.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../../stylesheets/pygment_trac.css" media="screen" rel="stylesheet" type="text/css" />
+<link href='favicon.ico' rel='shortcut icon'>
+<link href='touch-icon-iphone.png' rel='apple-touch-icon'>
+<link href='touch-icon-ipad.png' rel='apple-touch-icon' sizes='72x72'>
+<link href='touch-icon-iphone-retina.png' rel='apple-touch-icon' sizes='114x114'>
+<link href='touch-icon-ipad-retina.png' rel='apple-touch-icon' sizes='144x144'>
+
+<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class=''>
+<div class='wrapper'>
+<header>
+<h1 class='title'>
+<a href='/KOS_DOC/'>
+kOS
+</a>
+</h1>
+</header>
+<div id='container'>
+<p class='tagline'>Fully programmable autopilot mod for KSP. Originally By Nivekk</p>
+<div id='main' role='main'>
+<div class='download-bar'>
+<div class='inner'>
+<a class='download-button spaceport' href='http://kerbalspaceport.com/kos-autopilot/'>
+<span>Spaceport</span>
+</a>
+<a class='download-button reddit' href='http://www.reddit.com/r/KOS_DOC/'>
+<span>Reddit</span>
+</a>
+<a class='download-button forum' href='http://forum.kerbalspaceprogram.com/threads/68089'>
+<span>Forum</span>
+</a>
+<a class='code' href='https://github.com/KSP-KOS/KOS'>
+View kOS on GitHub
+</a>
+</div>
+</div>
+<span class='blc'></span>
+<span class='trc'></span>
+<article class='markdown-body'>
+<h3 id="iterator">Iterator</h3>
+
+<p>(An iterator is obtained from the :ITERATOR suffix of a <a href="../list/index.html">LIST</a>. )</p>
+
+<p>Once a LIST has given you an ITERATOR, you can use it to access elements inside the LIST.</p>
+
+<p>An ITERATOR is a <a href="http://en.wikipedia.org/wiki/Iterator">generic computer programming concept</a>.
+In the general case it's a
+variable type that allows you to get the value at a position in some collection,
+as well as increment to the next item in the collection in order to operate on all objects
+in the collection one at a time.  In kOS it operates on LISTS.</p>
+
+<p>The suffixes of ITERATOR are as follows.  They are <em>all</em> gettable values and not settable values:</p>
+
+<ul>
+  <li>ITERATOR - itself - A do-nothing operator that Just returns the iterator itself again.</li>
+  <li>INDEX - Number - Returns the numerical index of how far you are into the list, starting the counting at 0 for the first item in the list. (The last item in the list is numbered N-1, where N is the number of items in the list).</li>
+  <li>VALUE - any object - Returns the thing stored at the current position in the list.</li>
+  <li>END - Boolean - This suffix does two things at once:
+    <ul>
+      <li>It advances the iterator to the next item in the list.</li>
+      <li>It returns a boolean True if the increment of the iterator causes it to go past the end of the list, else False.</li>
+    </ul>
+  </li>
+  <li>RESET - Boolean - Whenever you "get" the RESET suffix of an iterator, it rewinds the iterator to the start of the list.  This is a case where you are using the 'side effect' of accessing the suffix.  What you assign the RESET to is irrelevant. i.e. SET Dummy TO MyIter:RESET will reset the MyIter iterator variable.  The value returned by RESET is a boolean that is always True for List types but might become false for other types if any other types are ever implemented.  (A return value of False means you are dealing with a type of collection that cannot be rewinded.)</li>
+</ul>
+
+<p>Programmers familiar with iterators in other languages may find it strange that :END is also the "next" operator, especially as it produces a boolean output that is False when it works and True when it fails, but this was done this way in order to allow it to work well with kOS's UNTIL loop which uses the same sort of negative logic.</p>
+
+<p>A loop using an ITERATOR on a LIST might look like this:</p>
+
+<pre><code>SET MyList To LIST().
+SET MyList:ADD to "Hello".
+SET MyList:ADD to "Aloha".
+SET MyList:ADD to "Bonjour".
+SET MyCurrent TO MyList:ITERATOR.
+SET dummy TO MyCurrent:RESET.
+UNTIL MyCurrent:END {
+    PRINT "Item at position " + MyIter:INDEX + " is [" + MyIter:VALUE + "].".
+}.
+</code></pre>
+
+<p>Which would result in this output:</p>
+
+<pre><code>Item at position 0 is [Hello].
+Item at position 1 is [Aloha].
+Item at position 2 is [Bonjour].
+</code></pre>
+
+
+</article>
+</div>
+</div>
+<footer>
+<div class='owner'>
+<p>
+<a class='avatar' href='https://github.com/erendrake'>
+<img height='48px' src='https://0.gravatar.com/avatar/165af1182d7a820a7dacba19befc2e9c?d=https%3A%2F%2Fidenticons.github.com%2Fdb79977913a22100d5b0a7622deb2905.png&amp;amp;r=x&amp;amp;s=60' width='48px'>
+</a>
+<a href='https://github.com/erendrake'>
+erendrake
+</a>
+maintains
+<a href='https://github.com/KSP-KOS/KOS'>
+kOS
+</a>
+</p>
+</div>
+</footer>
+<div class='current-section'>
+<a href='#top'>
+Scroll to top
+</a>
+<p class='name'></p>
+</div>
+</div>
+<script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+<script src="../../javascripts/application.js" type="text/javascript"></script>
+<script src="../../javascripts/script.js" type="text/javascript"></script>
+</body>
+</html>
