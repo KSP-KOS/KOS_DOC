@@ -12,7 +12,6 @@ in the collection one at a time.  In kOS it operates on LISTS.
 
 The suffixes of ITERATOR are as follows.  They are *all* gettable values and not settable values:
 
-* ITERATOR - itself - A do-nothing operator that Just returns the iterator itself again.
 * INDEX - Number - Returns the numerical index of how far you are into the list, starting the counting at 0 for the first item in the list. (The last item in the list is numbered N-1, where N is the number of items in the list).
 * VALUE - any object - Returns the thing stored at the current position in the list.
 * END - Boolean - This suffix does two things at once:
