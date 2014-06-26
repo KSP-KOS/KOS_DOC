@@ -14,6 +14,7 @@ Structure
 * MODULES - [List](../list/index.html) of the module types enabled for this part.
 * TARGETABLE - Boolean true if this part can be selected by KSP as a target.
 * SHIP - The [Vessel](../vessel/index.html) containing this part.
+* FACING - The [Direction](../direction/index.html) that this part is facing.
 
 #### Seters
 

@@ -15,7 +15,6 @@ Structure
     * "Docked (same vessel)" - Sometimes KSP says this instead.  It's unclear what it means.
     * "Disabled" - Docking port will refuse to dock if it bumps another docking port.
     * "PreAttached" - Temp state during the "wobbling" while two ports are magnetically touching but not yet docked solidly.  During this state the two vessels are still tracked as separate vessels and haven't become one yet.
-  * FACING - [Direction](../direction/index.html) the way the port is oriented.
   * DOCKEDVESSELNAME - String - name of the vessel docked to the port.
   * TARGETABLE - boolean - True if this part can be picked with SET TARGET TO...
 
