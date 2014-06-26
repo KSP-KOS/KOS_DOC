@@ -68,7 +68,7 @@ in the collection one at a time.  In kOS it operates on LISTS.</p>
 <p>The suffixes of ITERATOR are as follows.  They are <em>all</em> gettable values and not settable values:</p>
 
 <ul>
-  <li>INDEX - Number - Returns the numerical index of how far you are into the list, starting the counting at 0 for the first item in the list. (The last item in the list is numbered N-1, where N is the number of items in the list).  **If you have just used :RESET or have just created the ITERATOR, then the value of :INDEX is -1.  It only becomes 0 after the first call to :NEXT.</li>
+  <li>INDEX - Number - Returns the numerical index of how far you are into the list, starting the counting at 0 for the first item in the list. (The last item in the list is numbered N-1, where N is the number of items in the list).  <strong>If you have just used :RESET or have just created the ITERATOR, then the value of :INDEX is -1.</strong>  It only becomes 0 after the first call to :NEXT.</li>
   <li>VALUE - any object - Returns the thing stored at the current position in the list.</li>
   <li>NEXT - Boolean - This suffix does two things at once:
     <ul>
@@ -79,8 +79,6 @@ in the collection one at a time.  In kOS it operates on LISTS.</p>
   <li>ATEND - Boolean - This suffix just tests for whether or not the iterator is past the end of the list.  It returns True if it's past the end, or False if it's not.</li>
   <li>RESET - Boolean - Whenever you "get" the RESET suffix of an iterator, it rewinds the iterator to the start of the list.  This is a case where you are using the 'side effect' of accessing the suffix.  What you assign the RESET to is irrelevant. i.e. SET Dummy TO MyIter:RESET will reset the MyIter iterator variable.  The value returned by RESET is a boolean that is always True for List types but might become false for other types if any other types are ever implemented.  (A return value of False means you are dealing with a type of collection that cannot be rewinded.)</li>
 </ul>
-
-<p>Programmers familiar with iterators in other languages may find it strange that :END is also the "next" operator, especially as it produces a boolean output that is False when it works and True when it fails, but this was done this way in order to allow it to work well with kOS's UNTIL loop which uses the same sort of negative logic.</p>
 
 <p>A loop using an ITERATOR on a LIST might look like this:</p>
 
