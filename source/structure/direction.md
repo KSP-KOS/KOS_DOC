@@ -8,12 +8,12 @@ Structure
 * PITCH - Number (degrees)
 * YAW - Number (degrees)
 * ROLL - Number (degrees)
-* VECTOR - [Vector](../vector/index.html)
+* VECTOR - [Vector](../vector/index.html) An XYZ unit vector pointing in this direction.
 
 #### Creation
 
-R (pitch, yaw, roll)
-HEADING (degreesFromNorth, pitchAboveHorizon)
+* R (pitch, yaw, roll)
+* HEADING (degreesFromNorth, pitchAboveHorizon)
 
 #### Example
 

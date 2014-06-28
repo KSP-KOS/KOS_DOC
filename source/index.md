@@ -20,42 +20,16 @@ A typical command in KerboScript might look like this:
 
     PRINT “Hello World”.
 
+----
 
 QUICK START: Hello World.
 =========================
 
-For the first introduction to how the mod works without taking the time to read all the instructions first, try the steps below.  (Please do come back to read the rest of the instructions after that, though.)
+If you prefer the tutorial style of explanation, please see the
+[QUICK START Tutorial](summary_topics/gettingstarted/index.html), which walks you through the 
+beginnings of making a beginner's ship launcher script.
 
-* ![image of SCS part](images/scs_part) Add the Compotronix SCS part to your vessel; it’s under the “Control” category in the Vehicle Assembly Building or Space Plane Hanger.  It looks like the picture here.
-
-* Create a directory under your KSP base directory located here: KSP_BASE/Plugins/PluginData/Archive/, Where KSP_BASE is wherever you've installed Kerbal Space Program.
-
-* Create a text file called "test.txt" in that directory, using whatever text editor you like, and make it have the following contents:
-
-### "test.txt"
-
-    CLEARSCREEN.
-    PRINT "THROTTLING TO MAX.".
-    LOCK THROTTLE TO 1.
-    WAIT 2.
-    PRINT "HITTING FIRST STAGE.".
-    STAGE.
-    WAIT UNTIL ALTITUDE > 2000.
-    PRINT "TURNING OFF AUTOPILOT.  BACK TO MANUAL CONTROL.".
-
-* Put your rocket on the launchpad, and right-click the Comptronix SCS part you added in step 1 above.  From the popup menu, select "Open Terminal".
-
-* Make sure your staging list for your rocket is designed so that when you hit the first stage, you both unlock the tower clamps and activate the first stage engine in the same instant.  (The simple example program you typed in above assumes this is the case).
-
-* Type the following commands into the terminal, hitting enter after each line.
-
-###
-
-    SWITCH TO 0.
-    RUN TEST.
-
-You should see your rocket throttle up to max and then activate stage 1, then revert to manual control after an altitude of 2000m.  Not a very useful autopilot yet, but it demonstrates that the mod is working and shows you a small piece of how it works.
-
+----
 
 
 CASE INSENSITIVE
@@ -193,6 +167,7 @@ Summary Topics
 
 Useful topics and reference information:
 
+* [Getting Started](summary_topics/gettingstarted/index.html)
 * [Volumes](summary_topics/volumes/index.html)
 * [CommRange](summary_topics/commrange/index.html)
 * [Ship Steering](summary_topics/ship_control/index.html)
