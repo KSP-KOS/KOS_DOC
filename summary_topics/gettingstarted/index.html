@@ -93,7 +93,8 @@ and Torque Wheels are found.)</p>
 
 <p>Put the vessel on the launchpad.  For this first example
 it doesn't matter if the vessel can actually liftoff or even has engines
-at all.</p>
+at all.
+<img src="../../images/SCS_parts_bin.png" alt="SCS_parts_big picture" /></p>
 
 <p><strong>Step 4: Invoke the terminal.</strong></p>
 
@@ -121,10 +122,11 @@ the one shown below.  Type the line:</p>
 shown) and hit ENTER.  Note that you can type it in uppercase or lowercase.
 kOS doesn't care.</p>
 
-<p><img src="TODO LINK" alt="text terminal screenshot, hello world1" /></p>
+<p><img src="../../images/terminal_open_1.png" alt="text terminal screenshot, hello world1" /></p>
 
-<p>The terminal will respond by showing you this:
-<img src="TODO LINK" alt="text terminal screenshot, hello world2" /></p>
+<p>The terminal will respond by showing you this:</p>
+
+<p><img src="../../images/terminal_open_2.png" alt="text terminal screenshot 2, hello world1" /></p>
 
 <p><strong>Step 6: Okay that's great, but how can you make that happen in a program script instead?</strong></p>
 
@@ -136,16 +138,18 @@ kOS doesn't care.</p>
 <p>(Don't forget the period (".").  All commands in kOS are ended with a period.
 Again, you can type it in uppercase or lowercase.  kOS doesn't care.)</p>
 
-<p>You should see an editor window appear, in which you can type text.  Type
-the text:</p>
+<p>You should see an editor window appear, looking something like this (without
+the text inside because you're starting a blank new file):</p>
+
+<p><img src="../../images/editor.png" alt="text terminal editor, hello world1" /></p>
+
+<p>Type this text into the window:</p>
 
 <pre><code>PRINT "=========================================".
 PRINT "      HELLO WORLD".
 PRINT "THIS IS THE FIRST SCRIPT I WROTE IN kOS.".
 PRINT "=========================================".
 </code></pre>
-
-<p><img src="TODO LINK" alt="screenshot hello world editor window" /></p>
 
 <p>Click "Save" then "Exit" in the editor popup window.</p>
 
@@ -160,7 +164,7 @@ PRINT "=========================================".
 
 <p>And you will see the program run, showing the text on the screen like so.</p>
 
-<p><img src="TODO LINK" alt="screenshot hello world run" /></p>
+<p><img src="../../images/hello_world1.png" alt="screenshot hello world run" /></p>
 
 <p><strong>Step 7: Okay, but where is this program?</strong></p>
 
@@ -175,7 +179,7 @@ can leave the word "FILES" off if you like.)</p>
 
 <p>It should look like this, showing you the HELLO program you just wrote:</p>
 
-<p><img src="TODO LINK" alt="screenshot hello world list files" /></p>
+<p><img src="../../images/hello_list.png" alt="screenshot hello world list" /></p>
 
 <p>This is a list of all the files on the currently selected VOLUME.
 By default, when you launch a new vessel, the currently selected VOLUME
@@ -332,6 +336,8 @@ COPY HELLOLANCH FROM 0.
 RUN HELLOLAUNCH.
 </code></pre>
 
+<p><img src="../../images/example_2_1.png" alt="screenshot example_2_1" /></p>
+
 <p>Okay so the program doesn't actaully DO anything yet other than just
 countdown from 10 to 0.  A bit of a dissapointment, but we haven't
 written the rest of the program yet.</p>
@@ -382,6 +388,8 @@ like so:</p>
 <pre><code>COPY HELLOLAUNCH FROM 0.
 RUN HELLOLAUNCH.
 </code></pre>
+
+<p><img src="../../images/example_2_2.png" alt="screenshot example_2_2" /></p>
 
 <p>Hey! It does something now! It fires the first stage engine and launches!</p>
 
@@ -458,6 +466,8 @@ not work well and you need to revert all the way back to the VAB.</em></p>
 COPY HELLOLAUNCH FROM 0.
 RUN HELLOLAUNCH.
 </code></pre>
+
+<p><img src="../../images/example_2_3.png" alt="screenshot example_2_3" /></p>
 
 <p>Now you should see the same thing as before, but now your craft will
 stay pointed up.</p>
@@ -556,6 +566,8 @@ WAIT UNTIL SHIP:ALTITUDE &gt; 70000. // pause here until ship is high up.
 <p>This time you should see it activate your later upper stages correctly.
 (again, assuming you made the entire vessel with only liquidfuel engines.)</p>
 
+<p><img src="../../images/example_2_4.png" alt="screenshot example_2_4" /></p>
+
 <p><strong>Step 6: Now to make it turn</strong></p>
 
 <p><em>Okay that's fine but it still just goes straight up!  What about a
@@ -570,7 +582,7 @@ like a lot of new KSP pilots learn to do it for the first time:</p>
 
 <ul>
   <li>Fly straight up to 10000m.</li>
-  <li>Aim at 45 degrees down toward the east until 30000m.</li>
+  <li>Aim at 45 degrees down toward the east until 40000m.</li>
   <li>Thrust horizontally east after that.</li>
 </ul>
 
@@ -590,11 +602,11 @@ oriented as follows on the navball:</p>
 <p>Combining this with the WHEN command from before, we get this section:</p>
 
 <pre><code>WHEN SHIP:ALTITUDE &gt; 10000 THEN {
-    PRINT "Starting turn.  Aiming to 45 degree pitch."
+    PRINT "Starting turn.  Aiming to 45 degree pitch.".
     LOCK STEERING TO HEADING(90,45). // east, 45 degrees pitch.
 }.
-WHEN SHIP:ALTITUDE &gt; 30000 THEN {
-    PRINT "Starting flat part.  Aiming to horizon."
+WHEN SHIP:ALTITUDE &gt; 40000 THEN {
+    PRINT "Starting flat part.  Aiming to horizon.".
     LOCK STEERING TO HEADING(90,0). // east, horizontal.
 }.
 </code></pre>
@@ -613,11 +625,11 @@ right away:</p>
 <pre><code>// My First Launcher.
 //
 WHEN SHIP:ALTITUDE &gt; 10000 THEN {
-    PRINT "Starting turn.  Aiming to 45 degree pitch."
+    PRINT "Starting turn.  Aiming to 45 degree pitch.".
     LOCK STEERING TO HEADING(90,45). // east, 45 degrees pitch.
 }.
-WHEN SHIP:ALTITUDE &gt; 30000 THEN {
-    PRINT "Starting flat part.  Aiming to horizon."
+WHEN SHIP:ALTITUDE &gt; 40000 THEN {
+    PRINT "Starting flat part.  Aiming to horizon.".
     LOCK STEERING TO HEADING(90,0). // east, horizontal.
 }.
 SET countdown TO 10.
@@ -648,6 +660,12 @@ WAIT UNTIL SHIP:ALTITUDE &gt; 70000. // pause here until ship is high up.
 // to turn back off again right away and nothing would happen.
 </code></pre>
 
+<p>And here is it in action:
+<img src="../../images/example_2_5.png" alt="screenshot example_2_5" /></p>
+
+<p>And toward the end:
+<img src="../../images/example_2_6.png" alt="screenshot example_2_6" /></p>
+
 <p>If we assume you made a vessel that has enough fuel and power to get up to
 orbit, this script should in principle work to get you to the point
 of leaving the atmosphere.  It will probably still fall back down, because 
@@ -660,7 +678,7 @@ following features you could add yourself as you become more familiar with
 kOS:</p>
 
 <ul>
-  <li>You could change the steering logic to make a more smooth gravity turn by constantly adjusting the pitch in the HEADING according to some math formula.</li>
+  <li>You could change the steering logic to make a more smooth gravity turn by constantly adjusting the pitch in the HEADING according to some math formula.  The example shown here tends to create a "too high" launch that's a bit inefficient.</li>
   <li>You could complete the launching script by making sure once the vessel breaks the atmosphere it actually makes a circular orbit rather than just stopping after 70000m and coasting.</li>
   <li>This script just stupidly leaves the throttle at max the whole way.  You could make it more sophisticated by adjusting the throttle as necessary to avoid too much wasted energy fighting air friction.  (The way KSP's stock areodynamic model works, the optimal speed is terminal velocity, by the way).</li>
   <li>With more sophisticated staging checks, the script could be made to work with solid fuel engines as well.</li>
