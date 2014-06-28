@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+<meta charset='utf-8'>
+<meta content='initial-scale=1.0' name='viewport'>
+<meta content='yes' name='apple-mobile-web-app-capable'>
+<meta content='black' name='apple-mobile-web-app-status-bar-style'>
+
+<title></title>
+<link href="../../stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../../stylesheets/stylesheet.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../../stylesheets/pygment_trac.css" media="screen" rel="stylesheet" type="text/css" />
+<link href='favicon.ico' rel='shortcut icon'>
+<link href='touch-icon-iphone.png' rel='apple-touch-icon'>
+<link href='touch-icon-ipad.png' rel='apple-touch-icon' sizes='72x72'>
+<link href='touch-icon-iphone-retina.png' rel='apple-touch-icon' sizes='114x114'>
+<link href='touch-icon-ipad-retina.png' rel='apple-touch-icon' sizes='144x144'>
+
+<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class=''>
+<div class='wrapper'>
+<header>
+<h1 class='title'>
+<a href='/KOS_DOC/'>
+kOS
+</a>
+</h1>
+</header>
+<div id='container'>
+<p class='tagline'>Fully programmable autopilot mod for KSP. Originally By Nivekk</p>
+<div id='main' role='main'>
+<div class='download-bar'>
+<div class='inner'>
+<a class='download-button spaceport' href='http://kerbalspaceport.com/kos-autopilot/'>
+<span>Spaceport</span>
+</a>
+<a class='download-button reddit' href='http://www.reddit.com/r/KOS_DOC/'>
+<span>Reddit</span>
+</a>
+<a class='download-button forum' href='http://forum.kerbalspaceprogram.com/threads/68089'>
+<span>Forum</span>
+</a>
+<a class='code' href='https://github.com/KSP-KOS/KOS'>
+View kOS on GitHub
+</a>
+</div>
+</div>
+<span class='blc'></span>
+<span class='trc'></span>
+<article class='markdown-body'>
+<h3 id="getting-started-in-kos">Getting Started in kOS</h3>
+
+<p>A quick start guide for Kerbal Operating System.</p>
+
+<p>(This document is intended for those who are just starting with
+using kOS.  It does presume you have played Kerbal Space Program
+before and know the basics of how to fly a rocket under manual
+control.  It does NOT assume you know a lot about computer
+programming, and it will walk you through some basic first steps.)</p>
+
+<h3 id="first-example-hello-world">First example: Hello World</h3>
+
+<p>In the grand tradition of programming tutorials, the first example
+will be how to make a script that does nothing more than print the
+words "Hello World" on the screen.  The purpose of this example is
+to show where you should put the files, how to move them about, and
+how to get one to run on the vessel.</p>
+
+<p><strong>Step 1: Start a new sandbox-mode game.</strong></p>
+
+<p>(You can use kOS in a
+career mode game, but it requires a part that you have to research
+which isn't available at the start of the tech tree, so this example
+will just use sandbox mode to keep it simple.)</p>
+
+<p><strong>Step 2: Make a vessel in the Vehicle Assembly Bay.</strong></p>
+
+<p>Make the vessel contain
+any unmanned command core, a few hundred units of battery power,
+a means of recharging the battery such as a solar panel array, and
+the "Comptronix CX-4181 Scriptable Control System".
+(From this point onward the CX-4181 Scriptable Control System part
+will be referred to by the acronym "SCS".) The SCS part is located in
+the parts bin under the "Control" tab (the same place where RCS thrusters
+and Torque Wheels are found.)</p>
+
+<p><strong>Step 3: Put the vessel on the launchpad.</strong></p>
+
+<p>Put the vessel on the launchpad.  For this first example
+it doesn't matter if the vessel can actually liftoff or even has engines
+at all.</p>
+
+<p><strong>Step 4: Invoke the terminal.</strong></p>
+
+<p>Rightclick for the SCS part on
+the vessel and then click the button that says "Open Terminal".</p>
+
+<p>Note that if the terminal is semi-transparent, this means it's not 
+currently selected.  If you click on the terminal, then your keyboard
+input is directed to the terminal INSTEAD of to piloting.  In other
+words if you type WASD, you'll actually get the word "wasd" to appear
+on the terminal, rather than the WASD keys steering the ship.  To 
+switch back to manual control of the game instead of typing into
+the terminal, click outside the terminal window anywhere on the background
+of the screen.</p>
+
+<p><strong>Step 5: See what an interactive command is like.</strong></p>
+
+<p>You should now see an old-school looking text terminal like
+the one shown below.  Type the line:</p>
+
+<pre><code>CLEARSCREEN. PRINT "==HELLO WORLD==".
+</code></pre>
+
+<p>Into the terminal (make sure to actually type the periods (".") as 
+shown) and hit ENTER.  Note that you can type it in uppercase or lowercase.
+kOS doesn't care.</p>
+
+<p><img src="TODO LINK" alt="text terminal screenshot, hello world1" /></p>
+
+<p>The terminal will respond by showing you this:
+<img src="TODO LINK" alt="text terminal screenshot, hello world2" /></p>
+
+<p><strong>Step 6: Okay that's great, but how can you make that happen in a program script instead?</strong></p>
+
+<p>Like so: Enter this command:</p>
+
+<pre><code>EDIT HELLO.
+</code></pre>
+
+<p>(Don't forget the period (".").  All commands in kOS are ended with a period.
+Again, you can type it in uppercase or lowercase.  kOS doesn't care.)</p>
+
+<p>You should see an editor window appear, in which you can type text.  Type
+the text:</p>
+
+<pre><code>PRINT "=========================================".
+PRINT "      HELLO WORLD".
+PRINT "THIS IS THE FIRST SCRIPT I WROTE IN kOS.".
+PRINT "=========================================".
+</code></pre>
+
+<p><img src="TODO LINK" alt="screenshot hello world editor window" /></p>
+
+<p>Click "Save" then "Exit" in the editor popup window.</p>
+
+<ul>
+  <li><em>Side Note: The editor font</em> - Experienced programmers may have noticed that the editor's font is proportional width rather than monospaced and that this is not ideal for programming work.  You are right, but there is little that can be done about it for a variety of technical reasons that are too complex to go into right now.</li>
+</ul>
+
+<p>Then on the main text terminal Enter:</p>
+
+<pre><code>RUN HELLO.
+</code></pre>
+
+<p>And you will see the program run, showing the text on the screen like so.</p>
+
+<p><img src="TODO LINK" alt="screenshot hello world run" /></p>
+
+<p><strong>Step 7: Okay, but where is this program?</strong></p>
+
+<p>To see where the
+"HELLO" program has been saved, Issue the command "LIST FILES" like this:</p>
+
+<pre><code>LIST FILES.
+</code></pre>
+
+<p>(Note, that the default for the LIST command is to list FILES, so you
+can leave the word "FILES" off if you like.)</p>
+
+<p>It should look like this, showing you the HELLO program you just wrote:</p>
+
+<p><img src="TODO LINK" alt="screenshot hello world list files" /></p>
+
+<p>This is a list of all the files on the currently selected VOLUME.
+By default, when you launch a new vessel, the currently selected VOLUME
+is called "1" and it's the volume that's stored on THAT SCS part that
+you are running all these commands in.</p>
+
+<p>This is the local volume of that SCS part.  Local volumes such at this
+tend to have very small limited storage, as you can see when you look
+at the space remaining in the list printout.</p>
+
+<p>If you're wondering where the file is stored <em>physically</em> on your computer,
+it's represented by a section inside the persistence file for your saved
+game, as a piece of data associated with the SCS part.  This is important
+because it means you can't access the program from another vessel, and if
+this vessel ever crashes and the SCS part explodes, then you've lost the
+program.</p>
+
+<p><strong>Step 8: I don't like the idea that the program is stored only on this
+vessel.  Can't I save it somewhere better?  More permanent?</strong></p>
+
+<p>Yes.  Yes you can.</p>
+
+<p>There is another VOLUME that always exists called the <em>Archive</em>, which is
+also referred to as volume 0.  (either name can be used in commands).
+The archive is conceptually stored somewhere back at Kerbin home base
+in the Space Center rather than on your vessel.  It has infinite storage
+space, and does not disappear when your vessel is gone.  ALSO, it actually
+exists across saved games - if you launch one saved game, put a new file
+in the Archive, and then later launch a different saved game, that file will
+be there in that game too.</p>
+
+<p>To use the Archive, first we'll have to introduce you to a new command,
+called SWITCH TO.  The SWITCH TO command changes which VOLUME is the one
+that you are doing your work with.</p>
+
+<p>To work with the archive, and create a second "hello world" file there, you issue these commands and see what they do:</p>
+
+<pre><code>SWITCH TO 0.
+EDIT HELLO2. // Make a new file here that just says: PRINT "hi again".
+LIST FILES.
+RUN HELLO2.
+SWITCH TO 1.
+LIST FILES.
+RUN HELLO.
+</code></pre>
+
+<p><em>But where is it stored behind the scenes?</em>  The archive is currently
+slightly violating the design of KSP mods that puts everything in
+the GameData folder.  The kSP Archive is actually stored in the
+Plugins/PluginData/Archive folder of your MAIN KSP home, not inside
+GameData.  </p>
+
+<p>If a file is stored inside the archive, it can actually be edited <em>by
+an external text editor of your choice</em> instead of using kOS's in-game
+editor.  This is usually a much better practice once you start doing
+more complex things with kOS.  You can also make new files in the
+archive folder.  Just make sure that all the files end with a .txt
+filename suffix or kOS won't use them.</p>
+
+<p>Further reading about files and volumes:</p>
+
+<ul>
+  <li><a href="../volumes/index.html">Volumes</a></li>
+  <li><a href="../../command/file/index.html">File Control</a></li>
+</ul>
+
+<h3 id="second-example-doing-something-real">Second Example: Doing something real</h3>
+
+<p>Okay that's all basic setup stuff but you're probably clamoring for a real
+example that actually does something nifty.</p>
+
+<p>This example will show the crudest, most basic use of kOS just to get
+started.  In this example we'll make a program that will launch a
+vessel using progressively more and more complex checks.  kOS can be
+used at any stage of a vessel's flight - launching, circularizing,
+docking, landing,… and in fact launching is one of the simpler
+piloting tasks that you can do without much need of automation.
+Where kOS really shines is for writing scripts to do touchy sensitive
+tasks like landing or docking or hovering.  These are the areas
+that can benefit from the faster reaction speed that a computer
+scipt can handle.</p>
+
+<p>But in order to give you an example that you can start with from scratch,
+that's easy to reload and retry from an initial point, we'll use an
+example of launching.</p>
+
+<p><strong>Step 1: Make a vessel</strong></p>
+
+<p>Make any sort of rocket that can lift you to orbit that fills the following
+pattern:</p>
+
+<ul>
+  <li>It uses ONLY liquidfuel rockets.  The example code here will assume this is the case.  kOS can deal with solid fuel boosters as well, but to keep the example simple we'll use liquid fuel only here.</li>
+  <li>Make the vessel's staging list set up in the right order for a launch.  (Make sure it has no need to manually rightclick parts to stage things weirdly, and no need to use action groups to activate stages weirdly).</li>
+  <li>Make sure the vessel has plenty of torque power to stay steady without a lot of wobble.</li>
+  <li>Make the vessel have at least these parts on it:
+    <ul>
+      <li>battery power of at least 400 charge</li>
+      <li>ability to recharge equal to at least 6 solar panel sections or 1 RTG unit</li>
+      <li>the kOS SCS part somewhere in the stack, near the top bit where it won't fall off due to staging.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Step 2: Make the start of the script</strong></p>
+
+<p>Okay, so type the lines below in an external <em>text editor of your choice</em>
+(i.e. Notepad on Windows, or TextEdit on Mac, or whatever you fancy).</p>
+
+<pre><code>// My First Launcher.
+//
+SET countdown TO 10.
+PRINT "Counting down:".
+UNTIL countdown = 0 {
+    PRINT "..." + countdown.
+    SET countdown TO countdown - 1.
+    WAIT 1. // pauses the script here for 1 second.
+}.
+</code></pre>
+
+<p>See those things with the two slashes ("//")?  Those are comments 
+in the kerboscript language and they're just ways to write things
+in the program that don't do anything - they're there for humans
+like you to read so you understand what's going on.  In these examples
+you never actually have to type in the things you see after the slashes.
+They're there for your benefit when reading this document but you can
+leave them out if you wish.</p>
+
+<p>Save the file in your Plugins/PluginData/Archive folder of your KSP
+installation under the filename "hellolaunch.txt".  DO NOT save it anywhere
+under GameData/kOS/.  Do NOT.  According to the KSP standard, normally
+KSP mods should put their files in GameData/[mod name], but kOS puts
+the archive outside the GameData folder because it represents content
+owned by you, the player, not content owned by the kOS mod.</p>
+
+<p>By saving the file in Plugins/PluginData/Archive, you have actually
+put it in your archive volume of kOS.  kOS will see it there immediately
+without delay.  You do not need to restart the game.  If you do:</p>
+
+<pre><code>SWITCH TO 0.
+LIST FILES.
+</code></pre>
+
+<p>after saving the file from your external text editor program, you
+will see a listing of your file "hellolaunch" right away.  (<em>Outside</em>
+of the game, the filename has to have a *.txt suffix, but inside the
+game, you don't see the .txt part of the name.)</p>
+
+<p>Okay, now copy it to your local drive and give it a try running it
+from there;</p>
+
+<pre><code>SWITCH TO 1.
+COPY HELLOLANCH FROM 0.
+RUN HELLOLAUNCH.
+</code></pre>
+
+<p>Okay so the program doesn't actaully DO anything yet other than just
+countdown from 10 to 0.  A bit of a dissapointment, but we haven't
+written the rest of the program yet.</p>
+
+<p>You'll note that what you've done is switch to the local volume (1)
+and then copy the program from the archive (0) to the local volume
+(1) and then run it from the local volume.  Technically you didn't need
+to do this.  You could have just run it directly from the archive.
+For those looking at the KSP game as a bit of a roleplay experience, it
+makes sense to never run programs directly from the archive, and instead
+live with the limitation that software should be copied to the craft
+for it to be able to run it.</p>
+
+<p><strong>Step 3: Make the script actually do something</strong></p>
+
+<p>Okay now go back into your <em>text editor of choice</em> and append a few more lines to the hellolaunch.txt file so it now looks like this:</p>
+
+<pre><code>// My First Launcher.
+//
+SET countdown TO 10.
+PRINT "Counting down:".
+UNTIL countdown = 0 {
+    PRINT "..." + countdown.
+    SET countdown TO countdown - 1.
+    WAIT 1. // pauses the script here for 1 second.
+}.
+PRINT "Main throttle up.  2 seconds to stabalize it.".
+LOCK THROTTLE TO 1.0.   // 1.0 is the max, 0.0 is idle.
+WAIT 2. // give throttle time to adjust.
+UNTIL SHIP:MAXTHRUST &gt; 0 {
+    WAIT 0.5. // pause half a second between stage attempts.
+    PRINT "Stage activated.".
+    STAGE. // same as hitting the spacebar.
+}.
+WAIT UNTIL SHIP:ALTITUDE &gt; 70000. // pause here until ship is high up.
+//
+// NOTE that it is vital to not just let the script end right away
+// here.  Once a kOS script just ends, it releases all the controls
+// back to manual piloting so that you can fly the ship by hand again.
+// If the pogram just ended here, then that would cause the throttle
+// to turn back off again right away and nothing would happen.
+</code></pre>
+
+<p>Save this file to hellolaunch.txt again, and re-copy it to your
+vessel that should still be sitting on the launchpad, then run it,
+like so:</p>
+
+<pre><code>COPY HELLOLAUNCH FROM 0.
+RUN HELLOLAUNCH.
+</code></pre>
+
+<p>Hey! It does something now! It fires the first stage engine and launches!</p>
+
+<p>But.. but wait… It doesn't control the steering and it just lets it go
+whereever it will.</p>
+
+<p>Most likely you had a crash with this script because it didn't do anything 
+to affect the steering at all, so it probably allowed the rocket to tilt over.</p>
+
+<p><strong>Step 4: Make the script actually control steering</strong></p>
+
+<p>So to fix that problem, let's add steering control to the script.</p>
+
+<p>The easy way to control steering is to use the LOCK STEERING command.</p>
+
+<p>Once you have mastered the basics of kOS, you should go and read
+<a href="../ship_control/index.html">the documentation on ship steering techniques</a>,
+but that's a more advanced topic for later.</p>
+
+<p>The way to use the LOCK STEERING command is to set it to a thing called
+a <a href="../../structure/vector/index.html">Vector</a> or a
+<a href="../../structure/direction/index.html">Direction</a>.  There are several Directions
+built-in to kOS, one of which is called "UP".</p>
+
+<p>"UP" is a Direction that always aims directly toward the sky (the center of
+the blue part of the navball).</p>
+
+<p>So to steer always UP, just do this:</p>
+
+<pre><code>LOCK STEERING TO UP.
+</code></pre>
+
+<p>So if you just add this one line to your script, you'll get something that
+should keep the craft aimed straight up and not let it tip over.
+Add the line just after the line that sets the THROTTLE, like so:</p>
+
+<pre><code>// My First Launcher.
+//
+SET countdown TO 10.
+PRINT "Counting down:".
+UNTIL countdown = 0 {
+    PRINT "..." + countdown.
+    SET countdown TO countdown - 1.
+    WAIT 1. // pauses the script here for 1 second.
+}.
+PRINT "Main throttle up.  2 seconds to stabalize it.".
+LOCK THROTTLE TO 1.0.   // 1.0 is the max, 0.0 is idle.
+//
+//
+LOCK STEERING TO UP.  // This is the new line to add
+//
+//
+WAIT 2. // give throttle time to adjust.
+UNTIL SHIP:MAXTHRUST &gt; 0 {
+    WAIT 0.5. // pause half a second between stage attempts.
+    PRINT "Stage activated.".
+    STAGE. // same as hitting the spacebar.
+}.
+WAIT UNTIL SHIP:ALTITUDE &gt; 70000. // pause here until ship is high up.
+//
+// NOTE that it is vital to not just let the script end right away
+// here.  Once a kOS script just ends, it releases all the controls
+// back to manual piloting so that you can fly the ship by hand again.
+// If the pogram just ended here, then that would cause the throttle
+// to turn back off again right away and nothing would happen.
+</code></pre>
+
+<p>Again, copy this and run it, like before.  If your craft crashed in the
+previous step, which it probably did, then revert to the VAB and re-launch
+it.  <em>NOTE: Due to a bug sometimes reverting just to the launchpad does
+not work well and you need to revert all the way back to the VAB.</em></p>
+
+<pre><code>SWITCH TO 1. // should be the default already, but just in case.
+COPY HELLOLAUNCH FROM 0.
+RUN HELLOLAUNCH.
+</code></pre>
+
+<p>Now you should see the same thing as before, but now your craft will
+stay pointed up.</p>
+
+<p><em>But wait - it only does the first stage and then it stops without
+doing the next stage?  how do I fix that?</em></p>
+
+<p><strong>Step 5: Add staging logic</strong></p>
+
+<p>The logic for how and when to stage can be an interesting and fun
+thing to write yourself.  This example will keep it very simple, and
+this is the part where it's important that you are using a vessel
+that only contains liquidfuel engines.  If your vessel has some
+booster engines, then it would require a more sophisticated script
+to launch it correctly than this tutorial gives you.</p>
+
+<p>To add the logic to check when to stage, we introduce a new concept
+called the WHEN trigger.  To see full documentation on it when you
+finish the tutorial, look for it on
+the <a href="../../command/flowcontrol/index.html">Flow Control page</a></p>
+
+<p>The quick and dirty explanation is that a WHEN section is a short
+section of code that you set up to run LATER rather than right now.
+It creates a check in the background that will constantly look for
+some condition to occur, and when it happens, it interrupts whatever
+else the code is doing, and it will run the body of the WHEN code
+before continuing from where it left off in the main script.</p>
+
+<p>There are some complex dangers with writing WHEN triggers that
+can cause KSP itself to hang or stutter if you are not careful,
+but explaining them is beyond the scope of this tutorial.  But
+when you want to start using WHEN triggers yourself, you really
+should read the section on WHEN in the <a href="../../command/flowcontrol/index.html">Flow Control page</a> before you do so.</p>
+
+<p>The WHEN trigger we are going to add to the launch script looks like this:</p>
+
+<pre><code>WHEN STAGE:LIQUIDFUEL &lt; 0.001 THEN {
+    PRINT "No liquidfuel.  Attempting to stage.".
+    STAGE.
+    PRESERVE.
+}.
+</code></pre>
+
+<p>It says, "Whenever the amount of liquid fuel in the current stage is so
+small it may as well be zero (&lt; 0.001), then activate the next stage."
+The PRESERVE keyword says, "don't stop checking this condition just
+because it's been triggered once.  It should still keep checking for
+it again in the future."</p>
+
+<p>The check for &lt; 0.001 is because sometimes KSP won't quite burn the
+last drop of fuel in a stage.</p>
+
+<p>If this block of code is inserted into the script, then it will
+set up a constant background check that will always hit the next
+stage as soon as the current stage has no liquidfuel in it.</p>
+
+<p>UNLIKE with all the previous edits this tutorial has asked you to make
+to the script, this time you're going to be asked to delete something
+and replace it.  The new WHEN section above should actually <strong>REPLACE</strong>
+the existing "UNTIL SHIP:MAXTHRUST &gt; 0" loop that you had before.</p>
+
+<p>Now your script should look like this:</p>
+
+<pre><code>// My First Launcher.
+//
+SET countdown TO 10.
+PRINT "Counting down:".
+UNTIL countdown = 0 {
+    PRINT "..." + countdown.
+    SET countdown TO countdown - 1.
+    WAIT 1. // pauses the script here for 1 second.
+}.
+PRINT "Main throttle up.  2 seconds to stabalize it.".
+LOCK THROTTLE TO 1.0.   // 1.0 is the max, 0.0 is idle.
+LOCK STEERING TO UP.
+WAIT 2. // give throttle time to adjust.
+//
+// The section below replaces previous UNTIL loop:
+//
+WHEN STAGE:LIQUIDFUEL &lt; 0.001 THEN {
+    PRINT "No liquidfuel.  Attempting to stage.".
+    STAGE.
+    PRESERVE.
+}.
+WAIT UNTIL SHIP:ALTITUDE &gt; 70000. // pause here until ship is high up.
+//
+// NOTE that it is vital to not just let the script end right away
+// here.  Once a kOS script just ends, it releases all the controls
+// back to manual piloting so that you can fly the ship by hand again.
+// If the pogram just ended here, then that would cause the throttle
+// to turn back off again right away and nothing would happen.
+</code></pre>
+
+<p>Again, relaunch the ship, copy the script as before, and run it again.</p>
+
+<p>This time you should see it activate your later upper stages correctly.
+(again, assuming you made the entire vessel with only liquidfuel engines.)</p>
+
+<p><strong>Step 6: Now to make it turn</strong></p>
+
+<p><em>Okay that's fine but it still just goes straight up!  What about a
+gravity turn?</em></p>
+
+<p>Well, a true and proper gravity turn is a very complex bit of math
+that is best left as an excercise for the reader, given that the
+goal of kOS is to let you write your OWN autopilot, not to write it
+for you.  But to give some basic examples of commands, lets just
+make a crude gravity turn approximation that simply flies the ship
+like a lot of new KSP pilots learn to do it for the first time:</p>
+
+<ul>
+  <li>Fly straight up to 10000m.</li>
+  <li>Aim at 45 degrees down toward the east until 30000m.</li>
+  <li>Thrust horizontally east after that.</li>
+</ul>
+
+<p>To make this work, we introduce a new way to make a Direction, called
+the HEADING function.</p>
+
+<p>Whenever you call the function HEADING(a,b), it makes a Direction
+oriented as follows on the navball:</p>
+
+<ul>
+  <li>Point at the compass heading A.</li>
+  <li>Pitch up a number of degrees from the horizon = to B.</li>
+</ul>
+
+<p>So for example, HEADING(45,10) would aim northeast, 10 degrees above the horizon.</p>
+
+<p>Combining this with the WHEN command from before, we get this section:</p>
+
+<pre><code>WHEN SHIP:ALTITUDE &gt; 10000 THEN {
+    PRINT "Starting turn.  Aiming to 45 degree pitch."
+    LOCK STEERING TO HEADING(90,45). // east, 45 degrees pitch.
+}.
+WHEN SHIP:ALTITUDE &gt; 30000 THEN {
+    PRINT "Starting flat part.  Aiming to horizon."
+    LOCK STEERING TO HEADING(90,0). // east, horizontal.
+}.
+</code></pre>
+
+<p>Note that these lack the command PRESERVE like the previous WHEN example had.
+This is because we want these to trigger just once and then never again.
+There's no point in constantly telling kOS to reset the steering to the same
+thing over and over as the script runs.</p>
+
+<p>Now, if you insert this new section to the script, we have a nice nifty
+example of a start of a launching script.  Note that it works even if
+you insert it at the top of the script, because it sets up the triggers
+to occur LATER when the condition becomes true.  They don't execute
+right away:</p>
+
+<pre><code>// My First Launcher.
+//
+WHEN SHIP:ALTITUDE &gt; 10000 THEN {
+    PRINT "Starting turn.  Aiming to 45 degree pitch."
+    LOCK STEERING TO HEADING(90,45). // east, 45 degrees pitch.
+}.
+WHEN SHIP:ALTITUDE &gt; 30000 THEN {
+    PRINT "Starting flat part.  Aiming to horizon."
+    LOCK STEERING TO HEADING(90,0). // east, horizontal.
+}.
+SET countdown TO 10.
+PRINT "Counting down:".
+UNTIL countdown = 0 {
+    PRINT "..." + countdown.
+    SET countdown TO countdown - 1.
+    WAIT 1. // pauses the script here for 1 second.
+}.
+PRINT "Main throttle up.  2 seconds to stabalize it.".
+LOCK THROTTLE TO 1.0.   // 1.0 is the max, 0.0 is idle.
+LOCK STEERING TO UP.
+WAIT 2. // give throttle time to adjust.
+//
+// The section below replaces previous UNTIL loop:
+//
+WHEN STAGE:LIQUIDFUEL &lt; 0.001 THEN {
+    PRINT "No liquidfuel.  Attempting to stage.".
+    STAGE.
+    PRESERVE.
+}.
+WAIT UNTIL SHIP:ALTITUDE &gt; 70000. // pause here until ship is high up.
+//
+// NOTE that it is vital to not just let the script end right away
+// here.  Once a kOS script just ends, it releases all the controls
+// back to manual piloting so that you can fly the ship by hand again.
+// If the program just ended here, then that would cause the throttle
+// to turn back off again right away and nothing would happen.
+</code></pre>
+
+<p>If we assume you made a vessel that has enough fuel and power to get up to
+orbit, this script should in principle work to get you to the point
+of leaving the atmosphere.  It will probably still fall back down, because 
+this script makes no attempt to ensure that the craft is going fast enough
+to maintain the orbit.</p>
+
+<p>As you can probably see, it would still have a long way to go before it
+would become a really GOOD launching autopilot.  Think about the
+following features you could add yourself as you become more familiar with
+kOS:</p>
+
+<ul>
+  <li>You could change the steering logic to make a more smooth gravity turn by constantly adjusting the pitch in the HEADING according to some math formula.</li>
+  <li>You could complete the launching script by making sure once the vessel breaks the atmosphere it actually makes a circular orbit rather than just stopping after 70000m and coasting.</li>
+  <li>This script just stupidly leaves the throttle at max the whole way.  You could make it more sophisticated by adjusting the throttle as necessary to avoid too much wasted energy fighting air friction.  (The way KSP's stock areodynamic model works, the optimal speed is terminal velocity, by the way).</li>
+  <li>With more sophisticated staging checks, the script could be made to work with solid fuel engines as well.</li>
+  <li>With even more sophisticated checks, the script could be made to work with fancy staging methods like asaparagus.</li>
+  <li>Using the PRINT AT command, you can make fancier status readouts in the termainl window as the script runs.</li>
+</ul>
+
+</article>
+</div>
+</div>
+<footer>
+<div class='owner'>
+<p>
+<a class='avatar' href='https://github.com/erendrake'>
+<img height='48px' src='https://0.gravatar.com/avatar/165af1182d7a820a7dacba19befc2e9c?d=https%3A%2F%2Fidenticons.github.com%2Fdb79977913a22100d5b0a7622deb2905.png&amp;amp;r=x&amp;amp;s=60' width='48px'>
+</a>
+<a href='https://github.com/erendrake'>
+erendrake
+</a>
+maintains
+<a href='https://github.com/KSP-KOS/KOS'>
+kOS
+</a>
+</p>
+</div>
+</footer>
+<div class='current-section'>
+<a href='#top'>
+Scroll to top
+</a>
+<p class='name'></p>
+</div>
+</div>
+<script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+<script src="../../javascripts/application.js" type="text/javascript"></script>
+<script src="../../javascripts/script.js" type="text/javascript"></script>
+</body>
+</html>
