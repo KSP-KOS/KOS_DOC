@@ -35,12 +35,13 @@ will be referred to by the acronym "SCS".) The SCS part is located in
 the parts bin under the "Control" tab (the same place where RCS thrusters
 and Torque Wheels are found.)
 
+![SCS_parts_big picture](../../images/SCS_parts_bin.png)
+
 __Step 3: Put the vessel on the launchpad.__
 
 Put the vessel on the launchpad.  For this first example
 it doesn't matter if the vessel can actually liftoff or even has engines
 at all.
-![SCS_parts_big picture](../../images/SCS_parts_bin.png)
 
 __Step 4: Invoke the terminal.__
 
