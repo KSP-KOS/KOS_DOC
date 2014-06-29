@@ -412,7 +412,7 @@ to launch it correctly than this tutorial gives you.
 To add the logic to check when to stage, we introduce a new concept
 called the WHEN trigger.  To see full documentation on it when you
 finish the tutorial, look for it on
-the [Flow Control page](../../command/flowcontrol/index.html)
+the [Flow Control page](../../command/flowControl/index.html)
 
 The quick and dirty explanation is that a WHEN section is a short
 section of code that you set up to run LATER rather than right now.
@@ -425,7 +425,7 @@ There are some complex dangers with writing WHEN triggers that
 can cause KSP itself to hang or stutter if you are not careful,
 but explaining them is beyond the scope of this tutorial.  But
 when you want to start using WHEN triggers yourself, you really
-should read the section on WHEN in the [Flow Control page](../../command/flowcontrol/index.html) before you do so.
+should read the section on WHEN in the [Flow Control page](../../command/flowControl/index.html) before you do so.
 
 The WHEN trigger we are going to add to the launch script looks like this:
 
