@@ -19,22 +19,22 @@ All of the main celestial bodies in the game are reserved variable names as well
 
 Variable Name | Can Read | Can Set | Type | Description
 ==============|==========|=========|======|============
-Sun | yes | no | [Body](../structures/body/index.html) | The Sun
-Moho | yes | no | [Body](../structures/body/index.html) | A planet
-Eve | yes | no | [Body](../structures/body/index.html) | A planet
-Gilly | yes | no | [Body](../structures/body/index.html) | A moon of Eve
-Kerbin | yes | no | [Body](../structures/body/index.html) | A planet
-Mun | yes | no | [Body](../structures/body/index.html) | A moon of Eve
-Minmus | yes | no | [Body](../structures/body/index.html) | A moon of Eve
-Duna | yes | no | [Body](../structures/body/index.html) | A planet
-Ike | yes | no | [Body](../structures/body/index.html) | A moon of Duna
-Jool | yes | no | [Body](../structures/body/index.html) | A planet
-Laythe | yes | no | [Body](../structures/body/index.html) | A moon of Jool
-Vall | yes | no | [Body](../structures/body/index.html) | A moon of Jool
-Tylo | yes | no | [Body](../structures/body/index.html) | A moon of Jool
-Bop | yes | no | [Body](../structures/body/index.html) | A moon of Jool
-Pol | yes | no | [Body](../structures/body/index.html) | A moon of Jool
-Eeloo | yes | no | [Body](../structures/body/index.html) | A dwarf planet.
+Sun | yes | no | [Body](../structure/body/index.html) | The Sun
+Moho | yes | no | [Body](../structure/body/index.html) | A planet
+Eve | yes | no | [Body](../structure/body/index.html) | A planet
+Gilly | yes | no | [Body](../structure/body/index.html) | A moon of Eve
+Kerbin | yes | no | [Body](../structure/body/index.html) | A planet
+Mun | yes | no | [Body](../structure/body/index.html) | A moon of Eve
+Minmus | yes | no | [Body](../structure/body/index.html) | A moon of Eve
+Duna | yes | no | [Body](../structure/body/index.html) | A planet
+Ike | yes | no | [Body](../structure/body/index.html) | A moon of Duna
+Jool | yes | no | [Body](../structure/body/index.html) | A planet
+Laythe | yes | no | [Body](../structure/body/index.html) | A moon of Jool
+Vall | yes | no | [Body](../structure/body/index.html) | A moon of Jool
+Tylo | yes | no | [Body](../structure/body/index.html) | A moon of Jool
+Bop | yes | no | [Body](../structure/body/index.html) | A moon of Jool
+Pol | yes | no | [Body](../structure/body/index.html) | A moon of Jool
+Eeloo | yes | no | [Body](../structure/body/index.html) | A dwarf planet.
 
 
 Alias shortcuts for SHIP fields
