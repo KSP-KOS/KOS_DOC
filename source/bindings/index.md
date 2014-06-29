@@ -41,7 +41,7 @@ Alias shortcuts for SHIP fields
 -------------------------------
 
 The following are all alias shortcuts for accessing the fields of the SHIP vessel.
-To see their definition, please consult the [Vessel](../strcuture/vessel/index.html)
+To see their definition, please consult the [Vessel](../structure/vessel/index.html)
 page, as they are all just instances of the standard vessel suffixes.
 
 Variable | Same as
