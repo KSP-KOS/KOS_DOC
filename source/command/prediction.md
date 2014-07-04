@@ -1,37 +1,55 @@
-Predictive Functions
-====================
+Manipulating the flight plan
+============================
+
+
+### Manipulating the maneuver nodes.
+
+To alter the manuever nodes on a vessel's flight plan, use the ADD and REMOVE commands
+[as described on the manuever node manipulation page](../../command/node/index.html).
+
+Using the Add and Remove commands as described on that page, you may alter the flight plan of the CPU_vessel,
+however kOS does not automatically execute the nodes.  You still have to write the code to decide how to sucessfully execute a planned manuever node.
+
+### Making Predictions.
+
+The following prediction functions do take into account the future manuever nodes planned,
+and operate under the assumption that they will be executed as planned.
+
 
 These return predicted information about the future position and velocity of an object.
 
-### POSITIONAT( THING, TIME )
+#### POSITIONAT( THING, TIME )
 
 Returns a prediction of where **thing** will be at universal timestamp **time**.
 If the THING is a Vessel, and the Vessel has planned manuever nodes, the
 prediction assumes the manuever nodes will be executed exactly as planned.
+
 * **thing** is an Orbitable
 * **time** is a Timestamp
 * **return value** is a VECTOR, expressed in ship-center-raw-rotation coords.
 
-### VELOCITYAT( THING, TIME )
+#### VELOCITYAT( THING, TIME )
 
 Returns a prediction of what **thing**s velocity will be at universal timestamp **time**.
 If the THING is a Vessel, and the Vessel has planned manuever nodes, the
 prediction assumes the manuever nodes will be executed exactly as planned.
+
 * **thing** is an Orbitable
 * **time** is a Timestamp
 * **return value** is an ORBITABLEVELOCITY structure.
 
-### ORBITAT( THING, TIME )
+#### ORBITAT( THING, TIME )
 
 Returns the Orbit patch where the thing is predicted to be at universal timestamp time.
 If the THING is a Vessel, and the Vessel has planned manuever nodes, the
 prediction assumes the manuever nodes will be executed exactly as planned.
+
 * **thing** is an Orbitable
 * **time** is a Timestamp
 * **return value** is an ORBIT structure.
 
 
-Example:
+Examples:
 
     //kOS
     // test the future position and velocity prediction.

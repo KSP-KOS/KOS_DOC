@@ -1,20 +1,25 @@
-### VECRDAW  
+VECRDAW  
+========
 
 A structure that allows you to make a drawing of a vector on the screen in map view or in
 flight view.
 
-### All suffixes can be Gotten and Set:
-* START - Vector - Optional, defaults to V(0,0,0) - position of the tail of the vector to draw in SHIP-RAW coords.  V(0,0,0) means the ship Center of Mass.
-* VEC - Vector - Mandatory - The vector to draw, SHIP-RAW Coords.
-* COLOR (or COLOUR works too) - Optional, defaults to white, [RGBA](../rgba/index.html) - The color to draw the vector.  (There is a hardcoded fade effect where the tail is a bit more transparent than the head.)
-* LABEL - String - Optional, defaults to "" - Text to show on-screen at the midpoint of the vector.
-* SCALE - Number - Optional, defauls to 1 - scalar to multiply by both the START and the VEC
-* SHOW - Boolean - Set to true to make the arrow appear, false to hide it. Defaults to false until you're ready to set it to true.
+Suffix      | Type      | Get | Set | Description
+------------|-----------|-----|-----|--------------------------------------
+:START      | Vector | yes | yes | Optional, defaults to V(0,0,0) - position of the tail of the vector to draw in SHIP-RAW coords.  V(0,0,0) means the ship Center of Mass.
+:VEC        | Vector | yes | yes | Mandatory - The vector to draw, SHIP-RAW Coords.
+:COLOR (or COLOUR works too) | [Color](../rgba/index.html) | yes | yes | Optional, defaults to white. This is the color to draw the vector.  (There is a hardcoded fade effect where the tail is a bit more transparent than the head.)
+:LABEL      | String | yes | yes | Optional, defaults to "" - Text to show on-screen at the midpoint of the vector.
+:SCALE      | Number | yes | yes | Optional, defauls to 1 - scalar to multiply by both the START and the VEC
+:SHOW       | Boolean | yes | yes | Set to true to make the arrow appear, false to hide it. Defaults to false until you're ready to set it to true.
 
 ### Two ways to make a VECDRAW:
 
-Build the suffix fields one at a time.
-VECDRAW() creates an empty vecdraw with nothing populated yet. You have to follow it up with calls to the suffixes as shown here:
+Build the suffix fields one at a time using the **VECDRAW** empty construction function:
+
+* VECDRAW() creates an empty vecdraw with nothing populated yet. You have to follow it up with calls to the suffixes as shown here:
+
+Example using VECDRAW():
 
     SET anArrow TO VECDRAW().
     SET anArrow:VEC TO V(a,b,c).
@@ -28,12 +33,13 @@ VECDRAW() creates an empty vecdraw with nothing populated yet. You have to follo
     SET anArrow:LABEL TO "See the arrow?".
     SET anArrow:SCALE TO 5.0.
 
-Build the vecdraw all at once with the VECDRAWARGS() function.
-VECDRAWARGS() Lets you specify all of the following in a list of arguments at once:
+Build the vecdraw all at once with the VECDRAWARGS() construction function:
 
-* Vecdrawars( START, VEC, COLOR, LABEL, SCALE, SHOW ).
+* VECDRAWARGS() Lets you specify all of the following in a list of arguments at once:
 
-Example:
+  * Vecdrawars( START, VEC, COLOR, LABEL, SCALE, SHOW ).
+
+Example using VECDRAWAGS():
 
     SET anArrow TO VECDRAWARGS( v(0,0,0), v(a,b,c), rgb(1,0,0), "See the arrow?", 5.0, true ).
 

@@ -1,29 +1,36 @@
-﻿# List
+﻿List
+====
 
-Collection of Any type in kOS
+Collection of Any type in kOS.  Many places throughout the system return
+variables of the LIST type, and you can crate your own LIST variables as
+well.
 
-Structure
-=========
+One of the places you are likely to find that kOS gives you a List is
+when you use the [List command](../../command/list/index.html) to list
+some query into one of your variables.
 
-### Getters
-* CLEAR
-* LENGTH
-* COPY
-* [ITERATOR](../iterator/index.html) : An alternate means of iterating over a list (see the link).
+Once you have a list from some source, this is how you can manipulate it:
 
+### Structure
 
-### Setters
-* ADD
-* CONTAINS
-* REMOVE - Number (index)
+Suffix      | Type      | Get | Set | Description
+------------|-----------|-----|-----|--------------------------------------
+:CLEAR      | irrelevant| yes | no  | Use this for its side-effect.  Whenever myList:CLEAR exists in an expression, myList will be zeroed out, regardless of what you do with the value of the expression.  i.e. SET DUMMY TO MYLIST:CLEAR. .
+:LENGTH     | number    | yes | no  | Returns the number of elements in the list.
+:COPY       | List      | yes | no  | Returns a new list that contains the same thing as the old list.
+:[ITERATOR](../iterator/index.html) | Iterator | yes | no  | An alternate means of iterating over a list (see the link).
+:ADD        | varies    | no  | yes | Appends a new value to the end of the list, and then assigns it to whatever you are setting this suffix to.
+:CONTAINS   | boolean   | no  | yes | (**This is currently unusable**).  This returns true or false depending on whether or not the item you are SETTING it to is already in the list.  But there's no way to read the result of a SET command, so this is useless at the moment.
+:REMOVE     | Number    | no  | yes | Removes the item from the list that is located at the index number given.
 
 ### Access to individual elements
+
 All list indexes start counting at zero.  (The list elements are numbered from 0 to N-1 rather than from 1 to N.)
 
-* list#x operator: access the element at postion x.  Works for get or set.  X must be a hardcoded number or a variable name.
-* list[expression] operator: another syntax to acceess the element at position 'expression'.  Works for get or set.  Any arbitrary complex expression may be used with this syntax, not just a number or variable name.
-* FOR VAR IN LIST { ... }.  : a loop in which var iterates over all the items of list from item 0 to item LENGTH-1.
-* [ITERATOR](../iterator/index.html) : An alternate means of iterating over a list (see the link).
+* **list#x** operator: access the element at postion x.  Works for get or set.  X must be a hardcoded number or a variable name.
+* **list[** *expression* **]** operator: another syntax to acceess the element at position 'expression'.  Works for get or set.  Any arbitrary complex expression may be used with this syntax, not just a number or variable name.
+* **FOR VAR IN LIST { ... }.**  : [a type of loop](../../command/flowControl/index.html#for) in which var iterates over all the items of list from item 0 to item LENGTH-1.
+* **[ITERATOR](../iterator/index.html)** : An alternate means of iterating over a list (see the link).
 
 Example:
     
@@ -44,11 +51,12 @@ Example:
     SET FOO:REMOVE TO 1.     // Removes the second element from the list
     SET BAR TO FOO:COPY.     // Makes a copy of the FOO list
     FOO:CLEAR.               // Removes all elements from the FOO list.
-    FOR var in FOO {         // --.
+    FOR var in BAR {         // --.
       print var.             //   |-- Print all the contents of FOO.
     }.                       // --'
 
 ### Multidimensional Arrays
+
 A 2-D Array is a List who's elements are themselves also Lists.  A 3-D Array is a List of Lists of Lists.  Any number of dimensions is posible.
 
 * "list#x#y" or "list[x][y]": access the element at position x,y of the 2-D array (list of lists).
@@ -83,55 +91,3 @@ Example:
     PRINT FOO[2][1].           // Prints 7.
     PRINT FOO#2#0.             // Prints 3.14159
 
-Some Resources return LIST type
-------
-
-Aggregate Resources of all parts
-
-* NAME
-* AMOUNT
-* CAPACITY
-
-Parts
-------
-
-This list can be long, use carefully 
-
-* NAME
-* STAGE
-* UID 
-* RESOURCES - List
-
-Sensors
-------
-
-All Sensors on the craft (eg Pressure, Gravity, ect)
-
-* TYPE
-* ACTIVE - bool, can be set to activate/deactivate
-* READOUT
-
-Elements
-------
-
-All docked flights for the current vessel. 
-
-* NAME
-* ID
-* PARTCOUNT
-* RESOURCES - List
-
-Printout Lists
-======
-
-Outputs data to the console. Lists files by default.
-Example:
-
-    LIST.           // Lists files on the active volume
-    LIST FILES.     // Lists files on the active volume
-    LIST VOLUMES.   // Lists all volumes, with their numbers and names
-    LIST BODIES.    // Lists celestial bodies and their distance
-    LIST TARGETS.   // Lists target-able vessels in range
-    LIST RESOURCES. // List of resources by stage
-    LIST PARTS.     // Lists parts in vessel
-    LIST ENGINES.   // List of engines

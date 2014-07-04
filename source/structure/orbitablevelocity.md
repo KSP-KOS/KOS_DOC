@@ -1,4 +1,5 @@
-# OrbitableVelocity
+OrbitableVelocity
+=================
 
 When any [Orbitable](../direction/index.html) object returns its :VELOCITY suffix, it
 returns it as a structure containing a pair of both its orbit-frame velocity and its surface-frame velocity at the same instant of time.
@@ -6,8 +7,10 @@ returns it as a structure containing a pair of both its orbit-frame velocity and
 To obtain its velocity as a vector you must pick whether you want the oribtal or surface velocities by
 giving a further suffix:
 
-* ORBIT : Type Vector : Returns the orbital velocity.
-* SURFACE : Type Vector : Returns the surface-frame velocity.  Note that this is the surface velocity relative to the surface of the SOI body, not the orbiting object itself.  (i.e. Mun:VELOCITY:SURFACE returns the Mun's velocity relative to the surface of its SOI body, Kerbin).
+Suffix      | Type      | Get | Set | Description
+------------|-----------|-----|-----|--------------------------------------
+:ORBIT | Vector | yes | no | Returns the orbital velocity.
+:SURFACE | Vector | yes | no | Returns the surface-frame velocity.  Note that this is the surface velocity relative to the surface of the SOI body, not the orbiting object itself.  (i.e. Mun:VELOCITY:SURFACE returns the Mun's velocity relative to the surface of its SOI body, Kerbin).
 
 Examples:
 
