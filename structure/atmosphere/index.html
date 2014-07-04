@@ -55,17 +55,97 @@ View kOS on GitHub
 <article class='markdown-body'>
 <h1 id="atmosphere">Atmosphere</h1>
 
-<p>A Structure closely tied to <a href="../body/index.html">Body</a></p>
+<p>A Structure closely tied to <a href="../body/index.html">Body</a>
+A variable of type <em>Atmosphere</em> usually is obtained by the :ATM suffix of a Body.</p>
 
 <h1 id="structure">Structure</h1>
 
+<p>ALL The following values are read-only.  You can't change the value
+of a body's atmosphere.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>SUFFIX</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>:EXISTS</td>
+      <td>bool</td>
+      <td>True if this atmosphere is "real" and not just a dummy placeholder.</td>
+    </tr>
+    <tr>
+      <td>:HASOXYGEN</td>
+      <td>bool</td>
+      <td>True if the air has oxygen and could therefore be used by a jet engine's intake.</td>
+    </tr>
+    <tr>
+      <td>:SCALE</td>
+      <td>double</td>
+      <td>A math constant plugged into a formula to find atmosphere density (see below).</td>
+    </tr>
+    <tr>
+      <td>:SEALEVELPRESSURE</td>
+      <td>double</td>
+      <td>Nuber of Atm's at planet's sea level 1.0 Atm's = same as Kerbin.</td>
+    </tr>
+    <tr>
+      <td>:HEIGHT</td>
+      <td>float</td>
+      <td>The altitude at which the atmosphere is "officially" advertised as ending.  (actual ending value differs, see below).</td>
+    </tr>
+    <tr>
+      <td>:BODY</td>
+      <td>string</td>
+      <td>The Body that this atmosphere is around - as a STRING NAME, not a Body object.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="atmospheric-math">Atmospheric math</h1>
+
+<p>The atmospheric effects of a planet's air need to be calculated using some formulas:</p>
+
+<p>First off, be aware that atmosphere can be measured three different ways:</p>
+
 <ul>
-  <li>EXISTS - bool</li>
-  <li>HASOXYGEN - bool</li>
-  <li>SCALE - double</li>
-  <li>HEIGHT - float</li>
+  <li><strong>Atm's</strong> : a multiple of the pressure at Kerbin sea level.  An atmosphere of 0.5 is half as much air pressure as at Kerbin's sea level.  This is the measure used by :SEALEVELPRESSURE</li>
+  <li><strong>pressure</strong> : A measure of the force the air pushes on a surface with.  In SI units, it's Newtons per Square Meter.  <em>This value is almost never used directly in any calculation.  Instead you just calculate everything in terms of multiples of Atm's.</em></li>
+  <li><strong>density</strong> : A measure of how much mass of air there is in a volume of space.  In SI units, it's Kilograms per Cubic Meter.</li>
 </ul>
 
+<p>The level of atmosphere can be calculated for any altitude as follows:</p>
+
+<ul>
+  <li>Number of <strong>Atm's</strong> = (Atm's at sea level) * ( e ^ ( - sea_level_alt / scale ) )</li>
+</ul>
+
+<p>The <strong>TRUE</strong> maximum height of the atmosphere is NOT the value returned by :HEIGHT, but rather it's the altitude at which the number of Atm's returned by the above formula is 0.000001.  :HEIGHT is just the value as advertised by the game to the user.  On some worlds it can be quite a ways off.</p>
+
+<p>And once you have that number, then density can be calculated from it with this conversion factor:</p>
+
+<ul>
+  <li>air density = Number of Atm's  * 1.2230948554874.</li>
+</ul>
+
+<p>Further information about the math formulas that Kerbal Space Program uses to calculate the atmosphere <a href="http://wiki.kerbalspaceprogram.com/wiki/Atmosphere">can be found here</a>.</p>
+
+<h1 id="examples">Examples:</h1>
+
+<pre><code>IF SHIP:ORBIT:BODY:ATM:EXISTS {
+    SET thisAtmo TO SHIP:ORBIT:BODY:ATM.
+    PRINT "The planet you are orbiting has an atmosphere.".
+    PRINT "It's scale is " + thisAtmo:SCALE.
+    PRINT "It's height is " + thisAtmo:HEIGHT.
+    SET atmos TO thisAtmo:SEALEVELPRESSURE + ( CONSTANT():E ^ ( - SHIP:ALTITUDE / thisAtmo:SCALE ) ).
+    PRINT "At this altitude the atmosphere is " + atmos + " Atm's.".
+} ELSE {
+    PRINT "The planet you are orbiting has no atmosphere.".
+}.
+</code></pre>
 
 </article>
 </div>

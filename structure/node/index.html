@@ -53,40 +53,89 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<p>﻿# Maneuver Node</p>
+<h1 id="maneuver-node">﻿Maneuver Node</h1>
 
-<p>A planned velocity change along an orbit</p>
+<p>A planned velocity change along an orbit.  These are the nodes that
+you can set in the KSP user interface.  Setting one through kOS
+will make it appear on the in-game map view, and creating one 
+manually on the in-game map view will cause it to be visible to kOS.</p>
 
-<h1 id="structure">Structure</h1>
+<h3 id="structure">Structure</h3>
 
-<h4 id="getters">Getters</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Suffix</th>
+      <th>Type</th>
+      <th>Get</th>
+      <th>Set</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>:DELTAV or :BURNVECTOR</td>
+      <td><a href="../vector/index.html">Vector</a></td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The vector giving the total burn of the node.  The vector can be used to steer with, and its magnitude is the delta V of the burn.</td>
+    </tr>
+    <tr>
+      <td>:ETA</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>The number of seconds until the expected burn time.  If you SET this, it will actually move the manuever node along the path in the map view, identically to grabbing the manuever node and dragging it.</td>
+    </tr>
+    <tr>
+      <td>:PROGRADE</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>The delta V in (meters/s) along just the prograde direction (the yellow and green 'knobs' of the manuever node).  A positive value is a prograde burn and a negative value is a retrograde burn.</td>
+    </tr>
+    <tr>
+      <td>:RADIALOUT</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>The delta V in (meters/s) along just the radial direction (the cyan knobs' of the manuever node).  A positive value is a radial out burn and a negative value is a radial in burn.</td>
+    </tr>
+    <tr>
+      <td>:NORMAL</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>The delta V in (meters/s) along just the normal direction (the purple knobs' of the manuever node).  A positive value is a normal burn and a negative value is an anti-nomrmal burn.</td>
+    </tr>
+    <tr>
+      <td>:ORBIT</td>
+      <td><a href="../orbit/index.html">Orbit</a></td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The new orbit patch that will begin starting with the burn of this node, under the assumption that the burn will occur exactly as planned.</td>
+    </tr>
+  </tbody>
+</table>
 
-<ul>
-  <li>DELTAV or BURNVECTOR - <a href="../vector/index.html">Vector</a></li>
-  <li>ETA - Number (seconds)</li>
-  <li>PROGRADE - Number (meters/s)</li>
-  <li>RADIALOUT - Number (meters/s)</li>
-  <li>NORMAL - Number (meters/s)</li>
-  <li>ORBIT- <a href="../orbit/index.html">Orbit</a></li>
-</ul>
+<h3 id="creation">Creation</h3>
 
-<h4 id="setters">Setters</h4>
+<p><strong>NODE(</strong> <em>universalTime</em>, <em>radialOut</em>, <em>normal</em>, <em>prograde</em> <strong>)</strong></p>
 
-<ul>
-  <li>ETA - Number (seconds)</li>
-  <li>PROGRADE - Number (meters/s)</li>
-  <li>RADIALOUT - Number (meters/s)</li>
-  <li>NORMAL - Number (meters/s)</li>
-</ul>
+<p><strong>Warning</strong>: When <em>constructing</em> a new node using the NODE() function call, you use the universal time (you must add the ETA time to the current time to arrive at the value to pass in), but when using the suffix :ETA, you do NOT use universal time, instead just giving the number of seconds from now.</p>
 
-<h4 id="creation">Creation</h4>
+<h3 id="adding-to-the-flight-plan">Adding to the flight plan</h3>
 
-<p>NODE (universalTime, radialOut, normal, prograde)</p>
+<p>Once you've created a node, it's just a hypothetical node that hasn't been attached to anything yet.</p>
 
-<h4 id="example">Example</h4>
+<p>To attach a node to the flight path, you must use the commands <a href="../../command/node/index.html">ADD and REMOVE</a> on it.</p>
 
-<pre><code>SET X TO NODE(TIME+60, 0, 0, 100).  // Creates a node 60 seconds from now with
+<h3 id="example">Example</h3>
+
+<pre><code>SET X TO NODE(TIME:SECONDS+60, 0, 0, 100). 
+                                    // Creates a node 60 seconds from now with
                                     // prograde=100 m/s
+//
 ADD X.                              // Adds the node to the flight plan.
 PRINT X:PROGRADE.                   // Returns 100.
 PRINT X:ETA.                        // Returns the ETA to the node.
@@ -96,9 +145,9 @@ REMOVE X.                           // Remove node  from the flight plan.
 SET X TO NODE(0, 0, 0, 0).          // Create a blank node.
 ADD X.                              // Add Node to flight plan.
 SET X:PROGRADE to 500.              // Set nodes prograde to 500m/s deltav.
-SET X:ETA to 30.              // Set nodes time to 30 seconds from now.
-PRINT X:OBT:APOAPSIS.                   // Returns nodes apoapsis.
-PRINT X:OBT:PERIAPSIS.                  // Returns nodes periapsis.
+SET X:ETA to 30.                    // Set nodes time to 30 seconds from now.
+PRINT X:OBT:APOAPSIS.               // Returns nodes apoapsis.
+PRINT X:OBT:PERIAPSIS.              // Returns nodes periapsis.
 </code></pre>
 
 

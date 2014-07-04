@@ -53,36 +53,84 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h1 id="geocoordinates">GeoCoordinates</h1>
+<h1 id="geocoordinates-ie-latlng">GeoCoordinates, i.e. "LATLNG"</h1>
 
-<p>Represents a set of geo-coordinates.</p>
+<p>Represents a set of geo-coordinates - a location on the surface of a <a href="../body/index.html">Body</a>.</p>
 
-<h1 id="structure">Structure</h1>
+<h3 id="structure">Structure</h3>
 
-<h4 id="getters">Getters</h4>
-
-<ul>
-  <li>LAT - Degrees</li>
-  <li>LNG - Degrees</li>
-  <li>DISTANCE - Number (meters from calling vessel)</li>
-  <li>HEADING</li>
-  <li>BEARING</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Suffix</th>
+      <th>Type</th>
+      <th>Get</th>
+      <th>Set</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>: LAT</td>
+      <td>Number, in Degrees</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The latitude of this position on the surface.</td>
+    </tr>
+    <tr>
+      <td>: LNG</td>
+      <td>Number, in Degrees</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The longitude of this position on the surface.</td>
+    </tr>
+    <tr>
+      <td>: DISTANCE</td>
+      <td>Number, in Meters</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Distance from the <a href="../../summary_topics/CPU_vessel/index.html">CPU_Vessel</a> to this point on the surface</td>
+    </tr>
+    <tr>
+      <td>: HEADING</td>
+      <td>Number, in Degrees</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The <em>absolute</em> compass direction from the <a href="../../summary_topics/CPU_vessel/index.html">CPU_Vessel</a> to this point on the surface</td>
+    </tr>
+    <tr>
+      <td>: BEARING</td>
+      <td>Number, in Degrees</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The <em>relative</em> compass direction from the <a href="../../summary_topics/CPU_vessel/index.html">CPU_Vessel</a> to this point on the surface.  (i.e. if the vessel is heading at compass heading 45, and the geocoordinates location is at heading 30, then :BEARING will return -15).</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="creation">Creation</h4>
 
-<p>LATLNG (latitude, longitude)</p>
+<p>The function LATLNG(latitude,longitude) creates a LATLNG (a GeoCoordiante) with the given
+latitude and longitude.  Once created, a LATLNG can't be changed.  The :LAT and :LNG suffixes
+are get-only and cannot be set.  To switch to a new location, make a new call to LATLNG().</p>
+
+<p>It is also possible to obtain a GeoCoordiates from some suffixes of some other structures,
+for example:</p>
+
+<pre><code>SET spot to SHIP:GEOPOSITION.
+</code></pre>
 
 <h4 id="example">Example</h4>
 
-<pre><code>SET X TO LATLNG(10, 20).            // Initialize point at lattitude 10, longitude 20
-PRINT X:LAT.                        // Print 10.
-PRINT X:LNG.                        // Print 20.
-PRINT X:DISTANCE.                   // Print distance from vessel to x (same altitude is presumed)
-PRINT LATLNG(10,20):HEADING.        // Print the heading to the point.
-PRINT X:BEARING.                    // Print the heading to the point relative to vessel heading.
+<pre><code>SET spot TO LATLNG(10, 20).              // Initialize point at lattitude 10, longitude 20
+PRINT spot:LAT.                          // Print 10.
+PRINT spot:LNG.                          // Print 20.
+PRINT spot:DISTANCE.                     // Print distance from vessel to x (same altitude is presumed)
+PRINT LATLNG(10,20):HEADING.             // Print the heading to the point.
+PRINT spot:BEARING.                      // Print the heading to the point relative to vessel heading.
+SET spot TO SHIP:GEOPOSITION.            // Make spot into a location on the surface directly underneath the current ship
+SET spot TO LATLNG(spot:LAT,spot:LNG+5). // Make spot into a new location 5 degrees east of the old one.
 </code></pre>
-
 
 </article>
 </div>

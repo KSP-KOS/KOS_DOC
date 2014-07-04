@@ -61,10 +61,33 @@ returns it as a structure containing a pair of both its orbit-frame velocity and
 <p>To obtain its velocity as a vector you must pick whether you want the oribtal or surface velocities by
 giving a further suffix:</p>
 
-<ul>
-  <li>ORBIT : Type Vector : Returns the orbital velocity.</li>
-  <li>SURFACE : Type Vector : Returns the surface-frame velocity.  Note that this is the surface velocity relative to the surface of the SOI body, not the orbiting object itself.  (i.e. Mun:VELOCITY:SURFACE returns the Mun's velocity relative to the surface of its SOI body, Kerbin).</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Suffix</th>
+      <th>Type</th>
+      <th>Get</th>
+      <th>Set</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>:ORBIT</td>
+      <td>Vector</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Returns the orbital velocity.</td>
+    </tr>
+    <tr>
+      <td>:SURFACE</td>
+      <td>Vector</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Returns the surface-frame velocity.  Note that this is the surface velocity relative to the surface of the SOI body, not the orbiting object itself.  (i.e. Mun:VELOCITY:SURFACE returns the Mun's velocity relative to the surface of its SOI body, Kerbin).</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>Examples:</p>
 

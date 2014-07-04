@@ -55,30 +55,54 @@ View kOS on GitHub
 <article class='markdown-body'>
 <h1 id="sensor">Sensor</h1>
 
-<p>The type of structures returned by LIST SENSORS IN SOMEVARIABLE</p>
+<p>The type of structures returned by <a href="../../command/list/index.html#vessel-lists">LIST SENSORS IN SOMEVARIABLE</a>.</p>
 
-<h1 id="structure">Structure</h1>
+<p>(This is not fully understood because the type of PartModule in the KSP API called ModuleEnviroSensor, which
+all Sensors are a kind of, is not well documented.)</p>
 
-<h4 id="getters">Getters</h4>
+<h4 id="structure">Structure</h4>
 
-<ul>
-  <li>All the suffixes of <a href="../part/index.html">Part</a> plus…
-    <ul>
-      <li>ACTIVE - boolean - true of the sensor is enabled.</li>
-      <li>TYPE - ??</li>
-      <li>READOUT - ?? </li>
-    </ul>
-  </li>
-</ul>
-
-<h4 id="setters">Setters</h4>
-<ul>
-  <li>All the suffixes of <a href="../part/index.html">Part</a> plus…
-    <ul>
-      <li>ACTIVE - boolean - cause the sensor to become active or inactive.</li>
-    </ul>
-  </li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Suffix</th>
+      <th>Type</th>
+      <th>Get</th>
+      <th>Set</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>All the suffixes of <a href="../part/index.html">Part</a> plus…</td>
+      <td>varies</td>
+      <td>..</td>
+      <td>..</td>
+      <td>Sensor is a type of Part, and therefore can use all the suffixes of Part.  Shown below are only the suffixes that are unique to Engine variables:</td>
+    </tr>
+    <tr>
+      <td>:ACTIVE</td>
+      <td>boolean</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>true of the sensor is enabled.  Can SET to cause the sensor to activate or de-activate.</td>
+    </tr>
+    <tr>
+      <td>:TYPE</td>
+      <td>??</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>??</td>
+    </tr>
+    <tr>
+      <td>:READOUT</td>
+      <td>varies, usually double</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The value of the sensor's readout, usually a double.</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>Example</p>
 

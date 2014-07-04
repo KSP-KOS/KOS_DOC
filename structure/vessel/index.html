@@ -53,7 +53,7 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<p>﻿# Vessel</p>
+<h1 id="vessel">﻿Vessel</h1>
 
 <p>All vessels share a structure.</p>
 
@@ -66,41 +66,139 @@ SET MY_VESS TO SHIP.  // Save the current vessel in a variable, in case the curr
 SET MY_VESS TO TARGET.  // Save the target vessel in a variable, in case the target vessel changes.
 </code></pre>
 
-<h1 id="shared-structure">Shared Structure</h1>
+<h3 id="shared-structure">Shared Structure</h3>
 
 <p>Be aware that as of kOS 0.13, a vessel is now a type of <a href="../orbitable/index.html">Orbitable</a>
 Much of what a Vessel can do can now by done by any orbitable object.  The documentation for those abilities has been moved to the orbitable page.</p>
 
 <p>Suffixes of Vessel:</p>
 
-<ul>
-  <li>Every suffix of <a href="../orbitable/index.html">Orbitable</a> is callable from VESSEL, as well as…
-    <ul>
-      <li>CONTROL - <a href="../control/index.html">Control</a> for raw flying a ship.</li>
-      <li>BEARING - To <a href="../../summary_topics/CPU_Vessel/index.html">CPU Vessel</a></li>
-      <li>HEADING - To <a href="../../summary_topics/CPU_Vessel/index.html">CPU Vessel</a></li>
-      <li>MAXTHRUST - Max thrust of all active engines</li>
-      <li>FACING - <a href="../direction/index.html">Direction</a></li>
-      <li>ANGULARMOMENTUM = <a href="../direction/index.html">Direction</a> in [SHIP-RAW reference frame]](../../ref_frame/index.html).  Despite the name, this is technically not momentum information.</li>
-      <li>ANGULARVEL = <a href="../direction/index.html">Direction</a> in [SHIP-RAW reference frame]](../../ref_frame/index.html).  Despite the name, this is technically not a velocity.  It only tells you the axis of rotation, not the speed of rotation around that axis.</li>
-      <li>MASS - Number (kilogram)</li>
-      <li>VERTICALSPEED - Number (meters/s)</li>
-      <li>SURFACESPEED - Number (meters/s)</li>
-      <li>AIRSPEED - Number (meters/s)</li>
-      <li>VESSELNAME - string</li>
-      <li>SENSORS - Structure
-        <ul>
-          <li>ACC - <a href="../vector/index.html">Vector</a></li>
-          <li>PRES - Number (Atmosphere)</li>
-          <li>TEMP - Number (Celsius)</li>
-          <li>GRAV - <a href="../vector/index.html">Vector</a></li>
-        </ul>
-      </li>
-      <li>TERMVELOCITY - Number (meters/s) based on the vessel's current altitude above sea level, and its drag properties.</li>
-      <li>LOADED - Boolean - true if the vessel is fully loaded into the complete KSP physics engine (false if it's "on rails").</li>
-    </ul>
-  </li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Suffix</th>
+      <th>Type</th>
+      <th>Get</th>
+      <th>Set</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Every suffix of <a href="../orbitable/index.html">Orbitable</a></td>
+      <td>varies</td>
+      <td>..</td>
+      <td>..</td>
+      <td>Vessel is a type of <a href="../orbitable/index.html">Orbitable</a> and therefore every suffix of Orbitable is also a suffix of VESSEL too.  Read the Orbitable page to see that list of suffixes.  This table below only contains the suffixes that are unique to Vessel</td>
+    </tr>
+    <tr>
+      <td>:CONTROL</td>
+      <td><a href="../control/index.html">Control</a></td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The structure represending the raw flight controls for the vessel.</td>
+    </tr>
+    <tr>
+      <td>:BEARING</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>no</td>
+      <td><em>relative</em> compass heading (degrees) to this vessel from the <a href="../../summary_topics/CPU_Vessel/index.html">CPU Vessel</a>, taking into account the CPU Vessel's own heading.</td>
+    </tr>
+    <tr>
+      <td>:HEADING</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>no</td>
+      <td><em>absolule</em> compass heading (degrees) to this vessel from the <a href="../../summary_topics/CPU_Vessel/index.html">CPU Vessel</a></td>
+    </tr>
+    <tr>
+      <td>:MAXTHRUST</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Sum of all the Max thrust of all the currently active engines  In Kilonewtons.</td>
+    </tr>
+    <tr>
+      <td>:FACING</td>
+      <td><a href="../direction/index.html">Direction</a></td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The way the vessel is pointed.</td>
+    </tr>
+    <tr>
+      <td>:MASS</td>
+      <td>Number (metric tons)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The mass of the ship</td>
+    </tr>
+    <tr>
+      <td>:VERTICALSPEED</td>
+      <td>Number (meters/s)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>How fast the ship is moving. in the "up" direction relative to the  SOI Body's sea level surface.</td>
+    </tr>
+    <tr>
+      <td>:SURFACESPEED</td>
+      <td>Number (meters/s)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>How fast the ship is moving in the plane horizontal to the SOI body's sea level surface.</td>
+    </tr>
+    <tr>
+      <td>:AIRSPEED</td>
+      <td>Number (meters/s)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>How fast the ship is moving relative to the air.  KSP models atmosphere as simply a solid block of air "glued" to the planet surface (the weather on Kerbin is boring and there's no wind).  Therefore airspeed is generally the same thing as as the magnitude of the surface velocity.</td>
+    </tr>
+    <tr>
+      <td>:TERMVELOCITY</td>
+      <td>Number (meters/s)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>terminal velocity of the vessel in freefall through atmosphere, based on the vessel's current altitude above sea level, and its drag properties.  Warning, can cause values of Infinity if used in a vacuum, and kOS sometimes does not let you store Infinity in a variable.</td>
+    </tr>
+    <tr>
+      <td>:VESSELNAME</td>
+      <td>string</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The name of the vessel as it appears in the tracking station.</td>
+    </tr>
+    <tr>
+      <td>:ANGULARMOMENTUM</td>
+      <td><a href="../direction/index.html">Direction</a></td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Given in [SHIP-RAW reference frame]](../../ref_frame/index.html).  Despite the name, this is technically not momentum information because it has no magnitude.</td>
+    </tr>
+    <tr>
+      <td>:ANGULARVEL</td>
+      <td><a href="../direction/index.html">Direction</a></td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Given in [SHIP-RAW reference frame]](../../ref_frame/index.html).  Despite the name, this is technically not a velocity.  It only tells you the axis of rotation, not the speed of rotation around that axis.</td>
+    </tr>
+    <tr>
+      <td>:SENSORS</td>
+      <td><a href="../vesselsensors/index.html">VesselSensors</a></td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Structure holding summary information of sensor data for the vessel</td>
+    </tr>
+    <tr>
+      <td>:LOADED</td>
+      <td>Boolean</td>
+      <td>get</td>
+      <td>set</td>
+      <td>true if the vessel is fully loaded into the complete KSP physics engine (false if it's "on rails").</td>
+    </tr>
+  </tbody>
+</table>
+
 
 </article>
 </div>

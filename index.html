@@ -152,8 +152,6 @@ PRINT VEC.  // Results in V(40,10,10).
     <ul>
       <li>LOCK STEERING</li>
       <li>LOCK THROTTLE</li>
-      <li>ADD</li>
-      <li>REMOVE</li>
       <li>STAGE</li>
       <li>HEADING</li>
       <li>WARP</li>
@@ -164,6 +162,8 @@ PRINT VEC.  // Results in V(40,10,10).
       <li>POSITIONAT</li>
       <li>VELOCITYAT</li>
       <li>ORBITAT</li>
+      <li>ADD (manuever node)</li>
+      <li>REMOVE (maneuver node)</li>
     </ul>
   </li>
   <li><a href="command/file/index.html">File IO</a>
@@ -176,6 +176,15 @@ PRINT VEC.  // Results in V(40,10,10).
       <li>REMOVE</li>
       <li>RUN</li>
       <li>SWITCH.. TO</li>
+    </ul>
+  </li>
+  <li><a href="command/list/index.html">Listing Data</a>
+    <ul>
+      <li>LIST PARTS IN VAR</li>
+      <li>LIST FILES</li>
+      <li>LIST PARTS FROM VESSEL IN VAR</li>
+      <li>LIST ENGINES</li>
+      <li>etc</li>
     </ul>
   </li>
   <li><a href="command/flowControl/index.html">Flow Control</a>
@@ -204,29 +213,53 @@ PRINT VEC.  // Results in V(40,10,10).
 
 <h1 id="structure-reference">Structure Reference</h1>
 
-<p>Structures are variables that can contain more than one piece of information.  Structures can be used with SET.. TO just like any other variable.
-Their subelements can be accessed by using : along with the name of the subelement.</p>
+<p>Structures are variable <em>types</em> that contain more than one piece of information.
+All structures contain sub-values that can be accessed with a colon (':') operator.
+Multiple structures can be chained together with more than one colon (':') operator.</p>
+
+<pre><code>SET myCraft TO SHIP.
+SET myMass TO myCraft:MASS.
+SET myVel TO myCraft:VELOCITY:ORBIT.
+</code></pre>
+
+<p>These terms are referred to as "suffixes".  For example "<em>Velocity</em> is a suffix of <em>Vessel</em>".</p>
+
+<p>It is possible to set some suffixes as well, for example:</p>
+
+<pre><code>SET n TO Node( TIME:SECONDS + 60, 0, 10, 10).
+SET n:ETA to 500. // set it farther into the future than originally planned.
+</code></pre>
+
+<p>The full list of available suffixes for each type is in the following list:</p>
 
 <ul>
-  <li><a href="structure/atmosphere/index.html">Atmosphere</a></li>
-  <li><a href="structure/body/index.html">Body</a></li>
-  <li><a href="structure/rgba/index.html">Color</a></li>
-  <li><a href="structure/direction/index.html">Direction</a></li>
-  <li><a href="structure/dockingport/index.html">DockingPort</a></li>
-  <li><a href="structure/engine/index.html">Engine</a></li>
-  <li><a href="structure/geocordinates/index.html">GeoCordinates</a></li>
-  <li><a href="structure/list/index.html">List</a></li>
-  <li><a href="structure/node/index.html">Node</a></li>
-  <li><a href="structure/orbit/index.html">Orbit</a></li>
-  <li><a href="structure/orbitable/index.html">Orbitable</a></li>
-  <li><a href="structure/orbitablevelocity/index.html">OrbitableVelocity</a></li>
-  <li><a href="structure/part/index.html">Part</a></li>
-  <li><a href="structure/resource/index.html">Resource</a></li>
-  <li><a href="structure/sensor/index.html">Sensor</a></li>
-  <li><a href="structure/time/index.html">Time</a></li>
-  <li><a href="structure/vecdraw/index.html">Vecdraw</a></li>
-  <li><a href="structure/vector/index.html">Vector</a></li>
-  <li><a href="structure/vessel/index.html">Vessel</a></li>
+  <li><a href="structure/atmosphere/index.html">Atmosphere</a> - info about the atmosphere of a planet or moon</li>
+  <li><a href="structure/rgba/index.html">Color</a> - info about a color as used in user interface elements</li>
+  <li><a href="structure/config/index.html">Config</a> - info about configurable options from the mod's config file</li>
+  <li><a href="structure/control/index.html">Control</a> - a vessel's raw flight controls</li>
+  <li><a href="structure/direction/index.html">Direction</a> - a tuple of values describing a ray in space preserving camera-up info</li>
+  <li><a href="structure/geocordinates/index.html">GeoCordinates</a> - a set of values describing a location on a Body's surface</li>
+  <li><a href="structure/list/index.html">List</a> - a generic collection of any types of values, that you can iterate through</li>
+  <li><a href="structure/node/index.html">Node</a> - a maneuver node</li>
+  <li><a href="structure/orbit/index.html">Orbit</a> - describing the shape of an orbit ellipse</li>
+  <li><a href="structure/orbitable/index.html">Orbitable</a> - any thing that can move around another thing (ship or moon or planet)
+    <ul>
+      <li><a href="structure/body/index.html">Body</a> - a specific type of Orbitable: info about a planet or moon</li>
+      <li><a href="structure/vessel/index.html">Vessel</a> - a specific type of Orbitable: info about a vessel</li>
+    </ul>
+  </li>
+  <li><a href="structure/orbitablevelocity/index.html">OrbitableVelocity</a> - a pair of velocities representing the orbital and surface elocity of an Orbitable thing</li>
+  <li><a href="structure/part/index.html">Part</a> - one of the pieces assembled together that a vessel is made from
+    <ul>
+      <li><a href="structure/dockingport/index.html">DockingPort</a> - a specific type of Part</li>
+      <li><a href="structure/engine/index.html">Engine</a> - a specific type of Part</li>
+      <li><a href="structure/sensor/index.html">Sensor</a> - a specific type of Part</li>
+    </ul>
+  </li>
+  <li><a href="structure/resource/index.html">Resource</a> - one of the named quantities that a Part can hold, i.e. fuel, battery charge</li>
+  <li><a href="structure/time/index.html">Time</a> - a single moment in time, with multiple ways to represent it</li>
+  <li><a href="structure/vecdraw/index.html">Vecdraw</a> - a drawing of an arrow onscreen that corresponds to a vector in space</li>
+  <li><a href="structure/vector/index.html">Vector</a> - a tuple of x,y,z values representing a piece of spatial data.</li>
 </ul>
 
 <h1 id="summary-topics">Summary Topics</h1>
@@ -238,6 +271,7 @@ Their subelements can be accessed by using : along with the name of the subeleme
   <li><a href="summary_topics/volumes/index.html">Volumes</a></li>
   <li><a href="summary_topics/commrange/index.html">CommRange</a></li>
   <li><a href="summary_topics/ship_control/index.html">Ship Steering</a></li>
+  <li><a href="summary_topics/CPU_vessel/index.html">CPU vessel</a></li>
 </ul>
 
 <h1 id="built-in-special-variable-names">BUILT-IN SPECIAL VARIABLE NAMES</h1>

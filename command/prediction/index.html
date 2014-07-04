@@ -53,38 +53,60 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h1 id="predictive-functions">Predictive Functions</h1>
+<h1 id="manipulating-the-flight-plan">Manipulating the flight plan</h1>
+
+<h3 id="manipulating-the-maneuver-nodes">Manipulating the maneuver nodes.</h3>
+
+<p>To alter the manuever nodes on a vessel's flight plan, use the ADD and REMOVE commands
+<a href="../../command/node/index.html">as described on the manuever node manipulation page</a>.</p>
+
+<p>Using the Add and Remove commands as described on that page, you may alter the flight plan of the CPU_vessel,
+however kOS does not automatically execute the nodes.  You still have to write the code to decide how to sucessfully execute a planned manuever node.</p>
+
+<h3 id="making-predictions">Making Predictions.</h3>
+
+<p>The following prediction functions do take into account the future manuever nodes planned,
+and operate under the assumption that they will be executed as planned.</p>
 
 <p>These return predicted information about the future position and velocity of an object.</p>
 
-<h3 id="positionat-thing-time-">POSITIONAT( THING, TIME )</h3>
+<h4 id="positionat-thing-time-">POSITIONAT( THING, TIME )</h4>
 
 <p>Returns a prediction of where <strong>thing</strong> will be at universal timestamp <strong>time</strong>.
 If the THING is a Vessel, and the Vessel has planned manuever nodes, the
-prediction assumes the manuever nodes will be executed exactly as planned.
-* <strong>thing</strong> is an Orbitable
-* <strong>time</strong> is a Timestamp
-* <strong>return value</strong> is a VECTOR, expressed in ship-center-raw-rotation coords.</p>
+prediction assumes the manuever nodes will be executed exactly as planned.</p>
 
-<h3 id="velocityat-thing-time-">VELOCITYAT( THING, TIME )</h3>
+<ul>
+  <li><strong>thing</strong> is an Orbitable</li>
+  <li><strong>time</strong> is a Timestamp</li>
+  <li><strong>return value</strong> is a VECTOR, expressed in ship-center-raw-rotation coords.</li>
+</ul>
+
+<h4 id="velocityat-thing-time-">VELOCITYAT( THING, TIME )</h4>
 
 <p>Returns a prediction of what <strong>thing</strong>s velocity will be at universal timestamp <strong>time</strong>.
 If the THING is a Vessel, and the Vessel has planned manuever nodes, the
-prediction assumes the manuever nodes will be executed exactly as planned.
-* <strong>thing</strong> is an Orbitable
-* <strong>time</strong> is a Timestamp
-* <strong>return value</strong> is an ORBITABLEVELOCITY structure.</p>
+prediction assumes the manuever nodes will be executed exactly as planned.</p>
 
-<h3 id="orbitat-thing-time-">ORBITAT( THING, TIME )</h3>
+<ul>
+  <li><strong>thing</strong> is an Orbitable</li>
+  <li><strong>time</strong> is a Timestamp</li>
+  <li><strong>return value</strong> is an ORBITABLEVELOCITY structure.</li>
+</ul>
+
+<h4 id="orbitat-thing-time-">ORBITAT( THING, TIME )</h4>
 
 <p>Returns the Orbit patch where the thing is predicted to be at universal timestamp time.
 If the THING is a Vessel, and the Vessel has planned manuever nodes, the
-prediction assumes the manuever nodes will be executed exactly as planned.
-* <strong>thing</strong> is an Orbitable
-* <strong>time</strong> is a Timestamp
-* <strong>return value</strong> is an ORBIT structure.</p>
+prediction assumes the manuever nodes will be executed exactly as planned.</p>
 
-<p>Example:</p>
+<ul>
+  <li><strong>thing</strong> is an Orbitable</li>
+  <li><strong>time</strong> is a Timestamp</li>
+  <li><strong>return value</strong> is an ORBIT structure.</li>
+</ul>
+
+<p>Examples:</p>
 
 <pre><code>//kOS
 // test the future position and velocity prediction.

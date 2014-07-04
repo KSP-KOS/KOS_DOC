@@ -53,35 +53,92 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<p>﻿# List</p>
+<h1 id="list">﻿List</h1>
 
-<p>Collection of Any type in kOS</p>
+<p>Collection of Any type in kOS.  Many places throughout the system return
+variables of the LIST type, and you can crate your own LIST variables as
+well.</p>
 
-<h1 id="structure">Structure</h1>
+<p>One of the places you are likely to find that kOS gives you a List is
+when you use the <a href="../../command/list/index.html">List command</a> to list
+some query into one of your variables.</p>
 
-<h3 id="getters">Getters</h3>
-<ul>
-  <li>CLEAR</li>
-  <li>LENGTH</li>
-  <li>COPY</li>
-  <li><a href="../iterator/index.html">ITERATOR</a> : An alternate means of iterating over a list (see the link).</li>
-</ul>
+<p>Once you have a list from some source, this is how you can manipulate it:</p>
 
-<h3 id="setters">Setters</h3>
-<ul>
-  <li>ADD</li>
-  <li>CONTAINS</li>
-  <li>REMOVE - Number (index)</li>
-</ul>
+<h3 id="structure">Structure</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Suffix</th>
+      <th>Type</th>
+      <th>Get</th>
+      <th>Set</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>:CLEAR</td>
+      <td>irrelevant</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Use this for its side-effect.  Whenever myList:CLEAR exists in an expression, myList will be zeroed out, regardless of what you do with the value of the expression.  i.e. SET DUMMY TO MYLIST:CLEAR. .</td>
+    </tr>
+    <tr>
+      <td>:LENGTH</td>
+      <td>number</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Returns the number of elements in the list.</td>
+    </tr>
+    <tr>
+      <td>:COPY</td>
+      <td>List</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Returns a new list that contains the same thing as the old list.</td>
+    </tr>
+    <tr>
+      <td>:<a href="../iterator/index.html">ITERATOR</a></td>
+      <td>Iterator</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>An alternate means of iterating over a list (see the link).</td>
+    </tr>
+    <tr>
+      <td>:ADD</td>
+      <td>varies</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>Appends a new value to the end of the list, and then assigns it to whatever you are setting this suffix to.</td>
+    </tr>
+    <tr>
+      <td>:CONTAINS</td>
+      <td>boolean</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>(<strong>This is currently unusable</strong>).  This returns true or false depending on whether or not the item you are SETTING it to is already in the list.  But there's no way to read the result of a SET command, so this is useless at the moment.</td>
+    </tr>
+    <tr>
+      <td>:REMOVE</td>
+      <td>Number</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>Removes the item from the list that is located at the index number given.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="access-to-individual-elements">Access to individual elements</h3>
+
 <p>All list indexes start counting at zero.  (The list elements are numbered from 0 to N-1 rather than from 1 to N.)</p>
 
 <ul>
-  <li>list#x operator: access the element at postion x.  Works for get or set.  X must be a hardcoded number or a variable name.</li>
-  <li>list[expression] operator: another syntax to acceess the element at position 'expression'.  Works for get or set.  Any arbitrary complex expression may be used with this syntax, not just a number or variable name.</li>
-  <li>FOR VAR IN LIST { … }.  : a loop in which var iterates over all the items of list from item 0 to item LENGTH-1.</li>
-  <li><a href="../iterator/index.html">ITERATOR</a> : An alternate means of iterating over a list (see the link).</li>
+  <li><strong>list#x</strong> operator: access the element at postion x.  Works for get or set.  X must be a hardcoded number or a variable name.</li>
+  <li><strong>list[</strong> <em>expression</em> <strong>]</strong> operator: another syntax to acceess the element at position 'expression'.  Works for get or set.  Any arbitrary complex expression may be used with this syntax, not just a number or variable name.</li>
+  <li><strong>FOR VAR IN LIST { … }.</strong>  : <a href="../../command/flowControl/index.html#for">a type of loop</a> in which var iterates over all the items of list from item 0 to item LENGTH-1.</li>
+  <li><strong><a href="../iterator/index.html">ITERATOR</a></strong> : An alternate means of iterating over a list (see the link).</li>
 </ul>
 
 <p>Example:</p>
@@ -103,12 +160,13 @@ SET FOO#0 to 4.          // Replace the 5 at position 0 with a 4.
 SET FOO:REMOVE TO 1.     // Removes the second element from the list
 SET BAR TO FOO:COPY.     // Makes a copy of the FOO list
 FOO:CLEAR.               // Removes all elements from the FOO list.
-FOR var in FOO {         // --.
+FOR var in BAR {         // --.
   print var.             //   |-- Print all the contents of FOO.
 }.                       // --'
 </code></pre>
 
 <h3 id="multidimensional-arrays">Multidimensional Arrays</h3>
+
 <p>A 2-D Array is a List who's elements are themselves also Lists.  A 3-D Array is a List of Lists of Lists.  Any number of dimensions is posible.</p>
 
 <ul>
@@ -146,62 +204,6 @@ PRINT FOO[2][1].           // Prints 7.
 PRINT FOO#2#0.             // Prints 3.14159
 </code></pre>
 
-<h2 id="some-resources-return-list-type">Some Resources return LIST type</h2>
-
-<p>Aggregate Resources of all parts</p>
-
-<ul>
-  <li>NAME</li>
-  <li>AMOUNT</li>
-  <li>CAPACITY</li>
-</ul>
-
-<h2 id="parts">Parts</h2>
-
-<p>This list can be long, use carefully </p>
-
-<ul>
-  <li>NAME</li>
-  <li>STAGE</li>
-  <li>UID </li>
-  <li>RESOURCES - List</li>
-</ul>
-
-<h2 id="sensors">Sensors</h2>
-
-<p>All Sensors on the craft (eg Pressure, Gravity, ect)</p>
-
-<ul>
-  <li>TYPE</li>
-  <li>ACTIVE - bool, can be set to activate/deactivate</li>
-  <li>READOUT</li>
-</ul>
-
-<h2 id="elements">Elements</h2>
-
-<p>All docked flights for the current vessel. </p>
-
-<ul>
-  <li>NAME</li>
-  <li>ID</li>
-  <li>PARTCOUNT</li>
-  <li>RESOURCES - List</li>
-</ul>
-
-<h1 id="printout-lists">Printout Lists</h1>
-
-<p>Outputs data to the console. Lists files by default.
-Example:</p>
-
-<pre><code>LIST.           // Lists files on the active volume
-LIST FILES.     // Lists files on the active volume
-LIST VOLUMES.   // Lists all volumes, with their numbers and names
-LIST BODIES.    // Lists celestial bodies and their distance
-LIST TARGETS.   // Lists target-able vessels in range
-LIST RESOURCES. // List of resources by stage
-LIST PARTS.     // Lists parts in vessel
-LIST ENGINES.   // List of engines
-</code></pre>
 
 </article>
 </div>

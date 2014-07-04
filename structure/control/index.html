@@ -55,37 +55,154 @@ View kOS on GitHub
 <article class='markdown-body'>
 <h4 id="shipcontrol-or-vesselcontrol-has-the-following-components">SHIP:CONTROL or VESSEL:CONTROL has the following components:</h4>
 
-<p>For more explanation on how to use RAW control to fly a ship,
+<p>Represents the flight controls of a <a href="../vessel/index.html">Vessel</a>.</p>
+
+<p>If you wish to have your kOS script manipulate a vessel's flight controls
+directly in a raw way, rather than relying on kOS to handle the flying for
+you, then this is the type of structure you will need to use to do it.</p>
+
+<p>This is offered as an alternative to using the combination of LOCK STEERING
+and LOCK THROTTLE commands.</p>
+
+<p>To obtain the CONTROL variable for a vessel, use its :CONTROL suffix:</p>
+
+<pre><code>SET controlStick to SHIP:CONTROL.
+SET controlStick:PITCH to 0.2.
+</code></pre>
+
+<p>For a full explanation on how to use RAW control to fly a ship,
 see the <a href="../../summary_topics/ship_control/index.html">page about flight control</a>.</p>
 
-<ul>
-  <li>GETTERS</li>
-  <li>YAW - Rotation (1 to -1)</li>
-  <li>PITCH - Rotation (1 to -1)</li>
-  <li>ROLL - Rotation (1 to -1)</li>
-  <li>FORE - Translation (1 to -1)</li>
-  <li>STARBOARD - Translation (1 to -1)</li>
-  <li>TOP - Translation (1 to -1)</li>
-  <li>ROTATION - Vector</li>
-  <li>TRANSLATION - Vector</li>
-  <li>NEUTRAL - bool,</li>
-  <li>MAINTHROTTLE (1 to -1)</li>
-  <li>WHEELTHROTTLE (1 to -1)</li>
-  <li>WHEELSTEER (1 to -1)</li>
-  <li>SETTERS</li>
-  <li>YAW - Rotation (1 to -1)</li>
-  <li>PITCH - Rotation (1 to -1)</li>
-  <li>ROLL - Rotation (1 to -1)</li>
-  <li>FORE - Translation (1 to -1)</li>
-  <li>STARBOARD - Translation (1 to -1)</li>
-  <li>TOP - Translation (1 to -1)</li>
-  <li>ROTATION - Vector</li>
-  <li>TRANSLATION - Vector</li>
-  <li>NEUTRALIZE - bool, releases vessel control,</li>
-  <li>MAINTHROTTLE (1 to -1)</li>
-  <li>WHEELTHROTTLE (1 to -1)</li>
-  <li>WHEELSTEER (1 to -1)</li>
-</ul>
+<p>Unlike with so-called "Cooked" steering, "raw" steering uses the SET command, not the LOCK command.
+Using LOCK with these controls won't work.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Suffix</th>
+      <th>type</th>
+      <th>GET</th>
+      <th>SET</th>
+      <th>Description</th>
+      <th>Equivalent WASDQE, NHIJKL manual keyboard controls</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>:YAW</td>
+      <td>number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Affects Rotation</td>
+      <td>-1.0 = "D". 1.0 = "A"</td>
+    </tr>
+    <tr>
+      <td>:PITCH</td>
+      <td>number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Affects Rotation</td>
+      <td>-1.0 = "W". 1.0 = "S"</td>
+    </tr>
+    <tr>
+      <td>:ROLL</td>
+      <td>number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Affects Rotation</td>
+      <td>-1.0 = "Q". 1.0 = "E"</td>
+    </tr>
+    <tr>
+      <td>:ROTATION</td>
+      <td><a href="../vector/index.html">Vector</a></td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Controls all the above 3 things in one vector together.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>:FORE</td>
+      <td>number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Affects Translation</td>
+      <td>-1.0 = "N". 1.0 = "H"</td>
+    </tr>
+    <tr>
+      <td>:STARBOARD</td>
+      <td>number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Affects Translation</td>
+      <td>-1.0 = "L". 1.0 = "J"</td>
+    </tr>
+    <tr>
+      <td>:TOP</td>
+      <td>number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Affects Translation</td>
+      <td>-1.0 = "I". 1.0 = "K"</td>
+    </tr>
+    <tr>
+      <td>:TRANSLATION</td>
+      <td><a href="../vector/index.html">Vector</a></td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Controls all the above 3 things in one vector together.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>:NEUTRAL</td>
+      <td>boolean</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Reports if control was let go</td>
+      <td>are any manual controls pressed?</td>
+    </tr>
+    <tr>
+      <td>:NEUTRALIZE</td>
+      <td>boolean</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>Causes manual control to let go</td>
+      <td>When set to true, kOS lets go of the controls and allows the player to manually control them again.</td>
+    </tr>
+    <tr>
+      <td>:MAINTHROTTLE</td>
+      <td>number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Affects the throttle</td>
+      <td>Set between 0.0 and 1.0 much like the cooked flying "LOCK THROTTLE" command.</td>
+    </tr>
+    <tr>
+      <td>:WHEELTHROTTLE</td>
+      <td>number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Affects the throttle just for wheels</td>
+      <td>set between 0.0 and 1.0.  will not be used when off the ground.</td>
+    </tr>
+    <tr>
+      <td>:WHEELSTEER</td>
+      <td>number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Affects the steering on ground</td>
+      <td>set to the range -1..+1 to turn left or right like using the "A" and "D" keys while driving.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Be aware that kOS can't control a control at the same time that
+a player controls it.  If kOS is taking control of the yoke, then the player can't manually control it.
+Remember to run</p>
+
+<pre><code>SET SHIP:CONTROL:NEUTRALIZE TO TRUE.
+</code></pre>
+
+<p>after the script is done using the controls, or the player will be locked out of control.</p>
 
 </article>
 </div>

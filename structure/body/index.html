@@ -72,21 +72,67 @@ can also use all the terms described for Orbital objects too.</p>
 
 <h1 id="structure">Structure</h1>
 
-<ul>
-  <li>Every suffix of <a href="../orbitable/index.html">Orbitable</a> exists for BODY as well as the following:
-    <ul>
-      <li>NAME - string</li>
-      <li>DESCRIPTION - string</li>
-      <li>MASS - Number (kilogram)</li>
-      <li>POSITION - <a href="../vector/index.html">Vector</a> in [SHIP-RAW reference frame]](../../ref_frame/index.html).</li>
-      <li>ALTITUDE - Number (meters)</li>
-      <li>RADIUS - Number (meters)</li>
-      <li>MU - Number <a href="http://en.wikipedia.org/wiki/Standard_gravitational_parameter">Wikipedia</a></li>
-      <li>ATM - <a href="../atmosphere/index.html">Atmosphere</a></li>
-      <li>ANGULARVEL = <a href="../direction/index.html">Direction</a> in [SHIP-RAW reference frame]](../../ref_frame/index.html).  Despite the name, this is technically not a velocity.  It only tells you the axis of rotation, not the speed of rotation around that axis.</li>
-    </ul>
-  </li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Suffix</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Every suffix of <a href="../orbitable/index.html">Orbitable</a></em></td>
+      <td>varies</td>
+      <td><strong>All the suffixes of Orbitable also exist for BODY.</strong>  The rest of this list is only the the suffixes that are specific to Body</td>
+    </tr>
+    <tr>
+      <td>:NAME</td>
+      <td>string</td>
+      <td>name of the body, i.e. "Mun"</td>
+    </tr>
+    <tr>
+      <td>:DESCRIPTION</td>
+      <td>string</td>
+      <td>Longer description of the body, often just a duplicate of the name</td>
+    </tr>
+    <tr>
+      <td>:MASS</td>
+      <td>Number</td>
+      <td>The mass of the body in kilograms</td>
+    </tr>
+    <tr>
+      <td>:POSITION</td>
+      <td><a href="../vector/index.html">Vector</a> in [SHIP-RAW reference frame]](../../ref_frame/index.html)</td>
+      <td>The location of the body's center of mass, relative to the SHIP's current position.</td>
+    </tr>
+    <tr>
+      <td>:ALTITUDE</td>
+      <td>Number (meters)</td>
+      <td>The altitude of this body above the sea level surface of its parent body.  (i.e. the altitude of Mun above Kerbin).</td>
+    </tr>
+    <tr>
+      <td>:RADIUS</td>
+      <td>Number (meters)</td>
+      <td>The radius from the body's center to its sea level.</td>
+    </tr>
+    <tr>
+      <td>:MU</td>
+      <td>Number <a href="http://en.wikipedia.org/wiki/Standard_gravitational_parameter">Wikipedia</a></td>
+      <td>The Gravitational Parameter of the body.</td>
+    </tr>
+    <tr>
+      <td>:ATM</td>
+      <td><a href="../atmosphere/index.html">Atmosphere</a></td>
+      <td>A variable that describes the atmosphere of this body.</td>
+    </tr>
+    <tr>
+      <td>:ANGULARVEL</td>
+      <td><a href="../direction/index.html">Direction</a> in [SHIP-RAW reference frame]](../../ref_frame/index.html).</td>
+      <td>Despite the name, this is technically not a velocity.  It only tells you the axis of rotation, not the speed of rotation around that axis.</td>
+    </tr>
+  </tbody>
+</table>
 
 </article>
 </div>

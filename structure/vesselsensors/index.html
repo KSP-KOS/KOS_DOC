@@ -53,11 +53,19 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h1 id="resource">Resource</h1>
+<h1 id="vesselsensors">VesselSensors</h1>
 
-<p>A single resource value a thing holds (i.e. fuel, electric charge, etc)</p>
+<p>When you ask a Vessel to tell you its :SENSORS suffix, it returns an object of this type.</p>
 
-<p>This is the type returned as the elements of the list in <a href="../../command/list/index.html#vessel-lists">LIST RESOURCES IN MyList</a>.</p>
+<p>This is a snapshot of the following sensor data taken at the moment the sensor reading
+was taken (at the moment you said SomeVessel:SENSORS).</p>
+
+<p><strong>NOTE:</strong> These values are only enabled <strong>if you have the proper type of sensor</strong> onboard the vessel.
+If you don't have a thermoneter, for example, then the :TEMP suffix will always read zero.</p>
+
+<p>If you store this in a variable and wait, the numbers are frozen in time and won't change as the vessel's condition changes.</p>
+
+<h3 id="structure">Structure</h3>
 
 <table>
   <thead>
@@ -71,38 +79,45 @@ View kOS on GitHub
   </thead>
   <tbody>
     <tr>
-      <td>:NAME</td>
-      <td>string</td>
+      <td>:ACC</td>
+      <td><a href="../vector/index.html">Vector</a></td>
       <td>yes</td>
       <td>no</td>
-      <td>the name of the resource, i.e. "LIQUIDFUEL", "ELECTRICCHARGE", "MONOPROP"</td>
+      <td>Accelleration the vessel is undergoing.  A combination of both the gravitational pull and the engine thrust.</td>
     </tr>
     <tr>
-      <td>:AMOUNT</td>
+      <td>:PRES</td>
       <td>Number</td>
       <td>yes</td>
       <td>no</td>
-      <td>the value of how much resource is left</td>
+      <td>The current pressure of this ship.</td>
     </tr>
     <tr>
-      <td>:CAPACITY</td>
+      <td>:TEMP</td>
       <td>Number</td>
       <td>yes</td>
       <td>no</td>
-      <td>what AMOUNT would be if the resource was filled to the top</td>
+      <td>The current temperature.</td>
+    </tr>
+    <tr>
+      <td>:GRAV</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The number of "G's" of gravity pull here.</td>
+    </tr>
+    <tr>
+      <td>:LIGHT</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The total amount of sun exposure that exists here - only readable if there are solar panels on the vessel.</td>
     </tr>
   </tbody>
 </table>
 
-<p>Example:</p>
+<p><strong>BUG:</strong> This information is currenlty being read from the Active Vessel even when the Active Vessel is not the <a href="../../summary_topics/CPU_vessel/index.html">CPU Vessel</a>.  This comment will be removed when that bug is fixed.</p>
 
-<pre><code>PRINT "THESE ARE ALL THE RESOURCES ON THE SHIP:".
-LIST RESOURCES IN RESLIST.
-FOR RES IN RESLIST {
-  PRINT "Resource " + RES:NAME + ": value = " + AMOUNT +
-        " which is " + ROUND(100*RES:AMOUNT/RES:CAPACITY) + "% full.".
-}.
-</code></pre>
 
 </article>
 </div>

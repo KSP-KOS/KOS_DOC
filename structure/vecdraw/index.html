@@ -53,25 +53,76 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h3 id="vecrdaw">VECRDAW</h3>
+<h1 id="vecrdaw">VECRDAW</h1>
 
 <p>A structure that allows you to make a drawing of a vector on the screen in map view or in
 flight view.</p>
 
-<h3 id="all-suffixes-can-be-gotten-and-set">All suffixes can be Gotten and Set:</h3>
-<ul>
-  <li>START - Vector - Optional, defaults to V(0,0,0) - position of the tail of the vector to draw in SHIP-RAW coords.  V(0,0,0) means the ship Center of Mass.</li>
-  <li>VEC - Vector - Mandatory - The vector to draw, SHIP-RAW Coords.</li>
-  <li>COLOR (or COLOUR works too) - Optional, defaults to white, <a href="../rgba/index.html">RGBA</a> - The color to draw the vector.  (There is a hardcoded fade effect where the tail is a bit more transparent than the head.)</li>
-  <li>LABEL - String - Optional, defaults to "" - Text to show on-screen at the midpoint of the vector.</li>
-  <li>SCALE - Number - Optional, defauls to 1 - scalar to multiply by both the START and the VEC</li>
-  <li>SHOW - Boolean - Set to true to make the arrow appear, false to hide it. Defaults to false until you're ready to set it to true.</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Suffix</th>
+      <th>Type</th>
+      <th>Get</th>
+      <th>Set</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>:START</td>
+      <td>Vector</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Optional, defaults to V(0,0,0) - position of the tail of the vector to draw in SHIP-RAW coords.  V(0,0,0) means the ship Center of Mass.</td>
+    </tr>
+    <tr>
+      <td>:VEC</td>
+      <td>Vector</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Mandatory - The vector to draw, SHIP-RAW Coords.</td>
+    </tr>
+    <tr>
+      <td>:COLOR (or COLOUR works too)</td>
+      <td><a href="../rgba/index.html">Color</a></td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Optional, defaults to white. This is the color to draw the vector.  (There is a hardcoded fade effect where the tail is a bit more transparent than the head.)</td>
+    </tr>
+    <tr>
+      <td>:LABEL</td>
+      <td>String</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Optional, defaults to "" - Text to show on-screen at the midpoint of the vector.</td>
+    </tr>
+    <tr>
+      <td>:SCALE</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Optional, defauls to 1 - scalar to multiply by both the START and the VEC</td>
+    </tr>
+    <tr>
+      <td>:SHOW</td>
+      <td>Boolean</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>Set to true to make the arrow appear, false to hide it. Defaults to false until you're ready to set it to true.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="two-ways-to-make-a-vecdraw">Two ways to make a VECDRAW:</h3>
 
-<p>Build the suffix fields one at a time.
-VECDRAW() creates an empty vecdraw with nothing populated yet. You have to follow it up with calls to the suffixes as shown here:</p>
+<p>Build the suffix fields one at a time using the <strong>VECDRAW</strong> empty construction function:</p>
+
+<ul>
+  <li>VECDRAW() creates an empty vecdraw with nothing populated yet. You have to follow it up with calls to the suffixes as shown here:</li>
+</ul>
+
+<p>Example using VECDRAW():</p>
 
 <pre><code>SET anArrow TO VECDRAW().
 SET anArrow:VEC TO V(a,b,c).
@@ -86,14 +137,19 @@ SET anArrow:LABEL TO "See the arrow?".
 SET anArrow:SCALE TO 5.0.
 </code></pre>
 
-<p>Build the vecdraw all at once with the VECDRAWARGS() function.
-VECDRAWARGS() Lets you specify all of the following in a list of arguments at once:</p>
+<p>Build the vecdraw all at once with the VECDRAWARGS() construction function:</p>
 
 <ul>
-  <li>Vecdrawars( START, VEC, COLOR, LABEL, SCALE, SHOW ).</li>
+  <li>
+    <p>VECDRAWARGS() Lets you specify all of the following in a list of arguments at once:</p>
+
+    <ul>
+      <li>Vecdrawars( START, VEC, COLOR, LABEL, SCALE, SHOW ).</li>
+    </ul>
+  </li>
 </ul>
 
-<p>Example:</p>
+<p>Example using VECDRAWAGS():</p>
 
 <pre><code>SET anArrow TO VECDRAWARGS( v(0,0,0), v(a,b,c), rgb(1,0,0), "See the arrow?", 5.0, true ).
 </code></pre>

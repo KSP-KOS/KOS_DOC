@@ -55,36 +55,62 @@ View kOS on GitHub
 <article class='markdown-body'>
 <h1 id="dockingport">DockingPort</h1>
 
-<p>Some of the Parts returned by  LIST PARTS will be of type DockingPort.</p>
+<p>Some of the Parts returned by <a href="../../command/list/index.html#vessel-lists">LIST PARTS</a> will be of type DockingPort.</p>
 
-<h1 id="structure">Structure</h1>
+<h4 id="structure">Structure</h4>
 
-<h4 id="getters">Getters</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Suffix</th>
+      <th>Type</th>
+      <th>Get</th>
+      <th>Set</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>All the suffixes of <a href="../part/index.html">Part</a></td>
+      <td>varies</td>
+      <td>..</td>
+      <td>..</td>
+      <td>A DockingPort is a kind of Part, and therefore can use all the suffixes of Part.  Shown below are only the suffixes that are unique to DockingPort</td>
+    </tr>
+    <tr>
+      <td>:STATE</td>
+      <td>string</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>One of the string values listed below after the table.</td>
+    </tr>
+    <tr>
+      <td>:DOCKEDVESSELNAME</td>
+      <td>string</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>name of the vessel docked to the port.</td>
+    </tr>
+    <tr>
+      <td>:TARGETABLE</td>
+      <td>boolean</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>True if this part can be picked with SET TARGET TO</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The values to the :STATE suffix can be any of the following:</p>
 
 <ul>
-  <li>All the suffixes of <a href="../part/index.html">Part</a> plus…
-    <ul>
-      <li>STATE - String - One of the following values:
-        <ul>
-          <li>"Ready" - Docking port is not yet attached and will attach if it touches another.</li>
-          <li>"Docked (docker)" - One port in the joined pair is called the docker, and has this state</li>
-          <li>"Docked (dockee)" - One port in the joined pair is called the dockee, and has this state</li>
-          <li>"Docked (same vessel)" - Sometimes KSP says this instead.  It's unclear what it means.</li>
-          <li>"Disabled" - Docking port will refuse to dock if it bumps another docking port.</li>
-          <li>"PreAttached" - Temp state during the "wobbling" while two ports are magnetically touching but not yet docked solidly.  During this state the two vessels are still tracked as separate vessels and haven't become one yet.</li>
-        </ul>
-      </li>
-      <li>DOCKEDVESSELNAME - String - name of the vessel docked to the port.</li>
-      <li>TARGETABLE - boolean - True if this part can be picked with SET TARGET TO…</li>
-    </ul>
-  </li>
+  <li>"Ready" - Docking port is not yet attached and will attach if it touches another. </li>
+  <li>"Docked (docker)" - One port in the joined pair is called the docker, and has this state </li>
+  <li>"Docked (dockee)" - One port in the joined pair is called the dockee, and has this state </li>
+  <li>"Docked (same vessel)" - Sometimes KSP says this instead.  It's unclear what it means. </li>
+  <li>"Disabled" - Docking port will refuse to dock if it bumps another docking port. </li>
+  <li>"PreAttached" - Temp state during the "wobbling" while two ports are magnetically touching but not yet docked solidly.  During this state the two vessels are still tracked as separate vessels and haven't become one yet.&lt;/ul&gt;</li>
 </ul>
-
-<h4 id="setters">Setters</h4>
-<ul>
-  <li>All the suffixes of <a href="../part/index.html">Part</a> plus…</li>
-</ul>
-
 
 </article>
 </div>

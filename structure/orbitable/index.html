@@ -71,121 +71,167 @@ object is itself a Body, the SOI body is the body being orbited, not the body do
 orbiting.  (i.e. When talking about the Mun, the SOI body means "Kerbin". When talking
 about Kerbin, the SOI body means "Sun").</p>
 
+<h3 id="structure">Structure</h3>
+
 <table>
+  <thead>
+    <tr>
+      <th>Suffix</th>
+      <th>Type</th>
+      <th>Get</th>
+      <th>Set</th>
+      <th>Description</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>SUFFIX TERM</td>
-      <td>TYPE</td>
-      <td>MEANING</td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td>NAME</td>
+      <td>:NAME</td>
       <td>string</td>
+      <td>yes</td>
+      <td>no</td>
       <td>Name of this vessel or body.</td>
     </tr>
     <tr>
-      <td>BODY</td>
+      <td>:BODY</td>
       <td><a href="../body/index.html">Body</a></td>
+      <td>yes</td>
+      <td>no</td>
       <td>The object that this object is orbiting.  i.e. Mun:BODY returns Kerbin.</td>
     </tr>
     <tr>
-      <td>OBT</td>
+      <td>:OBT</td>
       <td><a href="../orbit/index.html">Orbit</a></td>
+      <td>yes</td>
+      <td>no</td>
       <td>The current single orbit "patch" that this object is on (not the future orbits it might be expected to achieve after manuever nodes or encounter transitions, but what the current orbit would be if nothing changed and no encounteres perturbed the orbit.</td>
     </tr>
     <tr>
-      <td>APOAPSIS</td>
+      <td>:APOAPSIS</td>
       <td>number</td>
+      <td>yes</td>
+      <td>no</td>
       <td>apoapsis (deprecated alias for OBT:APOAPSIS.  Please use OBT:APOAPSIS instead.)</td>
     </tr>
     <tr>
-      <td>PERIAPSIS</td>
+      <td>:PERIAPSIS</td>
       <td>number</td>
+      <td>yes</td>
+      <td>no</td>
       <td>periapsis (deprecated alias for OBT:PERIAPSIS.  Please use OBT:PERIAPSIS instead.)</td>
     </tr>
     <tr>
-      <td>BODY</td>
+      <td>:BODY</td>
+      <td><a href="../body/index.html">Body</a></td>
+      <td>yes</td>
+      <td>no</td>
       <td><a href="../body/index.html">Body</a> The body that this Object is orbiting around.</td>
-      <td> </td>
     </tr>
     <tr>
-      <td>UP</td>
+      <td>:UP</td>
       <td><a href="../direction/index.html">Direction</a></td>
+      <td>yes</td>
+      <td>no</td>
       <td>pointing straight up away from the SOI body.</td>
     </tr>
     <tr>
-      <td>NORTH</td>
+      <td>:NORTH</td>
       <td><a href="../direction/index.html">Direction</a></td>
+      <td>yes</td>
+      <td>no</td>
       <td>pointing straight north on the SOI body, parallel to the surface of the SOI body.</td>
     </tr>
     <tr>
-      <td>PROGRADE</td>
+      <td>:PROGRADE</td>
       <td><a href="../direction/index.html">Direction</a></td>
+      <td>yes</td>
+      <td>no</td>
       <td>pointing in the direction of this object's <strong>orbital-frame</strong> velocity</td>
     </tr>
     <tr>
-      <td>SRFPROGRADE</td>
+      <td>:SRFPROGRADE</td>
       <td><a href="../direction/index.html">Direction</a></td>
+      <td>yes</td>
+      <td>no</td>
       <td>pointing in the direction of this object's <strong>surface-frame</strong> velocity.  Note that if this Orbitable is itself a body, remember that this is relative to the surface of the SOI body, not this body.</td>
     </tr>
     <tr>
-      <td>RETROGRADE</td>
+      <td>:RETROGRADE</td>
       <td><a href="../direction/index.html">Direction</a></td>
+      <td>yes</td>
+      <td>no</td>
       <td>pointing in the opposite of the direction of this object's <strong>orbital-frame</strong> velocity</td>
     </tr>
     <tr>
-      <td>SRFRETROGRADE</td>
+      <td>:SRFRETROGRADE</td>
       <td><a href="../direction/index.html">Direction</a></td>
+      <td>yes</td>
+      <td>no</td>
       <td>pointing in the opposite of the direction of this object's <strong>surface-frame</strong> velocity.  Note that this is relative to the surface of the SOI body.</td>
     </tr>
     <tr>
-      <td>OBT</td>
+      <td>:OBT</td>
       <td><a href="../orbit/index.html">Orbit</a></td>
+      <td>yes</td>
+      <td>no</td>
       <td>the orbit shape of this object.</td>
     </tr>
     <tr>
-      <td>POSITION</td>
+      <td>:POSITION</td>
       <td><a href="../vector/index.html">Vector</a></td>
+      <td>yes</td>
+      <td>no</td>
       <td>The position of this object in the <a href="../../ref_frame/index.html">SHIP-RAW reference frame</a></td>
     </tr>
     <tr>
-      <td>VELOCITY</td>
+      <td>:VELOCITY</td>
       <td><a href="../orbitablevelocity/index.html">OrbitableVelocity</a></td>
+      <td>yes</td>
+      <td>no</td>
       <td>The <strong>orbital</strong> velocity of this object in the <a href="../../ref_frame/index.html">SHIP-RAW reference frame</a></td>
     </tr>
     <tr>
-      <td>DISTANCE</td>
+      <td>:DISTANCE</td>
       <td>number</td>
+      <td>yes</td>
+      <td>no</td>
       <td>The scalar distance between this object and the center of SHIP.</td>
     </tr>
     <tr>
-      <td>DIRECTION</td>
+      <td>:DIRECTION</td>
       <td><a href="../direction/index.html">Direction</a></td>
+      <td>yes</td>
+      <td>no</td>
       <td>pointing in the direction of this object from SHIP.</td>
     </tr>
     <tr>
-      <td>LATITUDE</td>
+      <td>:LATITUDE</td>
       <td>number</td>
+      <td>yes</td>
+      <td>no</td>
       <td>The latitude in degrees of the spot on the surface of the SOI body directly under this object.</td>
     </tr>
     <tr>
-      <td>LONGITUDE</td>
+      <td>:LONGITUDE</td>
       <td>number</td>
+      <td>yes</td>
+      <td>no</td>
       <td>The longitude in degrees of the spot on the surface of the SOI body directly under this object.  Longitude returned will always be normalized to be in the range [-180,180].</td>
     </tr>
     <tr>
-      <td>ALTITUDE</td>
+      <td>:ALTITUDE</td>
       <td>number</td>
+      <td>yes</td>
+      <td>no</td>
       <td>The altitude in meters above the <em>sea level</em> surface of the SOI body (not the center of the SOI body.  To get the true radius of the orbit for proper math calculations remember to add altitude to the SOI body's radius.)</td>
     </tr>
     <tr>
-      <td>GEOPOSITION</td>
+      <td>:GEOPOSITION</td>
       <td><a href="../geocoordinates/index.html">GeoCoordinates</a></td>
+      <td>yes</td>
+      <td>no</td>
       <td>A combined structure of the latitude and longitude numbers.</td>
     </tr>
-  </tfoot>
+  </tbody>
 </table>
 
 

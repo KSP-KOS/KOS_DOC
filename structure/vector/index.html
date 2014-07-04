@@ -57,39 +57,109 @@ View kOS on GitHub
 
 <p>Represents a vector. <a href="http://en.wikipedia.org/wiki/Euclidean_vector">Wiki</a></p>
 
-<h1 id="structure">Structure</h1>
+<p>To deeply understand most vectors in kOS, you have to understand a bit about the
+<a href="../../ref_frame/index.html">underlying coordinate system of KSP</a>.  If you are
+having trouble making sense of the direction the axes point in, go read that page.</p>
 
-<ul>
-  <li>X - Number (degrees)</li>
-  <li>Y - Number (degrees)</li>
-  <li>Z - Number (degrees)</li>
-  <li>MAG - Number</li>
-  <li>VEC - Vector - This is a suffix that creates a COPY of this vector.  Useful if you want to copy a vector and then change the copy.  (Normally if you SET V2 TO V1, then V1 and V2 are two names for the same vector and changing one would change the other).</li>
-  <li>NORMALIZED - Vector - This creates a unit vector pointing in the same direction as this vector.  (The same effect as multiplying the vector by the scalar 1/MyVec:MAG. )</li>
-  <li>SQRMAGNITUDE - Number - The magnitude of the vector, squared.</li>
-</ul>
+<h3 id="structure">Structure</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Suffix</th>
+      <th>Type</th>
+      <th>Get</th>
+      <th>Set</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>:X</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>The X component of the vector.</td>
+    </tr>
+    <tr>
+      <td>:Y</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>The Y component of the vector.</td>
+    </tr>
+    <tr>
+      <td>:Z</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>The Z component of the vector.</td>
+    </tr>
+    <tr>
+      <td>:MAG</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>The magnitude of the vector, as a scalar number, by the Pythagorean Theorem</td>
+    </tr>
+    <tr>
+      <td>:NORMALIZED</td>
+      <td>Vector</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>This creates a unit vector pointing in the same direction as this vector.  (The same effect as multiplying the vector by the scalar 1/MyVec:MAG. )</td>
+    </tr>
+    <tr>
+      <td>:SQRMAGNITUDE</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The magnitude of the vector, squared.  Use instead of (MyVec:MAG ^ 2) if you need to square of the magnitude as this skips the step in the Pythagorean formula where you take the square root in the first place.  Taking the square root and then squaring that would introduce floating point error needlessly.</td>
+    </tr>
+    <tr>
+      <td>:DIRECTION</td>
+      <td><a href="../direction/index.html">Direction</a></td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>GET: The vector rendered into a direction (see note at the bottom of this page about information loss when doing this).  SET: Tells the vector to keep its magnitude as it is but point in a new direction, adjusting its XYZ numbers accordingly.</td>
+    </tr>
+    <tr>
+      <td>:VEC</td>
+      <td>Vector</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>This is a suffix that creates a COPY of this vector.  Useful if you want to copy a vector and then change the copy.  (Normally if you SET V2 TO V1, then V1 and V2 are two names for the same vector and changing one would change the other).</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="creation">Creation</h4>
 
-<p>V (x, y, z)</p>
+<p>The function:</p>
+
+<ul>
+  <li><strong>V(</strong> <em>x</em>, <em>y</em>, <em>z</em> <strong>)</strong></li>
+</ul>
+
+<p>Creates a vector from its 3 components.</p>
 
 <h4 id="vector-math-expressions">Vector Math Expressions</h4>
 
 <p>Assume S is a scalar, VA and VB are vectors:</p>
 
 <ul>
-  <li><code>S * VA</code> a vector, the <a href="http://en.wikipedia.org/wiki/Vector_addition#Scalar_multiplication">scalar multiplied by</a> the vector.</li>
-  <li><code>VA + VB</code> a vector, the tip-to-tail <a href="http://en.wikipedia.org/wiki/Vector_addition#Addition_and_subtraction">vector addition</a> of VA and VB.</li>
-  <li><code>VA - VB</code> a vector, the tip-to-tail <a href="http://en.wikipedia.org/wiki/Vector_addition#Addition_and_subtraction">vector addition</a> of VA and (-1)*VB.</li>
-  <li><code>VA * VB</code> a synonym for VECTORDOTPRODUCT(VA,VB) (see next line).</li>
-  <li><code>VECTORDOTPRODUCT(VA,VB)</code> or <code>VDOT(VA,VB)</code> a scalar, the <a href="http://en.wikipedia.org/wiki/Dot_product">dot product</a> of VA and VB</li>
-  <li><code>VECTORCROSSPRODUCT(VA,VB)</code> or <code>VCRS(VA,VB)</code> a vector, the <a href="http://en.wikipedia.org/wiki/Cross_product">cross product</a> of VA and VB, in THAT order.</li>
-  <li><code>VECTORANGLE(VA,VB)</code> or <code>VANG(VA,VB)</code> a scalar, the angle between VA and VB.
+  <li><strong><code>S * VA</code></strong> is a vector, the <a href="http://en.wikipedia.org/wiki/Vector_addition#Scalar_multiplication">scalar multiplied by</a> the vector.</li>
+  <li><strong><code>VA + VB</code></strong> is a vector, the tip-to-tail <a href="http://en.wikipedia.org/wiki/Vector_addition#Addition_and_subtraction">vector addition</a> of VA and VB.</li>
+  <li><strong><code>VA - VB</code></strong> is a vector, the tip-to-tail <a href="http://en.wikipedia.org/wiki/Vector_addition#Addition_and_subtraction">vector addition</a> of VA and (-1)*VB.</li>
+  <li><strong><code>VA * VB</code></strong> is a synonym for VECTORDOTPRODUCT(VA,VB) (see next line).</li>
+  <li><strong><code>VECTORDOTPRODUCT(VA,VB)</code></strong> or <strong><code>VDOT(VA,VB)</code></strong> is a scalar, the <a href="http://en.wikipedia.org/wiki/Dot_product">dot product</a> of VA and VB</li>
+  <li><strong><code>VECTORCROSSPRODUCT(VA,VB)</code></strong> or <strong><code>VCRS(VA,VB)</code></strong> is a vector, the <a href="http://en.wikipedia.org/wiki/Cross_product">cross product</a> of VA and VB, in THAT order.</li>
+  <li><strong><code>VECTORANGLE(VA,VB)</code></strong> or <strong><code>VANG(VA,VB)</code></strong> is a scalar, the angle between VA and VB.
     <ul>
       <li>Same result as <code>arccos( (VDOT(VA,VB) / VDOT(VA,VB):MAG )</code>.</li>
     </ul>
   </li>
-  <li><code>VECTOREXCLUDE(VA,VB)</code> or <code>VXCL(VA,VB)</code> a vector, VB with all of VA excluded from it.
+  <li><strong><code>VECTOREXCLUDE(VA,VB)</code></strong> or <strong><code>VXCL(VA,VB)</code></strong> is a vector, VB with all of VA excluded from it.
     <ul>
       <li>In other words, the projection of VB onto the plane that is normal to VA.</li>
     </ul>
@@ -107,6 +177,27 @@ SET varname:MAG to 10.              // Lengthen or shorten vector to make its ma
 SET retroSurf to (-1)*velocity:surface.               // get vector pointing opposite to surface velocity.
 SET norm to VCRS(velocity:orbit,ship:body:position).  // use cross product to find normal to the orbit plane.
 </code></pre>
+
+<h4 id="the-difference-between-a-direction-and-a-vector-and-the-consequences-of-conversions">The difference between a Direction and a Vector, and the consequences of conversions:</h4>
+
+<p>A Vector and a Direction can be represented with the exact same amount of information:
+a tuple of 3 floating point numbers.  So you might wonder why it is that a Vector
+can hold information about the magnitude of the line segment, while a Direction cannot,
+given that both have the same amount of information.  The answer is that a Direction does
+contain one thing a Vector does not.  A Direction knows which way is "up", while a Vector
+does not.  If you tell kOS to LOCK STEERING to a Vector, it will be able to point the nose
+of the vessel in the correct direction, but won't know which way you want the roof of the
+craft rotated to.  This works fine for axial symmetrical rockets but can be a problem for
+airplanes.</p>
+
+<p>Therefore if you do this:</p>
+
+<pre><code>SET MyVec to V(100,200,300).
+SET MyDir to MyVec:DIRECTION.
+</code></pre>
+
+<p>Then MyDir will be a Direction, but it will be a Direction where you have no control over which
+way is "up" for it.</p>
 
 
 </article>

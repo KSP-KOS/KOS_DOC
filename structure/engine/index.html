@@ -55,24 +55,109 @@ View kOS on GitHub
 <article class='markdown-body'>
 <h1 id="engine">Engine</h1>
 
-<p>Main propulsion of every mission.</p>
+<p>Some of the Parts returned by <a href="../../command/list/index.html#vessel-lists">LIST PARTS</a> will be of type Engine.</p>
 
-<h1 id="structure">Structure</h1>
+<p>It is also possible to get jsut the Engine parts by executing LIST ENGINES, for example:</p>
 
-<h4 id="getters">Getters</h4>
+<pre><code>LIST ENGINES IN myVariable.
+FOR eng IN myVariable {
+    print "An engine exists with ISP = " + eng:ISP.
+}.
+</code></pre>
 
-<ul>
-  <li>All the suffixes of <a href="../part/index.html">Part</a> plus…
-    <ul>
-      <li>MAXTHRUST - Number (kilonewton)</li>
-      <li>THRUST - Number (kilonewton)</li>
-      <li>FUELFLOW - Number (Liters/s? maybe)</li>
-      <li>ISP - Specific impulse <a href="http://en.wikipedia.org/wiki/Specific_impulse">Wiki</a></li>
-      <li>FLAMEOUT - bool</li>
-      <li>IGNITION - bool</li>
-    </ul>
-  </li>
-</ul>
+<h3 id="structure">Structure</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Suffix</th>
+      <th>Type</th>
+      <th>Get</th>
+      <th>Set</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>All the suffixes of <a href="../part/index.html">Part</a> plus…</td>
+      <td>varies</td>
+      <td>..</td>
+      <td>..</td>
+      <td>Engine is a type of Part, and therefore can use all the suffixes of Part.  Shown below are only the suffixes that are unique to Engine variables:</td>
+    </tr>
+    <tr>
+      <td>:MAXTHRUST</td>
+      <td>Number (kilonewtons)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>How much thrust would this engine give if the throttle was max and conditions were ideal.</td>
+    </tr>
+    <tr>
+      <td>:THRUST</td>
+      <td>Number (kilonewtons)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>How much thrust is this engine giving at this very moment.</td>
+    </tr>
+    <tr>
+      <td>:FUELFLOW</td>
+      <td>Number (Liters/s? maybe)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Rate at which fuel is being burned.  Not sure what the units are.</td>
+    </tr>
+    <tr>
+      <td>:ISP</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Specific impulse <a href="http://en.wikipedia.org/wiki/Specific_impulse">Wiki</a></td>
+    </tr>
+    <tr>
+      <td>:FLAMEOUT</td>
+      <td>boolean</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Is this engine failed because it is starved of a resource (liquidfuel, oxidizer, oxygen)?</td>
+    </tr>
+    <tr>
+      <td>:IGNITION</td>
+      <td>boolean</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Has this engine been ignited?  If both :IGNITION and :FLAMEOUT are true, that means the engine could start up again immediately if more resources were made available to it.</td>
+    </tr>
+    <tr>
+      <td>:ALLOWRESTART</td>
+      <td>boolean</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Is this an engine that can be started again?  Usually True, but false for solid boosters.</td>
+    </tr>
+    <tr>
+      <td>:ALLOWSHUTDOWN</td>
+      <td>boolean</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Is this an engine that can be shut off once started?  Usually True, but false for solid boosters.</td>
+    </tr>
+    <tr>
+      <td>:THROTTLELOCK</td>
+      <td>boolean</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Is this an engine that is stuck at a fixed throttle?  (i.e. solid boosters)</td>
+    </tr>
+    <tr>
+      <td>:THRUSTLIMIT</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>If this an engine with a thrust limiter (tweakable) enabled, what percentage is it limited to?</td>
+    </tr>
+  </tbody>
+</table>
+
 
 </article>
 </div>

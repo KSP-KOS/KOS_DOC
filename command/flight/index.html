@@ -56,65 +56,7 @@ View kOS on GitHub
 
 <h1 id="navigation">Navigation</h1>
 
-<p>See <a href="../../summary_topics/ship_control/index.html">ship control</a> for a more detailed explanation for how to control flight.</p>
-
-<hr />
-
-<h2 id="add-1">ADD $1</h2>
-
-<p>Adds a <a href="../../structure/node/index.html">maneuver node</a> to the flight plan.</p>
-
-<p>Example:
-This statement adds a node that occurs 30 seconds from now, and has a delta-V of 100 m/s radial out, 0 m/s normal, and 200 m/s prograde.</p>
-
-<pre><code>SET FOO TO NODE(TIME + 30, 100, 0, 200).
-ADD FOO.
-</code></pre>
-
-<hr />
-
-<h2 id="remove-1">REMOVE $1</h2>
-
-<p>Removes <a href="../../structure/node/index.html">maneuver node</a> from flight plan. Cannot remove bare nodes e.g. ADD NODE().</p>
-
-<pre><code>REMOVE NEXTNODE.        // Removes the first maneuver node in the flight plan.
-SET X TO NODE(0,0,0,0).
-ADD X.
-REMOVE X.
-
-ADD NODE(0,0,0,0).
-REMOVE.             // Does not remove node.
-</code></pre>
-
-<hr />
-
-<h2 id="stage">STAGE</h2>
-
-<p>Executes the stage action on the current vessel.
-Example:</p>
-
-<pre><code>STAGE.
-</code></pre>
-
-<hr />
-
-<h2 id="heading-1-2">HEADING $1 $2</h2>
-
-<p>Establishes a Heading using two terms, pitch and relation to north</p>
-
-<h4 id="arguments">Arguments</h4>
-<ul>
-  <li>$1: Pitch above the horizion in degrees.</li>
-  <li>$2: Offset from North in degrees.</li>
-</ul>
-
-<p>Example:</p>
-
-<pre><code>SET FOO TO HEADING(20,180).
-LOCK STEERING TO FOO.
-</code></pre>
-
-<hr />
+<p>See <a href="../../summary_topics/ship_control/index.html">ship control</a> for a full explanation for how to control flight.  This page is a placeholder for the time being because so many other places in the documentation still point to it instead of the new page.</p>
 
 <h2 id="warp">WARP</h2>
 

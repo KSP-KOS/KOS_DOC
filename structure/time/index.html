@@ -53,34 +53,118 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h1 id="time">Time</h1>
+<h1 id="timespan">Timespan</h1>
 
-<p>Returns time in various formats.</p>
+<p>In several places the game uses a Timespan format.  This is a strucure that gives the time in various formats.
+It also allows you to peform arithmetic on the time.</p>
 
-<h1 id="structure">Structure</h1>
+<h3 id="special-variable-time">Special variable TIME</h3>
+
+<p>The special variable <strong>TIME</strong> is used to get the current time.</p>
+
+<p>Any time you perform arithmetic on <strong>TIME</strong> you get a result back that is also a Timespan.
+In other words, TIME is a Timespan, but TIME + 100 is also a Timespan.</p>
+
+<p><strong>Warning</strong>: Please be aware that the kind of calendar Timespan's use will depend on your KSP settings.
+The main KSP game supports both Kerbin time and Earth time and changing that setting will
+affect how Timespan works in kOS.</p>
+
+<p>(The difference is whether 1 day = 6 hours or 1 day = 24 hours).</p>
+
+<p><strong>Warning</strong>: Beware the pitfall of confuising the <em>:SECOND</em> (singular)
+suffix with the <em>:SECONDS</em> (plural) suffix.</p>
 
 <ul>
-  <li>CLOCK - Time (HH:MM:SS)</li>
-  <li>CALENDAR - Date (Year #, day #)</li>
-  <li>YEAR - Number</li>
-  <li>DAY - Number (1-365)</li>
-  <li>HOUR - Number (0-23)</li>
-  <li>MINUTE - Number (0-59)</li>
-  <li>SECOND - Number (0-59)</li>
-  <li>
-    <p>SECONDS - Number (Total Seconds)</p>
-
-    <p>TIME                // Gets the current universal time
-  TIME:CLOCK          // Universal time in H:M:S format(1:50:26)
-  TIME:CALENDAR       // Year 1, day 134
-  TIME:YEAR           // 1
-  TIME:DAY            // 134
-  TIME:HOUR           // 1
-  TIME:MINUTE         // 50
-  TIME:SECOND         // 26
-  TIME:SECONDS          // Total Seconds</p>
-  </li>
+  <li><em>:SECOND</em> is the number of
+<strong>remainder</strong> seconds leftover after all whole-number minutes, hours, days, and years have been subtracted out, and it's never outside the range [0..60).  It's essentially the 'seconds hand' on a clock.</li>
+  <li><em>:SECONDS</em> is the number of seconds total if you want to represent time as just a simple flat number without all the components.  It's the total count of the number of seconds since the beginning of time (Epoch).  Because it's a floating point number, it can store times less than 1 second.  Note this is a measure of how much simulated Kerbal time has passed since the game began.  People experienced at programming will be familiar with this concept.  It's the Kerbal's version of "unix time".</li>
 </ul>
+
+<p>The epoch (time zero) in the KSP game is the time at which you first started the new campaign.  All campaign games begin with the planets in precisely the same position and the clock set to zero years, zero days, zero hours, and so on.</p>
+
+<h3 id="structure">Structure</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Suffix</th>
+      <th>Type</th>
+      <th>Get</th>
+      <th>Set</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>:CLOCK</td>
+      <td>string</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Time in (HH:MM:SS) format.</td>
+    </tr>
+    <tr>
+      <td>:CALENDAR</td>
+      <td>string</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Day in "Year YYYY, day DDD" format.  (Kerbals don't have 'months'.)</td>
+    </tr>
+    <tr>
+      <td>:SECOND</td>
+      <td>Number (0-59)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Second-hand number.</td>
+    </tr>
+    <tr>
+      <td>:MINUTE</td>
+      <td>Number (0-59)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Minute-hand number</td>
+    </tr>
+    <tr>
+      <td>:HOUR</td>
+      <td>Number (0-23)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Hour-hand number</td>
+    </tr>
+    <tr>
+      <td>:DAY</td>
+      <td>Number (1-365)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Day-hand number</td>
+    </tr>
+    <tr>
+      <td>:YEAR</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Year-hand number</td>
+    </tr>
+    <tr>
+      <td>:SECONDS</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>(Total Seconds since Epoch)</td>
+    </tr>
+  </tbody>
+</table>
+
+<pre><code>TIME                // Gets the current universal time
+TIME:CLOCK          // Universal time in H:M:S format(1:50:26)
+TIME:CALENDAR       // Year 1, day 134
+TIME:YEAR           // 1
+TIME:DAY            // 134
+TIME:HOUR           // 1
+TIME:MINUTE         // 50
+TIME:SECOND         // 26
+TIME:SECONDS        // Total Seconds since campaign began
+</code></pre>
+
 
 </article>
 </div>

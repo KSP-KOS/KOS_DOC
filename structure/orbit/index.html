@@ -53,32 +53,146 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<p>﻿# Orbit</p>
+<h1 id="orbit">﻿Orbit</h1>
 
-<p>The path the vessel/body will take with no intervention</p>
+<p>Variables of type Orbit hold descriptive information about the elliptical shape
+of a predicted orbit.  Whenever there are multiple patches of orbit ellipses strung
+together, for example, when an encounter with a body is expected to alter the path,
+or when a maneuver node is planned, then each individual patch of the path is
+represented by one Orbit object.</p>
 
-<h1 id="structure">Structure</h1>
+<p>Each <a href="../orbitable/index.html">Orbitable</a> item such as a vessel or celestial body
+has an :ORBIT suffix that can be used to obtain its current Orbit.</p>
 
-<ul>
-  <li>APOAPSIS - Number (meters)</li>
-  <li>PERIAPSIS - Number (meters)</li>
-  <li>BODY - <a href="../body/index.html">Body</a></li>
-  <li>PERIOD - Number (seconds) <a href="http://en.wikipedia.org/wiki/Orbital_period">Wiki</a></li>
-  <li>INCLINATION - Number (degree) <a href="http://en.wikipedia.org/wiki/Orbital_inclination">Wiki</a></li>
-  <li>ECCENTRICITY - Number <a href="http://en.wikipedia.org/wiki/Orbital_eccentricity">Wiki</a></li>
-  <li>SEMIMAJORAXIS - Number (meters) <a href="http://en.wikipedia.org/wiki/Semi-major_axis">Wiki</a></li>
-  <li>SEMIMINORAXIS - Number (meters)</li>
-  <li>PATCHES - list of <a href="../orbit/index.html">Orbit</a></li>
-  <li>TRANSITION - Enum
-    <ul>
-      <li>INITIAL</li>
-      <li>FINAL</li>
-      <li>ENCOUNTER</li>
-      <li>ESCAPE</li>
-      <li>MANEUVER</li>
-    </ul>
-  </li>
-</ul>
+<p>Whenever you get the :ORBIT of a vessel, be aware that its just the current :ORBIT
+patch that doesn't take into account any planetary encounters (slingshots) or
+maneuver nodes that may occur.  For example, your vessel might never reach
+SHIP:ORBIT:APOAPSIS if you're going to intersect the Mun and be flung by it into a new
+orbit.</p>
+
+<p><em>WARNING</em> Some of the parameters listed here come directly from KSP's API and there
+is a bit of inconsistency with whether it uses radians or degrees for angles.  As
+much as possible we have tried to present everythign in kOS as degrees for consistency,
+but some of these may have slipped through.  If you see any of these being reported
+in radians, please make a bug report.</p>
+
+<h3 id="structure">Structure</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Suffix</th>
+      <th>Type</th>
+      <th>Get</th>
+      <th>Set</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>:APOAPSIS</td>
+      <td>Number (meters)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The max altitude expected to be reached.</td>
+    </tr>
+    <tr>
+      <td>:PERIAPSIS</td>
+      <td>Number (meters)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The min altitude expected to be reached.</td>
+    </tr>
+    <tr>
+      <td>:BODY</td>
+      <td><a href="../body/index.html">Body</a></td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The celestial body this orbit is orbiting.</td>
+    </tr>
+    <tr>
+      <td>:PERIOD</td>
+      <td>Number (seconds)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td><a href="http://en.wikipedia.org/wiki/Orbital_period">Wiki link</a></td>
+    </tr>
+    <tr>
+      <td>:INCLINATION</td>
+      <td>Number (degree)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td><a href="http://en.wikipedia.org/wiki/Orbital_inclination">Wiki link</a></td>
+    </tr>
+    <tr>
+      <td>:ECCENTRICITY</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>no</td>
+      <td><a href="http://en.wikipedia.org/wiki/Orbital_eccentricity">Wiki link</a></td>
+    </tr>
+    <tr>
+      <td>:SEMIMAJORAXIS</td>
+      <td>Number (meters)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td><a href="http://en.wikipedia.org/wiki/Semi-major_axis">Wiki link</a></td>
+    </tr>
+    <tr>
+      <td>:SEMIMINORAXIS</td>
+      <td>Number (meters)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td><a href="http://en.wikipedia.org/wiki/Semi-minor_axis">Wiki link</a></td>
+    </tr>
+    <tr>
+      <td>:LAN or :LONGITUDEOFASCENDINGNODE</td>
+      <td>Number (degrees)</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>Longitude of the ascending node.  It's unclear what the basis line the game uses for this is, though.  The real-world basis is the constellation Ares, which of course doesn't exist in the Kerbal universe.</td>
+    </tr>
+    <tr>
+      <td>:ARGUMENTOFPERIAPSIS</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>no</td>
+      <td><a href="http://en.wikipedia.org/wiki/Argument_of_periapsis">Wiki link</a></td>
+    </tr>
+    <tr>
+      <td>:TRUEANOMALY</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>no</td>
+      <td><a href="http://en.wikipedia.org/wiki/True_anomaly">Wiki link</a></td>
+    </tr>
+    <tr>
+      <td>:MEANANOMALYATEPOCH</td>
+      <td>Number</td>
+      <td>yes</td>
+      <td>no</td>
+      <td><a href="http://en.wikipedia.org/wiki/Mean_anomaly">Wiki link</a></td>
+    </tr>
+    <tr>
+      <td>:PATCHES</td>
+      <td><a href="../list/index.html">LIST</a></td>
+      <td>yes</td>
+      <td>no</td>
+      <td>The list of future <a href="../orbit/index.html">Orbit</a>s that would follow this one, due to SOI transitions (but not due to manuever nodes).  To get the list of patches after a manuever node, get that maneuver node's :ORBIT suffix first, then get its :PATCHES suffix.  (i.e. MyNode:ORBIT:PATCHES.)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This is left off the above table because it's not clear that it works:</p>
+
+<p>:TRANSITION - Enum
+    * INITIAL
+    * FINAL
+    * ENCOUNTER
+    * ESCAPE
+    * MANEUVER</p>
+
+<p>This enum type is not currently exposed to the kOS user so it probably won't work.</p>
 
 
 </article>

@@ -53,95 +53,108 @@ View kOS on GitHub
 <span class='blc'></span>
 <span class='trc'></span>
 <article class='markdown-body'>
-<h1 id="lists">Lists</h1>
+<h1 id="list-command">List Command</h1>
+
+<p>A <a href="../../structure/list/index.html">List is a type of Structure</a> that stores a list of variables in it.</p>
+
+<p>The LIST command either prints or crates a <a href="../../structure/list/index.html">List variable</a> containing items queried from the game.</p>
 
 <hr />
 
-<h2 id="for-1-in-2">FOR $1 IN $2</h2>
+<h2 id="for-loop">FOR Loop</h2>
 
-<p>Lists need to be iterated over sometimes, to help with this we have FOR.</p>
-
-<h4 id="arguments">Arguments</h4>
-<ul>
-  <li>$1: Local variable that is only in scope for that iteration</li>
-  <li>$2: The <a href="../../structure/list/index.html">List</a> you would like to iterate over</li>
-</ul>
-
-<p>Example:</p>
-
-<pre><code>SET FOO TO LIST().   // Creates a new list in FOO variable
-SET FOO:ADD TO 5.    // Adds a new element to the end of the list
-SET FOO:ADD TO ALTITUDE. // eg 10000
-SET FOO:ADD TO ETA:APOAPSIS. // eg 30
-
-FOR BAR IN FOO { PRINT BAR. }. // Prints 5, then 10000, then 30
-PRINT BAR. // ERROR, BAR doesn't exist outside the for statement
-</code></pre>
+<p>Lists need to be iterated over sometimes, to help with this we have
+the <a href="../../command/flowControl/index.html#for">FOR loop, explained on the flow control page</a>.</p>
 
 <hr />
 
-<h3 id="list-1-in-2">LIST $1 IN $2</h3>
+<h3 id="list-command-1">LIST Command</h3>
 
-<p>The active <a href="../../structure/vessel/index.html">Vessel</a> has some default collections, this command stores them in a variable</p>
+<p>The LIST Command comes in 4 forms:</p>
 
-<h4 id="arguments-1">Arguments</h4>
 <ul>
-  <li>$1: Collection name, See "Built-in Lists" below</li>
-  <li>$2: The variable name you would like to store the new <a href="../../structure/list/index.html">List</a> in</li>
+  <li>(1) <strong>LIST</strong>
+    <ul>
+      <li>When no parameters are given, the LIST command is exactly equivalent to the command LIST FILES.  (<strong>List</strong> <em>ListKeyword</em> where <em>ListKeyword</em> is FILES.)</li>
+    </ul>
+  </li>
+  <li>(2) <strong>LIST</strong> <em>ListKeyword</em>.
+    <ul>
+      <li>This variant prints items to the termianl sceen.  Depending on the <em>ListKeyword</em> used (see below), different values are printed.</li>
+    </ul>
+  </li>
+  <li>(3) <strong>LIST</strong> <em>ListKeyword</em> <strong>IN</strong> <em>YourVariable</em>.
+    <ul>
+      <li>This variant takes the items that would otherwise have been printed to the terminal screen, and instead makes a <a href="../../structure/list/index.html">LIST</a> of them in <em>YourVariable</em>, that you can then iterate over with a FOR loop if you like.</li>
+    </ul>
+  </li>
+  <li>(4) <strong>LIST</strong> <em>ListKeyword</em> <strong>FROM</strong> <em>SomeVessel</em> <strong>IN</strong> <em>YourVariable</em>.
+    <ul>
+      <li>This variant is just like variant (3), except that it gives a list of the items that exist on some other vessel that might not necessarily be the current CPU_vessel.</li>
+    </ul>
+  </li>
 </ul>
 
-<p>Example:</p>
+<p>Examples of each of these variants can be seen at the bottom of the page.</p>
 
-<pre><code>LIST BODIES IN FOO. //Lists all [Bodies](../../structure/body/index.html) in the system
+<h3 id="what-keywords-are-listable">What keywords are listable?</h3>
 
-FOR BAR IN FOO {
-    PRINT BAR:NAME. //Will print the name of every [body](../../structure/body/index.html) in the system
+<p>The <em>ListKeyword</em> in the above command variants can be any of the following:</p>
+
+<h4 id="universal-lists">Universal Lists</h4>
+
+<p>These generate lists that are not dependant on which vessel:</p>
+
+<ul>
+  <li><em>Bodies</em> - List of <a href="../../structure/body/index.html">Bodies</a></li>
+  <li><em>Targets</em> - List of possible target <a href="../../structure/vessel/index.html">Vessels</a></li>
+</ul>
+
+<h4 id="vessel-lists">Vessel Lists</h4>
+
+<p>These generate lists of items on the vessel:</p>
+
+<ul>
+  <li><em>Resources</em> - List of <a href="../../structure/resource/index.html">Resources</a></li>
+  <li><em>Parts</em> - List of <a href="../../structure/part/index.html">Parts</a></li>
+  <li><em>Engines</em> - List of <a href="../../structure/engine/index.html">Engines</a></li>
+  <li><em>Sensors</em> - List of <a href="../../structure/sensor/index.html">Sensors</a></li>
+  <li><em>Elements</em> - ??</li>
+  <li><em>DockingPorts</em> - list of <a href="../../structure/dockingport/index.html">DockingPorts</a></li>
+</ul>
+
+<h4 id="file-system-lists">File System Lists</h4>
+
+<p>These generate lists about the files in the system:</p>
+
+<ul>
+  <li><em>Files</em> - List the files on the current Volume. (note below)</li>
+  <li><em>Volumes</em> - List all the Volumes that exist.</li>
+</ul>
+
+<p>Note: LIST FILES is the default if you give the LIST command no parameters.</p>
+
+<p>Examples:</p>
+
+<pre><code>LIST.  // Prints the list of files on current volume.
+LIST FILES.  // Does the same exact thing, but more explicitly.
+
+LIST BODIES. // Prints the list of all Celestail bodies in the system.
+
+LIST BODIES IN bodList.  // Puts the list of bodies into a variable.
+// Iterate over everything in the list:
+SET totMass to 0.
+FOR bod in bodList {
+    SET totMass to totMass + bod:MASS.
+}.
+PRINT "The mass of the whole solar system is " + totMass.
+
+LIST RESOURCES FROM TARGET IN foo. //Adds variable FOO that contains a list of RESOURCES for my currently target vessel
+FOR res IN foo {
+    PRINT res:NAME. //Will print the name of every [Resource](../../structure/resource/index.html) in the vessel.
 }.
 </code></pre>
 
-<hr />
-
-<h3 id="list-1-from-2-in-3">LIST $1 FROM $2 IN $3</h3>
-
-<p>The every <a href="../../structure/vessel/index.html">Vessel</a> has some default collections, this command stores them in a variable</p>
-
-<h4 id="arguments-2">Arguments</h4>
-<ul>
-  <li>$1: Collection name, See "Built-in Lists" below</li>
-  <li>$2: <a href="../../structure/vessel/index.html">Vessel</a> object or the string name of the vessel you would like to get a list from</li>
-  <li>$3: The variable name you would like to store the new <a href="../../structure/list/index.html">List</a> in</li>
-</ul>
-
-<p>Example:</p>
-
-<pre><code>LIST RESOURCES FROM SOMEVESSEL IN FOO. //Adds variable FOO that contains a list of RESOURCES for the named vessel
-
-FOR BAR IN FOO {
-    PRINT BAR:NAME. //Will print the name of every [body](../../structure/body/index.html) in the system
-}.
-</code></pre>
-
-<hr />
-
-<h1 id="built-in-lists">Built-in Lists</h1>
-
-<p>These are the names of the lists available</p>
-
-<h5 id="universal-lists">Universal Lists</h5>
-<ul>
-  <li>Bodies - List of <a href="../../structure/body/index.html">Bodies</a></li>
-  <li>Targets - List of <a href="../../structure/vessel/index.html">Vessels</a></li>
-</ul>
-
-<h5 id="vessel-lists">Vessel Lists</h5>
-<ul>
-  <li>Resources - List of <a href="../../structure/resource/index.html">Resources</a></li>
-  <li>Part - List of <a href="../../structure/part/index.html">Parts</a>s</li>
-  <li>Engines - List of <a href="../../structure/engine/index.html">Engines</a></li>
-  <li>Sensors - List of <a href="../../structure/sensor/index.html">Sensors</a></li>
-  <li>Elements</li>
-  <li>DockingPorts - list of <a href="../../structure/dockingport/index.html">DockingPorts</a></li>
-</ul>
 
 </article>
 </div>
