@@ -161,19 +161,25 @@ RENAME FILE MyFile TO AutoLaunch.
 
 <hr />
 
-<h2 id="run-1">RUN $1</h2>
+<h2 id="run-1---comma-separated-args--">RUN $1 [ ( comma-separated-args ) ]</h2>
 
-<p>Runs the specified file as a program.</p>
+<p>Runs the specified file as a program, optionally passing information to the program 
+in the form of a comma-separated list of arguments in parentheses.</p>
 
 <h4 id="arguments-5">Arguments</h4>
 <ul>
-  <li>$1: File to run</li>
+  <li>$1: File to run.</li>
+  <li>comma-separagted-args: a list of values to pass into the program.</li>
 </ul>
 
 <p>Example:</p>
 
 <pre><code>RUN AutoLaunch.
+RUN AutoLaunch( 75000, true, "hello" ).
 </code></pre>
+
+<p>The program that is reading the arguments sees them in the variables it
+mentions in <a href="../variable/index.html#declare-parameter">DECLARE PARAMETER statements</a></p>
 
 <hr />
 
