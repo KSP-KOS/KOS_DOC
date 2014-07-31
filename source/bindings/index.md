@@ -6,6 +6,21 @@ to mean something special.  If they are used as normal variable names by your kO
 program they may not work.  Understanding them and their meaning is crucial to creating
 effective kOS scripts.
 
+KNOWN CONSTANTS
+---------------
+A few global constants can be obtained by using the expression **CONSTANT()** followed by a 
+colon followed by one of the following:
+
+SUFFIX | Description
+=======|============
+G      | Newton's Gravatational Constant, 6.67384E-11
+E      | Natural Log base 'e'
+PI     | Ratio of circumference of a circle to its diameter.
+
+Examples
+
+    PRINT "e^2 is " constant():e ^ 2.
+    PRINT "Gravitational parameter of Kerbin is " constant():G * Kerbin:Mass.
 
 NAMED VESSELS AND BODIES
 ------------------------
