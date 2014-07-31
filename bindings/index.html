@@ -60,6 +60,39 @@ to mean something special.  If they are used as normal variable names by your kO
 program they may not work.  Understanding them and their meaning is crucial to creating
 effective kOS scripts.</p>
 
+<h2 id="known-constants">KNOWN CONSTANTS</h2>
+<p>A few global constants can be obtained by using the expression <strong>CONSTANT()</strong> followed by a 
+colon followed by one of the following:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>SUFFIX</td>
+      <td>Description</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>G</td>
+      <td>Newton's Gravatational Constant, 6.67384E-11</td>
+    </tr>
+    <tr>
+      <td>E</td>
+      <td>Natural Log base 'e'</td>
+    </tr>
+    <tr>
+      <td>PI</td>
+      <td>Ratio of circumference of a circle to its diameter.</td>
+    </tr>
+  </tfoot>
+</table>
+
+<p>Examples</p>
+
+<pre><code>PRINT "e^2 is " constant():e ^ 2.
+PRINT "Gravitational parameter of Kerbin is " constant():G * Kerbin:Mass.
+</code></pre>
+
 <h2 id="named-vessels-and-bodies">NAMED VESSELS AND BODIES</h2>
 
 <table>
