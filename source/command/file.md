@@ -92,16 +92,22 @@ Example:
 
 ***
 
-## RUN $1
+## RUN $1 [ ( comma-separated-args ) ]
 
-Runs the specified file as a program.
+Runs the specified file as a program, optionally passing information to the program 
+in the form of a comma-separated list of arguments in parentheses.
 
 #### Arguments
-* $1: File to run
+* $1: File to run.
+* comma-separagted-args: a list of values to pass into the program.
 
 Example:
 
     RUN AutoLaunch.
+    RUN AutoLaunch( 75000, true, "hello" ).
+
+The program that is reading the arguments sees them in the variables it
+mentions in [DECLARE PARAMETER statements](../variable/index.html#declare-parameter)
 
 ***
 
