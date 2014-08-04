@@ -8,10 +8,6 @@ Installation
 
 Like other mods, simply merge the contents of the zip file into your Kerbal Space Program folder.
 
-Usage
------
-
-Add the Compotronix SCS part to your vessel; it’s under the “Control” category in the Vehicle Assembly Building or Space Plane Hanger. After hitting launch, you can right-click on the part and select the “Open Terminal” option. This will give you access to the KerboScript interface where you can begin issuing commands and writing programs.
 
 KerboScript
 ===========
@@ -23,6 +19,27 @@ The language is designed to be easily accessible to novice programmers, therefor
 A typical command in KerboScript might look like this:
 
     PRINT “Hello World”.
+
+----
+
+QUICK START: Hello World.
+=========================
+
+If you prefer the tutorial style of explanation, please see the
+[QUICK START Tutorial](summary_topics/gettingstarted/index.html), which walks you through the 
+beginnings of making a beginner's ship launcher script.
+
+----
+
+
+CASE INSENSITIVE
+----------------
+Everything in Kerboscript is case-insensitive, including your own variable names and filenames.
+The only exception is when you perform a string comparison, ("Hello"="HELLO" will return false.)
+
+Most of the examples here will show the syntax in all-uppercase to help make it stand out from
+the explanatory text.
+
 
 Expressions
 -----------
@@ -50,32 +67,48 @@ To concatenate strings, you can use the + operator. This works with mixtures of 
 
     PRINT “4 plus 3 is: “ + (4+3).
 
-### Directions
+### Structures
 
-Directions exist primarily to enable automated steering. You can initialize a direction using a vector or a rotation.
+Structures are variables that contain more than one piece of information.  For example, a Vector has an X, a Y, and a Z component.  Structures can be used with SET.. TO just like any other variable.  To access the sub-elements of a structure, you use the colon operator (":").  Here are some examples:
 
-    SET Direction TO V(0,1,0).         // Set a direction by vector
-    SET Direction TO R(0,90,0).        // Set by a rotation in degrees
+    PRINT "The Mun's periapsis altitude is: " + MUN:PERIAPSIS.
+    PRINT "The ship's surface velocity is: " + SHIP:VELOCITY:SURFACE.
 
-You can use math operations on Directions as well. The next example uses a rotation of “UP” which is a system variable describing a vector directly away from the celestial body you are under the influence of.
+Many structures also let you set a specific component of them, for example:
 
-    SET Direction TO UP + R(0,-45,0).  // Set direction 45 degress west of “UP”.
+    SET VEC TO V(10,10,10).  // A vector with x,y,z components all set to 10.
+    SET VEC:X to VEC:X * 4.  // multiply just the X part of VEC by 4.
+    PRINT VEC.  // Results in V(40,10,10).
+
+A full list of structure types is listed further down this page.
+
 
 Command Reference
 =================
 
-* [Math](/KOS_DOC/command/math)
+This is not a complete list.  The examples here are just to give a taste of what exists.  For the full list of commands please click on each of the section headings.
+
+* [Full list of reserved variable names](bindings/index.html)
+    
+* [Math](command/math/index.html)
     * Basic Functions
     * Trigonometric Functions
 
-* [Flight](/KOS_DOC/command/flight)
-    * ADD
-    * REMOVE
+* [Flight](command/flight/index.html)
+    * LOCK STEERING
+    * LOCK THROTTLE
     * STAGE
     * HEADING
     * WARP
 
-* [File IO](/KOS_DOC/command/file)
+* [Prediction](command/prediction/index.html)
+    * POSITIONAT
+    * VELOCITYAT
+    * ORBITAT
+    * ADD (manuever node)
+    * REMOVE (maneuver node)
+
+* [File IO](command/file/index.html)
     * COPY
     * DELETE
     * EDIT
@@ -85,9 +118,17 @@ Command Reference
     * RUN
     * SWITCH.. TO
 
-* [Flow Control](/KOS_DOC/command/flowControl)
+* [Listing Data](command/list/index.html)
+    * LIST PARTS IN VAR
+    * LIST FILES
+    * LIST PARTS FROM VESSEL IN VAR
+    * LIST ENGINES
+    * etc
+
+* [Flow Control](command/flowControl/index.html)
     * BREAK
     * IF
+    * FOR
     * LOCK
     * ON
     * UNLOCK
@@ -95,7 +136,7 @@ Command Reference
     * WAIT
     * WHEN.. THEN
 
-* [Terminal](/KOS_DOC/command/terminal)
+* [Terminal](command/terminal/index.html)
     * CLEARSCREEN
     * PRINT
     * PRINT.. AT
@@ -105,126 +146,62 @@ Command Reference
 Structure Reference
 ===================
 
-Structures are variables that can contain more than one piece of information.  Structures can be used with SET.. TO just like any other variable.
-Their subelements can be accessed by using : along with the name of the subelement.
+Structures are variable *types* that contain more than one piece of information.
+All structures contain sub-values that can be accessed with a colon (':') operator.
+Multiple structures can be chained together with more than one colon (':') operator.
 
-* [Atmosphere](/KOS_DOC/structure/atmosphere)
-* [Body](/KOS_DOC/structure/body)
-* [Direction](/KOS_DOC/structure/direction)
-* [Engine](/KOS_DOC/structure/engine)
-* [GeoCordinates](/KOS_DOC/structure/geocordinates)
-* [List](/KOS_DOC/structure/list)
-* [Node](/KOS_DOC/structure/node)
-* [Orbit](/KOS_DOC/structure/orbit)
-* [Time](/KOS_DOC/structure/time)
-* [Vector](/KOS_DOC/structure/vector)
-* [Vessel](/KOS_DOC/structure/vessel)
+    SET myCraft TO SHIP.
+    SET myMass TO myCraft:MASS.
+    SET myVel TO myCraft:VELOCITY:ORBIT.
 
-Flight Statistics
-=================
+These terms are referred to as "suffixes".  For example "*Velocity* is a suffix of *Vessel*".
 
-You can get several useful vessel stats for your ships
+It is possible to set some suffixes as well, for example:
 
-    ALTITUDE
-    ALT:RADAR           // Your radar altitude
-    BODY                // The current celestial body whose influence you are under
-    MISSIONTIME         // The current mission time
-    VELOCITY            // The current orbital velocity
-    VERTICALSPEED
-    SURFACESPEED
-    STATUS              // Current situation: LANDED, SPLASHED, PRELAUNCH, FLYING, SUB_ORBITAL, ORBITING, ESCAPING, or DOCKED
-    INLIGHT             // Returns true if not blocked by celestial body, always false without solar panel.
-    INCOMMRANGE         // returns true if in range
-    COMMRANGE           // returns commrange
-    MASS
-    MAXTHRUST           // Combined thrust of active engines at full throttle (kN)
-    VESSELNAME
+    SET n TO Node( TIME:SECONDS + 60, 0, 10, 10).
+    SET n:ETA to 500. // set it farther into the future than originally planned.
 
-### Vectors
+The full list of available suffixes for each type is in the following list:
 
-These return a vector object, which can be used in conjuction with the LOCK command to set your vessel's steering.
+* [Atmosphere](structure/atmosphere/index.html) - info about the atmosphere of a planet or moon
+* [Color](structure/rgba/index.html) - info about a color as used in user interface elements
+* [Config](structure/config/index.html) - info about configurable options from the mod's config file
+* [Control](structure/control/index.html) - a vessel's raw flight controls
+* [Direction](structure/direction/index.html) - a tuple of values describing a ray in space preserving camera-up info
+* [GeoCordinates](structure/geocordinates/index.html) - a set of values describing a location on a Body's surface
+* [List](structure/list/index.html) - a generic collection of any types of values, that you can iterate through
+* [Node](structure/node/index.html) - a maneuver node
+* [Orbit](structure/orbit/index.html) - describing the shape of an orbit ellipse
+* [Orbitable](structure/orbitable/index.html) - any thing that can move around another thing (ship or moon or planet)
+  * [Body](structure/body/index.html) - a specific type of Orbitable: info about a planet or moon
+  * [Vessel](structure/vessel/index.html) - a specific type of Orbitable: info about a vessel
+* [OrbitableVelocity](structure/orbitablevelocity/index.html) - a pair of velocities representing the orbital and surface elocity of an Orbitable thing
+* [Part](structure/part/index.html) - one of the pieces assembled together that a vessel is made from
+  * [DockingPort](structure/dockingport/index.html) - a specific type of Part
+  * [Engine](structure/engine/index.html) - a specific type of Part
+  * [Sensor](structure/sensor/index.html) - a specific type of Part
+* [Resource](structure/resource/index.html) - one of the named quantities that a Part can hold, i.e. fuel, battery charge
+* [Time](structure/time/index.html) - a single moment in time, with multiple ways to represent it
+* [Vecdraw](structure/vecdraw/index.html) - a drawing of an arrow onscreen that corresponds to a vector in space
+* [Vector](structure/vector/index.html) - a tuple of x,y,z values representing a piece of spatial data.
 
-    PROGRADE
-    RETROGRADE
-    UP				// Directly away from current body
-
-### Orbit geometry values
-
-These values can be polled either for their altitude, or the vessel's ETA in reaching them. By default, altitude is returned.
-
-    APOAPSIS			// Altitude of apoapsis
-    ALT:APOAPSIS		// Altitude of apoapsis
-    PERIAPSIS			// Altitude of periapsis
-    ALT:PERIAPSIS		// Altitude of periapsis
-    ETA:APOAPSIS		// ETA to apoapsis
-    ETA:PERIAPSIS		// ETA to periapsis
-
-### Maneuver nodes
-
-    NODE                // Direction of next maneuver node, can be used with LOCK STEERING
-    ETA:NODE            // ETA to active maneuver node
-    ENCOUNTER           // Returns celestial body of encounter
-    NEXTNODE            // Next node in flight plan.
-
-## Resources
-
-### Resource Types
-
-    LIQUIDFUEL
-    OXIDIZER
-    ELECTRICCHARGE
-    MONOPROPELLANT
-    INTAKEAIR
-    SOLIDFUEL
-
-### Stage specific values
-
-    STAGE:LIQUIDFUEL            // Prints the available fuel for all active engines.
-    STAGE:OXIDIZER
-
-### Global values
-
-    PRINT <LiquidFuel>.                         // Print the total liquid fuel in all tanks. DEPRECATED
-    PRINT SHIP:LIQUIDFUEL.                      // Print the total liquid fuel in all tanks.
-    PRINT VESSEL("kerbRoller2"):LIQUIDFUEL.     // Print the total liquid fuel on kerbRoller2.
-    PRINT TARGET:LIQUIDFUEL.                    // Print the total liquid fuel on target.
-
-
-Flight Control
+Summary Topics
 ==============
 
-A summary page describing the basics of controlling the flight of a ship [can be found here](/KSP-KOS/summary_topics/ship_control)
+Useful topics and reference information:
 
-These values can be SET, TOGGLED, or LOCKED. Some values such as THROTTLE and STEERING explicity require the use of lock.
+* [Getting Started](summary_topics/gettingstarted/index.html)
+* [Volumes](summary_topics/volumes/index.html)
+* [CommRange](summary_topics/commrange/index.html)
+* [Ship Steering](summary_topics/ship_control/index.html)
+* [CPU vessel](summary_topics/CPU_vessel/index.html)
 
-### Controls which use ON and OFF
+BUILT-IN SPECIAL VARIABLE NAMES
+===============================
 
-    SAS				// For these five, use ON and OFF, example: SAS ON. RCS OFF.
-    GEAR
-    RCS
-    LIGHTS
-    BRAKES
-    LEGS
-    CHUTES	// Cannot be un-deployed.
-    PANELS
+Some variable names have special meaning and will not work as identifiers.
+Understanding this list is crucial to using kOS effectively, as these special variables are the usual way to query flight state information.
 
-### Controls that can be used with TOGGLE
 
-    ABORT
-    AGX             // Where x = 1 through 10. Use toggle, example: TOGGLE AG1.
+[The full list of reserved variable names is on its own page](bindings/index.html)
 
-### Controls that must be used with LOCK
-
-    THROTTLE			// Lock to a decimal value between 0 and 1.
-    STEERING			// Lock to a direction.
-    WHEELTHROTTLE       // Seperate throttle for wheels
-    WHEELSTEERING       // Seperate steering system for wheels
-
-System Variables
-==========================
-Returns values about kOS and hardware
-
-    PRINT VERSION.            // Returns operating system version number. 0.8.6
-    PRINT VERSION:MAJOR.      // Returns major version number. e.g. 0
-    PRINT VERSION:MINOR.      // Returns minor version number. e.g. 8
-    PRINT SESSIONTIME.        // Returns amount of time, in seconds, from vessel load.

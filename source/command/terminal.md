@@ -1,5 +1,5 @@
-Terminal
-======
+Terminal and game environment
+=============================
 
 ***
 
@@ -31,6 +31,25 @@ Example:
     PRINT “Hello” at (0,10).
     PRINT 4+1 at (0,10).
     PRINT “4 times 8 is: “ + (4*8) at (0,10).
+
+***
+
+### MAPVIEW
+
+A variable that controls or queries whether or not the game is in map view:
+
+Querying:
+
+    IF MAPVIEW {
+        PRINT "You are looking at the map.".
+    } ELSE {
+        PRINT "You are looking at the flight view.".
+    }.
+
+Setting:
+
+    SET MAPVIEW TO TRUE.  // Switches the game to the map view.
+    SET MAPVIEW TO FALSE. // Switches the game to the flight view.
 
 ***
 

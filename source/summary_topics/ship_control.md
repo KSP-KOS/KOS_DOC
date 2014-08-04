@@ -3,7 +3,11 @@
 This page describes an overview of how to control a ship.  For full details
 on the structures and commands seen here, look elsewhere in the documentation.
 
+Unless otherwise stated, all controls that a kOS CPU attempts will be done on
+the [CPU Vessel](../CPU_vessel/index.html)
+
 There are two styles of control:
+
 * "Cooked" - Give a goal direction to seek, and let kOS find the way to manuever toward it.
 * "Raw" - Control the craft just like a manual pilot would do from a keyboard or joystick.
 
@@ -13,13 +17,14 @@ There are two styles of control:
 In this style of controlling the craft, you do not steer the craft directly, but instead
 select a goal direction and let kOS pick the way to steer toward that goal. This method
 of controlling the craft consists primarily of the following two commands:
+
 * LOCK THROTTLE TO _value_ .
     * Where _value_ is a floating point number betwen 0.0 and 1.0.  A value of 0.0 means the
     throttle is idle, and a value of 1.0 means the throttle is at maximum.  A value of 0.5 
     means the throttle is at the halfway point, and so on.
 * LOCK STEERING TO _value_ .
     * Where _value_ is one of the following:
-        * a [Direction](/KOS_DOC/structure/direction). There are two ways to express a direction:
+        * a [Direction](../../structure/direction/index.html). There are two ways to express a direction:
             * A Rotation expressed as R(_pitch_,_yaw_,_roll_).  Note that pitch, yaw, and roll are
             not based on the horizon, but based on an internal coordinate system used by KSP that
             is hard to use.  Thankfully you can force the rotation into a sensible frame of
@@ -32,7 +37,7 @@ of controlling the craft consists primarily of the following two commands:
             * A heading expressed as HEADING(_compass_,_pitch_).
                 * LOCK STEERING TO HEADING( 180, 30 ).
                     *for example will aim 30 degrees above the horizon, due south.
-        * a [Vector](/KOS_DOC/structure/vector).
+        * a [Vector](../../structure/vector/index.html).
             * Any vector can also be used to lock steering.  Examples:
                 * LOCK STEERING TO V(100,50,10).
                     * Note that the internal coordinate system for X,Y,and Z is quite complex to explain.
@@ -55,6 +60,7 @@ steering and throttle in the background.)
 If you LOCK the THROTTLE or STEERING, be aware that this prevents the user from manually controlling
 them.  Until they unlock, the manual controls are prevented from working.  You can free up the
 controls by issuing these two commands:
+
 * UNLOCK STEERING.
 * UNLOCK THROTTLE.
 
@@ -80,7 +86,9 @@ Unlike with the Cooked control technique, Raw control works with the SET command
 To control a ship you use the following suffixes to SHIP:CONTROL.
 
 For example:
+
   SET SHIP:CONTROL:YAW to 0.2.
+
 Will start pushing the ship to rotate a bit faster to the right, like pushing the 'D' key gently.
 
 All the following values are set between -1.0 and +1.0.  Zero means the control is
@@ -96,47 +104,49 @@ neutral.  You can set to values smaller in magnitude than -1 and 1 for gentler c
 
 #### Examples:
 
-```
-print "Gently pushing forward for 3 seconds.".
-SET SHIP:CONTROL:FORE TO 0.2.
-SET now to time:seconds.
-WAIT until time:seconds > now + 3.
-SET SHIP:CONTROL:FORE to 0.0.
+    print "Gently pushing forward for 3 seconds.".
+    SET SHIP:CONTROL:FORE TO 0.2.
+    SET now to time:seconds.
+    WAIT until time:seconds > now + 3.
+    SET SHIP:CONTROL:FORE to 0.0.
 
-print "Gently Pushing leftward for 3 seconds.".
-SET SHIP:CONTROL:STARBOARD TO -0.2.
-SET now to time:seconds.
-WAIT until time:seconds > now + 3.
-SET SHIP:CONTROL:STARBOARD to 0.0.
+    print "Gently Pushing leftward for 3 seconds.".
+    SET SHIP:CONTROL:STARBOARD TO -0.2.
+    SET now to time:seconds.
+    WAIT until time:seconds > now + 3.
+    SET SHIP:CONTROL:STARBOARD to 0.0.
 
-print "Starting an upward rotation.".
-SET SHIP:CONTROL:PITCH TO 0.2.
-SET now to time:seconds.
-WAIT until time:seconds > now + 0.5.
-SET SHIP:CONTROL:PITCH to 0.0.
+    print "Starting an upward rotation.".
+    SET SHIP:CONTROL:PITCH TO 0.2.
+    SET now to time:seconds.
+    WAIT until time:seconds > now + 0.5.
+    SET SHIP:CONTROL:PITCH to 0.0.
 
-print "Giving control back to the player now.".
-SET SHIP:CONTROL:NEUTRALIZE to True.
-```
+    print "Giving control back to the player now.".
+    SET SHIP:CONTROL:NEUTRALIZE to True.
 
 The following can be read to see the ship's current situation:
+
 * ROTATION - Vector
 * TRANSLATION - Vector
 
 #### UNLOCKING controls:
+
 Once any of the SET SHIP:CONTROL commands have been used to control the ship, then the manual control by the
 player is locked out.  To give control back to the player you must execute:
+
 * SET SHIP:CONTROL:NEUTRALIZE to TRUE.
 
 #### Advantages/Disadvantages:
+
 The control over RCS translation requires the use of Raw control.  Also, with raw control you can choose how
 gentle to be with the controls and it can be possible to control wobbly craft better with raw control than
 with cooked control.
 
 OTHER CONTROLS
 ==============
-* SET PART:CONTROLFROM TO _true/false_ - If you have a handle on a part, from LIST PARTS, you can select that part to
-set the orientation of the craft, just like using the "control from here" in the rightclick menu in the game.
+
+* SET PART:CONTROLFROM TO _true/false_ - If you have a handle on a part, from LIST PARTS, you can select that part to set the orientation of the craft, just like using the "control from here" in the rightclick menu in the game.
 * RCS _on/off_ - Turns the RCS on or off, like using "R" at the keyboard.
 * SAS _on/off_ - Turns the SAS on or off, like using "T" at the keybaord.
 * LIGHTS _on/off_ - Turns the lights on/off, like using the"U" key at the keyboard.

@@ -1,69 +1,40 @@
-﻿# Vessel
+﻿Vessel
+======
 
-All vessels share a structure
+All vessels share a structure.
 
-Shared Structure
-================
+To get a variable referring to any vessel you can do this:
 
-* CONTROL - [Control](/KOS_DOC/structure/control) for raw flying a ship.
-* DIRECTION - [Direction](/KOS_DOC/structure/direction) To Active Ship
-* DISTANCE - Meters To Active Ship
-* BEARING - To Active Ship
-* HEADING - To Active Ship
-* PROGRADE - [Direction](/KOS_DOC/structure/direction)
-* RETROGRADE - [Direction](/KOS_DOC/structure/direction)
-* MAXTHRUST - Max thrust of all active engines
-* VELOCITY - Structure 
-    * ORBIT - [Vector](/KOS_DOC/structure/vector)
-    * SURFACE - [Vector](/KOS_DOC/structure/vector)
-* GEOPOSITION - [GeoCordinates](/KOS_DOC/structure/geocordinates)
-* LATITUDE - Number (degrees)
-* LONGITUDE - Number (degrees)
-* FACING - [Direction](/KOS_DOC/structure/direction)
-* UP - [Direction](/KOS_DOC/structure/direction)
-* NORTH - [Direction](/KOS_DOC/structure/direction)
-* BODY - [Body](Body)
-* ANGULARMOMENTUM - [Direction](/KOS_DOC/structure/direction)
-* ANGULARVEL - [Direction](/KOS_DOC/structure/direction)
-* MASS - Number (kilogram)
-* VERTICALSPEED - Number (meters/s)
-* SURFACESPEED - Number (meters/s)
-* AIRSPEED - Number (meters/s)
-* VESSELNAME - string
-* ALTITUDE - Number (meters)
-* APOAPSIS - Number (meters)
-* PERIAPSIS - Number (meters)
-* SENSORS - Structure
-    * ACC - [Vector](/KOS_DOC/structure/vector)
-    * PRES - Number (Atmosphere)
-    * TEMP - Number (Celsius)
-    * GRAV - [Vector](/KOS_DOC/structure/vector)
-* TERMVELOCITY - Number (meters/s)
-* OBT - Structure - [Orbit](/KOS_DOC/structure/orbit)
+### getting a vessel variable:
 
-#### VESSEL (vesselname)
+    SET MY_VESS TO VESSEL("Some Ship Name"). // Get a vessel by it's name.  The name is Case Sensitive.
+    SET MY_VESS TO SHIP.  // Save the current vessel in a variable, in case the current vessel changes.
+    SET MY_VESS TO TARGET.  // Save the target vessel in a variable, in case the target vessel changes.
 
-Represents a targetable vessel
+### Shared Structure
 
-    SET X TO VESSEL("kerbRoller2").     // Initialize a reference to a vessel.
-    PRINT X:DISTANCE.                   // Print distance from current vessel to target.
-    PRINT X:HEADING.                    // Print the heading to the vessel.
-    PRINT X:BEARING.                    // Print the heading to the target vessel relative to vessel heading.
-    
-#### SHIP
-    
-Represents currently selected ship
-    
-    PRINT SHIP.                            // returns VESSEL("kerbRoller2")
-    PRINT SHIP:DISTANCE.                   // Print distance from current vessel to target.
-    PRINT SHIP:HEADING.                    // Print the heading to the vessel.
-    PRINT SHIP:BEARING.                    // Print the heading to the target vessel relative to vessel heading.
-    
-#### TARGET
+Be aware that as of kOS 0.13, a vessel is now a type of [Orbitable](../orbitable/index.html)
+Much of what a Vessel can do can now by done by any orbitable object.  The documentation for those abilities has been moved to the orbitable page.
 
-Represents targeted vessel or celestial body
+Suffixes of Vessel:
 
-    SET TARGET TO "kerbRoller2".        // target kerbRoller2
-    PRINT TARGET:DISTANCE.              // Print distance from current vessel to target.
-    PRINT TARGET:HEADING.               // Print the heading to the target vessel.
-    PRINT TARGET:BEARING.               // Print the bearing to the target vessel relative to vessel heading.
+Suffix           | Type      | Get | Set | Description
+-----------------|-----------|-----|-----|--------------------------------------
+Every suffix of [Orbitable](../orbitable/index.html) | varies | .. | .. | Vessel is a type of [Orbitable](../orbitable/index.html) and therefore every suffix of Orbitable is also a suffix of VESSEL too.  Read the Orbitable page to see that list of suffixes.  This table below only contains the suffixes that are unique to Vessel
+:CONTROL         | [Control](../control/index.html) | yes | no | The structure represending the raw flight controls for the vessel.
+:BEARING         | Number    | yes | no  |  *relative* compass heading (degrees) to this vessel from the [CPU Vessel](../../summary_topics/CPU_Vessel/index.html), taking into account the CPU Vessel's own heading.
+:HEADING         | Number    | yes | no  |  *absolule* compass heading (degrees) to this vessel from the [CPU Vessel](../../summary_topics/CPU_Vessel/index.html)
+:MAXTHRUST       | Number    | yes | no  |  Sum of all the Max thrust of all the currently active engines  In Kilonewtons.
+:FACING          | [Direction](../direction/index.html) | yes | no  | The way the vessel is pointed.
+:MASS            |  Number (metric tons) | yes | no  | The mass of the ship
+:VERTICALSPEED   |  Number (meters/s)    | yes | no  | How fast the ship is moving. in the "up" direction relative to the  SOI Body's sea level surface.
+:SURFACESPEED    | Number (meters/s)     | yes | no  | How fast the ship is moving in the plane horizontal to the SOI body's sea level surface.
+:AIRSPEED        | Number (meters/s)     | yes | no  | How fast the ship is moving relative to the air.  KSP models atmosphere as simply a solid block of air "glued" to the planet surface (the weather on Kerbin is boring and there's no wind).  Therefore airspeed is generally the same thing as as the magnitude of the surface velocity.
+:TERMVELOCITY    | Number (meters/s)     | yes | no  | terminal velocity of the vessel in freefall through atmosphere, based on the vessel's current altitude above sea level, and its drag properties.  Warning, can cause values of Infinity if used in a vacuum, and kOS sometimes does not let you store Infinity in a variable.
+:VESSELNAME      | string  | yes | no  | The name of the vessel as it appears in the tracking station.
+:ANGULARMOMENTUM | [Direction](../direction/index.html) | yes | no  | Given in [SHIP-RAW reference frame]](../../ref_frame/index.html).  Despite the name, this is technically not momentum information because it has no magnitude.
+:ANGULARVEL      | [Direction](../direction/index.html) | yes | no  | Given in [SHIP-RAW reference frame]](../../ref_frame/index.html).  Despite the name, this is technically not a velocity.  It only tells you the axis of rotation, not the speed of rotation around that axis.
+:SENSORS |  [VesselSensors](../vesselsensors/index.html) | yes | no | Structure holding summary information of sensor data for the vessel
+:LOADED       | Boolean | get | set | true if the vessel is fully loaded into the complete KSP physics engine (false if it's "on rails").
+
+

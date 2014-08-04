@@ -1,77 +1,87 @@
-Lists
-======
+List Command
+============
 
-***
+A [List is a type of Structure](../../structure/list/index.html) that stores a list of variables in it.
 
-## FOR $1 IN $2
-
-Lists need to be iterated over sometimes, to help with this we have FOR.
-
-#### Arguments
-* $1: Local variable that is only in scope for that iteration
-* $2: The [List](/KOS_DOC/structure/list) you would like to iterate over
-
-Example:
-
-    SET FOO TO LIST().   // Creates a new list in FOO variable
-    SET FOO:ADD TO 5.    // Adds a new element to the end of the list
-    SET FOO:ADD TO ALTITUDE. // eg 10000
-    SET FOO:ADD TO ETA:APOAPSIS. // eg 30
-
-    FOR BAR IN FOO { PRINT BAR. }. // Prints 5, then 10000, then 30
-    PRINT BAR. // ERROR, BAR doesn't exist outside the for statement
+The LIST command either prints or crates a [List variable](../../structure/list/index.html) containing items queried from the game.
 
 
 ***
 
-### LIST $1 IN $2
+## FOR Loop
 
-The active [Vessel](/KOS_DOC/structure/vessel) has some default collections, this command stores them in a variable
+Lists need to be iterated over sometimes, to help with this we have
+the [FOR loop, explained on the flow control page](../../command/flowControl/index.html#for).
 
-#### Arguments
-* $1: Collection name, See "Built-in Lists" below
-* $2: The variable name you would like to store the new [List](/KOS_DOC/structure/list) in
+***
 
-Example:
+### LIST Command
 
-    LIST BODIES IN FOO. //Lists all [Bodies](/KOS_DOC/structure/body) in the system
+The LIST Command comes in 4 forms:
 
-    FOR BAR IN FOO {
-        PRINT BAR:NAME. //Will print the name of every [body](/KOS_DOC/structure/body) in the system
+
+* (1) **LIST**
+  * When no parameters are given, the LIST command is exactly equivalent to the command LIST FILES.  (**List** *ListKeyword* where *ListKeyword* is FILES.)
+* (2) **LIST** *ListKeyword*.
+  * This variant prints items to the termianl sceen.  Depending on the *ListKeyword* used (see below), different values are printed.
+* (3) **LIST** *ListKeyword* **IN** *YourVariable*.
+  * This variant takes the items that would otherwise have been printed to the terminal screen, and instead makes a [LIST](../../structure/list/index.html) of them in *YourVariable*, that you can then iterate over with a FOR loop if you like.
+* (4) **LIST** *ListKeyword* **FROM** *SomeVessel* **IN** *YourVariable*.
+  * This variant is just like variant (3), except that it gives a list of the items that exist on some other vessel that might not necessarily be the current CPU_vessel.
+
+Examples of each of these variants can be seen at the bottom of the page.
+
+### What keywords are listable?
+
+The *ListKeyword* in the above command variants can be any of the following:
+
+#### Universal Lists
+
+These generate lists that are not dependant on which vessel:
+
+* *Bodies* - List of [Bodies](../../structure/body/index.html)
+* *Targets* - List of possible target [Vessels](../../structure/vessel/index.html)
+
+#### Vessel Lists
+
+These generate lists of items on the vessel:
+
+* *Resources* - List of [Resources](../../structure/resource/index.html)
+* *Parts* - List of [Parts](../../structure/part/index.html)
+* *Engines* - List of [Engines](../../structure/engine/index.html)
+* *Sensors* - List of [Sensors](../../structure/sensor/index.html)
+* *Elements* - ??
+* *DockingPorts* - list of [DockingPorts](../../structure/dockingport/index.html)
+
+#### File System Lists
+
+These generate lists about the files in the system:
+
+* *Files* - List the files on the current Volume. (note below)
+* *Volumes* - List all the Volumes that exist.
+
+Note: LIST FILES is the default if you give the LIST command no parameters.
+
+
+Examples:
+
+    LIST.  // Prints the list of files on current volume.
+    LIST FILES.  // Does the same exact thing, but more explicitly.
+
+    LIST BODIES. // Prints the list of all Celestail bodies in the system.
+
+    LIST BODIES IN bodList.  // Puts the list of bodies into a variable.
+    // Iterate over everything in the list:
+    SET totMass to 0.
+    FOR bod in bodList {
+        SET totMass to totMass + bod:MASS.
+    }.
+    PRINT "The mass of the whole solar system is " + totMass.
+
+    LIST RESOURCES FROM TARGET IN foo. //Adds variable FOO that contains a list of RESOURCES for my currently target vessel
+    FOR res IN foo {
+        PRINT res:NAME. //Will print the name of every [Resource](../../structure/resource/index.html) in the vessel.
     }.
 
-***
 
-### LIST $1 FROM $2 IN $3
 
-The every [Vessel](/KOS_DOC/structure/vessel) has some default collections, this command stores them in a variable
-
-#### Arguments
-* $1: Collection name, See "Built-in Lists" below
-* $2: [Vessel](/KOS_DOC/structure/vessel) object or the string name of the vessel you would like to get a list from
-* $2: The variable name you would like to store the new [List](/KOS_DOC/structure/list) in
-
-Example:
-
-    LIST RESOURCES FROM SOMEVESSEL IN FOO. //Adds variable FOO that contains a list of RESOURCES for the named vessel
-
-    FOR BAR IN FOO {
-        PRINT BAR:NAME. //Will print the name of every [body](/KOS_DOC/structure/body) in the system
-    }.
-
-***
-
-# Built-in Lists
-
-These are the names of the lists available
-
-##### Universal Lists
-* Bodies - List of [Bodies](/KOS_DOC/structure/body)
-* Targets - List of [Vessels](/KOS_DOC/structure/vessel)
-
-##### Vessel Lists
-* Resources
-* Parts
-* Engines - List of [Engines](/KOS_DOC/structure/engines)
-* Sensors
-* Elements
