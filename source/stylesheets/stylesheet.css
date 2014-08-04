@@ -398,7 +398,8 @@ footer .owner p a {
 .markdown-body dl,
 .markdown-body table,
 .markdown-body blockquote {
-  margin-bottom: 20px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .markdown-body h1,

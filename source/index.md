@@ -8,6 +8,10 @@ Installation
 
 Like other mods, simply merge the contents of the zip file into your Kerbal Space Program folder.
 
+How to edit these docs
+----------------------
+
+Before continuing, if are trying to help edit this documentation, [please see this page](doc_docs/EditingDocs/index.html) for the detailed information about this.
 
 KerboScript
 ===========
