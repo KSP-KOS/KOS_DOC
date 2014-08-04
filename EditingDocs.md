@@ -47,6 +47,8 @@ For small edits this method is acceptable.  **Con:** You don't get to see the re
 the merging in may have to make corrections if the format doesn't work.  **Pro:** You don't need to install the entire
 MiddleMan system on your own local computer this way.
 
+*What you cannot test if you edit the easy way*: If you edit this way you will be unable to test any URL links (image or page links) until after the change is merged, because the MiddleMan system has to be run to properly parse the links.
+
 **The hard way: (aka. "preview the results")**:  If you want to be able to see the HTML rendered results of your edits
 before you check them in, then you need to install the entire Markdown system on your own computer first,
 to be able to locally run the HTML generator on your .md files.  This is more appropriate if you will be doing a large
