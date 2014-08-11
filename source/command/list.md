@@ -57,7 +57,7 @@ These generate lists of items on the vessel:
 
 These generate lists about the files in the system:
 
-* *Files* - List the files on the current Volume. (note below)
+* *Files* - List the [files](../../structure/fileinfo/index.html) on the current Volume. (note below)
 * *Volumes* - List all the Volumes that exist.
 
 Note: LIST FILES is the default if you give the LIST command no parameters.
