@@ -1,6 +1,7 @@
 # The kOS CPU hardware
 
-### The execution of the kOS CPU hardware
+The execution of the kOS CPU hardware
+-------------------------------------
 
 While it's possible to write some software without knowing anything about the
 underlying computer hardware, and there are good design principles that state
@@ -11,7 +12,8 @@ those lines, the KSP player writing a Kerboscript program needs to know a
 few basic things about how the simulated kOS CPU operates in order to be able
 to write more advanced scripts.  This page contains that type of information.
 
-### Physics Ticks and Frozen Intervals
+Physics Ticks and Frozen Intervals
+----------------------------------
 
 Kerbal Space Program simulates the universe by running the universe in small
 incremental time intervals that for the purpose of this document, we will call
@@ -49,7 +51,8 @@ from one to ten or so instructions when compiled.
 
 <a name="TRIGGERS"></a>
 
-### TRIGGERS
+TRIGGERS
+--------
 
 There are multiple things within kerboscript that run "in the background"
 always updating, while the main script continues on.  The way these work
@@ -70,14 +73,40 @@ executed*.  This means that execution of a trigger never gets interleaved
 with the main code.  Once a trigger happens, the entire trigger occurs all
 in one go before the rest of the main body continues.
 
-<b>DO NOT LOOP A LONG TIME IN A TRIGGER BODY!!</b>
+### DO NOT LOOP A LONG TIME IN A TRIGGER BODY!!
 
 Because the entire body of a trigger will execute all the way to the bottom
-on *every* **physics tick**, *before* any other code continues, it is vital that
+on *within a single* **physics tick**, *before* any other code continues, it is vital that
 you not write code in a trigger body that takes a long time to execute.
 The body of a trigger must be kept quick.  An infinite loop in a trigger
 body could literally freeze all of KSP, because the kOS mod will never 
 finish executing its update.
+
+*As of kOS version 0.14 and higher, this condition is now being checked for*
+and the script will be **terminated with a runtime error** if the triggers
+like WHEN/THEN and ON take more than CONFIG:IPU instructions to execute.  The sum
+total of all the code within your WHEN/THEN and ON code blocks MUST be designed
+to complete within one physics tick.
+
+**This may seem harsh**.  Ideally, kOS would only generate a runtime error if it thought
+your script was stuck in an **infinite loop**, and allow it to exceed the
+[CONFIG:IPU](../../structure/config/index.html#IPU)
+number of instructions if it was going to finish and just needed a little longer
+to to finish its work.  But, because of a well known problem in computer science called 
+**[the halting problem](http://en.wikipedia.org/wiki/Halting_problem)**, it's
+literally impossible for kOS, or any other software for that matter, to detect
+the difference between another program's infinite loop versus another program's
+loop that will end soon.  kOS only knows how long your triggers have taken so far, not
+how long they're going to take before they're done, or even if they'll be done.
+
+If you suspect that your trigger body would have ended if it was allowed to run a little
+longer, try setting your [CONFIG:IPU](../../structure/config/index.html#IPU) setting
+a bit higher and see if that makes the error go away.
+
+If it does not make the error go away, then you will need to redesign your script to not
+depend on running a long-lasting amount of code inside triggers.
+
+### But I want a loop!
 
 If you want a trigger body that is meant to loop, the only acceptable way
 to do it is to design it to execute just once, but then use the PRESERVE
@@ -90,14 +119,19 @@ creating a bit of code that gets executed fully to the end before your main
 body will continue, once each **physics tick**.  A complex expression in a
 trigger condition, which in turn calls other complex LOCK expressions, which
 call other complex LOCK expressions, and so on, may cause kOS to bog itself
-down during each update.
+down during each update.  (And as of version 0.14, it may cause kOS to
+stop your program and issue a runtime error if it's taking too long.)
 
-Because of how triggers work, you cannot put a WAIT statement inside a trigger.
-If you try, it will have no effect.
+Because of how WAIT works, you cannot put a WAIT statement inside a trigger.
+If you try, it will have no effect.  This is because WAIT requires the
+ability of the program to go to sleep and then in a later physics tick,
+continue from where it left off.  Because triggers run to the bottom entirely
+within one physics tick, they can't do that.
 
 <a name="WAIT"></a>
 
-### WAIT
+WAIT
+----
 
 Any WAIT statement causes the kerboscript program to immediately stop executing
 the main program where it is, even if far fewer than [CONFIG:IPU](../../structure/config/index.html#IPU)
@@ -127,7 +161,8 @@ tick to discover this fact and continue.
 
 <a name="FROZEN"></a>
 
-### THE FROZEN UNIVERSE
+THE FROZEN UNIVERSE
+-------------------
 
 Each physics tick, the kOS mod wakes up and runs through all the currently loaded
 CPU parts that are in "physics range" (i.e. 2.5 km), and executes a batch of
@@ -178,7 +213,8 @@ altitude are the same.  Not because the vessel has no vertical motion, but becau
 loop is executing fast enough to finish more than one iteration within the same **physics tick**.
 The two altitude measurements are the same because no time has passed in the simulated universe.
 
-### THE FIX To the frozen Universe Problem: WAIT 0.001
+THE FIX To the frozen Universe Problem: WAIT 0.001
+--------------------------------------------------
 
 If you are exeucuting a loop like the one above in which it is absolutely vital that
 the next iteration of the loop must occur in a *different* **physics tick** than

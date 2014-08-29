@@ -6,7 +6,20 @@ on the structures and commands seen here, look elsewhere in the documentation.
 Unless otherwise stated, all controls that a kOS CPU attempts will be done on
 the [CPU Vessel](../CPU_vessel/index.html)
 
+
+WARNING: SAS OVERRIDES kOS
+--------------------------
+
+With the current implementation of flight control, if you leave SAS turned on, it will
+override kOS's attempts to steer the ship.  In order for kOS to be able to turn the ship,
+you need to set SAS OFF.  In manual control, you can pilot with SAS on, because the 
+pilot's manual controls override the SAS and "fight" agianst it.  In KOS no such ability
+exists.  If SAS is on, kOS won't be able to turn the ship.  It is commmon for people writing
+kOS scripts to explicitly start them with a use of the SAS OFF command just in case you
+forgot to turn it off before running the script.
+
 There are two styles of control:
+===============================
 
 * "Cooked" - Give a goal direction to seek, and let kOS find the way to manuever toward it.
 * "Raw" - Control the craft just like a manual pilot would do from a keyboard or joystick.

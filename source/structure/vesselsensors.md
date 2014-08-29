@@ -18,7 +18,7 @@ Suffix      | Type      | Get | Set | Description
 :ACC        | [Vector](../vector/index.html) | yes | no  | Accelleration the vessel is undergoing.  A combination of both the gravitational pull and the engine thrust.
 :PRES       | Number    | yes | no  | The current pressure of this ship.
 :TEMP       | Number    | yes | no  | The current temperature.
-:GRAV       | Number    | yes | no  | The number of "G's" of gravity pull here.
+:GRAV       | Vector    | yes | no  | Magnitude and direction of gravity acceleration where the vessel currently is.  Magnitude is expressed in "G"'s (multiples of 9.802 m/s^2).
 :LIGHT      | Number    | yes | no  | The total amount of sun exposure that exists here - only readable if there are solar panels on the vessel.
 
 

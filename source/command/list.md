@@ -62,11 +62,16 @@ These generate lists about the files in the system:
 
 Note: LIST FILES is the default if you give the LIST command no parameters.
 
-
 Examples:
 
     LIST.  // Prints the list of files on current volume.
     LIST FILES.  // Does the same exact thing, but more explicitly.
+    LIST VOLUMES. // which volumes can be seen by this CPU?
+    LIST FILES IN fileList. // fileList is now a LIST() containing file structures.
+
+The file structures returned by LIST FILES IN FILELIST are documented [on a separate page](../../structure/fileinfo/index.html).
+
+Eamples:
 
     LIST BODIES. // Prints the list of all Celestail bodies in the system.
 

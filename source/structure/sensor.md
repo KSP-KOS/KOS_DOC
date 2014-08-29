@@ -20,6 +20,6 @@ Example
 
     PRINT "Full Sensor Dump:".
     LIST SENSORS IN SENSELIST.
-    FOR SENSOR IN SENSELIST {
-      PRINT "SENSOR " + SENSOR:TYPE + ": ACTIVE = " + SENSOR:ACTIVE + " VALUE = " + SENSOR:READOUT.
+    FOR S IN SENSELIST {
+      PRINT "SENSOR " + S:TYPE + ": ACTIVE = " + S:ACTIVE + " VALUE = " + S:READOUT.
     }.

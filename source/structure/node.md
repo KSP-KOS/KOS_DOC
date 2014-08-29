@@ -29,8 +29,7 @@ Once you've created a node, it's just a hypothetical node that hasn't been attac
 
 To attach a node to the flight path, you must use the commands [ADD and REMOVE](../../command/node/index.html) on it.
 
-
-### Example
+### Suffix Examples
 
     SET X TO NODE(TIME:SECONDS+60, 0, 0, 100). 
                                         // Creates a node 60 seconds from now with
@@ -48,5 +47,25 @@ To attach a node to the flight path, you must use the commands [ADD and REMOVE](
     SET X:ETA to 30.                    // Set nodes time to 30 seconds from now.
     PRINT X:OBT:APOAPSIS.               // Returns nodes apoapsis.
     PRINT X:OBT:PERIAPSIS.              // Returns nodes periapsis.
+
+
+### Special variable NEXTNODE
+
+NEXTNODE is a built-in variable that always refers to the next upcoming node that has been added to your flight plan.
+
+Examples:
+
+    SET MyNode to NEXTNODE.
+    PRINT NEXTNODE:PROGRADE.
+    REMOVE NEXTNODE.
+
+
+Currently, if you attempt to query NEXTNODE and there is no node on your flight plan, it produces a runtime error.
+(This needs to be fixed in a future release so it is possible to query whether or not you have a next node).
+
+If you need to query whether or not you have a NEXTNODE, the following has been suggested as a workaround in the meantime:
+Set a node really far into the future, beyond any reasonable amount of time.  Add it to your flight plan.  Then check NEXTNODE to see if it returns THAT node, or an earlier one.  If it returns an earlier one, then that earlier one was there all along and is the real NEXTNODE.  If it returns the fake far-future node you made instead, then there were no nodes before that point.  In either case, remove the far-future node after you perform the test.
+
+
 
 

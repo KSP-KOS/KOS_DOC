@@ -155,11 +155,18 @@ a wait time that lasts at least [one physics tick](../../summary_topics/CPU_hard
 
 ### WHEN.. THEN
 
-Executes a command when a certain criteria are met. Unlike WAIT, WHEN does not halt execution. It starts a check in the background that will keep actively looking for the trigger condition while the rest of the code continures. When it triggers, the body after the THEN will execute exactly once, after which the trigger is removed.  (Unless the [PRESERVE command](#PRESERVE) is used, in which case the trigger is not removed).
+Executes a command when a certain criteria are met. Unlike WAIT, WHEN does not
+halt execution. It starts a check in the background that will keep actively
+looking for the trigger condition while the rest of the code continures. When
+it triggers, the body after the THEN will execute exactly once, after which
+the trigger is removed.  (Unless the [PRESERVE command](#PRESERVE) is used, in
+which case the trigger is not removed).
 
-The body of a THEN or an ON statement interrupts the normal flow of a kOS program. When the event that triggers the body happens, the main kOS program is paused until the body of the THEN completes.
+The body of a THEN or an ON statement interrupts the normal flow of a kOS
+program. When the event that triggers the body happens, the main kOS program
+is paused until the body of the THEN completes.
 
-In addition, the entire Kerbal Space Program game is paused until the body of a WHEN/THEN or ON completes, so you need to ensure they perform small fast tasks. Do not put a long lasting loop in the body of a WHEN/THEN or ON command.
+> **NOTE: DO NOT make the body of a WHEN..THEN take a long time to execute.  If you attempt to run code that lasts too long in the body of your WHEN..THEN statement, [it will cause an error](../../summary_topics/CPU_hardware/index.html#TRIGGERS).** Avoid looping during WHEN/THEN if you can.
 
 IMPORTANT BREAKING CHANGE
 |------|
@@ -210,9 +217,12 @@ Example:
         PRESERVE.
     }.
 
+> **NOTE: DO NOT make the body of an ON statement take a long time to execute.  If you attempt to run code that lasts too long in the body of your ON statement, [it will cause an error](../../summary_topics/CPU_hardware/index.html#TRIGGERS).**
+
+Avoid looping during ON code blocks if you can.
+
 If you are going to make extensive use of ON triggers, it's important to understand
 more details of how they [work in the kOS CPU](../../summary_topics/CPU_hardware/index.html#TRIGGERS).
-
 
 ***
 <a name="PRESERVE"></a>

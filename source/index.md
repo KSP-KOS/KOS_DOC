@@ -172,7 +172,7 @@ The full list of available suffixes for each type is in the following list:
 * [Config](structure/config/index.html) - info about configurable options from the mod's config file
 * [Control](structure/control/index.html) - a vessel's raw flight controls
 * [Direction](structure/direction/index.html) - a tuple of values describing a ray in space preserving camera-up info
-* [FileInfo](structure/fileinfo/index.html) - info about a file on a volume
+* [Fileinfo](structure/fileinfo/index.html) - information about a file on a volume
 * [GeoCordinates](structure/geocordinates/index.html) - a set of values describing a location on a Body's surface
 * [List](structure/list/index.html) - a generic collection of any types of values, that you can iterate through
 * [Node](structure/node/index.html) - a maneuver node
