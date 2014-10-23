@@ -1,6 +1,6 @@
 ### Control Styles and Best Practices with kOS
 
-There are many ways one can write a control program for any given scenario. The goal of this section is bring a novice kOS programmer from the end of the [QUICK START Tutorial](summary_topics/gettingstarted/index.html) up to writing and tuning their very own PID controller. We will look at code that works and code that works well. It is my hope that the reader will develop a sense of elegance and capability when writing his or her own kOS programs.
+There are many ways one can write a control program for any given scenario. The goal of this section is bring a novice kOS programmer from the end of the [QUICK START Tutorial](summary_topics/gettingstarted/index.html) up to writing and tuning their very own PID controller. It is my hope that the reader will develop a sense of elegance and capability when writing his or her own kOS programs.
 
 ### The Major Styles of Control Programs
 
@@ -10,7 +10,7 @@ The style of a program is usually determined by the flow-control statements used
 2. Loops with Condition Checking
 3. Loops with Triggers
 
-Of course, one style does not fit all scenarios and I'd advised the programmer to use some combination of these. Don't restrict yourself to a specific coding pattern!
+Of course, one style does not fit all scenarios and I'd advised the programmer to use a combination of these.
 
 __1. Sequential Programs__
 
