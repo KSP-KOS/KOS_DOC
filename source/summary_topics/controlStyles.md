@@ -1,4 +1,4 @@
-### Control Styles and Best Practices with kOS
+## Intermediate kOS Tutorial
 
 There are many ways one can write a control program for any given scenario. The goal of this section is bring a novice kOS programmer from the end of the [QUICK START Tutorial](summary_topics/gettingstarted/index.html) up to writing and tuning their very own PID controller. It is my hope that the reader will develop a sense of elegance and capability when writing his or her own kOS programs.
 
@@ -87,4 +87,40 @@ __Bringing It All Together__
 
 Typically, you will find that all of these constructs are useful at the same time and your code will naturally contain some sequential parts in combination with long-term and short-term triggers which can modify states in complex loops of varying frequency. If you didn't follow that bit of gobbledygook, don't worry. In the next sections I will talk about a few guidelines I can recommend when setting up any program.
 
+### General Guidelines for kOS Scripts
 
+Here we will discuss two general guidelines to follow when writing your first kOS scripts. These are not meant to be absolute and there will certainly be cases when you need to break one or both of them. Mostly, these are to help beginners develop a sense of how to start coding an auto-pilot for a specific maneuver.
+
+__1. Minimize Time Spent in WHEN/THEN Blocks__
+
+Remember that WAIT statements are ignored when inside WHEN/THEN blocks. It is OK to loop over small lists (engines for example), but don't let it get out of hand. The WHEN/THEN construct was designed to accommodate quick bits of code. Consider this bit of (non-working) code which tries to adjust the throttle based on the ship's acceleration (be sure to equip the vessel with an accelerometer!):
+
+    SET acc_setpoint TO 2.
+    WHEN SHIP:ALTITIUDE > 10000 THEN {
+        UNTIL SHIP:ALTITIUDE > 20000 {
+            SET acc TO SHIP:SENSORS:ACC:MAG.
+            SET thrott TO 0.05 * (acc_setpoint - acc).
+            LOCK THROTTLE to thrott.
+        }
+    }
+
+Admittedly, this is a contrived example, plus it won't work. Everything in a WHEN/THEN block must complete in the current physics tick, but we have a loop until the ship reaches 20km. We can rework this by doing the following:
+
+    SET thrott TO 1.
+    SET dthrott TO 0.
+    LOCK THROTTLE to thrott.
+    WHEN SHIP:ALTITIUDE > 10000 THEN {
+        SET acc_setpoint TO 2.
+        LOCK acc TO SHIP:SENSORS:ACC:MAG.
+        LOCK dthrott TO 0.05 * (acc_setpoint - acc).
+    }
+    UNTIL SHIP:ALTITIUDE > 20000 {
+        SET thrott TO thrott + dthrott.
+        WAIT 0.001.
+    }
+
+This code *could* be streamlined further, but now it should more-or-less work. What we have done is set up a proportional feedback loop, from 10km to 20km, to keep the acceleration of the ship at 2 by adjusting the throttle. The real take-away from this example is to keep WHEN/THEN blocks separate from UNTIL loops. Specifically, never put an UNTIL loop inside a WHEN/THEN block and it should be extremely rare to put a WHEN/THEN statement inside an UNTIL loop.
+
+__2. Minimize Trigger Conditions__
+
+When I first started writing kOS scripts, I tried to make full use of WHEN/THEN triggers with mult-level LOCK variables. There is a lot of power in this, but I found it was very easy to hit kOS's hard limit in the number of operations allowed for trigger checking. For example, many times, I had two or more WHEN statements that were dependent on the same LOCK variable. This caused the LOCK variable to be calculated multiple times in a single update. If the LOCK was deep enough, the calculation would become too expensive to do twice and kOS would stop and complain.
