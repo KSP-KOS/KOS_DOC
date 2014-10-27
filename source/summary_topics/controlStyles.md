@@ -124,3 +124,49 @@ This code *could* be streamlined further, but now it should more-or-less work. W
 __2. Minimize Trigger Conditions__
 
 When I first started writing kOS scripts, I tried to make full use of WHEN/THEN triggers with mult-level LOCK variables. There is a lot of power in this, but I found it was very easy to hit kOS's hard limit in the number of operations allowed for trigger checking. For example, many times, I had two or more WHEN statements that were dependent on the same LOCK variable. This caused the LOCK variable to be calculated multiple times in a single update. If the LOCK was deep enough, the calculation would become too expensive to do twice and kOS would stop and complain.
+
+With that in mind, let's expand on the example above. This time we'll add some code to get us off the ground and up to 30km. We want full throttle initially, but after a couple km, we should throttle back so we don't keep our poor Kerbals locked at maximum acceleration!
+
+    SAS ON.
+    SET thrott TO 1.
+    LOCK THROTTLE to thrott.
+    STAGE.
+    WAIT UNTIL SHIP:ALTITIUDE > 2000.
+    SET acc_setpoint TO 4.
+    LOCK acc TO SHIP:SENSORS:ACC:MAG.
+    LOCK dthrott TO 0.05 * (acc_setpoint - acc).
+    WHEN SHIP:ALTITIUDE > 10000 THEN {
+        SET acc_setpoint TO 3.
+    }
+    WHEN SHIP:ALTITIUDE > 20000 THEN {
+        SET acc_setpoint TO 2.
+    }
+    UNTIL SHIP:ALTITIUDE > 30000 {
+        SET thrott TO thrott + dthrott.
+        WAIT 0.001.
+    }
+
+So we have maximum throttle up to 2km, adjusted throttle to get an acceleration of 4g until 10km at which point we set the acceleration set-point to 3g, then 2g at 20km. I am not suggesting that this is something you should do in normal operation, but it provides an example of what can be done. I will mention, the value of 0.05 is the "proportional gain" and can be adjusted to minimize oscillatory behavior in the throttle, but don't worry too much about that for now - we'll address that in the following tutorial where we create a full-fledged PID-controller.
+
+There is one rather small correction to the above that I would like to make, namely:
+
+    SAS ON.
+    SET thrott TO 1.
+    LOCK THROTTLE to thrott.
+    STAGE.
+    WAIT UNTIL SHIP:ALTITIUDE > 2000.
+    SET acc_setpoint TO 4.
+    LOCK acc TO SHIP:SENSORS:ACC:MAG.
+    LOCK dthrott TO 0.05 * (acc_setpoint - acc).
+    WHEN SHIP:ALTITIUDE > 10000 THEN {
+        SET acc_setpoint TO 3.
+        WHEN SHIP:ALTITIUDE > 20000 THEN {
+            SET acc_setpoint TO 2.
+        }
+    }
+    UNTIL SHIP:ALTITIUDE > 30000 {
+        SET thrott TO thrott + dthrott.
+        WAIT 0.001.
+    }
+
+Now this is quite elegant. I have reduced the number of triggers that have to be checked by one. The trigger at 10km sets up the next trigger for me. This can save a lot of processing time for triggers that will happen sequentially. As a general rule, you should nest WHEN/THEN statements whenever possible. Certainly, both examples above will work, but when you start to write really meaningful and complicated triggers, this nested construct can save you from that dreaded kOS trigger limit.
