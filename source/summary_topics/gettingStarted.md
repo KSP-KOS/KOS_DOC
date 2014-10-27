@@ -8,6 +8,8 @@ before and know the basics of how to fly a rocket under manual
 control.  It does NOT assume you know a lot about computer
 programming, and it will walk you through some basic first steps.)
 
+There is a [follow-up to this tutorial](summary_topics/intermediate_tutorial/index.html) which covers different flow-control styles and leads into the beginnings of developing proper PID-controller code in kOS.
+
 ### First example: Hello World
 
 In the grand tradition of programming tutorials, the first example
@@ -48,11 +50,11 @@ __Step 4: Invoke the terminal.__
 Rightclick for the SCS part on
 the vessel and then click the button that says "Open Terminal".
 
-Note that if the terminal is semi-transparent, this means it's not 
+Note that if the terminal is semi-transparent, this means it's not
 currently selected.  If you click on the terminal, then your keyboard
 input is directed to the terminal INSTEAD of to piloting.  In other
 words if you type WASD, you'll actually get the word "wasd" to appear
-on the terminal, rather than the WASD keys steering the ship.  To 
+on the terminal, rather than the WASD keys steering the ship.  To
 switch back to manual control of the game instead of typing into
 the terminal, click outside the terminal window anywhere on the background
 of the screen.
@@ -64,7 +66,7 @@ the one shown below.  Type the line:
 
     CLEARSCREEN. PRINT "==HELLO WORLD==".
 
-Into the terminal (make sure to actually type the periods (".") as 
+Into the terminal (make sure to actually type the periods (".") as
 shown) and hit ENTER.  Note that you can type it in uppercase or lowercase.
 kOS doesn't care.
 
@@ -170,7 +172,7 @@ To work with the archive, and create a second "hello world" file there, you issu
 slightly violating the design of KSP mods that puts everything in
 the GameData folder.  The kSP Archive is actually stored in the
 Plugins/PluginData/Archive folder of your MAIN KSP home, not inside
-GameData.  
+GameData.
 
 If a file is stored inside the archive, it can actually be edited *by
 an external text editor of your choice* instead of using kOS's in-game
@@ -232,7 +234,7 @@ Okay, so type the lines below in an external *text editor of your choice*
         WAIT 1. // pauses the script here for 1 second.
     }.
 
-See those things with the two slashes ("//")?  Those are comments 
+See those things with the two slashes ("//")?  Those are comments
 in the kerboscript language and they're just ways to write things
 in the program that don't do anything - they're there for humans
 like you to read so you understand what's going on.  In these examples
@@ -324,7 +326,7 @@ Hey! It does something now! It fires the first stage engine and launches!
 But.. but wait... It doesn't control the steering and it just lets it go
 whereever it will.
 
-Most likely you had a crash with this script because it didn't do anything 
+Most likely you had a crash with this script because it didn't do anything
 to affect the steering at all, so it probably allowed the rocket to tilt over.
 
 __Step 4: Make the script actually control steering__
@@ -585,7 +587,7 @@ And toward the end:
 
 If we assume you made a vessel that has enough fuel and power to get up to
 orbit, this script should in principle work to get you to the point
-of leaving the atmosphere.  It will probably still fall back down, because 
+of leaving the atmosphere.  It will probably still fall back down, because
 this script makes no attempt to ensure that the craft is going fast enough
 to maintain the orbit.
 

@@ -27,7 +27,7 @@ QUICK START: Hello World.
 
 If you prefer the tutorial style of explanation, please see the
 [QUICK START Tutorial](summary_topics/gettingStarted/index.html), which walks you through the
-beginnings of making a beginner's ship launcher script. There is also an [Intermediate kOS Tutorial](summary_topics/intermediate_tutorial.html) which discusses some general aspects of kOS flow control and optimizations.
+beginnings of making a beginner's ship launcher script. There is also an [Intermediate kOS Tutorial](summary_topics/intermediate_tutorial/index.html) which discusses some general aspects of kOS flow control and optimizations.
 
 ----
 
