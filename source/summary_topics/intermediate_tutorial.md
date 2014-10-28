@@ -16,11 +16,11 @@ __1. Sequential Programs__
 
 These are programs that rely almost exclusively on WAIT UNTIL statements to go from one phase to the next.
 
-    LOCK STEERING TO UP.
+    LOCK STEERING TO HEADING(0,90).
     LOCK THROTTLE TO 1.
     STAGE.
     WAIT UNTIL SHIP:ALTITUDE > 10000.
-    LOCK STEERING TO HEADING(90,45).
+    LOCK STEERING TO HEADING(0,90) + R(0,-45,0).
     WAIT UNTIL STAGE:LIQUIDFUEL < 0.1.
     STAGE.
     WAIT UNTIL SHIP:ALTITUDE > 20000.
@@ -32,12 +32,12 @@ __2. Loops with Condition Checking__
 
 This is a far more common pattern with kOS and for good reason. Here, we introduce IF/ELSE logic into UNTIL blocks or FOR loops:
 
-    LOCK STEERING TO UP.
+    LOCK STEERING TO HEADING(0,90).
     LOCK THROTTLE TO 1.
     STAGE.
-    UNTIL SHIP ALTITUDE > 20000 {
+    UNTIL SHIP:ALTITUDE > 20000 {
         IF SHIP:ALTITUDE > 10000 {
-            LOCK STEERING TO HEADING(90,45).
+            LOCK STEERING TO HEADING(0,90) + R(0,-45,0).
         }
         IF STAGE:LIQUIDFUEL < 0.1 {
             STAGE.
@@ -53,11 +53,11 @@ __3. Loops with Triggers__
 
 In the above example, once the rocket reaches 10km, the steering is constantly being re-locked to HEADING(90,45). This works, but we only need to lock it once. The solution is to set up a trigger using a WHEN/THEN block:
 
-    LOCK STEERING TO UP.
+    LOCK STEERING TO HEADING(0,90).
     LOCK THROTTLE TO 1.
     STAGE.
     WHEN SHIP:ALTITUDE > 10000 THEN {
-        LOCK STEERING TO HEADING(90,45).
+        LOCK STEERING TO HEADING(0,90) + R(0,-45,0).
     }
     UNTIL SHIP ALTITUDE > 20000 {
         IF STAGE:LIQUIDFUEL < 0.1 {
@@ -68,11 +68,11 @@ In the above example, once the rocket reaches 10km, the steering is constantly b
 
 Now, when the rocket reaches 10km, the steering is set once and the trigger is removed from the active list of triggers. We could also promote the staging condition to a trigger using WHEN/THEN, keeping the trigger after every stage using the PRESERVE keyword:
 
-    LOCK STEERING TO UP.
+    LOCK STEERING TO HEADING(0,90).
     LOCK THROTTLE TO 1.
     STAGE.
     WHEN SHIP:ALTITUDE > 10000 THEN {
-        LOCK STEERING TO HEADING(90,45).
+        LOCK STEERING TO HEADING(0,90) + R(0,-45,0).
     }
     WHEN STAGE:LIQUIDFUEL < 0.1 THEN {
         STAGE.
