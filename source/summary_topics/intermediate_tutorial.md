@@ -1,6 +1,6 @@
 ## Design Patterns and Considerations with kOS
 
-There are many ways one can write a control program for a given scenario. The goal of this section is to help a novice kOS programmer, after having finished the [QUICK START Tutorial](summary_topics/gettingstarted/index.html), to develop a sense of elegance and capability when writing his or her own kOS scripts. All of the examples in this tutorial may be tested by the reader using a rocket design similar to the following. Notice it carries an accelerometer and the negative gravioli detector which are used in the second section. Don't forget the kOS module as well!
+There are many ways one can write a control program for a given scenario. The goal of this section is to help a novice kOS programmer, after having finished the [QUICK START Tutorial](summary_topics/gettingstarted/index.html), to develop a sense of elegance and capability when writing his or her own kOS scripts. All of the examples in this tutorial may be tested by the reader using a rocket design similar to the following. Notice it carries an [accelerometer](http://wiki.kerbalspaceprogram.com/wiki/Double-C_Seismic_Accelerometer) and the [negative gravioli detector](http://wiki.kerbalspaceprogram.com/wiki/GRAVMAX_Negative_Gravioli_Detector) which are used in the second section. Don't forget the kOS module as well!
 
 ![Design Patterns Tutorial Rocket](../../images/design_patterns_rocket.png)
 
@@ -147,7 +147,7 @@ Understanding why this does not work is important. Everything in a WHEN/THEN blo
 
 Now this program should work. The variable dthrott had to be set to 0 in the beginning so that the throttle is kept at maximum until 1km, the UNTIL loop operates every 0.1 seconds, and the WHEN/THEN triggers are run only once when the condition is met. The take-away from this example is to keep WHEN/THEN blocks separate from UNTIL loops. Specifically, never put an UNTIL loop inside a WHEN/THEN block and it should be extremely rare to put a WHEN/THEN statement inside an UNTIL loop.
 
-Finally, as a bit of foreshadowing, this bit of code is actually a "proportional feedback loop." From an altitude of 1km up to 40km, the total g-force exerted on the ship is kept near 1.2 by constantly adjusting the throttle. The value of 1.2 is called the "setpoint," the measured g-force is called the "process variable," and the mystical 0.05 is called the "proportional gain."
+Finally, as a bit of foreshadowing, this bit of code is actually a "[proportional feedback loop](http://en.wikipedia.org/wiki/PID_controller)." From an altitude of 1km up to 40km, the total g-force exerted on the ship is kept near 1.2 by constantly adjusting the throttle. The value of 1.2 is called the "setpoint," the measured g-force is called the "process variable," and the mystical 0.05 is called the "proportional gain."
 
 __2. Minimize Trigger Conditions__
 
