@@ -151,9 +151,9 @@ Finally, as a bit of foreshadowing, this bit of code is actually a "proportional
 
 __2. Minimize Trigger Conditions__
 
-When I first started writing kOS scripts, I tried to make full use of WHEN/THEN triggers with mult-level LOCK variables. There is a lot of power in this, but I found it was very easy to hit kOS's hard limit in the number of operations allowed for trigger checking. For example, many times, I had two or more WHEN statements that were dependent on the same LOCK variable. This caused the LOCK variable to be calculated multiple times in a single update. If the LOCK was deep enough, the calculation would become too expensive to do twice and kOS would stop and complain.
+There is a lot of power in developing multi-level LOCK variables in combination with WHEN/THEN triggers. However, it can be easy to hit kOS's hard limit in the number of operations allowed for trigger checking. This will happen when several WHEN/THEN triggers are dependent on the same complex LOCK variable. This results in the LOCK variable being calculated multiple times every update. If the LOCK is deep enough, the calculations become too expensive to do and kOS stops executing and complains.
 
-With that in mind, let's expand on the example above. This time we'll add some code to get us off the ground and up to 30km. We want full throttle initially, but after a couple km, we should throttle back so we don't keep our poor Kerbals locked at maximum acceleration!
+With this in mind, consider an extension of the example script in the previous section. This time, the g-force setpoint changes as the rocket climbs through 10km, 20km and 30km:
 
     WHEN STAGE:LIQUIDFUEL < 0.1 THEN {
         STAGE.
@@ -184,9 +184,7 @@ With that in mind, let's expand on the example above. This time we'll add some c
         WAIT 0.1.
     }
 
-So we have maximum throttle up to 2km, adjusted throttle to get an acceleration of 4g until 10km at which point we set the acceleration set-point to 3g, then 2g at 20km. I am not suggesting that this is something you should do in normal operation, but it provides an example of what can be done.
-
-There is one rather small correction to the above that I would like to make, namely:
+This example does what is expected of it without problems. But the ship's altitude is being checked at least five times for every update, including the UNTIL loop check. Certaintly, the kOS CPU can keep up with this, however, one can imagine a whole series of WHEN/THEN statements which make use of complicated calculations based on atmospheric data or orbital mechanics. One way to minimize the trigger condition checking is to take strictly-sequential triggers and nest them:
 
     WHEN STAGE:LIQUIDFUEL < 0.1 THEN {
         STAGE.
@@ -220,4 +218,4 @@ There is one rather small correction to the above that I would like to make, nam
         WAIT 0.1.
     }
 
-Now this is quite elegant. I have reduced the number of triggers that have to be checked by one. The trigger at 10km sets up the next trigger for me. This can save a lot of processing time for triggers that will happen sequentially. As a general rule, you should nest WHEN/THEN statements whenever possible. Certainly, both examples above will work, but when you start to write really meaningful and complicated triggers, this nested construct can save you from that dreaded kOS trigger limit.
+Now this is quite elegant! The number of triggers have been reduced to two per update for the entire running of this script. The trigger at 1km sets up the next trigger which will happen at 10km which sets up then next at 20km and so on. This can save a lot of processing time for triggers that will happen sequentially. As a general rule, one should try to nest WHEN/THEN statements whenever possible. Again, both examples above will work, but when scripts start to have deep and complicated triggers, this nested construct can save it from the dreaded kOS trigger limit.
