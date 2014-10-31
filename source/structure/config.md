@@ -94,3 +94,14 @@ not seem to have any protective checks in place and will faithfully try to use
 whatever values its given.
 
 ***
+
+<a name="VERBOSE"></a>
+
+### CONFIG:VERBOSE
+
+A boolean.  Gettable and Settable.  Configures the VerboseExceptions setting.
+
+If true, then it enables a mode in which errors coming from kOS are very long
+and verbose, trying to explain every detail of the problem.
+
+***

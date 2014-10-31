@@ -150,6 +150,13 @@ This is not a complete list.  The examples here are just to give a taste of what
     * LIST ENGINES
     * etc
 
+* [Querying a vessel's parts](command/shipquery/index.html)
+    * PARTS
+    * PARTSINGROUP
+    * PARTSNAMED
+    * MODULESNAMED
+    * MODULESINGROUP
+
 * [Flow Control](command/flowControl/index.html)
     * BREAK
     * IF

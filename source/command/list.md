@@ -89,4 +89,8 @@ Eamples:
     }.
 
 
+### More on how to use Lists.
+
+To see more about how to use a List once you have one, see
+[the page on the list structure type](../../structure/list/index.html).
 
