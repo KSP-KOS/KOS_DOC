@@ -92,8 +92,21 @@ Many structures also let you set a specific component of them, for example:
     SET VEC:X to VEC:X * 4.  // multiply just the X part of VEC by 4.
     PRINT VEC.  // Results in V(40,10,10).
 
+**(New with v0.15)** Structures also often contain methods.  A method is a suffix of a structure that actually
+performs an activity when you mention it, and can sometimes take parameters.
+
+The following are examples of calling methods of a structure:
+
+    LIST PARTS IN PLIST. // Gets a list of all the parts on the current ship.
+    PLIST:REMOVE(0).
+    PRINT PLIST:SUBLIST(0,4).
+
 A full list of structure types is listed further down this page.
 
+Language Syntax description
+===========================
+
+* [Language syntax constructs](command/syntax/index.html) To see the breakdown of the kerboscript language's syntax rules, see this link.
 
 Command Reference
 =================
