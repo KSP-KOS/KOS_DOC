@@ -1,6 +1,6 @@
 ## Design Patterns and Considerations with kOS
 
-There are many ways one can write a control program for a given scenario. The goal of this section is to help a novice kOS programmer, after having finished the [QUICK START Tutorial](summary_topics/gettingstarted/index.html), to develop a sense of elegance and capability when writing his or her own kOS scripts. All of the examples in this tutorial may be tested by the reader using a rocket design similar to the following. Notice it carries an [accelerometer](http://wiki.kerbalspaceprogram.com/wiki/Double-C_Seismic_Accelerometer) and the [negative gravioli detector](http://wiki.kerbalspaceprogram.com/wiki/GRAVMAX_Negative_Gravioli_Detector) which are used in the second section. Don't forget the kOS module as well!
+There are many ways one can write a control program for a given scenario. The goal of this section is to help a novice kOS programmer, after having finished the [QUICK START Tutorial](../gettingstarted/index.html), to develop a sense of elegance and capability when writing his or her own kOS scripts. All of the examples in this tutorial may be tested by the reader using a rocket design similar to the following. Notice it carries an [accelerometer](http://wiki.kerbalspaceprogram.com/wiki/Double-C_Seismic_Accelerometer) and the [negative gravioli detector](http://wiki.kerbalspaceprogram.com/wiki/GRAVMAX_Negative_Gravioli_Detector) which are used in the second section. Don't forget the kOS module as well!
 
 ![Design Patterns Tutorial Rocket](../../images/design_patterns_rocket.png)
 

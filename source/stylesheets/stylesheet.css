@@ -187,22 +187,20 @@ p.tagline {
 }
 
 .current-section {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  width: 693px;
-  margin-left: -352px;
-  background: #222;
-  border: 5px solid #444;
-  color: #fff;
-  opacity: 0;
+  /* hard coding this to make it go away by being tiny, 1 pixel in size,
+  * rather than
+  * by trying to delve through the ugly middleman mess to find where
+  * the code is adding this garbage too-big header that everyone hates.
+  */
+
+  width: 1px;
+  height: 1px;
   visibility: hidden;
-  -webkit-transition: opacity ease-in-out 0.3s;
 }
 
 .current-section p {
   padding: 5px 27px;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: bold;
 }
 
