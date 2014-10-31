@@ -26,15 +26,23 @@ A typical command in KerboScript might look like this:
 
 ----
 
-QUICK START: Hello World.
-=========================
+TUTORIAL-Style documentation
+============================
 
-If you prefer the tutorial style of explanation, please see the
-[QUICK START Tutorial](summary_topics/gettingStarted/index.html), which walks you through the
-beginnings of making a beginner's ship launcher script. There is also an [Intermediate kOS Tutorial](summary_topics/intermediate_tutorial/index.html) which discusses some general aspects of kOS flow control and optimizations.
+If you prefer the tutorial style of explanation, please see the following examples
+that walk you through examples:
+
+* Beginner tutorials:
+   * [QUICK START Tutorial](summary_topics/gettingStarted/index.html), which walks you through the beginnings of making a beginner's ship launcher script.
+* Intermediate tutorials:
+  * [Design patterns and Considerations tutorial](summary_topics/design_patterns_flow_control/index.html) discusses some general aspects of kOS flow control and optimizations.
+
+
 
 ----
 
+REFERENCE-Style documentation
+=============================
 
 CASE INSENSITIVE
 ----------------
