@@ -38,17 +38,13 @@ Suffix            | Type      | Get | Set | Description
 :ARGUMENTOFPERIAPSIS | Number | yes | no  | [Wiki link](http://en.wikipedia.org/wiki/Argument_of_periapsis)
 :TRUEANOMALY         | Number | yes | no  | [Wiki link](http://en.wikipedia.org/wiki/True_anomaly)
 :MEANANOMALYATEPOCH  | Number | yes | no  | [Wiki link](http://en.wikipedia.org/wiki/Mean_anomaly)
-:PATCHES             | [LIST](../list/index.html)   | yes | no | The list of future [Orbit](../orbit/index.html)s that would follow this one, due to SOI transitions (but not due to manuever nodes).  To get the list of patches after a manuever node, get that maneuver node's :ORBIT suffix first, then get its :PATCHES suffix.  (i.e. MyNode:ORBIT:PATCHES.)
+:NEXTPATCH           | Orbit  | yes | no  | When this orbit has a transition to another orbit coming up, this suffix returns the next Orbit patch after this one.  For example, when escaping from a Mun orbit into a Kerbin orbit from which you will escape and hit a Solar orbit, then the current orbit's :NEXTPATCH will show the Kerbin orbit, and :NEXTPATCH:NEXTPATCH will show the solar orbit.  The number of patches into the future that you can peek depends on your conic patches setting in your Kerbal Space Program Settings.cfg file.
+:HASNEXTPATCH        | Boolean| yes | no  | If :NEXTPATCH will return a valid patch, this is true.  If :NEXTPATCH will not return a valid patch because there are no transitions occurring in the future, then :HASNEXTPATCH will be false.
 
-This is left off the above table because it's not clear that it works:
+:NEXTPATCH and :HASNEXTPATCH both only operate on the CURRENT momentum of the object, and do NOT take into account any potential changes planned with manuever nodes.  To see the possible new path you would have if a maneuver node gets executed exactly as planned, you need to first get the orbit that follows the manuever node, by looking at the [manuever node's :ORBIT suffix](../node/index.html), and then look at IT's :NEXTPATCH and :HASNEXTPATCH.
 
-:TRANSITION - Enum
-    * INITIAL
-    * FINAL
-    * ENCOUNTER
-    * ESCAPE
-    * MANEUVER
+### Deprecated:
 
-This enum type is not currently exposed to the kOS user so it probably won't work.
-
-
+Suffix            | Type      | Get | Set | Description
+------------------|-----------|-----|-----|--------------------------------------
+:PATCHES             | [LIST](../list/index.html)   | yes | no | This suffix no longer works after v0.15.  To get the same functionality, you must use the :PATCHES suffix of the [Vessel itself](../vessel/index.html)
