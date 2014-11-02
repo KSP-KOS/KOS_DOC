@@ -32,7 +32,7 @@ The example code from the [Design Patterns Tutorial](summary_topics/intermediate
         WAIT 0.1.
     }
 
-The first several lines sets up a simple staging condition, puts the throttle to maximum, steers the rocket straight up and launches. The rocket is assumed to use only liquid fuel engines. After the rocket hits 1km, the script sets up the LOCK used in the P-loop which is updated every 0.1 seconds in the UNTIL loop.
+The first several lines sets up a simple staging condition, puts the throttle to maximum, steers the rocket straight up and launches. The rocket is assumed to use only liquid fuel engines. After the rocket hits 1km, the script sets up the LOCK used in the P-loop which is updated every 0.1 seconds in the UNTIL loop. The use of LOCK variables makes this code fairly clean. When the script comes up to the first line in the UNTIL loop, i.e. "SET thrott TO thrott + dthrott.", the variable dthrott is evaluated which causes the LOCK on gforce to be evaluated which in-turn causes accvec to be evaluated.
 
 The input to this feedback loop is the acceleration experienced by the ship (gforce) in terms of Kerbin's gravitational acceleration at sea level (g). The variable accvec is the total acceleration vector and is obtained by the accelerometer and gravioli detectors, both of which must be on the ship for this to work. The variable dthrott is the change in throttle that should be applied in a single iteration of the feedback loop.
 
@@ -59,7 +59,7 @@ This is not a big change, but it will set us up to include the integral and deri
 
 ### Proportional-Integral Feedback Loop (PI-loop)
 
-Adding the integral term requires us to keep track of time. This is done by introducing a variable (t0) to store the time of the last iteration. Now, the throttle is changed only on iterations where some time has elapsed so the WAIT time in the UNTIL can be brought to 0.001.
+Adding the integral term requires us to keep track of time. This is done by introducing a variable (t0) to store the time of the last iteration. Now, the throttle is changed only on iterations where some time has elapsed so the WAIT time in the UNTIL can be brought to 0.001. The offset of the gforce has been set to the variable P, and the integral gain to Ki. 
 
     // PI-loop
     SET g TO KERBIN:MU / KERBIN:RADIUS^2.
@@ -74,7 +74,7 @@ Adding the integral term requires us to keep track of time. This is done by intr
     SET Kp TO 0.05.
     SET Ki TO 0.05.
     
-    LOCK dthrott TO Kp*P + Ki*I.
+    LOCK dthrott TO Kp * P + Ki * I.
     
     SET thrott TO 1.
     LOCK THROTTLE to thrott.
@@ -83,16 +83,18 @@ Adding the integral term requires us to keep track of time. This is done by intr
     UNTIL SHIP:ALTITUDE > 40000 {
         SET dt TO TIME:SECONDS - t0.
         IF dt > 0 {
-            SET I TO I + P*dt.
+            SET I TO I + P * dt.
             SET thrott to thrott + dthrott.
             SET t0 TO TIME:SECONDS.
         }
         WAIT 0.001.
     }
 
+Adding the integral term has the general effect of stabilizing the feedback loop, making it less prone to oscillating due to rapid changes in the process variable (gforce, in this case). This is usually at the expense of a longer settling time.
+
 ### Proportional-Integral-Derivative Feedback Loop (PID-loop)
 
-The derivative term requires an additional variable to keep track of the previous value of the proportional term, P.
+Incorporating the derivative term (D) and derivative gain (Kd) requires an additional variable (P0) to keep track of the previous value of the proportional term (P). 
 
     // PID-loop
     SET g TO KERBIN:MU / KERBIN:RADIUS^2.
@@ -121,12 +123,14 @@ The derivative term requires an additional variable to keep track of the previou
         IF dt > 0 {
             SET I TO I + P * dt.
             SET D TO (P - P0) / dt.
-            SET P0 TO P.
             SET thrott to thrott + dthrott.
+            SET P0 TO P.
             SET t0 TO TIME:SECONDS.
         }
         WAIT 0.001.
     }
+
+When tuned properly, the derivative term will cause the PID-loop to act quickly without causing problematic oscillations. Later in this tutorial, we will cover a way to tune a PID-loop using only the proportional term called the Zieger-Nichols method.
 
 ### Final Touches
 
@@ -150,7 +154,7 @@ Of course, KSP is a simulator and small fluctuations are not observed in this pa
     SET D TO 0.
     SET P0 TO P.
     
-    LOCK in_deadband TO ABS(P) < 0.1.
+    LOCK in_deadband TO ABS(P) < 0.01.
     
     SET Kp TO 0.05.
     SET Ki TO 0.05.
@@ -168,7 +172,6 @@ Of course, KSP is a simulator and small fluctuations are not observed in this pa
             IF NOT in_deadband {
                 SET I TO I + P * dt.
                 SET D TO (P - P0) / dt.
-                SET P0 TO P.
                 
                 // If Ki is non-zero, then limit Ki*I to [-1,1]
                 IF Ki > 0 {
@@ -178,8 +181,24 @@ Of course, KSP is a simulator and small fluctuations are not observed in this pa
                 // set throttle but keep in range [0,1]
                 SET thrott to MIN(1, MAX(0, thrott + dthrott)).
                 
+                SET P0 TO P.
                 SET t0 TO TIME:SECONDS.
             }
         }
         WAIT 0.001.
     }
+
+### Tuning a PID-loop
+
+We are going to start with the same rocket design we have been using so far and actually tune the PID-loop using the Ziegler-Nichols method. This is where we turn off the integral and derivative terms in the loop and bring the proportional gain (Kp) up from zero to the point where the loop causes a steady oscillation with a measured period (Tu). At this point, the proportional gain is called the "ultimate gain" (Ku) and the actual gains (Kp, Ki and Kd) are set according to this table:
+
+Control Type | Kp | Ki | Kd
+--- | --- | --- | ---
+P | 0.5 Ku | - | -
+PI | 0.45 Ku | 1.2 Kp/Tu | -
+PD | 0.8 Ku | - | Kp Tu/8
+classic PID | 0.6 Ku | 2Kp/Tu | Kp Tu/8
+Pessen Integral Rule | 0.7 Ku | 0.4Kp/Tu | 0.15Kp Tu
+some overshoot | 0.33 Ku | 2Kp/Tu | Kp Tu/3
+no overshoot | 0.2 Ku | 2Kp/Tu | KpTu/3
+
