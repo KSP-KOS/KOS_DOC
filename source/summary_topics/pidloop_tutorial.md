@@ -250,8 +250,6 @@ Give this script a short name, something like "tune.txt" so that running is simp
     copy tune from 0.
     run tune(0.5).
 
-After every launch completes, you'll have to go into the archive directory and rename the output logfile. Something like "throttle_log.txt" --> "throttle.01.log" will help if you increment the index number each time. To analyze the data, plot the offset (P) as a function of time (t). Since the maximum TWR is a function of time, you can include that as well as a secondary x-axis. Here, we show the results for three values of Kp: 0.002, 0.016 and 0.160:
+After every launch completes, you'll have to go into the archive directory and rename the output logfile. Something like "throttle_log.txt" --> "throttle.01.log" will help if you increment the index number each time. To analyze the data, plot the offset (P) as a function of time (t). Here, we show the results for three values of Kp: 0.002, 0.016 and 0.160, including the maximum TWR when Kp = 0.002 as the top x-axis:
 
-![PID Tuning 002](../images/pidtune/pidtune002.png)
-![PID Tuning 016](../images/pidtune/pidtune016.png)
-![PID Tuning 160](../images/pidtune/pidtune160.png)
+![PID Tuning 1](../images/pidtune/pidtune1.png)
