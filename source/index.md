@@ -201,7 +201,7 @@ The full list of available suffixes for each type is in the following list:
 * [Control](structure/control/index.html) - a vessel's raw flight controls
 * [Direction](structure/direction/index.html) - a tuple of values describing a ray in space preserving camera-up info
 * [Fileinfo](structure/fileinfo/index.html) - information about a file on a volume
-* [GeoCordinates](structure/geocordinates/index.html) - a set of values describing a location on a Body's surface
+* [GeoCoordinates](structure/geocoordinates/index.html) - a set of values describing a location on a Body's surface
 * [List](structure/list/index.html) - a generic collection of any types of values, that you can iterate through
 * [Node](structure/node/index.html) - a maneuver node
 * [Orbit](structure/orbit/index.html) - describing the shape of an orbit ellipse
@@ -210,6 +210,7 @@ The full list of available suffixes for each type is in the following list:
   * [Vessel](structure/vessel/index.html) - a specific type of Orbitable: info about a vessel
 * [OrbitableVelocity](structure/orbitablevelocity/index.html) - a pair of velocities representing the orbital and surface elocity of an Orbitable thing
 * [Part](structure/part/index.html) - one of the pieces assembled together that a vessel is made from
+  * [PartModule](structure/partmodule/index.html) - A PartModule that is attached to a part, for controlling the part's context menu and action group behaviors
   * [DockingPort](structure/dockingport/index.html) - a specific type of Part
   * [Engine](structure/engine/index.html) - a specific type of Part
   * [Sensor](structure/sensor/index.html) - a specific type of Part
@@ -227,6 +228,7 @@ Useful topics and reference information:
 * [Volumes](summary_topics/volumes/index.html)
 * [CommRange](summary_topics/commrange/index.html)
 * [Ship Steering](summary_topics/ship_control/index.html)
+* [Ship Parts and Modules](summary_topics/ship_parts_and_modules/index.html)
 * [CPU vessel](summary_topics/CPU_vessel/index.html)
 
 BUILT-IN SPECIAL VARIABLE NAMES
