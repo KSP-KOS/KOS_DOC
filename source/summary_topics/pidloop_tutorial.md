@@ -250,7 +250,7 @@ Give this script a short name, something like "tune.txt" so that running is simp
     copy tune from 0.
     run tune(0.5).
 
-After every launch completes, you'll have to go into the archive directory and rename the output logfile. Something like "throttle_log.txt" --> "throttle.01.log" will help if you increment the index number each time. To analyze the data, plot the offset (P) as a function of time (t). Here, we show the results for three values of Kp: 0.002, 0.016 and 0.160, including the maximum TWR when Kp = 0.002 as the top x-axis:
+After every launch completes, you'll have to go into the archive directory and rename the output logfile. Something like "throttle_log.txt" --> "throttle.01.log" will help if you increment the index number each time. To analyze the data, plot the offset (P) as a function of time (t). Here, we show the results for three values of Kp: 0.002, 0.016 and 0.160, including the maximum TWR when Kp = 0.002 as the top x-axis. The maximum TWR dependence on time is different for the three values of Kp, but not by a lot.
 
 ![PID Tuning 1](../images/pidtune/pidtune1.png)
 
@@ -262,8 +262,8 @@ This is done for each value of Kp and the slopes of the fitted lines are plotted
 
 ![PID Tuning 3](../images/pidtune/pidtune3.png)
 
-The period of oscillation was averaged over the interval and plotted on top of the amplitude change over time. Notice the turn over that occurs when Kp reaches approximately 0.26. This will mark the "ultimate gain" and 6.0 will be used as the associated period of oscillation. It is left as an exercise for the reader to implement a full PID-loop using the classic PID values (see table above): Kp = 0.156, Ki = 0.052, Kd = 0.117, producing this behavior:
+The period of oscillation was averaged over the interval and plotted on top of the amplitude change over time. Notice the turn over that occurs when Kp reaches approximately 0.26. This will mark the "ultimate gain" and 3.1 seconds will be used as the associated period of oscillation. It is left as an exercise for the reader to implement a full PID-loop using the classic PID values (see table above): Kp = 0.156, Ki = 0.101, Kd = 0.060, producing this behavior:
 
 ![PID Tuning 4](../images/pidtune/pidtune4.png)
 
-The settling time of the feedback loop is now less than 10 seconds! The inset plot has the same axes as the parent and is there to show the long-term stability of the final PID-loop.
+The settling time of the feedback loop is now less than 10 seconds! The inset plot has the same axes as the parent and shows the long-term stability of the final PID-loop.
