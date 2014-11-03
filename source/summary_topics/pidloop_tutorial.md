@@ -190,15 +190,64 @@ Of course, KSP is a simulator and small fluctuations are not observed in this pa
 
 ### Tuning a PID-loop
 
-We are going to start with the same rocket design we have been using so far and actually tune the PID-loop using the Ziegler-Nichols method. This is where we turn off the integral and derivative terms in the loop and bring the proportional gain (Kp) up from zero to the point where the loop causes a steady oscillation with a measured period (Tu). At this point, the proportional gain is called the "ultimate gain" (Ku) and the actual gains (Kp, Ki and Kd) are set according to this table:
+We are going to start with the same rocket design we have been using so far and actually tune the PID-loop using the Ziegler-Nichols method. This is where we turn off the integral and derivative terms in the loop and bring the proportional gain (Kp) up from zero to the point where the loop causes a steady oscillation with a measured period (Tu). At this point, the proportional gain is called the "ultimate gain" (Ku) and the actual gains (Kp, Ki and Kd) are set according to this table [taken from wikipedia](http://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols_method):
 
 Control Type | Kp | Ki | Kd
 --- | --- | --- | ---
 P | 0.5 Ku | - | -
-PI | 0.45 Ku | 1.2 Kp/Tu | -
-PD | 0.8 Ku | - | Kp Tu/8
-classic PID | 0.6 Ku | 2Kp/Tu | Kp Tu/8
-Pessen Integral Rule | 0.7 Ku | 0.4Kp/Tu | 0.15Kp Tu
-some overshoot | 0.33 Ku | 2Kp/Tu | Kp Tu/3
-no overshoot | 0.2 Ku | 2Kp/Tu | KpTu/3
+PI | 0.45 Ku | 1.2 Kp / Tu | -
+PD | 0.8 Ku | - | Kp Tu / 8
+classic PID | 0.6 Ku | 2 Kp / Tu | Kp Tu / 8
+Pessen Integral Rule | 0.7 Ku | 0.4 Kp / Tu | 0.15 Kp Tu
+some overshoot | 0.33 Ku | 2 Kp / Tu | Kp Tu / 3
+no overshoot | 0.2 Ku | 2 Kp / Tu | Kp Tu / 3
 
+An immediate problem to overcome with this method is that it assumes a steady state can be achieved. With rockets, there is never a steady state: fuel is being consumed, altitude and therefore gravity and atmosphere is changing, staging can cause major upsets in the feedback loop. So, this tuning method will be some approximation which should come as no surprise since it will come from experimental observation. All we need is enough of a steady state that we can measure the oscillations - both the change in amplitude and the period.
+
+The script we'll use to tune the highly overpowered rocket shown will launch the rocket straight up (using SAS) and will log data to an output file until it reaches 30km at which point the log file will be copied to the archive and the program will terminate. Also, this time the feedback loop will be based on the more realistic "atmospheric efficiency." The log file will contain three columns: time since launch, offset of atmospheric efficiency from the ideal (in this case, 1.0) and the ship's maximum thrust. The maximum thrust will increase monotonically with time (this rocket has only one stage) and we'll use both as the x-axis when plotting the offset on the y-axis.
+
+    DECLARE PARAMETER Kp.
+    
+    LOCK g TO SHIP:BODY:MU / (SHIP:BODY:RADIUS + SHIP:ALTITUDE)^2.
+    LOCK maxtwr TO SHIP:MAXTHRUST / (g * SHIP:MASS).
+    
+    // feedback based on atmospheric efficiency
+    LOCK surfspeed TO SHIP:VELOCITY:SURFACE:MAG.
+    LOCK atmoeff TO surfspeed / SHIP:TERMVELOCITY.
+    LOCK P TO 1.0 - atmoeff.
+    
+    SET t0 TO TIME:SECONDS.
+    LOCK dthrott TO Kp*P.
+    SET start_time TO t0.
+    
+    LOG "# Throttle PID Tuning" TO throttle_log.
+    LOG "# Kp: " + Kp TO throttle_log.
+    LOG "# t P maxtwr" TO throttle_log.
+    
+    LOCK logline TO (TIME:SECONDS - start_time)
+            + " " + P
+            + " " + maxtwr.
+    
+    SET thrott TO 1.
+    LOCK THROTTLE TO thrott.
+    SAS ON.
+    STAGE.
+    WAIT 3.
+    
+    UNTIL SHIP:ALTITUDE > 30000 {
+        SET dt TO TIME:SECONDS - t0.
+        IF dt > 0 {
+            SET thrott TO MIN(1,MAX(0,thrott + dthrott)).
+            SET t0 TO TIME:SECONDS.
+            LOG logline TO throttle_log.
+        }
+        WAIT 0.001.
+    }
+    COPY throttle_log TO 0.
+
+Give this script a short name, something like "tune.txt" so that running is simple:
+
+    copy tune from 0.
+    run tune(0.5).
+
+After every launch completes, you'll have to go into the archive directory and rename the output logfile. Something like "throttle_log.txt" --> "throttle.01.log" will help if you increment the index number each time.
