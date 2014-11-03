@@ -1,14 +1,14 @@
 ## PID Loops in kOS
 
-This tutorial covers how one can implement a [PID loop](http://en.wikipedia.org/wiki/PID_controller) using kOS. A P-loop, or "proportional feedback loop" was already introduced in the second section of the [Design Patterns Tutorial](summary_topics/intermediate_tutorial/index.html), and that will serve as our starting point. After some code rearrangement, the integral and derivative terms will be added and discussed in turn. Next, a couple extra features will be added to the full PID-loop. Lastly, we'll show a case-study in tuning a full PID loop using the Ziegler-Nichols method. We'll use the LOG method to dump telemetry from KSP into a file and our favorite graphing software to visualize the data.
+This tutorial covers how one can implement a [PID loop](http://en.wikipedia.org/wiki/PID_controller) using kOS. A P-loop, or "proportional feedback loop" was already introduced in the second section of the [Design Patterns Tutorial](../design_patterns_flow_control/index.html), and that will serve as our starting point. After some code rearrangement, the integral and derivative terms will be added and discussed in turn. Next, a couple extra features will be added to the full PID-loop. Lastly, we'll show a case-study in tuning a full PID loop using the Ziegler-Nichols method. We'll use the LOG method to dump telemetry from KSP into a file and our favorite graphing software to visualize the data.
 
 The code examples in this tutorial can be tested with a similar rocket design as shown. Do not forget the accelerometer, gravioli detector or the kOS CPU module. The engine is purposefully overpowered to demonstrate the feedback in action.
 
-![PID Tuning Rocket Design](../images/pidtune/pidtune_rocket_design_maxtwr8.png)
+![PID Tuning Rocket Design](../../images/pidtune/pidtune_rocket_design_maxtwr8.png)
 
 ### Proportional Feedback Loop (P-loop)
 
-The example code from the [Design Patterns Tutorial](summary_topics/intermediate_tutorial/index.html), with some slight modifications looks like the following:
+The example code from the [Design Patterns Tutorial](../design_patterns_flow_control/index.html), with some slight modifications looks like the following:
 
     // staging, throttle, steering, go
     WHEN STAGE:LIQUIDFUEL < 0.1 THEN {
@@ -254,18 +254,18 @@ Give this script a short name, something like "tune.txt" so that running is simp
 
 After every launch completes, you'll have to go into the archive directory and rename the output logfile. Something like "throttle_log.txt" --> "throttle.01.log" will help if you increment the index number each time. To analyze the data, plot the offset (P) as a function of time (t). Here, we show the results for three values of Kp: 0.002, 0.016 and 0.160, including the maximum TWR when Kp = 0.002 as the top x-axis. The maximum TWR dependence on time is different for the three values of Kp, but not by a lot.
 
-![PID Tuning 1](../images/pidtune/pidtune1.png)
+![PID Tuning 1](../../images/pidtune/pidtune1.png)
 
 The value of 0.002 is obviously too low. The settling time is well over 20 seconds and the loop can't keep up with the increase in terminal velocity at the higher altitudes reached after one minute. When Kp = 0.016, the behavior is far more well behaved, and though some oscillation exists, it's damped and slow with a period of about 10 seconds. At Kp = 0.160, the oscillations are prominent and we can start to measure the change in amplitude along with the period of the oscillations. This plot shows the data for Kp = 0.160 from 20 to 40 seconds after ignition. The peaks are found and are fit to a line.
 
-![PID Tuning 2](../images/pidtune/pidtune2.png)
+![PID Tuning 2](../../images/pidtune/pidtune2.png)
 
 This is done for each value of Kp and the slopes of the fitted lines are plotted as a function of Kp in the following plot:
 
-![PID Tuning 3](../images/pidtune/pidtune3.png)
+![PID Tuning 3](../../images/pidtune/pidtune3.png)
 
 The period of oscillation was averaged over the interval and plotted on top of the amplitude change over time. Notice the turn over that occurs when Kp reaches approximately 0.26. This will mark the "ultimate gain" and 3.1 seconds will be used as the associated period of oscillation. It is left as an exercise for the reader to implement a full PID-loop using the classic PID values (see table above): Kp = 0.156, Ki = 0.101, Kd = 0.060, producing this behavior:
 
-![PID Tuning 4](../images/pidtune/pidtune4.png)
+![PID Tuning 4](../../images/pidtune/pidtune4.png)
 
 The settling time of the feedback loop is now less than 10 seconds! The inset plot has the same axes as the parent and shows the long-term stability of the final PID-loop.

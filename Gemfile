@@ -7,6 +7,9 @@ source 'http://rubygems.org'
 gem "middleman",            "~> 3.1.4"
 gem "middleman-livereload", "~> 3.1.0"
 
+gem "rb-inotify"
+gem "therubyracer"
+
 # For the Rake task that deploys to a remote gh-pages branch
 gem "middleman-gh-pages"
 
