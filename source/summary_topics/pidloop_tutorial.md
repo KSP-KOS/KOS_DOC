@@ -254,7 +254,16 @@ After every launch completes, you'll have to go into the archive directory and r
 
 ![PID Tuning 1](../images/pidtune/pidtune1.png)
 
-The value of 0.002 is obviously too low. The settling time is well over 20 seconds and the loop can't keep up with the increase in terminal velocity at the higher altitudes reached after one minute. When Kp = 0.016, the behavior is far more well behaved, and though some oscillation exists, it's damped and slow. At Kp = 0.160, the oscillations become prominent and we can start to measure the change in amplitude along with the period of the oscillations.
+The value of 0.002 is obviously too low. The settling time is well over 20 seconds and the loop can't keep up with the increase in terminal velocity at the higher altitudes reached after one minute. When Kp = 0.016, the behavior is far more well behaved, and though some oscillation exists, it's damped and slow with a period of about 10 seconds. At Kp = 0.160, the oscillations are prominent and we can start to measure the change in amplitude along with the period of the oscillations. This plot shows the data for Kp = 0.160 from 20 to 40 seconds after ignition. The peaks are found and are fit to a line.
 
 ![PID Tuning 2](../images/pidtune/pidtune2.png)
+
+This is done for each value of Kp and the slopes of the fitted lines are plotted as a function of Kp in the following plot:
+
 ![PID Tuning 3](../images/pidtune/pidtune3.png)
+
+The period of oscillation was averaged over the interval and plotted on top of the amplitude change over time. Notice the turn over that occurs when Kp reaches approximately 0.26. This will mark the "ultimate gain" and 6.0 will be used as the associated period of oscillation. It is left as an exercise for the reader to implement a full PID-loop using the classic PID values (see table above): Kp = 0.156, Ki = 0.052, Kd = 0.117, producing this behavior:
+
+![PID Tuning 4](../images/pidtune/pidtune4.png)
+
+The settling time of the feedback loop is now less than 10 seconds! The inset plot has the same axes as the parent and is there to show the long-term stability of the final PID-loop.
