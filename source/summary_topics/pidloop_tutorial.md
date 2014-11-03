@@ -253,3 +253,8 @@ Give this script a short name, something like "tune.txt" so that running is simp
 After every launch completes, you'll have to go into the archive directory and rename the output logfile. Something like "throttle_log.txt" --> "throttle.01.log" will help if you increment the index number each time. To analyze the data, plot the offset (P) as a function of time (t). Here, we show the results for three values of Kp: 0.002, 0.016 and 0.160, including the maximum TWR when Kp = 0.002 as the top x-axis:
 
 ![PID Tuning 1](../images/pidtune/pidtune1.png)
+
+The value of 0.002 is obviously too low. The settling time is well over 20 seconds and the loop can't keep up with the increase in terminal velocity at the higher altitudes reached after one minute. When Kp = 0.016, the behavior is far more well behaved, and though some oscillation exists, it's damped and slow. At Kp = 0.160, the oscillations become prominent and we can start to measure the change in amplitude along with the period of the oscillations.
+
+![PID Tuning 2](../images/pidtune/pidtune2.png)
+![PID Tuning 3](../images/pidtune/pidtune3.png)
