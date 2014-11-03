@@ -4,6 +4,8 @@ This tutorial covers how one can implement a [PID loop](http://en.wikipedia.org/
 
 The code examples in this tutorial can be tested with a similar rocket design as shown. Do not forget the accelerometer, gravioli detector or the kOS CPU module. The engine is purposefully overpowered to demonstrate the feedback in action.
 
+![PID Tuning Rocket Design](../images/pidtune/pidtune_rocket_design_maxtwr8.png)
+
 ### Proportional Feedback Loop (P-loop)
 
 The example code from the [Design Patterns Tutorial](summary_topics/intermediate_tutorial/index.html), with some slight modifications looks like the following:
