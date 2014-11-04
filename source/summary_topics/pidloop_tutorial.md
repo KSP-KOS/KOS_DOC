@@ -6,6 +6,8 @@ The code examples in this tutorial can be tested with a similar rocket design as
 
 ![PID Tuning Rocket Design](../../images/pidtune/pidtune_rocket_design_maxtwr8.png)
 
+Those fuel-tank adapters are from the [Modular Rocket Systems (MRS) addon](https://kerbalstuff.com/mod/148/Modular%20Rocket%20Systems%20-%20Parts%20Pack), but stock tanks will work just fine. The design goal of this rocket is to have a TWR of 8 on the launchpad and enough fuel to make it past 30km when throttled for optimal atmospheric efficiency.
+
 ### Proportional Feedback Loop (P-loop)
 
 The example code from the [Design Patterns Tutorial](../design_patterns_flow_control/index.html), with some slight modifications looks like the following:
@@ -268,4 +270,14 @@ The period of oscillation was averaged over the interval and plotted on top of t
 
 ![PID Tuning 4](../../images/pidtune/pidtune4.png)
 
-The settling time of the feedback loop is now less than 10 seconds! The inset plot has the same axes as the parent and shows the long-term stability of the final PID-loop.
+As soon as the PID-loop was activated at 3 seconds after ignition, the throttle was cut. At approximately 7 seconds, the atmospheric efficiency dropped below 100% and the integral term started to climb back to zero. At 11 seconds, the engine was reignited and the feedback loop settled after about 20 seconds. The inset plot has the same axes as the parent and shows the long-term stability of the final PID-loop.
+
+### Final Thoughts
+
+The classic PID values used above are fairly aggressive and there is some overshoot at the beginning. This can be dealt with in many ways and is discussed on the [wikipedia page about PID controllers](http://en.wikipedia.org/wiki/PID_controller). For example, one might consider trying to implement a switch to a PD-loop when the integral term hits some limit, switching back once P crosses zero. The PID behavior should look like the following:
+
+![PID Tuning 5](../../images/pidtune/pidtune5.png)
+
+Finally, Controlling the throttle of a rocket is perhaps the easiest thing to implement as a PID loop in KSP using kOS. The steering was largely ignored and the orientation was always up. When writing an autopilot for horizontal atmospheric flight, one will have to deal with the direction the ship is traveling using SHIP:HEADING as well as it's orientation with SHIP:FACING. Additionally, there are the SHIP:ROTATION and SHIP:TRANSLATION vectors which can tell you the rate of change of the ship's facing and heading respectively. The controls in this case are six-dimensional using SHIP:CONTROL with YAW, PITCH, ROLL, FORE, STARBOARD, TOP and MAINTHROTTLE.
+
+The PID gain parameters are dependent on the characteristics of the ship being controlled. The size, shape, turning capability and maximum TWR should be considered when tuning a PID loop. Turning RCS on can also have an effect and you might consider changing the PID loop's gain parameters every time to switch them on or off.
