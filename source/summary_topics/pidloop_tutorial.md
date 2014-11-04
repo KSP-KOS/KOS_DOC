@@ -45,7 +45,7 @@ In terms of a PID loop, the factor 1.2 is called the setpoint, gforce is the pro
     LOCK accvec TO SHIP:SENSORS:ACC - SHIP:SENSORS:GRAV.
     LOCK gforce TO accvec:MAG / g.
     
-    SET gforce_setpoint TO 1.2
+    SET gforce_setpoint TO 1.2.
     SET Kp TO 0.05.
     LOCK dthrott TO Kp * (gforce_setpoint - gforce).
     
@@ -68,13 +68,13 @@ Adding the integral term requires us to keep track of time. This is done by intr
     LOCK accvec TO SHIP:SENSORS:ACC - SHIP:SENSORS:GRAV.
     LOCK gforce TO accvec:MAG / g.
     
-    SET gforce_setpoint TO 1.2
+    SET gforce_setpoint TO 1.2.
     
     LOCK P TO gforce_setpoint - gforce.
     SET I TO 0.
     
-    SET Kp TO 0.05.
-    SET Ki TO 0.05.
+    SET Kp TO 0.01.
+    SET Ki TO 0.006.
     
     LOCK dthrott TO Kp * P + Ki * I.
     
@@ -103,16 +103,16 @@ Incorporating the derivative term (D) and derivative gain (Kd) requires an addit
     LOCK accvec TO SHIP:SENSORS:ACC - SHIP:SENSORS:GRAV.
     LOCK gforce TO accvec:MAG / g.
     
-    SET gforce_setpoint TO 1.2
+    SET gforce_setpoint TO 1.2.
     
     LOCK P TO gforce_setpoint - gforce.
     SET I TO 0.
     SET D TO 0.
     SET P0 TO P.
     
-    SET Kp TO 0.05.
-    SET Ki TO 0.05.
-    SET Kd TO 0.05.
+    SET Kp TO 0.01.
+    SET Ki TO 0.006.
+    SET Kd TO 0.006.
     
     LOCK dthrott TO Kp * P + Ki * I + Kd * D.
     
@@ -149,7 +149,7 @@ Of course, KSP is a simulator and small fluctuations are not observed in this pa
     LOCK accvec TO SHIP:SENSORS:ACC - SHIP:SENSORS:GRAV.
     LOCK gforce TO accvec:MAG / g.
     
-    SET gforce_setpoint TO 1.2
+    SET gforce_setpoint TO 1.2.
     
     LOCK P TO gforce_setpoint - gforce.
     SET I TO 0.
@@ -158,9 +158,9 @@ Of course, KSP is a simulator and small fluctuations are not observed in this pa
     
     LOCK in_deadband TO ABS(P) < 0.01.
     
-    SET Kp TO 0.05.
-    SET Ki TO 0.05.
-    SET Kd TO 0.05.
+    SET Kp TO 0.01.
+    SET Ki TO 0.006.
+    SET Kd TO 0.006.
     
     LOCK dthrott TO Kp * P + Ki * I + Kd * D.
     
