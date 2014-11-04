@@ -8,7 +8,7 @@ before and know the basics of how to fly a rocket under manual
 control.  It does NOT assume you know a lot about computer
 programming, and it will walk you through some basic first steps.)
 
-[Other tutorials](../index.html#tutorial-style-documentation) exist for kOS.
+[Other tutorials](../../index.html#tutorial-style-documentation) exist for kOS.
 
 ### First example: Hello World
 

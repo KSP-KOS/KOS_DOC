@@ -33,9 +33,10 @@ If you prefer the tutorial style of explanation, please see the following exampl
 that walk you through examples:
 
 * Beginner tutorials:
-   * [QUICK START Tutorial](summary_topics/gettingStarted/index.html), which walks you through the beginnings of making a beginner's ship launcher script.
+   * **[QUICK START Tutorial](summary_topics/gettingStarted/index.html)**, which walks you through the beginnings of making a beginner's ship launcher script.
 * Intermediate tutorials:
-  * [Design patterns and Considerations tutorial](summary_topics/design_patterns_flow_control/index.html) discusses some general aspects of kOS flow control and optimizations.
+  * **[Design Patterns and Considerations Tutorial](summary_topics/design_patterns_flow_control/index.html)** discusses some general aspects of kOS flow control and optimizations.
+  * **[PID Loop Tutorial](summary_topics/pidloop_tutorial/index.html)** starts with a basic proportional feedback loop and develops in stages a complete PID-loop to control the throttle of a simple rocket.
 
 
 
