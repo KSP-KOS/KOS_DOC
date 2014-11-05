@@ -18,11 +18,12 @@ exists.  If SAS is on, kOS won't be able to turn the ship.  It is commmon for pe
 kOS scripts to explicitly start them with a use of the SAS OFF command just in case you
 forgot to turn it off before running the script.
 
-There are two styles of control:
+There are three styles of control:
 ===============================
 
 * "Cooked" - Give a goal direction to seek, and let kOS find the way to manuever toward it.
 * "Raw" - Control the craft just like a manual pilot would do from a keyboard or joystick.
+* "Pilot" - This is the stock way of controlling craft, the state of which can be read in kerboscript.
 
 
 "Cooked" Control
@@ -110,6 +111,9 @@ neutral.  You can set to values smaller in magnitude than -1 and 1 for gentler c
 * YAW - rotate left/right, like pressing "A" and "D" on the keyboard.
 * PITCH - rotate up/down, like pressing "W" and "S" on the keyboard.
 * ROLL - tilt left/right, like pressing "Q" and "E" on the keyboard.
+* YAWTRIM - rotate left/right, like pressing "A" and "D" on the keyboard.
+* PITCHTRIM - rotate up/down, like pressing "W" and "S" on the keyboard.
+* ROLLTRIM - tilt left/right, like pressing "Q" and "E" on the keyboard.
 * FORE - translate backward/forward, like pressing "N" and "H" on the keyboard.  Needs RCS ON to be effective.
 * STARBOARD - translate left/right, like pressing "J" and "L" on the keybaord.  Needs RCS ON to be effective.
 * TOP - translate up/down, like pressing "I" and "K" on the keybaord.  Needs RCS ON to be effective.
@@ -155,6 +159,17 @@ player is locked out.  To give control back to the player you must execute:
 The control over RCS translation requires the use of Raw control.  Also, with raw control you can choose how
 gentle to be with the controls and it can be possible to control wobbly craft better with raw control than
 with cooked control.
+
+PILOT CONTROLS
+==============
+
+This is not, strictly speaking, a method of controlling the craft. 'Pilot' controls are a way to read the input from the pilot. Most of these controls share the same name as their flight control, prefixed with PILOT (eg YAW and PILOTYAW)
+
+the one exception to this is the PILOTMAINTHROTTLE. This suffix has a setter and allows you to change the behavior of the throttle that persists even after the current program ends. 
+
+    SET SHIP:CONTROLS:PILOTMAINTHROTTLE TO 0.
+
+Will ensure that the throttle will be 0 when execution stops.
 
 OTHER CONTROLS
 ==============
