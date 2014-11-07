@@ -3,7 +3,7 @@ Querying a vessel's parts
 
 This is a quick list to get the idea across fast.  The actual
 details of the meaning of these things is complex enough to
-warrant [its own tutorial topic](../../summary_topics/vesselpartquery/index.html).
+warrant [its own topic](../../summary_topics/ship_parts_and_modules/index.html).
 
 To get the parts of a vessel (such as your current vessel,
 called SHIP), you can do the following things:
@@ -17,7 +17,7 @@ This gets all the parts that have the same part name:
 
     SET MyPartList to SHIP:PARTSNAMED("something").
 
-This gets all the Modules that hvae the same module name:
+This gets all the Modules that have the same module name:
 
     SET MyModList to SHIP:MODULESNAMED("something").
 
