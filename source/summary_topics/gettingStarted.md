@@ -257,9 +257,7 @@ without delay.  You do not need to restart the game.  If you do:
     LIST FILES.
 
 after saving the file from your external text editor program, you
-will see a listing of your file "hellolaunch" right away.  (*Outside*
-of the game, the filename has to have a `*.ks` suffix, but inside the
-game, you don't see the `.ks` part of the name.)
+will see a listing of your file "hellolaunch" right away.
 
 Okay, now copy it to your local drive and give it a try running it
 from there;
