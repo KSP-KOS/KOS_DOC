@@ -112,7 +112,6 @@ DEPENDENCIES
   middleman (~> 3.1.4)
   middleman-gh-pages
   middleman-livereload (~> 3.1.0)
-  rb-inotify
   ruby18_source_location
   therubyracer
   wdm (~> 0.1.0)
