@@ -171,14 +171,14 @@ To work with the archive, and create a second "hello world" file there, you issu
 *But where is it stored behind the scenes?*  The archive is currently
 slightly violating the design of KSP mods that puts everything in
 the GameData folder.  The kSP Archive is actually stored in the
-Plugins/PluginData/Archive folder of your MAIN KSP home, not inside
+`Ships/Script` folder of your MAIN KSP home, not inside
 GameData.
 
 If a file is stored inside the archive, it can actually be edited *by
 an external text editor of your choice* instead of using kOS's in-game
 editor.  This is usually a much better practice once you start doing
 more complex things with kOS.  You can also make new files in the
-archive folder.  Just make sure that all the files end with a .txt
+archive folder.  Just make sure that all the files end with a `.ks`
 filename suffix or kOS won't use them.
 
 Further reading about files and volumes:
@@ -242,14 +242,14 @@ you never actually have to type in the things you see after the slashes.
 They're there for your benefit when reading this document but you can
 leave them out if you wish.
 
-Save the file in your Plugins/PluginData/Archive folder of your KSP
-installation under the filename "hellolaunch.txt".  DO NOT save it anywhere
+Save the file in your `Ships/Script` folder of your KSP
+installation under the filename "hellolaunch.ks".  DO NOT save it anywhere
 under GameData/kOS/.  Do NOT.  According to the KSP standard, normally
 KSP mods should put their files in GameData/[mod name], but kOS puts
 the archive outside the GameData folder because it represents content
 owned by you, the player, not content owned by the kOS mod.
 
-By saving the file in Plugins/PluginData/Archive, you have actually
+By saving the file in `Ships/Script`, you have actually
 put it in your archive volume of kOS.  kOS will see it there immediately
 without delay.  You do not need to restart the game.  If you do:
 
@@ -258,8 +258,8 @@ without delay.  You do not need to restart the game.  If you do:
 
 after saving the file from your external text editor program, you
 will see a listing of your file "hellolaunch" right away.  (*Outside*
-of the game, the filename has to have a *.txt suffix, but inside the
-game, you don't see the .txt part of the name.)
+of the game, the filename has to have a `*.ks` suffix, but inside the
+game, you don't see the `.ks` part of the name.)
 
 Okay, now copy it to your local drive and give it a try running it
 from there;
@@ -285,7 +285,7 @@ for it to be able to run it.
 
 __Step 3: Make the script actually do something__
 
-Okay now go back into your *text editor of choice* and append a few more lines to the hellolaunch.txt file so it now looks like this:
+Okay now go back into your *text editor of choice* and append a few more lines to the hellolaunch.ks file so it now looks like this:
 
     // My First Launcher.
     //
@@ -312,7 +312,7 @@ Okay now go back into your *text editor of choice* and append a few more lines t
     // If the pogram just ended here, then that would cause the throttle
     // to turn back off again right away and nothing would happen.
 
-Save this file to hellolaunch.txt again, and re-copy it to your
+Save this file to hellolaunch.ks again, and re-copy it to your
 vessel that should still be sitting on the launchpad, then run it,
 like so:
 

@@ -249,7 +249,7 @@ The script we'll use to tune the highly overpowered rocket shown will launch the
     }
     COPY throttle_log TO 0.
 
-Give this script a short name, something like "tune.txt" so that running is simple:
+Give this script a short name, something like "tune.ks" so that running is simple:
 
     copy tune from 0.
     run tune(0.5).
