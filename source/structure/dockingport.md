@@ -5,12 +5,17 @@ Some of the Parts returned by [LIST PARTS](../../command/list/index.html#vessel-
 
 #### Structure
 
-Suffix      | Type      | Get | Set | Description
-------------|-----------|-----|-----|--------------------------------------
-All the suffixes of [Part](../part/index.html) | varies | .. | .. | A DockingPort is a kind of Part, and therefore can use all the suffixes of Part.  Shown below are only the suffixes that are unique to DockingPort
-:STATE      | string    | yes | no  |  One of the string values listed below after the table.
-:DOCKEDVESSELNAME | string | yes | no | name of the vessel docked to the port.
-:TARGETABLE | boolean | yes | no | True if this part can be picked with SET TARGET TO
+Suffix            | Type      | Get | Set | Method arguments | Description
+------------------|-----------|-----|-----|------------------|---------------------------------------------
+All the suffixes of [Part](../part/index.html) | varies | .. | .. | .. | A DockingPort is a kind of Part, and therefore can use all the suffixes of Part.  Shown below are only the suffixes that are unique to DockingPort
+:AQUIRERANGE      | Number    | yes | no  | no args | gets the range at which the port will "notice" another port and pull on it.
+:AQUIREFORCE      | Number    | yes | no  | no args | gets the force with which the port pulls on another port.
+:AQUIRETORQUE     | Number    | yes | no  | no args | gets the rotational force with which the port pulls on another port.
+:REENGAGEDDISTANCE| Number    | yes | no  | no args | how far the port has to get away after undocking in order to re-enable docking.
+:DOCKEDSHIPNAME   | Number    | yes | no  | no args | name of vessel on the other side of the docking port.
+:STATE            | string    | yes | no  | no args | One of the string values listed below after the table.
+:UNDOCK           | n/a       | n/a | no  | no args | CALL this as a method to cause the docking port to detach.
+:TARGETABLE       | boolean | yes | no | no args | True if this part can be picked with SET TARGET TO
 
 The values to the :STATE suffix can be any of the following:
 

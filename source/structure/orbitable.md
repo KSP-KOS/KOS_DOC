@@ -42,4 +42,4 @@ Suffix          | Type | Get | Set | Description
 :LONGITUDE | number | yes | no | The longitude in degrees of the spot on the surface of the SOI body directly under this object.  Longitude returned will always be normalized to be in the range [-180,180].
 :ALTITUDE | number | yes | no | The altitude in meters above the *sea level* surface of the SOI body (not the center of the SOI body.  To get the true radius of the orbit for proper math calculations remember to add altitude to the SOI body's radius.)
 :GEOPOSITION | [GeoCoordinates](../geocoordinates/index.html) | yes | no | A combined structure of the latitude and longitude numbers.
-
+:PATCHES | [List](../list/index.html) | yes | no  | The list of all the orbit patches that this object will transition to, not taking into account maneuver nodes.  The zero-th patch of the list is the current orbit.

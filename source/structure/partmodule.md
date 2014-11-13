@@ -1,8 +1,8 @@
 ﻿PartModule
 =====
 
-All rightclick menus and action group actions can be accessed via the
-partmodule objects that are attached to parts of a ship.
+Almost everything done with at rightclick menus and action group action can
+be accessed via the partmodule objects that are attached to parts of a ship.
 
 The exact arrangement of PartModules to Parts to Ships, and how to make
 use of a PartModule is a complex enough topic to warrant its own separate
@@ -63,9 +63,19 @@ menu for a part?  If so, then let kOS scripts GET the value.
 adjustments on the right-click context menu for a part, AND, is that
 tweakable a CURRENTLY enabled one?  If so, then let KOS scripts SET the
 value, BUT they must set it to one of the values that the GUI would normally
-allow or it will be denied.  (So if the gui presents a slider from 1 to 10,
-with detents on the 0.5 marks, then a kOS script could set that value to,
-say, 2.5, but not set it to 2.75, nor to 14, nor to -1.)
+allow, according to the following rules.
+  * If the KSPField is boolean:
+    * The value must be true, false, or 0 or 1.
+  * If the KSPField is an integer:
+    * The value must be a whole number.
+  * If the KSPField is a floating point sliding number:
+    * The GUI for this field will be definhed as a slider with a min value, a max value, with a fixed increment interval where the detents are.  When setting such a value, you will be constrained to the limits of this slider.
+      * For example: If a slider is defined to have a minimum value of 2.0, a maximum value of 5.0, and a minimum allowed delta increment of 0.1:
+        * If you try to set it to 0, it will instead become 2, the minimum allowed value.
+        * If you try to set it to 9, it will instead become 5, the maximum allowed value.
+        * If you try to set it to 3.14159, it will instead become 3.1, because that's rounding to the nearest increment step the slider supports.
+  * If the KSPField is a string:
+    * There is currently no way to set these because kOS uses the existence of a gui tweakable as "proof" that it's okay to modify the field, and in the stock game there are no gui tweakables for string fields.  This may change in the future if mods that extend the tweakables system are taken into account.
 
 ### For KSPEvents:
 
@@ -103,5 +113,4 @@ state.  For example, many of the stock lights in the game have a
 with a KSPFIeld would be simpler, but until "tweakables" existed in
 the main game, that wasn't an option so a lot of older Partmodules
 still do things the old way with two KSPEvents that swap in and out.
-
 

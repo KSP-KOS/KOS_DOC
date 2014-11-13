@@ -35,6 +35,84 @@ Reference:
 Parts
 -----
 
+### The short and quick thing to remember
+
+If you only remember one technique, it should be using the *:PARTSDUBBED* method
+described down below.  It's the most useful one that covers all the other cases.
+
+### Accessing the parts by various naming systems
+
+Any time you have a vessel variable, you can use these suffixes to get lists
+of parts on it by their names using several different naming schemes:
+
+**Part Tag**: A part's *tag* is whatever custom name you have given it using the
+[nametag system described here](../nametag/index.html).  This is probably the
+best naming convention to use because it lets you make up whatever name you like
+for the part and use it to pick the parts you want to deal with in your script.
+
+**Part Title**: A part's *title* is the name it has inside the GUI interface on
+the screen that you see as the user.
+
+**Part Name**: A part's *name* is the name it is given behind the scenes in KSP.
+It never appears in the normal GUI for the user to see, but it is used in places
+like Part.cfg files, the saved game persistence file, the ModuleManager mod,
+and so on.
+
+Assuming you've done one of these:
+
+    SET somevessel to SHIP.
+    //    Or this:
+    SET somevessel to VESSEL("some vessel's name").
+    //    Or this:
+    SET somevessel to TARGET. // assuming TARGET is a vessel and not a body or docking port.
+
+Then you can do one of these to query based on any of the above schemes:
+
+    // --------- :PARTSTAGGED -----------
+    // Finds all parts that have a nametag (Part:Tag suffix) matching the value given:
+    SET partlist to somevessel:PARTSTAGGED(nametag_of_part)
+
+    // --------- :PARTSTITLED -----------
+    // Finds all parts that have a title (Part:Title suffix) matching the value given:
+    SET partlist to somevessel:PARTSTITLED(title_of_part)
+
+    // --------- :PARTSNAMED -----------
+    // Finds all parts that have a name (Part:Name suffix) matching the value given:
+    SET partlist to somevessel:PARTSNAMED(name_of_part)
+
+    // --------- :PARTSDUBBED -----------
+    // Finds all parts matching the string in any naming scheme, without caring what kind of naming scheme it is
+    // This is essentially the combination of all the above three searches.
+    SET partlist to somevessel:PARTSDUBBED(any_of_the_above)
+
+In all cases the checks are performed case-insensitively.
+
+These are different styles of naming parts, all slightly different, and
+you can use any of them you like to get access to the part or parts
+you're interested in.
+
+They all return a [List](../../structure/list/index.html) of
+[Parts](../../structure/index.html) rather than just one single part.
+This is because any name could have more than one hit.  If you expect to
+get just one single hit, you can just look at the zero-th value of the
+list, like so:
+
+    SET onePart TO somevessel:PARTSDUBBED("my favorite engine")[0].
+
+If the name does not exist, you can tell by seeing if the list returned
+has a length of zero:
+
+    IF somevessel:PARTSDUBBED("my favorite engine"):LENGTH == 0 {
+      PRINT "There is no part named 'my favorite engine'.".
+    }.
+
+Examples:
+
+    // Change the altitude at which all the drouge chutes will deploy:
+    FOR somechute IN somevessel:PARTSNAMED("parachuteDrogue") {
+      somechute:GETMODULE("ModuleParachute"):SETFIELD("DEPLOYALTITUDE", 1500).
+    }.
+
 <img align="right" src="../../images/ship_parts_tree.png">
 
 ### Accessing the parts list as a tree
@@ -143,7 +221,7 @@ out of respect for the developers of other mods and the stock KSP game.  If
 they didn't allow the user to see or manipulate the variable directly in the GUI,
 then we shouldn't allow it to be manipulated or seen by a kOS script either.
 
-KSPFields are read or manipulated by the following two [suffixes of PartModule](../../structure/partmodule/index.html)
+KSPFields are read or manipulated by the following [suffixes of PartModule](../../structure/partmodule/index.html)
 
 * :GETFIELD("name of field").
 

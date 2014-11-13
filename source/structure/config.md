@@ -1,8 +1,18 @@
 Config
 ======
 
-Config is a special variable name that allows your kerboscript programs to
+<img align="right" src="../../images/config-panel.png" alt="control panel image" />
+CONFIG is a special variable name that allows your kerboscript programs to
 set or get the values stored in the kOS plugin's config file.
+
+The options here can also be set by using the user interface panel shown
+here. This control panel is part of the [App Control Panel](../../summmary_topics/applauncher_panel/index.html)
+
+In either case, whether the setting is changed via the GUI panel,
+or via script code, these are settings that ** _affect the kOS mod in
+all saved games_ ** as soon as the change is made.  It's identical to
+editing the config file in the kOS installation directory, and in fact
+will actually change that file the next time the game saves its state.
 
 ***
 
@@ -12,7 +22,10 @@ set or get the values stored in the kOS plugin's config file.
 
 An integer.  Gettable and Settable.  Configures the InstructionsPerUpdate setting.
 
-This is the number of kRISC psuedo-machine-langauge instructions that each kOS CPU will attempt to execute from the main program per [physics update tick](../../summary_topics/CPU_hardeare/index.html).
+This is the number of kRISC psuedo-machine-langauge instructions that each kOS CPU will attempt to execute from the main program per [physics update tick](../../summary_topics/CPU_hardware/index.html).
+
+This value is constrained to stay within the range [50..2000].  If you set it
+to a value outside that range, it will reset itself to remain in that range.
 
 
 ***

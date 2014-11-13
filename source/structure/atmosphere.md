@@ -11,12 +11,12 @@ of a body's atmosphere.
 
 SUFFIX            | Type   | Description
 ------------------|--------|------------
+:BODY             | string | The Body that this atmosphere is around - as a STRING NAME, not a Body object.
 :EXISTS           | bool   | True if this atmosphere is "real" and not just a dummy placeholder.
-:HASOXYGEN        | bool   | True if the air has oxygen and could therefore be used by a jet engine's intake.
+:OXYGEN           | bool   | True if the air has oxygen and could therefore be used by a jet engine's intake.
 :SCALE            | double | A math constant plugged into a formula to find atmosphere density (see below).
 :SEALEVELPRESSURE | double | Nuber of Atm's at planet's sea level 1.0 Atm's = same as Kerbin.
 :HEIGHT           | float  | The altitude at which the atmosphere is "officially" advertised as ending.  (actual ending value differs, see below).
-:BODY             | string | The Body that this atmosphere is around - as a STRING NAME, not a Body object.
 
 Atmospheric math
 ================
@@ -28,6 +28,11 @@ First off, be aware that atmosphere can be measured three different ways:
 * **Atm's** : a multiple of the pressure at Kerbin sea level.  An atmosphere of 0.5 is half as much air pressure as at Kerbin's sea level.  This is the measure used by :SEALEVELPRESSURE
 * **pressure** : A measure of the force the air pushes on a surface with.  In SI units, it's Newtons per Square Meter.  *This value is almost never used directly in any calculation.  Instead you just calculate everything in terms of multiples of Atm's.*
 * **density** : A measure of how much mass of air there is in a volume of space.  In SI units, it's Kilograms per Cubic Meter.
+
+The following only applies to the STOCK KSP atmosphere.
+-------------------------------------------------------
+
+> _If you have installed a mod such as [FAR](http://forum.kerbalspaceprogram.com/threads/20451-0-25-Ferram-Aerospace-Research-v0-14-3-2-10-21-14), that changes the atmosphere, then much of what is said below will not apply._
 
 The level of atmosphere can be calculated for any altitude as follows:
 

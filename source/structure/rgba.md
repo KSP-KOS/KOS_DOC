@@ -17,7 +17,7 @@ Method 1: Use one of these pre-arranged named colors:
 
 Method 2: Use the RGB() function to build your own color.
 
-RGB( r,g,b ).
+    SET myColor TO RGB( r,g,b ).
 
 * r = a floating point number from 0.0 to 1.0 for the red component.
 * g = a floating point number from 0.0 to 1.0 for the green component.
@@ -25,7 +25,7 @@ RGB( r,g,b ).
 
 Method 3: Use the RGBA() function to build your own color with an alpha channel (transparency).
 
-RGBA( r,g,b,a ).
+    SET myColor TO RGBA( r,g,b,a ).
 
 * r = a floating point number from 0.0 to 1.0 for the red component.
 * g = a floating point number from 0.0 to 1.0 for the green component.

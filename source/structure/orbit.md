@@ -26,6 +26,7 @@ in radians, please make a bug report.
 
 Suffix            | Type      | Get | Set | Description
 ------------------|-----------|-----|-----|--------------------------------------
+:NAME             | String    | yes | no  | a name for this orbit.
 :APOAPSIS         | Number (meters)  | yes | no | The max altitude expected to be reached.
 :PERIAPSIS        | Number (meters)  | yes | no | The min altitude expected to be reached.
 :BODY             | [Body](../body/index.html)  | yes | no | The celestial body this orbit is orbiting.
@@ -38,6 +39,9 @@ Suffix            | Type      | Get | Set | Description
 :ARGUMENTOFPERIAPSIS | Number | yes | no  | [Wiki link](http://en.wikipedia.org/wiki/Argument_of_periapsis)
 :TRUEANOMALY         | Number | yes | no  | [Wiki link](http://en.wikipedia.org/wiki/True_anomaly)
 :MEANANOMALYATEPOCH  | Number | yes | no  | [Wiki link](http://en.wikipedia.org/wiki/Mean_anomaly)
+:TRANSITION          | String | yes | no  | Describes the way in which this orbit will end and become a different orbit, with a value taken [from this list](#Transition_names).
+:POSITION            | Vector | yes | no  | The current position of whatever the object is that is in this orbit.
+:VELOCITY            | Vector | yes | no  | The current velocity of whatever the object is that is in this orbit.
 :NEXTPATCH           | Orbit  | yes | no  | When this orbit has a transition to another orbit coming up, this suffix returns the next Orbit patch after this one.  For example, when escaping from a Mun orbit into a Kerbin orbit from which you will escape and hit a Solar orbit, then the current orbit's :NEXTPATCH will show the Kerbin orbit, and :NEXTPATCH:NEXTPATCH will show the solar orbit.  The number of patches into the future that you can peek depends on your conic patches setting in your Kerbal Space Program Settings.cfg file.
 :HASNEXTPATCH        | Boolean| yes | no  | If :NEXTPATCH will return a valid patch, this is true.  If :NEXTPATCH will not return a valid patch because there are no transitions occurring in the future, then :HASNEXTPATCH will be false.
 
@@ -48,3 +52,12 @@ Suffix            | Type      | Get | Set | Description
 Suffix            | Type      | Get | Set | Description
 ------------------|-----------|-----|-----|--------------------------------------
 :PATCHES             | [LIST](../list/index.html)   | yes | no | This suffix no longer works after v0.15.  To get the same functionality, you must use the :PATCHES suffix of the [Vessel itself](../vessel/index.html)
+
+### Transition names
+
+* **"INITIAL"** - Refers to the pure of a new orbit, which is a value you will never see from the :TRANSITION suffix (it refers to the start of the orbit patch, and :TRANSITION only refers to the end of the patch.
+* **"FINAL"** - Means that no transition to a new orbit is expected.  It this orbit is the orbit that will remain forever.
+* **"ENCOUNTER"** - Means that this orbit will enter a new SOI of another orbital body that is smaller in scope and is "inside" the current one.  (example: currently in Sun orbit, will enter Duna Orbit.)
+* **"ESCAPE"** - Means that this orbit will enter a new SOI of another orbital body that is larger in scope and is "outside" the current one.  (example: currently in Kerbin orbit, will enter Sun Orbit.)
+* **"MANEUVER"** - Means that this orbit will end due to a manuever node that starts a new orbit?
+

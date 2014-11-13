@@ -13,11 +13,19 @@ These are equivalent. They get the full list of all the parts:
     LIST PARTS IN MyPartList.
     SET MyPartlist TO SHIP:PARTS.
 
-This gets all the parts that have the same part name:
+This gets all the parts that have the name given, as either a 
+nametag (Part:TAG), a title (Part:TITLE), or a name, (Part:NAME):
 
-    SET MyPartList to SHIP:PARTSNAMED("something").
+    SET MyPartList to SHIP:PARTSDUBBED("something").
 
-This gets all the Modules that have the same module name:
+These are other ways to get parts that are more specific about what
+exact nomenclature system is being used:
+
+    SET MyPartList to SHIP:PARTSTAGGED("something"). // only gets parts with Part:TAG = "something".
+    SET MyPartList to SHIP:PARTSTITLED("something"). // only gets parts with Part:TITLE = "something".
+    SET MyPartList to SHIP:PARTSNAMED("something"). // only gets parts with Part:NAME = "something".
+
+This gets all the PartModules on a ship that have the same module name:
 
     SET MyModList to SHIP:MODULESNAMED("something").
 

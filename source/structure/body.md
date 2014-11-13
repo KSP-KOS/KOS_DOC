@@ -25,8 +25,8 @@ Suffix       | Type     | Description
 :NAME        | string | name of the body, i.e. "Mun"
 :DESCRIPTION | string | Longer description of the body, often just a duplicate of the name
 :MASS        | Number | The mass of the body in kilograms
-:POSITION    | [Vector](../vector/index.html) in [SHIP-RAW reference frame]](../../ref_frame/index.html) | The location of the body's center of mass, relative to the SHIP's current position.
 :ALTITUDE    | Number (meters) | The altitude of this body above the sea level surface of its parent body.  (i.e. the altitude of Mun above Kerbin).
+:ROTATIONPERIOD | Number | The length of the body's day in seconds (how long it takes for it to make one rotation).
 :RADIUS      | Number (meters) | The radius from the body's center to its sea level.
 :MU          | Number [Wikipedia](http://en.wikipedia.org/wiki/Standard_gravitational_parameter) | The Gravitational Parameter of the body.
 :ATM         | [Atmosphere](../atmosphere/index.html) | A variable that describes the atmosphere of this body.

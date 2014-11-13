@@ -154,7 +154,10 @@ This is not a complete list.  The examples here are just to give a taste of what
 * [Querying a vessel's parts](command/shipquery/index.html)
     * PARTS
     * PARTSINGROUP
+    * PARTSDUBBED
     * PARTSNAMED
+    * PARTSTITLED
+    * PARTSTAGGED
     * MODULESNAMED
     * MODULESINGROUP
 
@@ -225,12 +228,14 @@ Summary Topics
 
 Useful topics and reference information:
 
+* [App Control Panel](summary_topics/applauncher_panel/index.html)
 * [Getting Started](summary_topics/gettingstarted/index.html)
 * [Volumes](summary_topics/volumes/index.html)
-* [CommRange](summary_topics/commrange/index.html)
 * [Ship Steering](summary_topics/ship_control/index.html)
+* [Name Tag System](summary_topics/nametag/index.html)
 * [Ship Parts and Modules](summary_topics/ship_parts_and_modules/index.html)
 * [CPU vessel](summary_topics/CPU_vessel/index.html)
+* [CommRange](summary_topics/commrange/index.html)
 
 BUILT-IN SPECIAL VARIABLE NAMES
 ===============================
