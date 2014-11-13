@@ -6,7 +6,7 @@ CONFIG is a special variable name that allows your kerboscript programs to
 set or get the values stored in the kOS plugin's config file.
 
 The options here can also be set by using the user interface panel shown
-here. This control panel is part of the [App Control Panel](../../summmary_topics/applauncher_panel/index.html)
+here. This control panel is part of the [App Control Panel](../../summary_topics/applauncher_panel/index.html)
 
 In either case, whether the setting is changed via the GUI panel,
 or via script code, these are settings that ** _affect the kOS mod in
