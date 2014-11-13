@@ -31,7 +31,7 @@ Suffix      | Type     | Get | Set | Method&nbsp;Arguments | Description
 These are the meanings of the part naming fields:
 
 **Part:TAG**: A part's *tag* is whatever custom name you have given it using the
-[nametag system described here](../nametag/index.html).  This is probably the
+[nametag system described here](../../summary_topics/nametag/index.html).  This is probably the
 best naming convention to use because it lets you make up whatever name you like
 for the part and use it to pick the parts you want to deal with in your script.
 
