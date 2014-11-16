@@ -142,6 +142,7 @@ This is not a complete list.  The examples here are just to give a taste of what
     * RENAME
     * REMOVE
     * RUN
+    * COMPILE
     * SWITCH.. TO
 
 * [Listing Data](command/list/index.html)
@@ -236,6 +237,7 @@ Useful topics and reference information:
 * [Ship Parts and Modules](summary_topics/ship_parts_and_modules/index.html)
 * [CPU vessel](summary_topics/CPU_vessel/index.html)
 * [CommRange](summary_topics/commrange/index.html)
+* [KSM files and COMPILE](summary_topics/MLfile/index.html)
 
 BUILT-IN SPECIAL VARIABLE NAMES
 ===============================
