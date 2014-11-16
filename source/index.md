@@ -93,14 +93,20 @@ Many structures also let you set a specific component of them, for example:
     SET VEC:X to VEC:X * 4.  // multiply just the X part of VEC by 4.
     PRINT VEC.  // Results in V(40,10,10).
 
-**(New with v0.15)** Structures also often contain methods.  A method is a suffix of a structure that actually
+<a name="structure_methods"></a>
+
+### Structure Methods
+
+Structures also often contain methods.  A method is a suffix of a structure that actually
+
+**(New with v0.15)**
 performs an activity when you mention it, and can sometimes take parameters.
 
 The following are examples of calling methods of a structure:
 
-    LIST PARTS IN PLIST. // Gets a list of all the parts on the current ship.
-    PLIST:REMOVE(0).
-    PRINT PLIST:SUBLIST(0,4).
+    SET PLIST TO SHIP:PARTSDUBBED("my engines"). // calling a suffix method with one argument that returns a list.
+    PLIST:REMOVE(0). // calling a suffix method with one argument that doesn't return anything.
+    PRINT PLIST:SUBLIST(0,4). // calling a suffix method with 2 arguments that returns a list.
 
 A full list of structure types is listed further down this page.
 
