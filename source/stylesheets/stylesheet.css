@@ -186,48 +186,6 @@ p.tagline {
   filter:alpha(opacity=1);
 }
 
-.current-section {
-  /* hard coding this to make it go away by being tiny, 1 pixel in size,
-  * rather than
-  * by trying to delve through the ugly middleman mess to find where
-  * the code is adding this garbage too-big header that everyone hates.
-  */
-
-  width: 1px;
-  height: 1px;
-  visibility: hidden;
-}
-
-.current-section p {
-  padding: 5px 27px;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.current-section a {
-  float: right;
-  text-indent: -10000px;
-  background: transparent url(../images/top.png) no-repeat 0 0;
-  width: 20px;
-  height: 20px;
-  opacity: 0.8;
-  margin-right: 12px;
-  margin-top: 12px;
-  -moz-opacity: 0.8;
-  filter:alpha(opacity=8);
-  -webkit-transition: opacity ease-in-out 0.3s;
-}
-
-.current-section a:hover {
-  opacity: 1;
-  -moz-opacity: 1;
-  filter:alpha(opacity=1);
-}
-
-.current-section a.zip {
-  margin-right: 8px;
-}
-
 a.forum,
 a.forum span {
     background: transparent url(../images/forum.png) no-repeat 0 0;
