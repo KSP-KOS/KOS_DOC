@@ -13,6 +13,7 @@ All the suffixes of [Part](../part/index.html) | varies | .. | .. | .. | A Docki
 :AQUIRETORQUE     | Number    | yes | no  | no args | gets the rotational force with which the port pulls on another port.
 :REENGAGEDDISTANCE| Number    | yes | no  | no args | how far the port has to get away after undocking in order to re-enable docking.
 :DOCKEDSHIPNAME   | Number    | yes | no  | no args | name of vessel on the other side of the docking port.
+:PORTFACING       | [Direction](../direction/index.html) | yes | no  | no args | Gets the facing of this docking port which may differ from the facing of the part itself if the docking port is aimed out the side of the part, as in the case of the inline shielded docking port.
 :STATE            | string    | yes | no  | no args | One of the string values listed below after the table.
 :UNDOCK           | n/a       | n/a | no  | no args | CALL this as a method to cause the docking port to detach.
 :TARGETABLE       | boolean | yes | no | no args | True if this part can be picked with SET TARGET TO
