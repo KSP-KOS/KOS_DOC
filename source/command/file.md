@@ -199,7 +199,7 @@ file commands allow.  This is very important.
 > of actually compiling subprogram scripts until run-time, it still has to
 > generate some header info about them at compile time, and the filename
 > has to be set in stone at that time.  Changing this would require a 
-> large re-write of some of the archetecture of the virtual machine.
+> large re-write of some of the architecture of the virtual machine.
 
 ***
 
