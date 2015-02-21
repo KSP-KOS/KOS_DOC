@@ -32,7 +32,7 @@ The following rules apply as limitations to the bareword filenames:
 
 * The **RUN command only works with bareword filenames**, not expression filenames.  Every other command works with either type of filename.
 * Filenames containing any characters other than A-Z, 0-9, underscore, and the period extension separator ('.'), can only be referred to using a string expression (with quotes), and cannot be used as a bareword expression (without quotes).
-* If your filesystem is case-senstive (Linux and sometimes Mac OSX, or even Windows if using some kinds of remote network drives), then bareword filenames will only work properly on filenames that are all lowercase.  If you try to use a file with capital letters in the name on these systems, you will only be able to do so by quoting it.
+* If your filesystem is case-sensitive (Linux and sometimes Mac OSX, or even Windows if using some kinds of remote network drives), then bareword filenames will only work properly on filenames that are all lowercase.  If you try to use a file with capital letters in the name on these systems, you will only be able to do so by quoting it.
 
 **Volumes too:**
 
@@ -50,7 +50,7 @@ The rules for filenames also apply to volumes.  You may do this for example:
 * argument 1: Name of source file.
 * argument 2: Name of destination file.  If the optional argument 2 is missing, it will assume it's the same as argument 1, but with a file extension changed to *.ksm.
 
-Pre-compiles a script into an [Kerboscript ML Exceutable image](../../summary_topics/MLfile/index.html) that can be used instead of executing the program discript directly.
+Pre-compiles a script into an [Kerboscript ML Executable image](../../summary_topics/MLfile/index.html) that can be used instead of executing the program script directly.
 
 The RUN command (elsewhere on this page) can work with either *.ks script files or *.ksm compiled files.
 
@@ -112,7 +112,7 @@ Edits a program on the currently selected volume.
 
 NOTE: The Edit feature was lost in version 0.11 but is back again after version 0.12.2 under a new
 guise.  The new editor is unable to show a monospace font for a series of complex reasons involving
-how Unity works and how squad bundled the KSP game.  The editor works, but will be in a proporional
+how Unity works and how squad bundled the KSP game.  The editor works, but will be in a proportional
 width font, which isn't ideal for editing code.  The best way to edit code remains to use a text
 editor external to KSP, however for a fast peek at the code during play, this editor is useful.
 
