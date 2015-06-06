@@ -225,7 +225,7 @@
 
     <span class="c1">//throttle is 100% until there is less than 1 second of time left to burn</span>
     <span class="c1">//when there is less than 1 second - decrease the throttle linearly</span>
-    <span class="n">set</span> <span class="n">tset</span> <span class="n">to</span> <span class="n">min</span><span class="p">(</span><span class="n">nd</span><span class="o">:</span><span class="n">deltav</span><span class="o">:</span><span class="n">mag</span><span class="o">/</span><span class="n">maxa_acc</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span>
+    <span class="n">set</span> <span class="n">tset</span> <span class="n">to</span> <span class="n">min</span><span class="p">(</span><span class="n">nd</span><span class="o">:</span><span class="n">deltav</span><span class="o">:</span><span class="n">mag</span><span class="o">/</span><span class="n">max_acc</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span>
 
     <span class="c1">//here&#39;s the tricky part, we need to cut the throttle as soon as our nd:deltav and initial deltav start facing opposite directions</span>
     <span class="c1">//this check is done via checking the dot product of those 2 vectors</span>
