@@ -365,7 +365,7 @@ time, which
 is what TIME returns.
 
 It's important to be aware of the `frozen update
-nature <general/CPU_hardware.html#FROZEN>`__ of the kOS
+nature <general/cpu_hardware.html#FROZEN>`__ of the kOS
 computer when reading TIME.
 
 System Variables
