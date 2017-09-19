@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Catalog of Bound Variable Names &mdash; kOS 1.1.2 documentation</title>
+  <title>Catalog of Bound Variable Names &mdash; kOS 1.1.3.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="author" title="About these documents"
               href="about.html"/>
         <link rel="copyright" title="Copyright" href="copyright.html"/>
-    <link rel="top" title="kOS 1.1.2 documentation" href="index.html"/>
+    <link rel="top" title="kOS 1.1.3.0 documentation" href="index.html"/>
         <link rel="up" title="General Topics" href="general.html"/>
         <link rel="next" title="CPU Vessel (SHIP)" href="general/cpu_vessel.html"/>
         <link rel="prev" title="General Topics" href="general.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                1.1.2
+                1.1.3.0
               </div>
             
           
@@ -716,10 +716,11 @@ outside the simulated universe of the game and are more about
 the game&#8217;s user interface or the kOS mod itself.  They represent things
 that slightly &#8220;break the fourth wall&#8221; and let your script access
 something entirely outside the in-character experience.</p>
-<div class="highlight-kerboscript"><div class="highlight"><pre><span></span><span class="k">PRINT</span> <span class="nv">VERSION</span><span class="p">.</span>            <span class="c1">// Returns operating system version number. e.g. 0.8.6</span>
-<span class="k">PRINT</span> <span class="nv">VERSION</span><span class="p">:</span><span class="nv">MAJOR</span><span class="p">.</span>      <span class="c1">// Returns major version number. e.g. 0</span>
-<span class="k">PRINT</span> <span class="nv">VERSION</span><span class="p">:</span><span class="nv">MINOR</span><span class="p">.</span>      <span class="c1">// Returns minor version number. e.g. 8</span>
-<span class="k">PRINT</span> <span class="nv">VERSION</span><span class="p">:</span><span class="nv">BUILD</span><span class="p">.</span>      <span class="c1">// Returns build version number. e.g. 6</span>
+<div class="highlight-kerboscript"><div class="highlight"><pre><span></span><span class="k">PRINT</span> <span class="nv">VERSION</span><span class="p">.</span>            <span class="c1">// Returns operating system version number. e.g. 0.1.2.3</span>
+<span class="k">PRINT</span> <span class="nv">VERSION</span><span class="p">:</span><span class="nv">MAJOR</span><span class="p">.</span>      <span class="c1">// Returns major version number. e.g. 0 if version is 0.1.2.3</span>
+<span class="k">PRINT</span> <span class="nv">VERSION</span><span class="p">:</span><span class="nv">MINOR</span><span class="p">.</span>      <span class="c1">// Returns minor version number. e.g. 1 if version is 0.1.2.3</span>
+<span class="k">PRINT</span> <span class="nv">VERSION</span><span class="p">:</span><span class="nv">PATCH</span><span class="p">.</span>      <span class="c1">// Returns patch version number. e.g. 2 if version is 0.1.2.3</span>
+<span class="k">PRINT</span> <span class="nv">VERSION</span><span class="p">:</span><span class="nv">BUILD</span><span class="p">.</span>      <span class="c1">// Returns build version number. e.g. 3 if version is 0.1.2.3</span>
 <span class="k">PRINT</span> <span class="nv">SESSIONTIME</span><span class="p">.</span>        <span class="c1">// Returns amount of time, in seconds, from vessel load.</span>
 </pre></div>
 </div>
@@ -906,7 +907,7 @@ to kOS that are designed to support the features introduced by some other mods. 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.1.2',
+            VERSION:'1.1.3.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
