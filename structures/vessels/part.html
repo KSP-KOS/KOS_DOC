@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Part &mdash; kOS 1.1.3.0 documentation</title>
+  <title>Part &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../../about.html"/>
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
         <link rel="copyright" title="Copyright" href="../../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../../index.html"/>
         <link rel="up" title="Vessels and Parts" href="../vessels.html"/>
         <link rel="next" title="PartModule" href="partmodule.html"/>
         <link rel="prev" title="Maneuver Node" href="node.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../downloads_links.html">Downloads and Links</a></li>
@@ -117,7 +126,7 @@
 <li class="toctree-l3"><a class="reference internal" href="gimbal.html">Gimbal</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kosprocessor.html">kOSProcessor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="node.html">Maneuver Node</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">Part</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Part</a></li>
 <li class="toctree-l3"><a class="reference internal" href="partmodule.html">PartModule</a></li>
 <li class="toctree-l3"><a class="reference internal" href="resource.html">Resource</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sciencedatavalue.html">ScienceData</a></li>
@@ -152,8 +161,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -166,23 +177,40 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../structures.html">Structure Reference</a> &raquo;</li>
-      
+        
           <li><a href="../vessels.html">Vessels and Parts</a> &raquo;</li>
-      
-    <li>Part</li>
+        
+      <li>Part</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/structures/vessels/part.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../_sources/structures/vessels/part.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -190,11 +218,11 @@
             
   <div class="section" id="part">
 <span id="id1"></span><h1>Part<a class="headerlink" href="#part" title="Permalink to this headline">¶</a></h1>
-<p>These are the generic properties every PART has. You can obtain a list of values of type Part using the <a class="reference internal" href="../../commands/list.html#list-command"><span>LIST PARTS command</span></a>.</p>
+<p>These are the generic properties every PART has. You can obtain a list of values of type Part using the <a class="reference internal" href="../../commands/list.html#list-command"><span class="std std-ref">LIST PARTS command</span></a>.</p>
 <dl class="structure">
 <dt id="structure:PART">
 <em class="property">structure </em><code class="descname">Part</code><a class="headerlink" href="#structure:PART" title="Permalink to this definition">¶</a></dt>
-<dd><table border="1" class="docutils" id="id2">
+<dd><table border="1" class="colwidths-given docutils" id="id2">
 <caption><span class="caption-text">Members</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="25%" />
@@ -351,9 +379,9 @@ Part:<code class="descname">TAG</code><a class="headerlink" href="#attribute:PAR
 </tr>
 </tbody>
 </table>
-<p>The name tag value that may exist on this part if you have given the part a name via the <a class="reference internal" href="../../general/nametag.html#nametag"><span>name-tag system</span></a>.</p>
-<p>A part&#8217;s <em>tag</em> is whatever custom name you have given it using the <a class="reference internal" href="../../general/nametag.html#nametag"><span>name-tag system described here</span></a>. This is probably the best naming convention to use because it lets you make up whatever name you like for the part and use it to pick the parts you want to deal with in your script.</p>
-<p>WARNING: This suffix is only settable for parts attached to the <a class="reference internal" href="../../general/cpu_vessel.html#cpu-vessel"><span>CPU Vessel</span></a></p>
+<p>The name tag value that may exist on this part if you have given the part a name via the <a class="reference internal" href="../../general/nametag.html#nametag"><span class="std std-ref">name-tag system</span></a>.</p>
+<p>A part&#8217;s <em>tag</em> is whatever custom name you have given it using the <a class="reference internal" href="../../general/nametag.html#nametag"><span class="std std-ref">name-tag system described here</span></a>. This is probably the best naming convention to use because it lets you make up whatever name you like for the part and use it to pick the parts you want to deal with in your script.</p>
+<p>WARNING: This suffix is only settable for parts attached to the <a class="reference internal" href="../../general/cpu_vessel.html#cpu-vessel"><span class="std std-ref">CPU Vessel</span></a></p>
 <p>This example assumes you have a target vessel picked, and that the target vessel is loaded into full-physics range and not &#8220;on rails&#8221;. vessels that are &#8220;on rails&#8221; do not have their full list of parts entirely populated at the moment:</p>
 <div class="highlight-kerboscript"><div class="highlight"><pre><span></span><span class="k">LIST</span> <span class="nv">PARTS</span> <span class="k">FROM</span> <span class="nv">TARGET</span> <span class="nv">IN</span> <span class="nv">tParts</span><span class="p">.</span>
 
@@ -393,7 +421,7 @@ the &#8220;control from&#8221; setting other than to pick another part and set i
 to that part instead.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">This suffix is only callable for parts attached to the <a class="reference internal" href="../../general/cpu_vessel.html#cpu-vessel"><span>CPU Vessel</span></a></p>
+<p class="last">This suffix is only callable for parts attached to the <a class="reference internal" href="../../general/cpu_vessel.html#cpu-vessel"><span class="std std-ref">CPU Vessel</span></a></p>
 </div>
 </dd></dl>
 
@@ -661,7 +689,7 @@ Part:<code class="descname">PARENT</code><a class="headerlink" href="#attribute:
 </tr>
 </tbody>
 </table>
-<p>When walking the <a class="reference internal" href="../../general/parts_and_partmodules.html#parts-and-partmodules"><span>tree of parts</span></a>, this is the part that this part is attached to on the way &#8220;up&#8221; toward the root part.</p>
+<p>When walking the <a class="reference internal" href="../../general/parts_and_partmodules.html#parts-and-partmodules"><span class="std std-ref">tree of parts</span></a>, this is the part that this part is attached to on the way &#8220;up&#8221; toward the root part.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -694,7 +722,7 @@ Part:<code class="descname">HASPARENT</code><a class="headerlink" href="#attribu
 </tr>
 </tbody>
 </table>
-<p>When walking the <a class="reference internal" href="../../general/parts_and_partmodules.html#parts-and-partmodules"><span>tree of parts</span></a>, this is true as long as there is a parent part to this part, and is false if this part has no parent (which can only happen on the root part).</p>
+<p>When walking the <a class="reference internal" href="../../general/parts_and_partmodules.html#parts-and-partmodules"><span class="std std-ref">tree of parts</span></a>, this is true as long as there is a parent part to this part, and is false if this part has no parent (which can only happen on the root part).</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -710,22 +738,25 @@ Part:<code class="descname">CHILDREN</code><a class="headerlink" href="#attribut
 </tr>
 </tbody>
 </table>
-<p>When walking the <a class="reference internal" href="../../general/parts_and_partmodules.html#parts-and-partmodules"><span>tree of parts</span></a>, this is all the parts that are attached as children of this part. It returns a list of zero length when this part is a &#8220;leaf&#8221; of the parts tree.</p>
+<p>When walking the <a class="reference internal" href="../../general/parts_and_partmodules.html#parts-and-partmodules"><span class="std std-ref">tree of parts</span></a>, this is all the parts that are attached as children of this part. It returns a list of zero length when this part is a &#8220;leaf&#8221; of the parts tree.</p>
 </dd></dl>
 
 </div>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="partmodule.html" class="btn btn-neutral float-right" title="PartModule" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="partmodule.html" class="btn btn-neutral float-right" title="PartModule" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="node.html" class="btn btn-neutral" title="Maneuver Node" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="node.html" class="btn btn-neutral" title="Maneuver Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -756,16 +787,17 @@ Part:<code class="descname">CHILDREN</code><a class="headerlink" href="#attribut
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

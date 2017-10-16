@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>kOS Settings Windows &mdash; kOS 1.1.3.0 documentation</title>
+  <title>kOS Settings Windows &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../about.html"/>
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
         <link rel="copyright" title="Copyright" href="../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../index.html"/>
         <link rel="up" title="General Topics" href="../general.html"/>
         <link rel="next" title="Making GUIs in kOS" href="gui.html"/>
         <link rel="prev" title="KOS Processor PartModule Configuration Fields" href="kospartmodule.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../downloads_links.html">Downloads and Links</a></li>
@@ -101,9 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cpu_vessel.html">CPU Vessel (SHIP)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpu_hardware.html">CPU Hardware</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kospartmodule.html">Game Part</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Settings Windows</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Settings Windows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gui.html">Making User GUIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="telnet.html">Telnet Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="volumes.html">Files &amp; Volumes</a></li>
@@ -134,8 +141,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -148,21 +157,38 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../general.html">General Topics</a> &raquo;</li>
-      
-    <li>kOS Settings Windows</li>
+        
+      <li>kOS Settings Windows</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/general/settingsWindows.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/general/settingsWindows.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -257,8 +283,8 @@ the current save game.</p>
 <li>When kOS has an error, some error messages have alternative longer paragraph-length descriptions that this enables. See <a class="reference internal" href="../structures/misc/config.html#attribute:CONFIG:VERBOSE" title="CONFIG:VERBOSE attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">Config:VERBOSE</span></code></a></li>
 <li>If you have the &#8220;Blizzy Toolbar&#8221; mod installed, only put the kOS button on it instead of both it and the stock toolbar.</li>
 <li>(For mod developers) Spams the Unity log file with a message for every time an opcode is executed in the virtual machine.  Very laggy. See <a class="reference internal" href="../structures/misc/config.html#attribute:CONFIG:DEBUGEACHOPCODE" title="CONFIG:DEBUGEACHOPCODE attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">Config:DEBUGEACHOPCODE</span></code></a></li>
-<li><a class="reference internal" href="../commands/communication.html#connectivitymanagers"><span>Connectivity manager</span></a> selector</li>
-<li>List of all available <a class="reference internal" href="../commands/communication.html#connectivitymanagers"><span>connectivity managers</span></a>.</li>
+<li><a class="reference internal" href="../commands/communication.html#connectivitymanagers"><span class="std std-ref">Connectivity manager</span></a> selector</li>
+<li>List of all available <a class="reference internal" href="../commands/communication.html#connectivitymanagers"><span class="std std-ref">connectivity managers</span></a>.</li>
 <li>Brightness of a kOS terminal when it appears for the first time in a scene. (You must reload the scene to see the effect of any changes to this slider.)</li>
 </ol>
 </div>
@@ -266,15 +292,18 @@ the current save game.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gui.html" class="btn btn-neutral float-right" title="Making GUIs in kOS" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gui.html" class="btn btn-neutral float-right" title="Making GUIs in kOS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="kospartmodule.html" class="btn btn-neutral" title="KOS Processor PartModule Configuration Fields" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="kospartmodule.html" class="btn btn-neutral" title="KOS Processor PartModule Configuration Fields" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -305,16 +334,17 @@ the current save game.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

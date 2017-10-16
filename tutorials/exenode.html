@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Execute Node Script &mdash; kOS 1.1.3.0 documentation</title>
+  <title>Execute Node Script &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../about.html"/>
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
         <link rel="copyright" title="Copyright" href="../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../index.html"/>
         <link rel="up" title="Tutorials" href="../tutorials.html"/>
         <link rel="next" title="Creating Reusable GUI Elements" href="gui.html"/>
         <link rel="prev" title="PID Loops in kOS" href="pidloops.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../downloads_links.html">Downloads and Links</a></li>
@@ -98,7 +107,7 @@
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="designpatterns.html">Design Patterns</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pidloops.html">PID Loops</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Execute Node script</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Execute Node script</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gui.html">Making a tabbed GUI</a></li>
 </ul>
 </li>
@@ -124,8 +133,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -138,21 +149,38 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../tutorials.html">Tutorials</a> &raquo;</li>
-      
-    <li>Execute Node Script</li>
+        
+      <li>Execute Node Script</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/tutorials/exenode.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/tutorials/exenode.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -161,7 +189,7 @@
   <div class="section" id="execute-node-script">
 <span id="exenode"></span><h1>Execute Node Script<a class="headerlink" href="#execute-node-script" title="Permalink to this headline">¶</a></h1>
 <p>Let&#8217;s try to automate one of the most common tasks in orbital maneuvering - execution of the maneuver node. In this tutorial I&#8217;ll try to show you how to write a script for somewhat precise maneuver node execution.</p>
-<p>So to start our script we need to get the next available <a class="reference internal" href="../structures/vessels/node.html#maneuver-node"><span>maneuver node</span></a>:</p>
+<p>So to start our script we need to get the next available <a class="reference internal" href="../structures/vessels/node.html#maneuver-node"><span class="std std-ref">maneuver node</span></a>:</p>
 <div class="highlight-kerboscript"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nv">nd</span> <span class="ow">to</span> <span class="nv">nextnode</span><span class="p">().</span>
 </pre></div>
 </div>
@@ -262,15 +290,18 @@
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gui.html" class="btn btn-neutral float-right" title="Creating Reusable GUI Elements" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gui.html" class="btn btn-neutral float-right" title="Creating Reusable GUI Elements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="pidloops.html" class="btn btn-neutral" title="PID Loops in kOS" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="pidloops.html" class="btn btn-neutral" title="PID Loops in kOS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -301,16 +332,17 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

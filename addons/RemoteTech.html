@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>RemoteTech &mdash; kOS 1.1.3.0 documentation</title>
+  <title>RemoteTech &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../about.html"/>
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
         <link rel="copyright" title="Copyright" href="../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../index.html"/>
         <link rel="up" title="Addon Reference" href="../addons.html"/>
         <link rel="next" title="Kerbal Alarm Clock" href="KAC.html"/>
         <link rel="prev" title="Action Groups Extended" href="AGX.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../downloads_links.html">Downloads and Links</a></li>
@@ -103,9 +112,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../structures.html">Structures</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../addons.html">Addons</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="AGX.html">Action Groups Extended</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">RemoteTech</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RemoteTech</a></li>
 <li class="toctree-l2"><a class="reference internal" href="KAC.html">Kerbal Alarm Clock</a></li>
 <li class="toctree-l2"><a class="reference internal" href="IR.html">Infernal Robotics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OrbitalScience.html">DMagic Orbital Science</a></li>
@@ -127,8 +134,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -141,21 +150,38 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../addons.html">Addon Reference</a> &raquo;</li>
-      
-    <li>RemoteTech</li>
+        
+      <li>RemoteTech</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/addons/RemoteTech.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/addons/RemoteTech.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -178,7 +204,7 @@ current game installation by usng the boolean expression
 <p class="first admonition-title">Note</p>
 <div class="last versionadded">
 <p><span class="versionmodified">New in version v1.0.2: </span>kOS now supports access to connection informaion from a unified location.
-See <a class="reference internal" href="../commands/communication.html#connectivitymanagers"><span>Connectivity Managers</span></a> for more
+See <a class="reference internal" href="../commands/communication.html#connectivitymanagers"><span class="std std-ref">Connectivity Managers</span></a> for more
 information. All of the previous implementation as detailed on this page
 remains supported.</p>
 </div>
@@ -190,8 +216,8 @@ remains supported.</p>
 <div class="versionadded">
 <p><span class="versionmodified">New in version v1.1.0.</span></p>
 </div>
-<p>The kOS <a class="reference internal" href="../structures/gui.html#gui"><span>GUI widget</span></a> system tries to
-<a class="reference internal" href="../structures/gui.html#gui-delay"><span>obey the signal delay</span></a> imposed by RemoteTech,
+<p>The kOS <a class="reference internal" href="../structures/gui.html#gui"><span class="std std-ref">GUI widget</span></a> system tries to
+<a class="reference internal" href="../structures/gui.html#gui-delay"><span class="std std-ref">obey the signal delay</span></a> imposed by RemoteTech,
 when Remote Tech is installed.  A user&#8217;s interaction with
 GUI widgets on the screen will be subject to the same
 signal delay rules as the interactive flying controls of the
@@ -222,7 +248,7 @@ ship.</p>
 </div>
 <div class="section" id="communication">
 <h3>Communication<a class="headerlink" href="#communication" title="Permalink to this headline">¶</a></h3>
-<p>When installed RemoteTech will influence <a class="reference internal" href="../commands/communication.html#communication"><span>communication</span></a> between vessels. In order to send a message to another vessel a valid RemoteTech connection will have to exist between them
+<p>When installed RemoteTech will influence <a class="reference internal" href="../commands/communication.html#communication"><span class="std std-ref">communication</span></a> between vessels. In order to send a message to another vessel a valid RemoteTech connection will have to exist between them
 and of course messages will arrive to their destination with a proper delay. Documentation of <a class="reference internal" href="../structures/communication/connection.html#structure:CONNECTION" title="CONNECTION structure"><code class="xref ks ks-struct docutils literal"><span class="pre">Connection</span></code></a> class contains further information on how RemoteTech will change the behaviour
 of some of its suffixes.</p>
 </div>
@@ -439,15 +465,18 @@ RTAddon:<code class="descname">GROUNDSTATIONS</code><span class="sig-paren">(</s
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="KAC.html" class="btn btn-neutral float-right" title="Kerbal Alarm Clock" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="KAC.html" class="btn btn-neutral float-right" title="Kerbal Alarm Clock" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="AGX.html" class="btn btn-neutral" title="Action Groups Extended" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="AGX.html" class="btn btn-neutral" title="Action Groups Extended" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -478,16 +507,17 @@ RTAddon:<code class="descname">GROUNDSTATIONS</code><span class="sig-paren">(</s
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

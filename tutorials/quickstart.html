@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quick Start Tutorial &mdash; kOS 1.1.3.0 documentation</title>
+  <title>Quick Start Tutorial &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../about.html"/>
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
         <link rel="copyright" title="Copyright" href="../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../index.html"/>
         <link rel="up" title="Tutorials" href="../tutorials.html"/>
         <link rel="next" title="Design Patterns and Considerations with kOS" href="designpatterns.html"/>
         <link rel="prev" title="Tutorials" href="../tutorials.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,14 +96,15 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../downloads_links.html">Downloads and Links</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Quick Start</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Quick Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="designpatterns.html">Design Patterns</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pidloops.html">PID Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exenode.html">Execute Node script</a></li>
@@ -126,8 +133,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -140,21 +149,38 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../tutorials.html">Tutorials</a> &raquo;</li>
-      
-    <li>Quick Start Tutorial</li>
+        
+      <li>Quick Start Tutorial</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/tutorials/quickstart.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/tutorials/quickstart.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -261,7 +287,7 @@
 <p class="first admonition-title">Note</p>
 <p class="last">You can also type <code class="docutils literal"><span class="pre">RUNPATH(&quot;hello&quot;)</span></code> instead of <code class="docutils literal"><span class="pre">RUN</span> <span class="pre">HELLO</span></code>.  The
 commands are slightly different but should have the same effect.  You can
-learn about the specific difference between them later <a class="reference internal" href="../commands/runprogram.html#running"><span>here</span></a>.</p>
+learn about the specific difference between them later <a class="reference internal" href="../commands/runprogram.html#running"><span class="std std-ref">here</span></a>.</p>
 </div>
 </div>
 <div class="section" id="step-7-okay-but-where-is-this-program">
@@ -298,9 +324,9 @@ learn about the specific difference between them later <a class="reference inter
 <p>If a file is stored inside the archive, it can actually be edited <em>by an external text editor of your choice</em> instead of using <strong>kOS</strong>&#8216;s in-game editor. This is usually a much better practice once you start doing more complex things with <strong>kOS</strong>. You can also make new files in the archive folder. Just make sure that all the files end with a <code class="docutils literal"><span class="pre">.ks</span></code> file name suffix or <strong>kOS</strong> won&#8217;t use them.</p>
 <p>Further reading about files and volumes:</p>
 <ul class="simple">
-<li><a class="reference internal" href="../general/volumes.html#volumes"><span>Volumes</span></a></li>
-<li><a class="reference internal" href="../commands/files.html#files"><span>File Control</span></a></li>
-<li><a class="reference internal" href="../structures/volumes_and_files/volumefile.html#volumefile"><span>VolumeFile structure</span></a></li>
+<li><a class="reference internal" href="../general/volumes.html#volumes"><span class="std std-ref">Volumes</span></a></li>
+<li><a class="reference internal" href="../commands/files.html#files"><span class="std std-ref">File Control</span></a></li>
+<li><a class="reference internal" href="../structures/volumes_and_files/volumefile.html#volumefile"><span class="std std-ref">VolumeFile structure</span></a></li>
 </ul>
 </div>
 </div>
@@ -761,15 +787,18 @@ the conditions for each IF statement to allow a block of code to be executed no 
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="designpatterns.html" class="btn btn-neutral float-right" title="Design Patterns and Considerations with kOS" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="designpatterns.html" class="btn btn-neutral float-right" title="Design Patterns and Considerations with kOS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../tutorials.html" class="btn btn-neutral" title="Tutorials" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../tutorials.html" class="btn btn-neutral" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -800,16 +829,17 @@ the conditions for each IF statement to allow a block of code to be executed no 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

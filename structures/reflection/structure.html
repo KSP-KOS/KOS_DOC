@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Structure: &mdash; kOS 1.1.3.0 documentation</title>
+  <title>Structure: &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../../about.html"/>
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
         <link rel="copyright" title="Copyright" href="../../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../../index.html"/>
         <link rel="up" title="Reflection" href="../reflection.html"/>
         <link rel="next" title="Collections" href="../collections.html"/>
         <link rel="prev" title="Reflection" href="../reflection.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../downloads_links.html">Downloads and Links</a></li>
@@ -102,9 +111,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../commands.html">Commands</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../structures.html">Structures</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../reflection.html">Generic Structure</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="">Structure:</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Structure:</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../collections.html">Collections</a></li>
@@ -134,8 +141,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -148,23 +157,40 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../structures.html">Structure Reference</a> &raquo;</li>
-      
+        
           <li><a href="../reflection.html">Reflection</a> &raquo;</li>
-      
-    <li>Structure:</li>
+        
+      <li>Structure:</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/structures/reflection/structure.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../_sources/structures/reflection/structure.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -205,7 +231,7 @@ or <code class="docutils literal"><span class="pre">42</span></code> or <code cl
 <dl class="structure">
 <dt id="structure:STRUCTURE">
 <em class="property">structure </em><code class="descname">Structure</code><a class="headerlink" href="#structure:STRUCTURE" title="Permalink to this definition">¶</a></dt>
-<dd><table border="1" class="docutils">
+<dd><table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="29%" />
 <col width="14%" />
@@ -232,7 +258,7 @@ or <code class="docutils literal"><span class="pre">42</span></code> or <code cl
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#attribute:STRUCTURE:ISSERIALIZABLE" title="STRUCTURE:ISSERIALIZABLE attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">ISSERIALIZABLE</span></code></a></td>
 <td><a class="reference internal" href="../misc/boolean.html#structure:BOOLEAN" title="BOOLEAN structure"><code class="xref ks ks-struct docutils literal"><span class="pre">Boolean</span></code></a></td>
-<td>Is true if this type is one that works with <a class="reference internal" href="../../commands/files.html#writejson"><span>WRITEJSON</span></a></td>
+<td>Is true if this type is one that works with <a class="reference internal" href="../../commands/files.html#writejson"><span class="std std-ref">WRITEJSON</span></a></td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#attribute:STRUCTURE:TYPENAME" title="STRUCTURE:TYPENAME attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">TYPENAME</span></code></a></td>
 <td><a class="reference internal" href="../misc/string.html#structure:STRING" title="STRING structure"><code class="xref ks ks-struct docutils literal"><span class="pre">String</span></code></a></td>
@@ -470,7 +496,7 @@ Structure:<code class="descname">ISSERIALIZABLE</code><a class="headerlink" href
 </tbody>
 </table>
 <p>Not all types can be saved using the built-in serialization function
-<a class="reference internal" href="../../commands/files.html#writejson"><span>WRITEJSON</span></a>.  For those that can, values of that
+<a class="reference internal" href="../../commands/files.html#writejson"><span class="std std-ref">WRITEJSON</span></a>.  For those that can, values of that
 type will return <code class="docutils literal"><span class="pre">True</span></code> for this suffix, otherwise it returns <code class="docutils literal"><span class="pre">False</span></code>.</p>
 </dd></dl>
 
@@ -479,15 +505,18 @@ type will return <code class="docutils literal"><span class="pre">True</span></c
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../collections.html" class="btn btn-neutral float-right" title="Collections" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../collections.html" class="btn btn-neutral float-right" title="Collections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../reflection.html" class="btn btn-neutral" title="Reflection" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../reflection.html" class="btn btn-neutral" title="Reflection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -518,16 +547,17 @@ type will return <code class="docutils literal"><span class="pre">True</span></c
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

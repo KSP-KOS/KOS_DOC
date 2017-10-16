@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Community Examples Library &mdash; kOS 1.1.3.0 documentation</title>
+  <title>Community Examples Library &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="about.html"/>
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
         <link rel="copyright" title="Copyright" href="copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="index.html"/>
         <link rel="next" title="General Topics" href="general.html"/>
         <link rel="prev" title="Creating Reusable GUI Elements" href="tutorials/gui.html"/> 
 
@@ -46,6 +51,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -68,7 +74,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -89,12 +95,15 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="downloads_links.html">Downloads and Links</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Community Example Library</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Community Example Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="general.html">General</a></li>
 <li class="toctree-l1"><a class="reference internal" href="language.html">Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="math.html">Mathematics</a></li>
@@ -116,8 +125,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">kOS</a>
+        
       </nav>
 
 
@@ -130,19 +141,36 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="contents.html">Docs</a> &raquo;</li>
-      
-    <li>Community Examples Library</li>
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>Community Examples Library</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="_sources/library.txt" rel="nofollow"> View page source</a>
+            
+            <a href="_sources/library.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -161,7 +189,7 @@ just ordinary users of kOS like you.</p>
 <p>Some examples of useful things you can find there are:</p>
 <ul class="simple">
 <li>A library for getting <strong>navball orientation</strong> information:</li>
-<li>An example of how to use the <a class="reference internal" href="commands/flight/systems.html#sasmode"><span>sasmode</span></a> feature:</li>
+<li>An example of how to use the <a class="reference internal" href="commands/flight/systems.html#sasmode"><span class="std std-ref">sasmode</span></a> feature:</li>
 <li>A helpful set of routines letting you enumerate over lists, queues, and stacks, using callback delegates.</li>
 <li>An example of a seven-segment display controller.</li>
 <li>A keypad emulator that lets you move a &#8216;finger&#8217; cursor around a visual keyboard and type letters.</li>
@@ -172,15 +200,18 @@ just ordinary users of kOS like you.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="general.html" class="btn btn-neutral float-right" title="General Topics" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="general.html" class="btn btn-neutral float-right" title="General Topics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="tutorials/gui.html" class="btn btn-neutral" title="Creating Reusable GUI Elements" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tutorials/gui.html" class="btn btn-neutral" title="Creating Reusable GUI Elements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -211,16 +242,17 @@ just ordinary users of kOS like you.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

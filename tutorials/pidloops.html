@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>PID Loops in kOS &mdash; kOS 1.1.3.0 documentation</title>
+  <title>PID Loops in kOS &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../about.html"/>
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
         <link rel="copyright" title="Copyright" href="../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../index.html"/>
         <link rel="up" title="Tutorials" href="../tutorials.html"/>
         <link rel="next" title="Execute Node Script" href="exenode.html"/>
         <link rel="prev" title="Design Patterns and Considerations with kOS" href="designpatterns.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,16 +96,17 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../downloads_links.html">Downloads and Links</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="designpatterns.html">Design Patterns</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">PID Loops</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PID Loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exenode.html">Execute Node script</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gui.html">Making a tabbed GUI</a></li>
 </ul>
@@ -126,8 +133,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -140,21 +149,38 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../tutorials.html">Tutorials</a> &raquo;</li>
-      
-    <li>PID Loops in kOS</li>
+        
+      <li>PID Loops in kOS</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/tutorials/pidloops.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/tutorials/pidloops.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -177,7 +203,7 @@ understand the topic this page describes.  However, it&#8217;s also
 a good idea to have a read through this page to get an
 understanding of what that built-in feature is really doing.</p>
 </div>
-<p>This tutorial covers how one can implement a <a class="reference external" href="http://en.wikipedia.org/wiki/PID_controller">PID loop</a> using kOS. A P-loop, or &#8220;proportional feedback loop&#8221; was already introduced in the second section of the <a class="reference internal" href="designpatterns.html#designpatterns"><span>Design Patterns Tutorial</span></a>, and that will serve as our starting point. After some code rearrangement, the integral and derivative terms will be added and discussed in turn. Next, a couple extra features will be added to the full PID-loop. Lastly, we&#8217;ll show a case-study in tuning a full PID loop using the Ziegler-Nichols method. We&#8217;ll use the LOG method to dump telemetry from KSP into a file and our favorite graphing software to visualize the data.</p>
+<p>This tutorial covers how one can implement a <a class="reference external" href="http://en.wikipedia.org/wiki/PID_controller">PID loop</a> using kOS. A P-loop, or &#8220;proportional feedback loop&#8221; was already introduced in the second section of the <a class="reference internal" href="designpatterns.html#designpatterns"><span class="std std-ref">Design Patterns Tutorial</span></a>, and that will serve as our starting point. After some code rearrangement, the integral and derivative terms will be added and discussed in turn. Next, a couple extra features will be added to the full PID-loop. Lastly, we&#8217;ll show a case-study in tuning a full PID loop using the Ziegler-Nichols method. We&#8217;ll use the LOG method to dump telemetry from KSP into a file and our favorite graphing software to visualize the data.</p>
 <p>The code examples in this tutorial can be tested with a similar rocket design as shown. Do not forget the accelerometer, gravioli detector or the kOS CPU module. The engine is purposefully overpowered to demonstrate the feedback in action.</p>
 <div class="figure">
 <img alt="../_images/pidtune_rocket_design_maxtwr8.png" src="../_images/pidtune_rocket_design_maxtwr8.png" />
@@ -197,7 +223,7 @@ understanding of what that built-in feature is really doing.</p>
 </div>
 <div class="section" id="proportional-feedback-loop-p-loop">
 <h2><a class="toc-backref" href="#id1">Proportional Feedback Loop (P-loop)</a><a class="headerlink" href="#proportional-feedback-loop-p-loop" title="Permalink to this headline">¶</a></h2>
-<p>The example code from the <a class="reference internal" href="designpatterns.html#designpatterns"><span>Design Patterns Tutorial</span></a>, with some slight modifications looks like the following:</p>
+<p>The example code from the <a class="reference internal" href="designpatterns.html#designpatterns"><span class="std std-ref">Design Patterns Tutorial</span></a>, with some slight modifications looks like the following:</p>
 <div class="highlight-kerboscript"><div class="highlight"><pre><span></span><span class="c1">// staging, throttle, steering, go</span>
 <span class="k">WHEN</span> <span class="k">STAGE</span><span class="p">:</span><span class="nv">LIQUIDFUEL</span> <span class="o">&lt;</span> <span class="mf">0</span><span class="p">.</span><span class="mf">1</span> <span class="k">THEN</span> <span class="p">{</span>
     <span class="k">STAGE</span><span class="p">.</span>
@@ -345,7 +371,7 @@ understanding of what that built-in feature is really doing.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The primary advantage to using <a class="reference internal" href="../structures/misc/pidloop.html#structure:PIDLOOP" title="PIDLOOP structure"><code class="xref ks ks-struct docutils literal"><span class="pre">pidloop</span></code></a> is the reduction in the number of instructions per update (see <a class="reference internal" href="../structures/misc/config.html#attribute:CONFIG:IPU" title="CONFIG:IPU attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">Config:IPU</span></code></a>).  For example, this <a class="reference internal" href="../structures/misc/pidloop.html#structure:PIDLOOP" title="PIDLOOP structure"><code class="xref ks ks-struct docutils literal"><span class="pre">pidloop</span></code></a> script requires approximately one-third the number of instructions needed by the script shown in the previous section.  Since the number of instructions executed has a direct bearing on <a class="reference internal" href="../general/cpu_hardware.html#electricdrain"><span>electrical drain</span></a> as of 0.19.0, this can be a great help with power conservation.</p>
+<p>The primary advantage to using <a class="reference internal" href="../structures/misc/pidloop.html#structure:PIDLOOP" title="PIDLOOP structure"><code class="xref ks ks-struct docutils literal"><span class="pre">pidloop</span></code></a> is the reduction in the number of instructions per update (see <a class="reference internal" href="../structures/misc/config.html#attribute:CONFIG:IPU" title="CONFIG:IPU attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">Config:IPU</span></code></a>).  For example, this <a class="reference internal" href="../structures/misc/pidloop.html#structure:PIDLOOP" title="PIDLOOP structure"><code class="xref ks ks-struct docutils literal"><span class="pre">pidloop</span></code></a> script requires approximately one-third the number of instructions needed by the script shown in the previous section.  Since the number of instructions executed has a direct bearing on <a class="reference internal" href="../general/cpu_hardware.html#electricdrain"><span class="std std-ref">electrical drain</span></a> as of 0.19.0, this can be a great help with power conservation.</p>
 <p>Note that <a class="reference internal" href="../structures/misc/pidloop.html#structure:PIDLOOP" title="PIDLOOP structure"><code class="xref ks ks-struct docutils literal"><span class="pre">pidloop</span></code></a> offers a great deal more options than were presented here, but nevertheless, this should provide a decent introduction to using <a class="reference internal" href="../structures/misc/pidloop.html#structure:PIDLOOP" title="PIDLOOP structure"><code class="xref ks ks-struct docutils literal"><span class="pre">pidloop</span></code></a>.</p>
 </div>
 <div class="section" id="final-touches">
@@ -441,17 +467,17 @@ be written, but has not been yet.</p>
 <tbody valign="top">
 <tr class="row-even"><td>P</td>
 <td>0.5 Ku</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>PI</td>
 <td>0.45 Ku</td>
 <td>1.2 Kp / Tu</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>PD</td>
 <td>0.8 Ku</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>Kp Tu / 8</td>
 </tr>
 <tr class="row-odd"><td>classic PID</td>
@@ -586,15 +612,18 @@ way if you tried using this example today.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="exenode.html" class="btn btn-neutral float-right" title="Execute Node Script" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="exenode.html" class="btn btn-neutral float-right" title="Execute Node Script" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="designpatterns.html" class="btn btn-neutral" title="Design Patterns and Considerations with kOS" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="designpatterns.html" class="btn btn-neutral" title="Design Patterns and Considerations with kOS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -625,16 +654,17 @@ way if you tried using this example today.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

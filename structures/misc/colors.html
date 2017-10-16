@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Colors &mdash; kOS 1.1.3.0 documentation</title>
+  <title>Colors &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../../about.html"/>
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
         <link rel="copyright" title="Copyright" href="../../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../../index.html"/>
         <link rel="up" title="Configurations and Miscellany" href="../misc.html"/>
         <link rel="next" title="Configuration of kOS" href="config.html"/>
         <link rel="prev" title="Boolean" href="boolean.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../downloads_links.html">Downloads and Links</a></li>
@@ -111,7 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../gui.html">GUI Widgets</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../misc.html">Miscellaneous</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="boolean.html">Boolean</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">Colors</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Colors</a></li>
 <li class="toctree-l3"><a class="reference internal" href="config.html">Configuration of kOS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="highlight.html">Part Highlighting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kosdelegate.html">KOSDelegate</a></li>
@@ -150,8 +159,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -164,23 +175,40 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../structures.html">Structure Reference</a> &raquo;</li>
-      
+        
           <li><a href="../misc.html">Configurations and Miscellany</a> &raquo;</li>
-      
-    <li>Colors</li>
+        
+      <li>Colors</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/structures/misc/colors.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../_sources/structures/misc/colors.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -189,7 +217,7 @@
   <div class="section" id="color">
 <span id="colors"></span><span id="id1"></span><h1>Colors<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h1>
 <p>Any place you need to specify a color in the game (at the moment this is
-just with <a class="reference internal" href="vecdraw.html#vecdraw"><span>VECDRAW</span></a>, <a class="reference internal" href="highlight.html#highlight"><span>HIGHLIGHT</span></a>. and HUDTEXT) You do so with a
+just with <a class="reference internal" href="vecdraw.html#vecdraw"><span class="std std-ref">VECDRAW</span></a>, <a class="reference internal" href="highlight.html#highlight"><span class="std std-ref">HIGHLIGHT</span></a>. and HUDTEXT) You do so with a
 rgba color structure defined as follows:</p>
 <p>Method 1: Use one of these pre-arranged named colors:</p>
 <ul>
@@ -286,7 +314,7 @@ rgba color structure defined as follows:</p>
 <dl class="structure">
 <dt id="structure:RGBA">
 <em class="property">structure </em><code class="descname">RGBA</code><a class="headerlink" href="#structure:RGBA" title="Permalink to this definition">¶</a></dt>
-<dd><table border="1" class="docutils" id="id2">
+<dd><table border="1" class="colwidths-given docutils" id="id2">
 <caption><span class="caption-text">Members</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="29%" />
@@ -301,19 +329,19 @@ rgba color structure defined as follows:</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>:R or :RED</td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a></td>
 <td>the red component of the color</td>
 </tr>
 <tr class="row-odd"><td>:G or :GREEN</td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a></td>
 <td>the green component of the color</td>
 </tr>
 <tr class="row-even"><td>:B or :BLUE</td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a></td>
 <td>the blue component of the color</td>
 </tr>
 <tr class="row-odd"><td>:A or :ALPHA</td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a></td>
 <td>the alpha (how opaque: 1 = opaque, 0 = transparent) component of the color</td>
 </tr>
 <tr class="row-even"><td>:HTML or :HEX</td>
@@ -379,7 +407,7 @@ rgba color structure defined as follows:</p>
 <dt id="structure:HSVA">
 <em class="property">structure </em><code class="descname">HSVA</code><a class="headerlink" href="#structure:HSVA" title="Permalink to this definition">¶</a></dt>
 <dd><p>The HSVA structure contains all of the suffixes from the RGBA structure in addition to these</p>
-<table border="1" class="docutils" id="id3">
+<table border="1" class="colwidths-given docutils" id="id3">
 <caption><span class="caption-text">Members</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="29%" />
@@ -394,15 +422,15 @@ rgba color structure defined as follows:</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>:H or :HUE</td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a></td>
 <td>the hue component of the color. It is a value from 0.0 to 360.0</td>
 </tr>
 <tr class="row-odd"><td>:S or :SATURATION</td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a></td>
 <td>the saturation component of the color. It has a value from 0.0 to 1.0</td>
 </tr>
 <tr class="row-even"><td>:V or :VALUE</td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a></td>
 <td>the value component of the color. It has a value from 0.0 to 1.0</td>
 </tr>
 </tbody>
@@ -421,15 +449,18 @@ rgba color structure defined as follows:</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="config.html" class="btn btn-neutral float-right" title="Configuration of kOS" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="config.html" class="btn btn-neutral float-right" title="Configuration of kOS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="boolean.html" class="btn btn-neutral" title="Boolean" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="boolean.html" class="btn btn-neutral" title="Boolean" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -460,16 +491,17 @@ rgba color structure defined as follows:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

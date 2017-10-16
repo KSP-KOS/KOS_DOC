@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Pilot Input &mdash; kOS 1.1.3.0 documentation</title>
+  <title>Pilot Input &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../../about.html"/>
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
         <link rel="copyright" title="Copyright" href="../../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../../index.html"/>
         <link rel="up" title="Flight Control" href="../flight.html"/>
         <link rel="next" title="Ship Systems" href="systems.html"/>
         <link rel="prev" title="Raw Control" href="raw.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../downloads_links.html">Downloads and Links</a></li>
@@ -104,7 +113,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../flight.html">Flight Control</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="cooked.html">Cooked Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="raw.html">Raw Control</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">Pilot Input</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Pilot Input</a></li>
 <li class="toctree-l3"><a class="reference internal" href="systems.html">Ship Systems</a></li>
 </ul>
 </li>
@@ -135,8 +144,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -149,23 +160,40 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../commands.html">Command Reference</a> &raquo;</li>
-      
+        
           <li><a href="../flight.html">Flight Control</a> &raquo;</li>
-      
-    <li>Pilot Input</li>
+        
+      <li>Pilot Input</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/commands/flight/pilot.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../_sources/commands/flight/pilot.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -183,7 +211,7 @@
 <em class="property">structure </em><code class="descname">Control</code><a class="headerlink" href="#structure:CONTROL" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="33%" />
 <col width="33%" />
@@ -196,72 +224,72 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilotmainthrottle"><span>PILOTMAINTHROTTLE</span></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> [0,1]</td>
+<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilotmainthrottle"><span class="std std-ref">PILOTMAINTHROTTLE</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> [0,1]</td>
 <td><code class="docutils literal"><span class="pre">LEFT-CTRL</span></code>, <code class="docutils literal"><span class="pre">LEFT-SHIFT</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ship-control-pilotyaw"><span>PILOTYAW</span></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> [-1,1]</td>
+<tr class="row-odd"><td><a class="reference internal" href="#ship-control-pilotyaw"><span class="std std-ref">PILOTYAW</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> [-1,1]</td>
 <td><code class="docutils literal"><span class="pre">D</span></code>, <code class="docutils literal"><span class="pre">A</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilotpitch"><span>PILOTPITCH</span></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> [-1,1]</td>
+<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilotpitch"><span class="std std-ref">PILOTPITCH</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> [-1,1]</td>
 <td><code class="docutils literal"><span class="pre">W</span></code>, <code class="docutils literal"><span class="pre">S</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ship-control-pilotroll"><span>PILOTROLL</span></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> [-1,1]</td>
+<tr class="row-odd"><td><a class="reference internal" href="#ship-control-pilotroll"><span class="std std-ref">PILOTROLL</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> [-1,1]</td>
 <td><code class="docutils literal"><span class="pre">Q</span></code>, <code class="docutils literal"><span class="pre">E</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilotrotation"><span>PILOTROTATION</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilotrotation"><span class="std std-ref">PILOTROTATION</span></a></td>
 <td><a class="reference internal" href="../../math/vector.html#structure:VECTOR" title="VECTOR structure"><code class="xref ks ks-struct docutils literal"><span class="pre">Vector</span></code></a></td>
 <td><code class="docutils literal"><span class="pre">(YAW,PITCH,ROLL)</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ship-control-pilotyawtrim"><span>PILOTYAWTRIM</span></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> [-1,1]</td>
+<tr class="row-odd"><td><a class="reference internal" href="#ship-control-pilotyawtrim"><span class="std std-ref">PILOTYAWTRIM</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> [-1,1]</td>
 <td><code class="docutils literal"><span class="pre">ALT+D</span></code>, <code class="docutils literal"><span class="pre">ALT+A</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilotpitchtrim"><span>PILOTPITCHTRIM</span></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> [-1,1]</td>
+<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilotpitchtrim"><span class="std std-ref">PILOTPITCHTRIM</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> [-1,1]</td>
 <td><code class="docutils literal"><span class="pre">ALT+W</span></code>, <code class="docutils literal"><span class="pre">ALT+S</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ship-control-pilotrolltrim"><span>PILOTROLLTRIM</span></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> [-1,1]</td>
+<tr class="row-odd"><td><a class="reference internal" href="#ship-control-pilotrolltrim"><span class="std std-ref">PILOTROLLTRIM</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> [-1,1]</td>
 <td><code class="docutils literal"><span class="pre">ALT+Q</span></code>, <code class="docutils literal"><span class="pre">ALT+E</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilotfore"><span>PILOTFORE</span></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> [-1,1]</td>
+<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilotfore"><span class="std std-ref">PILOTFORE</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> [-1,1]</td>
 <td><code class="docutils literal"><span class="pre">N</span></code>, <code class="docutils literal"><span class="pre">H</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ship-control-pilotstarboard"><span>PILOTSTARBOARD</span></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> [-1,1]</td>
+<tr class="row-odd"><td><a class="reference internal" href="#ship-control-pilotstarboard"><span class="std std-ref">PILOTSTARBOARD</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> [-1,1]</td>
 <td><code class="docutils literal"><span class="pre">L</span></code>, <code class="docutils literal"><span class="pre">J</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilottop"><span>PILOTTOP</span></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> [-1,1]</td>
+<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilottop"><span class="std std-ref">PILOTTOP</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> [-1,1]</td>
 <td><code class="docutils literal"><span class="pre">I</span></code>, <code class="docutils literal"><span class="pre">K</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ship-control-pilottranslation"><span>PILOTTRANSLATION</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#ship-control-pilottranslation"><span class="std std-ref">PILOTTRANSLATION</span></a></td>
 <td><a class="reference internal" href="../../math/vector.html#structure:VECTOR" title="VECTOR structure"><code class="xref ks ks-struct docutils literal"><span class="pre">Vector</span></code></a></td>
 <td><code class="docutils literal"><span class="pre">(STARBOARD,TOP,FORE)</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilotwheelsteer"><span>PILOTWHEELSTEER</span></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> [-1,1]</td>
+<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilotwheelsteer"><span class="std std-ref">PILOTWHEELSTEER</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> [-1,1]</td>
 <td><code class="docutils literal"><span class="pre">A</span></code>, <code class="docutils literal"><span class="pre">D</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ship-control-pilotwheelthrottle"><span>PILOTWHEELTHROTTLE</span></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> [-1,1]</td>
+<tr class="row-odd"><td><a class="reference internal" href="#ship-control-pilotwheelthrottle"><span class="std std-ref">PILOTWHEELTHROTTLE</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> [-1,1]</td>
 <td><code class="docutils literal"><span class="pre">W</span></code>, <code class="docutils literal"><span class="pre">S</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilotwheelsteertrim"><span>PILOTWHEELSTEERTRIM</span></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> [-1,1]</td>
+<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilotwheelsteertrim"><span class="std std-ref">PILOTWHEELSTEERTRIM</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> [-1,1]</td>
 <td><code class="docutils literal"><span class="pre">ALT+A</span></code>, <code class="docutils literal"><span class="pre">ALT+D</span></code></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ship-control-pilotwheelthrottletrim"><span>PILOTWHEELTHROTTLETRIM</span></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> [-1,1]</td>
+<tr class="row-odd"><td><a class="reference internal" href="#ship-control-pilotwheelthrottletrim"><span class="std std-ref">PILOTWHEELTHROTTLETRIM</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> [-1,1]</td>
 <td><code class="docutils literal"><span class="pre">ALT+W</span></code>, <code class="docutils literal"><span class="pre">ALT+S</span></code></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilotneutral"><span>PILOTNEUTRAL</span></a></td>
-<td><a class="reference internal" href="../../structures/misc/boolean.html#boolean"><span>Boolean</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#ship-control-pilotneutral"><span class="std std-ref">PILOTNEUTRAL</span></a></td>
+<td><a class="reference internal" href="../../structures/misc/boolean.html#boolean"><span class="std std-ref">Boolean</span></a></td>
 <td>Is <strong>kOS</strong> Controlling?</td>
 </tr>
 </tbody>
@@ -377,15 +405,18 @@
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="systems.html" class="btn btn-neutral float-right" title="Ship Systems" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="systems.html" class="btn btn-neutral float-right" title="Ship Systems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="raw.html" class="btn btn-neutral" title="Raw Control" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="raw.html" class="btn btn-neutral" title="Raw Control" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -416,16 +447,17 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

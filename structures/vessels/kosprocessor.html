@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>kOSProcessor &mdash; kOS 1.1.3.0 documentation</title>
+  <title>kOSProcessor &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../../about.html"/>
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
         <link rel="copyright" title="Copyright" href="../../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../../index.html"/>
         <link rel="up" title="Vessels and Parts" href="../vessels.html"/>
         <link rel="next" title="Maneuver Node" href="node.html"/>
         <link rel="prev" title="Gimbal" href="gimbal.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../downloads_links.html">Downloads and Links</a></li>
@@ -115,7 +124,7 @@
 <li class="toctree-l3"><a class="reference internal" href="engine.html">Engine</a></li>
 <li class="toctree-l3"><a class="reference internal" href="eta.html">ETA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gimbal.html">Gimbal</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">kOSProcessor</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">kOSProcessor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="node.html">Maneuver Node</a></li>
 <li class="toctree-l3"><a class="reference internal" href="part.html">Part</a></li>
 <li class="toctree-l3"><a class="reference internal" href="partmodule.html">PartModule</a></li>
@@ -152,8 +161,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -166,23 +177,40 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../structures.html">Structure Reference</a> &raquo;</li>
-      
+        
           <li><a href="../vessels.html">Vessels and Parts</a> &raquo;</li>
-      
-    <li>kOSProcessor</li>
+        
+      <li>kOSProcessor</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/structures/vessels/kosprocessor.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../_sources/structures/vessels/kosprocessor.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -194,7 +222,7 @@
 <dl class="structure">
 <dt id="structure:KOSPROCESSOR">
 <em class="property">structure </em><code class="descname">kOSProcessor</code><a class="headerlink" href="#structure:KOSPROCESSOR" title="Permalink to this definition">¶</a></dt>
-<dd><table border="1" class="docutils">
+<dd><table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="29%" />
 <col width="14%" />
@@ -208,7 +236,7 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>All suffixes of <a class="reference internal" href="partmodule.html#structure:PARTMODULE" title="PARTMODULE structure"><code class="xref ks ks-struct docutils literal"><span class="pre">PartModule</span></code></a></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td><a class="reference internal" href="#structure:KOSPROCESSOR" title="KOSPROCESSOR structure"><code class="xref ks ks-struct docutils literal"><span class="pre">kOSProcessor</span></code></a> objects are a type of <a class="reference internal" href="partmodule.html#structure:PARTMODULE" title="PARTMODULE structure"><code class="xref ks ks-struct docutils literal"><span class="pre">PartModule</span></code></a></td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#attribute:KOSPROCESSOR:MODE" title="KOSPROCESSOR:MODE attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">MODE</span></code></a></td>
@@ -336,7 +364,7 @@ kOSProcessor:<code class="descname">BOOTFILENAME</code><a class="headerlink" hre
 </tr>
 </tbody>
 </table>
-<p>The filename for the boot file on this processor. This may be set to an empty <a class="reference internal" href="../misc/string.html#string"><span>string</span></a> “” or to “None” to disable the use of a boot file.</p>
+<p>The filename for the boot file on this processor. This may be set to an empty <a class="reference internal" href="../misc/string.html#string"><span class="std std-ref">string</span></a> “” or to “None” to disable the use of a boot file.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -357,15 +385,18 @@ kOSProcessor:<code class="descname">CONNECTION</code><a class="headerlink" href=
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="node.html" class="btn btn-neutral float-right" title="Maneuver Node" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="node.html" class="btn btn-neutral float-right" title="Maneuver Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gimbal.html" class="btn btn-neutral" title="Gimbal" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="gimbal.html" class="btn btn-neutral" title="Gimbal" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -396,16 +427,17 @@ kOSProcessor:<code class="descname">CONNECTION</code><a class="headerlink" href=
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

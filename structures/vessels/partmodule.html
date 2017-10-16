@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>PartModule &mdash; kOS 1.1.3.0 documentation</title>
+  <title>PartModule &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../../about.html"/>
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
         <link rel="copyright" title="Copyright" href="../../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../../index.html"/>
         <link rel="up" title="Vessels and Parts" href="../vessels.html"/>
         <link rel="next" title="Resource" href="resource.html"/>
         <link rel="prev" title="Part" href="part.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../downloads_links.html">Downloads and Links</a></li>
@@ -118,9 +127,7 @@
 <li class="toctree-l3"><a class="reference internal" href="kosprocessor.html">kOSProcessor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="node.html">Maneuver Node</a></li>
 <li class="toctree-l3"><a class="reference internal" href="part.html">Part</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">PartModule</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PartModule</a></li>
 <li class="toctree-l3"><a class="reference internal" href="resource.html">Resource</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sciencedatavalue.html">ScienceData</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scienceexperiment.html">ScienceExperimentModule</a></li>
@@ -154,8 +161,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -168,23 +177,40 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../structures.html">Structure Reference</a> &raquo;</li>
-      
+        
           <li><a href="../vessels.html">Vessels and Parts</a> &raquo;</li>
-      
-    <li>PartModule</li>
+        
+      <li>PartModule</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/structures/vessels/partmodule.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../_sources/structures/vessels/partmodule.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -193,12 +219,12 @@
   <div class="section" id="partmodule">
 <h1>PartModule<a class="headerlink" href="#partmodule" title="Permalink to this headline">¶</a></h1>
 <p>Almost everything done with at right-click menus and action group action can be accessed via the <a class="reference internal" href="#structure:PARTMODULE" title="PARTMODULE structure"><code class="xref ks ks-struct docutils literal"><span class="pre">PartModule</span></code></a> objects that are attached to <a class="reference internal" href="part.html#structure:PART" title="PART structure"><code class="xref ks ks-struct docutils literal"><span class="pre">Parts</span></code></a> of a <a class="reference internal" href="vessel.html#structure:VESSEL" title="VESSEL structure"><code class="xref ks ks-struct docutils literal"><span class="pre">Vessel</span></code></a>.</p>
-<p>The exact arrangement of <a class="reference internal" href="#structure:PARTMODULE" title="PARTMODULE structure"><code class="xref ks ks-struct docutils literal"><span class="pre">PartModule</span></code></a> to <a class="reference internal" href="part.html#structure:PART" title="PART structure"><code class="xref ks ks-struct docutils literal"><span class="pre">Parts</span></code></a> to <a class="reference internal" href="vessel.html#structure:VESSEL" title="VESSEL structure"><code class="xref ks ks-struct docutils literal"><span class="pre">Vessels</span></code></a>, and how to make use of a <a class="reference internal" href="#structure:PARTMODULE" title="PARTMODULE structure"><code class="xref ks ks-struct docutils literal"><span class="pre">PartModule</span></code></a> is a complex enough topic to warrant its own separate subject, described on the <a class="reference internal" href="../../general/parts_and_partmodules.html#parts-and-partmodules"><span>Ship parts and Modules</span></a> page. If you have not read that page, it is recommended that you do so before using <a class="reference internal" href="#structure:PARTMODULE" title="PARTMODULE structure"><code class="xref ks ks-struct docutils literal"><span class="pre">PartModules</span></code></a>. The page you are reading now is meant as just a reference summary, not a tutorial.</p>
+<p>The exact arrangement of <a class="reference internal" href="#structure:PARTMODULE" title="PARTMODULE structure"><code class="xref ks ks-struct docutils literal"><span class="pre">PartModule</span></code></a> to <a class="reference internal" href="part.html#structure:PART" title="PART structure"><code class="xref ks ks-struct docutils literal"><span class="pre">Parts</span></code></a> to <a class="reference internal" href="vessel.html#structure:VESSEL" title="VESSEL structure"><code class="xref ks ks-struct docutils literal"><span class="pre">Vessels</span></code></a>, and how to make use of a <a class="reference internal" href="#structure:PARTMODULE" title="PARTMODULE structure"><code class="xref ks ks-struct docutils literal"><span class="pre">PartModule</span></code></a> is a complex enough topic to warrant its own separate subject, described on the <a class="reference internal" href="../../general/parts_and_partmodules.html#parts-and-partmodules"><span class="std std-ref">Ship parts and Modules</span></a> page. If you have not read that page, it is recommended that you do so before using <a class="reference internal" href="#structure:PARTMODULE" title="PARTMODULE structure"><code class="xref ks ks-struct docutils literal"><span class="pre">PartModules</span></code></a>. The page you are reading now is meant as just a reference summary, not a tutorial.</p>
 <p>Once you have a <a class="reference internal" href="#structure:PARTMODULE" title="PARTMODULE structure"><code class="xref ks ks-struct docutils literal"><span class="pre">PartModule</span></code></a>, you can use it to invoke the behaviors that are connected to its right-click menu and to its action groups.</p>
 <dl class="structure">
 <dt id="structure:PARTMODULE">
 <em class="property">structure </em><code class="descname">PartModule</code><a class="headerlink" href="#structure:PARTMODULE" title="Permalink to this definition">¶</a></dt>
-<dd><table border="1" class="docutils" id="id1">
+<dd><table border="1" class="colwidths-given docutils" id="id1">
 <caption><span class="caption-text">Members</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="29%" />
@@ -245,31 +271,31 @@
 <td>Triggerable event names</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#method:PARTMODULE:GETFIELD" title="PARTMODULE:GETFIELD method"><code class="xref ks ks-meth docutils literal"><span class="pre">GETFIELD(name)</span></code></a></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>Get value of a field by name</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#method:PARTMODULE:SETFIELD" title="PARTMODULE:SETFIELD method"><code class="xref ks ks-meth docutils literal"><span class="pre">SETFIELD(name,value)</span></code></a></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>Set value of a field by name</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#method:PARTMODULE:DOEVENT" title="PARTMODULE:DOEVENT method"><code class="xref ks ks-meth docutils literal"><span class="pre">DOEVENT(name)</span></code></a></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>Trigger an event button</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#method:PARTMODULE:DOACTION" title="PARTMODULE:DOACTION method"><code class="xref ks ks-meth docutils literal"><span class="pre">DOACTION(name,bool)</span></code></a></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>Activate action by name with True or False</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#method:PARTMODULE:HASFIELD" title="PARTMODULE:HASFIELD method"><code class="xref ks ks-meth docutils literal"><span class="pre">HASFIELD(name)</span></code></a></td>
-<td><a class="reference internal" href="../misc/boolean.html#boolean"><span>Boolean</span></a></td>
+<td><a class="reference internal" href="../misc/boolean.html#boolean"><span class="std std-ref">Boolean</span></a></td>
 <td>Check if field exists</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#method:PARTMODULE:HASEVENT" title="PARTMODULE:HASEVENT method"><code class="xref ks ks-meth docutils literal"><span class="pre">HASEVENT(name)</span></code></a></td>
-<td><a class="reference internal" href="../misc/boolean.html#boolean"><span>Boolean</span></a></td>
+<td><a class="reference internal" href="../misc/boolean.html#boolean"><span class="std std-ref">Boolean</span></a></td>
 <td>Check if event exists</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#method:PARTMODULE:HASACTION" title="PARTMODULE:HASACTION method"><code class="xref ks ks-meth docutils literal"><span class="pre">HASACTION(name)</span></code></a></td>
-<td><a class="reference internal" href="../misc/boolean.html#boolean"><span>Boolean</span></a></td>
+<td><a class="reference internal" href="../misc/boolean.html#boolean"><span class="std std-ref">Boolean</span></a></td>
 <td>Check if action exists</td>
 </tr>
 </tbody>
@@ -439,7 +465,7 @@ PartModule:<code class="descname">SETFIELD</code><span class="sig-paren">(</span
 </tbody>
 </table>
 <p>Set the value of one of the fields that this PartModule has placed onto the rightclick menu for the part. Note the Security comments below.</p>
-<p>WARNING: This suffix is only settable for parts attached to the <a class="reference internal" href="../../general/cpu_vessel.html#cpu-vessel"><span>CPU Vessel</span></a></p>
+<p>WARNING: This suffix is only settable for parts attached to the <a class="reference internal" href="../../general/cpu_vessel.html#cpu-vessel"><span class="std std-ref">CPU Vessel</span></a></p>
 </dd></dl>
 
 <dl class="method">
@@ -457,7 +483,7 @@ PartModule:<code class="descname">DOEVENT</code><span class="sig-paren">(</span>
 </tbody>
 </table>
 <p>Trigger an &#8220;event button&#8221; that is on the rightclick part menu at the moment. Note the Security comments below.</p>
-<p>WARNING: This suffix is only callable for parts attached to the <a class="reference internal" href="../../general/cpu_vessel.html#cpu-vessel"><span>CPU Vessel</span></a></p>
+<p>WARNING: This suffix is only callable for parts attached to the <a class="reference internal" href="../../general/cpu_vessel.html#cpu-vessel"><span class="std std-ref">CPU Vessel</span></a></p>
 </dd></dl>
 
 <dl class="method">
@@ -469,14 +495,14 @@ PartModule:<code class="descname">DOACTION</code><span class="sig-paren">(</span
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>name</strong> &#8211; (string) Name of the action</li>
-<li><strong>bool</strong> &#8211; (<a class="reference internal" href="../misc/boolean.html#boolean"><span>Boolean</span></a>) Value to set: True or False</li>
+<li><strong>bool</strong> &#8211; (<a class="reference internal" href="../misc/boolean.html#boolean"><span class="std std-ref">Boolean</span></a>) Value to set: True or False</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Activate one of this PartModule&#8217;s action-group-able actions, bypassing the action group system entirely by just activating it for this one part directly. The <a class="reference internal" href="../misc/boolean.html#boolean"><span>Boolean</span></a> value decides whether you are toggling the action ON or toggling it OFF. Note the Security comments below.</p>
-<p>WARNING: This suffix is only callable for parts attached to the <a class="reference internal" href="../../general/cpu_vessel.html#cpu-vessel"><span>CPU Vessel</span></a></p>
+<p>Activate one of this PartModule&#8217;s action-group-able actions, bypassing the action group system entirely by just activating it for this one part directly. The <a class="reference internal" href="../misc/boolean.html#boolean"><span class="std std-ref">Boolean</span></a> value decides whether you are toggling the action ON or toggling it OFF. Note the Security comments below.</p>
+<p>WARNING: This suffix is only callable for parts attached to the <a class="reference internal" href="../../general/cpu_vessel.html#cpu-vessel"><span class="std std-ref">CPU Vessel</span></a></p>
 </dd></dl>
 
 <dl class="method">
@@ -491,7 +517,7 @@ PartModule:<code class="descname">HASFIELD</code><span class="sig-paren">(</span
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../misc/boolean.html#boolean"><span>Boolean</span></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../misc/boolean.html#boolean"><span class="std std-ref">Boolean</span></a></p>
 </td>
 </tr>
 </tbody>
@@ -511,7 +537,7 @@ PartModule:<code class="descname">HASEVENT</code><span class="sig-paren">(</span
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../misc/boolean.html#boolean"><span>Boolean</span></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../misc/boolean.html#boolean"><span class="std std-ref">Boolean</span></a></p>
 </td>
 </tr>
 </tbody>
@@ -531,7 +557,7 @@ PartModule:<code class="descname">HASACTION</code><span class="sig-paren">(</spa
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../misc/boolean.html#boolean"><span>Boolean</span></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../misc/boolean.html#boolean"><span class="std std-ref">Boolean</span></a></p>
 </td>
 </tr>
 </tbody>
@@ -551,10 +577,10 @@ PartModule:<code class="descname">HASACTION</code><span class="sig-paren">(</spa
 <div class="section" id="kspfields">
 <h3>KSPFields<a class="headerlink" href="#kspfields" title="Permalink to this headline">¶</a></h3>
 <p>Is this a value that the user can normally see on the right-click context menu for a part? If so, then let kOS scripts GET the value.  Is this a value that the user can normally manipulate via &#8220;tweakable&#8221; adjustments on the right-click context menu for a part, AND, is that tweakable a CURRENTLY enabled one? If so, then let KOS scripts SET the value, BUT they must set it to one of the values that the GUI would normally allow, according to the following rules.</p>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>If the KSPField is boolean:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>The value must be true, false, or 0 or 1.</li>
 </ul>
 </dd>
@@ -562,7 +588,7 @@ PartModule:<code class="descname">HASACTION</code><span class="sig-paren">(</spa
 </li>
 <li><dl class="first docutils">
 <dt>If the KSPField is an integer:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>The value must be a whole number.</li>
 </ul>
 </dd>
@@ -570,7 +596,7 @@ PartModule:<code class="descname">HASACTION</code><span class="sig-paren">(</spa
 </li>
 <li><dl class="first docutils">
 <dt>If the KSPField is a floating point sliding number:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>The GUI for this field will be defined as a slider with a min value, a max value, with a fixed increment interval where the detents are. When setting such a value, you will be constrained to the limits of this slider. For example: If a slider is defined to have a minimum value of 2.0, a maximum value of 5.0, and a minimum allowed delta increment of 0.1:</li>
 <li>If you try to set it to 0, it will instead become 2, the minimum allowed value. If you try to set it to 9, it will instead become 5, the maximum allowed value. If you try to set it to 3.14159, it will instead become 3.1, because that&#8217;s rounding to the nearest increment step the slider supports.</li>
 </ul>
@@ -579,7 +605,7 @@ PartModule:<code class="descname">HASACTION</code><span class="sig-paren">(</spa
 </li>
 <li><dl class="first docutils">
 <dt>If the KSPField is a string:</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>There is currently no way to set these because kOS uses the existence of a gui tweakable as &#8220;proof&#8221; that it&#8217;s okay to modify the field, and in the stock game there are no gui tweakables for string fields. This may change in the future if mods that extend the tweakables system are taken into account.</li>
 </ul>
 </dd>
@@ -610,15 +636,18 @@ PartModule:<code class="descname">HASACTION</code><span class="sig-paren">(</spa
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="resource.html" class="btn btn-neutral float-right" title="Resource" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="resource.html" class="btn btn-neutral float-right" title="Resource" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="part.html" class="btn btn-neutral" title="Part" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="part.html" class="btn btn-neutral" title="Part" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -649,16 +678,17 @@ PartModule:<code class="descname">HASACTION</code><span class="sig-paren">(</spa
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

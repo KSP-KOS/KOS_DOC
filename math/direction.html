@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Directions &mdash; kOS 1.1.3.0 documentation</title>
+  <title>Directions &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../about.html"/>
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
         <link rel="copyright" title="Copyright" href="../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../index.html"/>
         <link rel="up" title="Mathematics and Basic Geometry" href="../math.html"/>
         <link rel="next" title="Geographic Coordinates" href="geocoordinates.html"/>
         <link rel="prev" title="Vectors" href="vector.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../downloads_links.html">Downloads and Links</a></li>
@@ -102,9 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="basic.html">Basic Math Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="scalar.html">Scalar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vector.html">Vectors</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Directions</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Directions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geocoordinates.html">Geographic Coordinates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ref_frame.html">Reference Frames</a></li>
 </ul>
@@ -127,8 +134,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -141,21 +150,38 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../math.html">Mathematics and Basic Geometry</a> &raquo;</li>
-      
-    <li>Directions</li>
+        
+      <li>Directions</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/math/direction.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/math/direction.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -177,7 +203,7 @@
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">When dealing with Directions (which are Rotations) in kOS, it is
-important to remember that KSP uses a <a class="reference internal" href="ref_frame.html#left-handed"><span>left-handed</span></a>
+important to remember that KSP uses a <a class="reference internal" href="ref_frame.html#left-handed"><span class="std std-ref">left-handed</span></a>
 coordinate system.  This affects the convention of which rotation
 direction is positive when calculating angles.</p>
 </div>
@@ -212,13 +238,13 @@ direction is positive when calculating angles.</p>
 <tr class="row-odd"><td><a class="reference internal" href="#function:ROTATEFROMTO" title="ROTATEFROMTO function"><code class="xref ks ks-func docutils literal"><span class="pre">ROTATEFROMTO(fromVec,toVec)</span></code></a></td>
 <td>A rotation that would go from vectors fromVec to toVec</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#direction-from-suffix"><span>FACING</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#direction-from-suffix"><span class="std std-ref">FACING</span></a></td>
 <td>From SHIP or TARGET</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#direction-from-suffix"><span>UP</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="#direction-from-suffix"><span class="std std-ref">UP</span></a></td>
 <td>From SHIP</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#direction-from-suffix"><span>PROGRADE, etc.</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="#direction-from-suffix"><span class="std std-ref">PROGRADE, etc.</span></a></td>
 <td>From SHIP, TARGET or BODY</td>
 </tr>
 </tbody>
@@ -287,7 +313,7 @@ you already understand.</p>
 
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The fact that KSP is using a <a class="reference internal" href="ref_frame.html#left-handed"><span>left-handed</span></a>
+<p class="last">The fact that KSP is using a <a class="reference internal" href="ref_frame.html#left-handed"><span class="std std-ref">left-handed</span></a>
 coordinate system is important to keep in mind when visualizing
 the meaning of an ANGLEAXIS function call.  It affects which
 direction is positive when calculating angles.</p>
@@ -533,7 +559,7 @@ Direction:<code class="descname">INVERSE</code><a class="headerlink" href="#attr
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">Direction Multiplied by Direction:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">Dir1</span> <span class="pre">*</span> <span class="pre">Dir2</span></code> - This operator returns the result of rotating Dir2 by the rotation of Dir1.  Note that the order of operations matters here.  <code class="docutils literal"><span class="pre">Dir1*Dir2</span></code> is not the same as <code class="docutils literal"><span class="pre">Dir2*Dir1</span></code>.  Example:</p>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">Dir1</span> <span class="pre">*</span> <span class="pre">Dir2</span></code> - This operator returns the result of rotating Dir2 by the rotation of Dir1.  Note that the order of operations matters here.  <code class="docutils literal"><span class="pre">Dir1*Dir2</span></code> is not the same as <code class="docutils literal"><span class="pre">Dir2*Dir1</span></code>.  Example:</p>
 <div class="highlight-kerboscript"><div class="highlight"><pre><span></span><span class="c1">// A direction pointing along compass heading 330, by rotating NORTH by 30 degrees around UP axis:</span>
 <span class="k">SET</span> <span class="nv">newDir</span> <span class="ow">TO</span> <span class="nv">ANGLEAXIS</span><span class="p">(</span><span class="mf">30</span><span class="p">,</span><span class="nv">SHIP</span><span class="p">:</span><span class="nv">UP</span><span class="p">)</span> <span class="o">*</span> <span class="nv">NORTH</span><span class="p">.</span>
 </pre></div>
@@ -541,7 +567,7 @@ Direction:<code class="descname">INVERSE</code><a class="headerlink" href="#attr
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Direction Multiplied by Vector:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">Dir</span> <span class="pre">*</span> <span class="pre">Vec</span></code> - This operator returns the result of rotating the vector by Dir:</p>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">Dir</span> <span class="pre">*</span> <span class="pre">Vec</span></code> - This operator returns the result of rotating the vector by Dir:</p>
 <div class="highlight-kerboscript"><div class="highlight"><pre><span></span><span class="c1">// What would the velocity of your ship be if it was angled 20 degrees to your left?</span>
 <span class="k">SET</span> <span class="nv">Vel</span> <span class="ow">to</span> <span class="nv">ANGLEAXIS</span><span class="p">(</span><span class="o">-</span><span class="mf">20</span><span class="p">,</span><span class="nv">SHIP</span><span class="p">:</span><span class="nv">TOPVECTOR</span><span class="p">)</span> <span class="o">*</span> <span class="nv">SHIP</span><span class="p">:</span><span class="nv">VELOCITY</span><span class="p">:</span><span class="nv">ORBIT</span><span class="p">.</span>
 <span class="c1">// At this point Vel:MAG and SHIP:VELOCITY:MAG should be the same, but they don&#39;t point the same way</span>
@@ -550,7 +576,7 @@ Direction:<code class="descname">INVERSE</code><a class="headerlink" href="#attr
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">Direction Added to Direction:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">Dir1</span> <span class="pre">+</span> <span class="pre">Dir2</span></code> - This operator is less reliable because its exact behavior depends on the order of operations of the UnityEngine&#8217;s X Y and Z axis rotations, and it can result in gimbal lock.</p>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">Dir1</span> <span class="pre">+</span> <span class="pre">Dir2</span></code> - This operator is less reliable because its exact behavior depends on the order of operations of the UnityEngine&#8217;s X Y and Z axis rotations, and it can result in gimbal lock.</p>
 <p class="last">It&#8217;s supposed to perform a Euler rotation of one direction by another, but it&#8217;s preferred to use <code class="docutils literal"><span class="pre">Dir*Dir</span></code> instead, as that doesn&#8217;t experience gimbal lock, and does not require that you know the exact transformation order of Unity.</p>
 </td>
 </tr>
@@ -578,15 +604,18 @@ Direction:<code class="descname">INVERSE</code><a class="headerlink" href="#attr
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="geocoordinates.html" class="btn btn-neutral float-right" title="Geographic Coordinates" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="geocoordinates.html" class="btn btn-neutral float-right" title="Geographic Coordinates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="vector.html" class="btn btn-neutral" title="Vectors" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="vector.html" class="btn btn-neutral" title="Vectors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -617,16 +646,17 @@ Direction:<code class="descname">INVERSE</code><a class="headerlink" href="#attr
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

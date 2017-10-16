@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>CPU Vessel (SHIP) &mdash; kOS 1.1.3.0 documentation</title>
+  <title>CPU Vessel (SHIP) &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../about.html"/>
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
         <link rel="copyright" title="Copyright" href="../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../index.html"/>
         <link rel="up" title="General Topics" href="../general.html"/>
         <link rel="next" title="The kOS CPU hardware" href="cpu_hardware.html"/>
         <link rel="prev" title="Catalog of Bound Variable Names" href="../bindings.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../downloads_links.html">Downloads and Links</a></li>
@@ -98,7 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../library.html">Community Example Library</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../general.html">General</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../bindings.html">Bound Variables</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">CPU Vessel (SHIP)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">CPU Vessel (SHIP)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpu_hardware.html">CPU Hardware</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kospartmodule.html">Game Part</a></li>
 <li class="toctree-l2"><a class="reference internal" href="settingsWindows.html">Settings Windows</a></li>
@@ -132,8 +141,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -146,21 +157,38 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../general.html">General Topics</a> &raquo;</li>
-      
-    <li>CPU Vessel (SHIP)</li>
+        
+      <li>CPU Vessel (SHIP)</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/general/cpu_vessel.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/general/cpu_vessel.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -181,20 +209,23 @@
 <p class="first admonition-title">Note</p>
 <p class="last">The built-in variable called <code class="docutils literal"><span class="pre">SHIP</span></code> is always set to the current CPU vessel. Whenever you see the documentation refer to CPU vessel, you can think of that as being &#8220;the <code class="docutils literal"><span class="pre">SHIP</span></code> variable&#8221;.</p>
 </div>
-<p>For all places where a kOS program needs to do something with <em>this vessel</em>, for the sake of centering <a class="reference internal" href="../math/ref_frame.html#ship-raw"><span>SHIP-RAW</span></a> coordinates, for the sake of deciding which ship is having maneuver nodes added to it and for the sake of deciding which vessel is being controlled by the autopilot. The vessel it is referring to is itself the <strong>CPU vessel</strong> and not necessarily what KSP thinks of as the &#8220;active vessel&#8221;.</p>
+<p>For all places where a kOS program needs to do something with <em>this vessel</em>, for the sake of centering <a class="reference internal" href="../math/ref_frame.html#ship-raw"><span class="std std-ref">SHIP-RAW</span></a> coordinates, for the sake of deciding which ship is having maneuver nodes added to it and for the sake of deciding which vessel is being controlled by the autopilot. The vessel it is referring to is itself the <strong>CPU vessel</strong> and not necessarily what KSP thinks of as the &#8220;active vessel&#8221;.</p>
 </div>
 
 
+           </div>
+           <div class="articleComments">
+            
            </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cpu_hardware.html" class="btn btn-neutral float-right" title="The kOS CPU hardware" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cpu_hardware.html" class="btn btn-neutral float-right" title="The kOS CPU hardware" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../bindings.html" class="btn btn-neutral" title="Catalog of Bound Variable Names" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../bindings.html" class="btn btn-neutral" title="Catalog of Bound Variable Names" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -225,16 +256,17 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>KOSDelegate &mdash; kOS 1.1.3.0 documentation</title>
+  <title>KOSDelegate &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../../about.html"/>
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
         <link rel="copyright" title="Copyright" href="../../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../../index.html"/>
         <link rel="up" title="Configurations and Miscellany" href="../misc.html"/>
         <link rel="next" title="KUniverse 4th wall methods" href="kuniverse.html"/>
         <link rel="prev" title="Part Highlighting" href="highlight.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../downloads_links.html">Downloads and Links</a></li>
@@ -114,9 +123,7 @@
 <li class="toctree-l3"><a class="reference internal" href="colors.html">Colors</a></li>
 <li class="toctree-l3"><a class="reference internal" href="config.html">Configuration of kOS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="highlight.html">Part Highlighting</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">KOSDelegate</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">KOSDelegate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kuniverse.html">KUniverse 4th wall methods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="loaddistance.html">Vessel Load Distance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="loaddistance.html#situation-load-distance">Situation Load Distance</a></li>
@@ -152,8 +159,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -166,23 +175,40 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../structures.html">Structure Reference</a> &raquo;</li>
-      
+        
           <li><a href="../misc.html">Configurations and Miscellany</a> &raquo;</li>
-      
-    <li>KOSDelegate</li>
+        
+      <li>KOSDelegate</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/structures/misc/kosdelegate.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../_sources/structures/misc/kosdelegate.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -191,7 +217,7 @@
   <div class="section" id="kosdelegate">
 <span id="id1"></span><h1>KOSDelegate<a class="headerlink" href="#kosdelegate" title="Permalink to this headline">¶</a></h1>
 <p>The structure <cite>KOSDelegate</cite> is what you get when you use the
-<a class="reference internal" href="../../language/delegates.html#kosdelegate-atsign"><span>Delegate at-sign syntax</span></a>, as in
+<a class="reference internal" href="../../language/delegates.html#kosdelegate-atsign"><span class="std std-ref">Delegate at-sign syntax</span></a>, as in
 this example:</p>
 <div class="highlight-kerboscript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nv">myfunc</span> <span class="p">{</span> <span class="k">print</span> <span class="s">&quot;hello, there&quot;</span><span class="p">.</span> <span class="p">}</span>
 
@@ -200,7 +226,7 @@ this example:</p>
 </pre></div>
 </div>
 <p>You also get a <cite>KOSDelegate</cite> when you use the
-<a class="reference internal" href="../../language/anonymous.html#anonymous-functions"><span>Anonymous function</span></a> syntax like so:</p>
+<a class="reference internal" href="../../language/anonymous.html#anonymous-functions"><span class="std std-ref">Anonymous function</span></a> syntax like so:</p>
 <div class="highlight-kerboscript"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nv">del1</span> <span class="ow">to</span> <span class="p">{</span> <span class="k">print</span> <span class="s">&quot;hello, there&quot;</span><span class="p">.</span> <span class="p">}.</span>
 <span class="c1">// del1 is now a KOSDelegate.</span>
 </pre></div>
@@ -211,16 +237,16 @@ call the function later elsewhere in the code.</p>
 after the program is gone and you are back at the interactive
 prompt again.  (See <code class="xref ks ks-attr docutils literal"><span class="pre">ISDEAD</span></code>).</p>
 <p>The full explanation of the delegate feature
-<a class="reference internal" href="../../language/delegates.html#delegates"><span>is explained elsewhere</span></a>.  This page just
+<a class="reference internal" href="../../language/delegates.html#delegates"><span class="std std-ref">is explained elsewhere</span></a>.  This page just
 documents the members of the KOSDelegate structure for completeness.
 The full explanation of how this structure works and what it&#8217;s
-for can be found on the <a class="reference internal" href="../../language/delegates.html#delegates"><span>delegate page</span></a>.</p>
+for can be found on the <a class="reference internal" href="../../language/delegates.html#delegates"><span class="std std-ref">delegate page</span></a>.</p>
 <div class="section" id="structure">
 <h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
 <dl class="structure">
 <dt id="structure:KOSDELEGATE">
 <em class="property">structure </em><code class="descname">KOSDelegate</code><a class="headerlink" href="#structure:KOSDELEGATE" title="Permalink to this definition">¶</a></dt>
-<dd><table border="1" class="docutils" id="id2">
+<dd><table border="1" class="colwidths-given docutils" id="id2">
 <caption><span class="caption-text">Members</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="29%" />
@@ -258,7 +284,7 @@ KOSDelegate:<code class="descname">CALL</code><span class="sig-paren">(</span>va
 function this KOSDelegate is calling.  The exact number of
 arguments you pass should match the number the function expects,
 minus any that you have pre-set with the <code class="docutils literal"><span class="pre">:BIND</span></code> suffix.</p>
-<p>This is <a class="reference internal" href="../../language/delegates.html#kosdelegate-call"><span>further explained elsewhere</span></a>.</p>
+<p>This is <a class="reference internal" href="../../language/delegates.html#kosdelegate-call"><span class="std std-ref">further explained elsewhere</span></a>.</p>
 <p>Note that in some cases you can omit the use of the explicit suffix
 <code class="docutils literal"><span class="pre">:CALL</span></code> and just use parentheses abutted against the
 KOSDelegate variable itself to indicate that you wish to call the
@@ -275,7 +301,7 @@ pass in will be bound to the leftmost parameters of the function.
 When using this new KOSDelegate to call the function, you pass in
 only the remaining arguments that were not designated in the
 call to <code class="docutils literal"><span class="pre">:BIND</span></code>.</p>
-<p>This is <a class="reference internal" href="../../language/delegates.html#kosdelegate-bind"><span>further explained elsewhere</span></a>.</p>
+<p>This is <a class="reference internal" href="../../language/delegates.html#kosdelegate-bind"><span class="std std-ref">further explained elsewhere</span></a>.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -337,9 +363,9 @@ there.</p>
 <tbody valign="top">
 <tr class="row-even"><td colspan="3">Every suffix of <a class="reference internal" href="#structure:KOSDELEGATE" title="KOSDELEGATE structure"><code class="xref ks ks-struct docutils literal"><span class="pre">KOSDelegate</span></code></a></td>
 </tr>
-<tr class="row-odd"><td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<tr class="row-odd"><td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
@@ -375,15 +401,18 @@ bother calling the delegate at all anymore.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="kuniverse.html" class="btn btn-neutral float-right" title="KUniverse 4th wall methods" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="kuniverse.html" class="btn btn-neutral float-right" title="KUniverse 4th wall methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="highlight.html" class="btn btn-neutral" title="Part Highlighting" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="highlight.html" class="btn btn-neutral" title="Part Highlighting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -414,16 +443,17 @@ bother calling the delegate at all anymore.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

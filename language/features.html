@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>General Features of the KerboScript Language &mdash; kOS 1.1.3.0 documentation</title>
+  <title>General Features of the KerboScript Language &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../about.html"/>
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
         <link rel="copyright" title="Copyright" href="../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../index.html"/>
         <link rel="up" title="The KerboScript Language" href="../language.html"/>
         <link rel="next" title="KerboScript Syntax Specification" href="syntax.html"/>
         <link rel="prev" title="The KerboScript Language" href="../language.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../downloads_links.html">Downloads and Links</a></li>
@@ -98,9 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../library.html">Community Example Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../general.html">General</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../language.html">Language</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">General Features</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">General Features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="syntax.html">Language Syntax</a></li>
 <li class="toctree-l2"><a class="reference internal" href="flow.html">Flow Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="variables.html">Variables</a></li>
@@ -130,8 +137,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -144,21 +153,38 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../language.html">The <strong>KerboScript</strong> Language</a> &raquo;</li>
-      
-    <li>General Features of the <strong>KerboScript</strong> Language</li>
+        
+      <li>General Features of the <strong>KerboScript</strong> Language</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/language/features.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/language/features.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -271,7 +297,7 @@ types such as Boolean and Scalar.</p>
 <p><span class="versionmodified">New in version 0.15: </span>Methods now perform the activity when the interpreter comes up to it. Prior to this version, execution was sometimes delayed until some later time depending on the trigger setup or flow-control.</p>
 </div>
 </div>
-<p>For more information, see the <a class="reference internal" href="#language-structures"><span>Structures Section</span></a>. A full list of structure types can be found on the <a class="reference internal" href="../structures.html#structures"><span>Structures</span></a> page. For a more detailed breakdown of the language, see the <a class="reference internal" href="syntax.html#syntax"><span>Language Syntax Constructs</span></a> page.</p>
+<p>For more information, see the <a class="reference internal" href="#language-structures"><span class="std std-ref">Structures Section</span></a>. A full list of structure types can be found on the <a class="reference internal" href="../structures.html#structures"><span class="std std-ref">Structures</span></a> page. For a more detailed breakdown of the language, see the <a class="reference internal" href="syntax.html#syntax"><span class="std std-ref">Language Syntax Constructs</span></a> page.</p>
 </div>
 </div>
 <div class="section" id="short-circuiting-booleans">
@@ -327,7 +353,7 @@ programming.</p>
 <p>But if you are an experienced programmer you might not like this
 behavior, and there are good arguments for why you might want to
 disable it.  If you wish to do so, a syntax exists to do so called
-<a class="reference internal" href="variables.html#lazyglobal"><span>&#64;LAZYGLOBAL OFF</span></a>.</p>
+<a class="reference internal" href="variables.html#lazyglobal"><span class="std std-ref">&#64;LAZYGLOBAL OFF</span></a>.</p>
 </div>
 <div class="section" id="user-functions">
 <span id="feature-functions"></span><h2><a class="toc-backref" href="#id12">User Functions</a><a class="headerlink" href="#user-functions" title="Permalink to this headline">¶</a></h2>
@@ -338,7 +364,7 @@ disable it.  If you wish to do so, a syntax exists to do so called
 </div>
 </div>
 <p>Kerboscript supports user functions which you can write yourself
-and call from your own scripts.  <em>These are not</em> <a class="reference internal" href="#features-methods"><span>structure
+and call from your own scripts.  <em>These are not</em> <a class="reference internal" href="#features-methods"><span class="std std-ref">structure
 methods</span></a> <em>(which as of this writing are a feature which
 only works for the built-in kOS types, and are not yet supported
 by the kerboscript language for user functions you write yourself).</em></p>
@@ -354,12 +380,12 @@ by the kerboscript language for user functions you write yourself).</em></p>
 </pre></div>
 </div>
 <p>For a more detailed description of how to declare your own user functions,
-see the <a class="reference internal" href="syntax.html#syntax-functions"><span>Language Syntax Constructs, User Functions</span></a>
+see the <a class="reference internal" href="syntax.html#syntax-functions"><span class="std std-ref">Language Syntax Constructs, User Functions</span></a>
 section.</p>
 </div>
 <div class="section" id="language-structures">
 <span id="id1"></span><h2><a class="toc-backref" href="#id13">Structures</a><a class="headerlink" href="#language-structures" title="Permalink to this headline">¶</a></h2>
-<p>Structures, <a class="reference internal" href="#features-structures"><span>introduced above</span></a>, are variable <em>types</em> that contain more than one piece of information. All structures contain sub-values or <a class="reference internal" href="#features-methods"><span>methods</span></a> that can be accessed with a colon (<code class="docutils literal"><span class="pre">:</span></code>) operator. Multiple structures can be chained together with more than one colon (<code class="docutils literal"><span class="pre">:</span></code>) operator:</p>
+<p>Structures, <a class="reference internal" href="#features-structures"><span class="std std-ref">introduced above</span></a>, are variable <em>types</em> that contain more than one piece of information. All structures contain sub-values or <a class="reference internal" href="#features-methods"><span class="std std-ref">methods</span></a> that can be accessed with a colon (<code class="docutils literal"><span class="pre">:</span></code>) operator. Multiple structures can be chained together with more than one colon (<code class="docutils literal"><span class="pre">:</span></code>) operator:</p>
 <div class="highlight-kerboscript"><div class="highlight"><pre><span></span><span class="k">SET</span> <span class="nv">myCraft</span> <span class="ow">TO</span> <span class="nv">SHIP</span><span class="p">.</span>
 <span class="k">SET</span> <span class="nv">myMass</span> <span class="ow">TO</span> <span class="nv">myCraft</span><span class="p">:</span><span class="nv">MASS</span><span class="p">.</span>
 <span class="k">SET</span> <span class="nv">myVel</span> <span class="ow">TO</span> <span class="nv">myCraft</span><span class="p">:</span><span class="nv">VELOCITY</span><span class="p">:</span><span class="nv">ORBIT</span><span class="p">.</span>
@@ -370,7 +396,7 @@ section.</p>
 <span class="k">SET</span> <span class="nv">n</span><span class="p">:</span><span class="nv">ETA</span> <span class="ow">to</span> <span class="mf">500</span><span class="p">.</span>
 </pre></div>
 </div>
-<p>The full list of available suffixes for each type <a class="reference internal" href="../structures.html#structures"><span>can be found here</span></a>.</p>
+<p>The full list of available suffixes for each type <a class="reference internal" href="../structures.html#structures"><span class="std std-ref">can be found here</span></a>.</p>
 </div>
 <div class="section" id="triggers">
 <span id="feature-triggers"></span><h2><a class="toc-backref" href="#id14">Triggers</a><a class="headerlink" href="#triggers" title="Permalink to this headline">¶</a></h2>
@@ -389,7 +415,7 @@ where it left off.  Example:</p>
 <span class="k">WHEN</span> <span class="nv">ship</span><span class="p">:</span><span class="nv">altitude</span> <span class="o">&gt;</span> <span class="mf">50000</span> <span class="k">then</span> <span class="p">{</span> <span class="nv">ag1</span> <span class="nb">on</span><span class="p">.</span> <span class="p">}</span>
 </pre></div>
 </div>
-<p>Triggers are created using the <a class="reference internal" href="flow.html#when"><span>when</span></a> and <a class="reference internal" href="flow.html#on-trigger"><span>on</span></a>
+<p>Triggers are created using the <a class="reference internal" href="flow.html#when"><span class="std std-ref">when</span></a> and <a class="reference internal" href="flow.html#on-trigger"><span class="std std-ref">on</span></a>
 statements.  They are complex enough that you should read the documentation
 for those keywords carefully to understand them before you use them.</p>
 </div>
@@ -397,15 +423,18 @@ for those keywords carefully to understand them before you use them.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="syntax.html" class="btn btn-neutral float-right" title="KerboScript Syntax Specification" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="syntax.html" class="btn btn-neutral float-right" title="KerboScript Syntax Specification" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../language.html" class="btn btn-neutral" title="The KerboScript Language" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../language.html" class="btn btn-neutral" title="The KerboScript Language" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -436,16 +465,17 @@ for those keywords carefully to understand them before you use them.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

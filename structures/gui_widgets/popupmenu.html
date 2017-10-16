@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>PopupMenu &mdash; kOS 1.1.3.0 documentation</title>
+  <title>PopupMenu &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../../about.html"/>
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
         <link rel="copyright" title="Copyright" href="../../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../../index.html"/>
         <link rel="up" title="Creating GUIs" href="../gui.html"/>
         <link rel="next" title="Scrollbox" href="scrollbox.html"/>
         <link rel="prev" title="Label" href="label.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../downloads_links.html">Downloads and Links</a></li>
@@ -115,7 +124,7 @@
 <li class="toctree-l3"><a class="reference internal" href="gui.html">GUI structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="label.html">Label</a></li>
 <li class="toctree-l3"><a class="reference internal" href="label.html#rich-text">Rich Text</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">PopupMenu</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PopupMenu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="scrollbox.html">Scrollbox</a></li>
 <li class="toctree-l3"><a class="reference internal" href="skin.html">Skin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="slider.html">Slider</a></li>
@@ -147,8 +156,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -161,23 +172,40 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../structures.html">Structure Reference</a> &raquo;</li>
-      
+        
           <li><a href="../gui.html">Creating GUIs</a> &raquo;</li>
-      
-    <li>PopupMenu</li>
+        
+      <li>PopupMenu</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/structures/gui_widgets/popupmenu.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../_sources/structures/gui_widgets/popupmenu.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -236,7 +264,7 @@ You can change this default behaviour by setting the popupmenu&#8217;s <a class=
 <td>Name of the suffix used for display names. Default = TOSTRING.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#method:POPUPMENU:ADDOPTION" title="POPUPMENU:ADDOPTION method"><code class="xref ks ks-meth docutils literal"><span class="pre">ADDOPTION(value)</span></code></a></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>Add a value to the end of the list of options.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#attribute:POPUPMENU:VALUE" title="POPUPMENU:VALUE attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">VALUE</span></code></a></td>
@@ -256,7 +284,7 @@ You can change this default behaviour by setting the popupmenu&#8217;s <a class=
 <td>Your function called whenever the <a class="reference internal" href="#attribute:POPUPMENU:CHANGED" title="POPUPMENU:CHANGED attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">CHANGED</span></code></a> state changes.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#method:POPUPMENU:CLEAR" title="POPUPMENU:CLEAR method"><code class="xref ks ks-meth docutils literal"><span class="pre">CLEAR</span></code></a></td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 <td>Removes all options.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#attribute:POPUPMENU:MAXVISIBLE" title="POPUPMENU:MAXVISIBLE attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">MAXVISIBLE</span></code></a></td>
@@ -392,7 +420,7 @@ you cause it to become false if it had been true.  (The system
 assumes that &#8220;last time this was checked&#8221; means &#8220;now&#8221; after you&#8217;ve
 read the value of this suffix.)</p>
 <p>This is intended to be used with the
-<a class="reference internal" href="../gui.html#gui-polling-technique"><span>polling technique</span></a> of reading the widget.
+<a class="reference internal" href="../gui.html#gui-polling-technique"><span class="std std-ref">polling technique</span></a> of reading the widget.
 You can query this field until it says it&#8217;s true, at which point you
 know to go have a look at the current value to see what it is.</p>
 </dd></dl>
@@ -413,7 +441,7 @@ PopupMenu:<code class="descname">ONCHANGE</code><a class="headerlink" href="#att
 <p>This is a <a class="reference internal" href="../misc/kosdelegate.html#structure:KOSDELEGATE" title="KOSDELEGATE structure"><code class="xref ks ks-struct docutils literal"><span class="pre">KOSDelegate</span></code></a> that expects one parameter, the new value, and returns nothing.</p>
 <p>Sets a callback hook you want called when a new selection has
 been made.  This is for use with the
-<a class="reference internal" href="../gui.html#gui-callback-technique"><span>callback technique</span></a> of reading the widget.</p>
+<a class="reference internal" href="../gui.html#gui-callback-technique"><span class="std std-ref">callback technique</span></a> of reading the widget.</p>
 <p>The function you specify must be designed to take one parameter,
 which is the new value (same as reading the <a class="reference internal" href="#attribute:POPUPMENU:VALUE" title="POPUPMENU:VALUE attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">VALUE</span></code></a> suffix) of
 this widget, and return nothing.</p>
@@ -468,15 +496,18 @@ give it a lot of items in the options list.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="scrollbox.html" class="btn btn-neutral float-right" title="Scrollbox" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="scrollbox.html" class="btn btn-neutral float-right" title="Scrollbox" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="label.html" class="btn btn-neutral" title="Label" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="label.html" class="btn btn-neutral" title="Label" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -507,16 +538,17 @@ give it a lot of items in the options list.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Connection &mdash; kOS 1.1.3.0 documentation</title>
+  <title>Connection &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../../about.html"/>
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
         <link rel="copyright" title="Copyright" href="../../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../../index.html"/>
         <link rel="up" title="Communication" href="../communication.html"/>
         <link rel="next" title="Message" href="message.html"/>
         <link rel="prev" title="Communication" href="../communication.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../downloads_links.html">Downloads and Links</a></li>
@@ -106,9 +115,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../volumes_and_files.html">Volumes &amp; Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vessels.html">Vessels &amp; Parts</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../communication.html">Communication</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="">Connection</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Connection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="message.html">Message</a></li>
 <li class="toctree-l3"><a class="reference internal" href="message_queue.html">MessageQueue</a></li>
 </ul>
@@ -136,8 +143,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -150,23 +159,40 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../structures.html">Structure Reference</a> &raquo;</li>
-      
+        
           <li><a href="../communication.html">Communication</a> &raquo;</li>
-      
-    <li>Connection</li>
+        
+      <li>Connection</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/structures/communication/connection.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../_sources/structures/communication/connection.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -195,7 +221,7 @@ You can obtain a connection by using <cite>CONNECTION</cite> suffix. Assuming yo
 <dl class="structure">
 <dt id="structure:CONNECTION">
 <em class="property">structure </em><code class="descname">Connection</code><a class="headerlink" href="#structure:CONNECTION" title="Permalink to this definition">¶</a></dt>
-<dd><table border="1" class="docutils">
+<dd><table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="29%" />
 <col width="14%" />
@@ -240,7 +266,7 @@ Connection:<code class="descname">ISCONNECTED</code><a class="headerlink" href="
 </tbody>
 </table>
 <p>True if the connection is opened and messages can be sent. For CPU connections this will be always true if the destionation CPU belongs to the same vessel as the current CPU.
-For vessel connections this will be always true in stock game. <a class="reference internal" href="../../addons/RemoteTech.html#remotetech"><span>RemoteTech</span></a> introduces the concept of connectivity and may cause this to be false.
+For vessel connections this will be always true in stock game. <a class="reference internal" href="../../addons/RemoteTech.html#remotetech"><span class="std std-ref">RemoteTech</span></a> introduces the concept of connectivity and may cause this to be false.
 The connection has to be opened only in the moment of sending the message in order for it to arrive. If connection is lost after the message was sent,
 but before it arrives at its destination it will have no effect on whether the message will reach its destination or not.</p>
 </dd></dl>
@@ -250,7 +276,7 @@ but before it arrives at its destination it will have no effect on whether the m
 Connection:<code class="descname">DELAY</code><a class="headerlink" href="#attribute:CONNECTION:DELAY" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of seconds that it will take for messages sent using this connection to arrive at their destination. This value will be equal to -1 if connection is not opened.
 For CPU connections this will be always equal to 0 if the destination CPU belongs to the same vessel as the current CPU.  Otherwise it will be equal to -1.
-For vessel connections this will be always zero in stock game as messages arrive instantaneously. <a class="reference internal" href="../../addons/RemoteTech.html#remotetech"><span>RemoteTech</span></a> introduces the concept of
+For vessel connections this will be always zero in stock game as messages arrive instantaneously. <a class="reference internal" href="../../addons/RemoteTech.html#remotetech"><span class="std std-ref">RemoteTech</span></a> introduces the concept of
 connectivity and may cause this to be a positive number (if there is some signal delay due to the large distance between the vessels) or -1 (if there is no connection
 between the vessels).</p>
 </dd></dl>
@@ -296,15 +322,18 @@ This method will fail to send the message and return false if <a class="referenc
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="message.html" class="btn btn-neutral float-right" title="Message" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="message.html" class="btn btn-neutral float-right" title="Message" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../communication.html" class="btn btn-neutral" title="Communication" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../communication.html" class="btn btn-neutral" title="Communication" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -335,16 +364,17 @@ This method will fail to send the message and return false if <a class="referenc
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

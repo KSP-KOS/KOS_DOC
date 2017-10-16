@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Button &mdash; kOS 1.1.3.0 documentation</title>
+  <title>Button &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../../about.html"/>
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
         <link rel="copyright" title="Copyright" href="../../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../../index.html"/>
         <link rel="up" title="Creating GUIs" href="../gui.html"/>
         <link rel="next" title="GUI structure" href="gui.html"/>
         <link rel="prev" title="Box" href="box.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../downloads_links.html">Downloads and Links</a></li>
@@ -110,7 +119,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../celestial_bodies.html">Celestial Bodies</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../gui.html">GUI Widgets</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="box.html">Box</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="">Button</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Button</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gui.html">GUI structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="label.html">Label</a></li>
@@ -147,8 +156,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -161,23 +172,40 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../structures.html">Structure Reference</a> &raquo;</li>
-      
+        
           <li><a href="../gui.html">Creating GUIs</a> &raquo;</li>
-      
-    <li>Button</li>
+        
+      <li>Button</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/structures/gui_widgets/button.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../_sources/structures/gui_widgets/button.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -281,7 +309,7 @@ When you read this value, if it said the button was on (pressed in),
 then reading it will cause the button to become off (popped out).</p>
 <p>This is useful only for normal buttons (buttons that have <a class="reference internal" href="#attribute:BUTTON:TOGGLE" title="BUTTON:TOGGLE attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">TOGGLE</span></code></a>
 set to false).  It allows you to use the
-<a class="reference internal" href="../gui.html#gui-polling-technique"><span>polling technique</span></a> to repeatedly check to
+<a class="reference internal" href="../gui.html#gui-polling-technique"><span class="std std-ref">polling technique</span></a> to repeatedly check to
 see if the button is on, and as soon as your script notices that it&#8217;s on,
 it will pop it back out again so the user sees the proper visual feedback.</p>
 </dd></dl>
@@ -360,7 +388,7 @@ Button:<code class="descname">ONCLICK</code><a class="headerlink" href="#attribu
 </table>
 <p>This is a <a class="reference internal" href="../misc/kosdelegate.html#structure:KOSDELEGATE" title="KOSDELEGATE structure"><code class="xref ks ks-struct docutils literal"><span class="pre">KOSDelegate</span></code></a> that takes no parameters and returns nothing.</p>
 <p><code class="docutils literal"><span class="pre">ONCLICK</span></code> is what is known as a &#8220;callback hook&#8221;.  This suffix allows
-you to use the <a class="reference internal" href="../gui.html#gui-callback-technique"><span>callback technique</span></a> of widget
+you to use the <a class="reference internal" href="../gui.html#gui-callback-technique"><span class="std std-ref">callback technique</span></a> of widget
 interaction.</p>
 <p>You can assign <code class="docutils literal"><span class="pre">ONCLICK</span></code> to a <a class="reference internal" href="../misc/kosdelegate.html#structure:KOSDELEGATE" title="KOSDELEGATE structure"><code class="xref ks ks-struct docutils literal"><span class="pre">KOSDelegate</span></code></a> of one of your
 functions (named or anonymous) and from then on kOS will call that
@@ -389,7 +417,7 @@ Button:<code class="descname">ONTOGGLE</code><a class="headerlink" href="#attrib
 </table>
 <p>This is a <a class="reference internal" href="../misc/kosdelegate.html#structure:KOSDELEGATE" title="KOSDELEGATE structure"><code class="xref ks ks-struct docutils literal"><span class="pre">KOSDelegate</span></code></a> taking one parameter (new boolean state) and returning nothing</p>
 <p><code class="docutils literal"><span class="pre">ONTOGGLE</span></code> is what is known as a &#8220;callback hook&#8221;.  This suffix allows
-you to use the <a class="reference internal" href="../gui.html#gui-callback-technique"><span>callback technique</span></a> of widget
+you to use the <a class="reference internal" href="../gui.html#gui-callback-technique"><span class="std std-ref">callback technique</span></a> of widget
 interaction.</p>
 <p>The <code class="docutils literal"><span class="pre">ONTOGGLE</span></code> delegate you assign will get called whenver kOS notices
 that this button has changed from false to true or from true to false.</p>
@@ -456,15 +484,18 @@ which is the new state the button has just be changed to.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gui.html" class="btn btn-neutral float-right" title="GUI structure" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gui.html" class="btn btn-neutral float-right" title="GUI structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="box.html" class="btn btn-neutral" title="Box" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="box.html" class="btn btn-neutral" title="Box" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -495,16 +526,17 @@ which is the new state the button has just be changed to.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

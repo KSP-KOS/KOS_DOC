@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Atmosphere &mdash; kOS 1.1.3.0 documentation</title>
+  <title>Atmosphere &mdash; kOS 1.1.3.2 documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
   
 
   
@@ -34,8 +36,11 @@
   
         <link rel="author" title="About these documents"
               href="../../about.html"/>
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
         <link rel="copyright" title="Copyright" href="../../copyright.html"/>
-    <link rel="top" title="kOS 1.1.3.0 documentation" href="../../index.html"/>
+    <link rel="top" title="kOS 1.1.3.2 documentation" href="../../index.html"/>
         <link rel="up" title="Celestial Bodies" href="../celestial_bodies.html"/>
         <link rel="next" title="Body" href="body.html"/>
         <link rel="prev" title="Celestial Bodies" href="../celestial_bodies.html"/> 
@@ -47,6 +52,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -69,7 +75,7 @@
             
             
               <div class="version">
-                1.1.3.0
+                1.1.3.2
               </div>
             
           
@@ -90,7 +96,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contents.html">Table of Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../downloads_links.html">Downloads and Links</a></li>
@@ -108,9 +117,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../communication.html">Communication</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../orbits.html">Orbits</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../celestial_bodies.html">Celestial Bodies</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="">Atmosphere</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Atmosphere</a></li>
 <li class="toctree-l3"><a class="reference internal" href="body.html">Body</a></li>
 </ul>
 </li>
@@ -135,8 +142,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../contents.html">kOS</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">kOS</a>
+        
       </nav>
 
 
@@ -149,23 +158,40 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../contents.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../structures.html">Structure Reference</a> &raquo;</li>
-      
+        
           <li><a href="../celestial_bodies.html">Celestial Bodies</a> &raquo;</li>
-      
-    <li>Atmosphere</li>
+        
+      <li>Atmosphere</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/structures/celestial_bodies/atmosphere.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../../_sources/structures/celestial_bodies/atmosphere.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -177,7 +203,7 @@
 <dl class="structure">
 <dt id="structure:ATMOSPHERE">
 <em class="property">structure </em><code class="descname">Atmosphere</code><a class="headerlink" href="#structure:ATMOSPHERE" title="Permalink to this definition">¶</a></dt>
-<dd><table border="1" class="docutils">
+<dd><table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="17%" />
 <col width="17%" />
@@ -191,31 +217,31 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><a class="reference internal" href="#attribute:ATMOSPHERE:BODY" title="ATMOSPHERE:BODY attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">BODY</span></code></a></td>
-<td><a class="reference internal" href="../misc/string.html#string"><span>string</span></a></td>
+<td><a class="reference internal" href="../misc/string.html#string"><span class="std std-ref">string</span></a></td>
 <td>Name of the celestial body</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#attribute:ATMOSPHERE:EXISTS" title="ATMOSPHERE:EXISTS attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">EXISTS</span></code></a></td>
-<td><a class="reference internal" href="../misc/boolean.html#boolean"><span>boolean</span></a></td>
+<td><a class="reference internal" href="../misc/boolean.html#boolean"><span class="std std-ref">boolean</span></a></td>
 <td>True if this body has an atmosphere</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#attribute:ATMOSPHERE:OXYGEN" title="ATMOSPHERE:OXYGEN attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">OXYGEN</span></code></a></td>
-<td><a class="reference internal" href="../misc/boolean.html#boolean"><span>boolean</span></a></td>
+<td><a class="reference internal" href="../misc/boolean.html#boolean"><span class="std std-ref">boolean</span></a></td>
 <td>True if oxygen is present</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#attribute:ATMOSPHERE:SCALE" title="ATMOSPHERE:SCALE attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">SCALE</span></code></a> (DEPRECATED)</td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a></td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a></td>
 <td>Used to find atmospheric density</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#attribute:ATMOSPHERE:SEALEVELPRESSURE" title="ATMOSPHERE:SEALEVELPRESSURE attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">SEALEVELPRESSURE</span></code></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> (atm)</td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> (atm)</td>
 <td>pressure at sea level</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#method:ATMOSPHERE:ALTITUDEPRESSURE" title="ATMOSPHERE:ALTITUDEPRESSURE method"><code class="xref ks ks-meth docutils literal"><span class="pre">ALTITUDEPRESSURE(altitude)</span></code></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> (atm)</td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> (atm)</td>
 <td>pressure at the givel altitude</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#attribute:ATMOSPHERE:HEIGHT" title="ATMOSPHERE:HEIGHT attribute"><code class="xref ks ks-attr docutils literal"><span class="pre">HEIGHT</span></code></a></td>
-<td><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> (m)</td>
+<td><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> (m)</td>
 <td>advertised atmospheric height</td>
 </tr>
 </tbody>
@@ -229,7 +255,7 @@ Atmosphere:<code class="descname">BODY</code><a class="headerlink" href="#attrib
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../misc/string.html#string"><span>string</span></a></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../misc/string.html#string"><span class="std std-ref">string</span></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Access:</th><td class="field-body">Get only</td>
 </tr>
@@ -245,7 +271,7 @@ Atmosphere:<code class="descname">EXISTS</code><a class="headerlink" href="#attr
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../misc/boolean.html#boolean"><span>boolean</span></a></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../misc/boolean.html#boolean"><span class="std std-ref">boolean</span></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Access:</th><td class="field-body">Get only</td>
 </tr>
@@ -261,7 +287,7 @@ Atmosphere:<code class="descname">OXYGEN</code><a class="headerlink" href="#attr
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../misc/boolean.html#boolean"><span>boolean</span></a></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../misc/boolean.html#boolean"><span class="std std-ref">boolean</span></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Access:</th><td class="field-body">Get only</td>
 </tr>
@@ -277,7 +303,7 @@ Atmosphere:<code class="descname">SEALEVELPRESSURE</code><a class="headerlink" h
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> (atm)</td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> (atm)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Access:</th><td class="field-body">Get only</td>
 </tr>
@@ -308,7 +334,7 @@ Atmosphere:<code class="descname">ALTITUDEPRESSURE</code><span class="sig-paren"
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> (atm)</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> (atm)</p>
 </td>
 </tr>
 </tbody>
@@ -330,7 +356,7 @@ Atmosphere:<code class="descname">HEIGHT</code><a class="headerlink" href="#attr
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a> (m)</td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a> (m)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Access:</th><td class="field-body">Get only</td>
 </tr>
@@ -348,7 +374,7 @@ Atmosphere:<code class="descname">SCALE</code><a class="headerlink" href="#attri
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../../math/scalar.html#scalar"><span>scalar</span></a></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="../../math/scalar.html#scalar"><span class="std std-ref">scalar</span></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Access:</th><td class="field-body">Get only</td>
 </tr>
@@ -382,15 +408,18 @@ documentation, so this section below this point has been removed.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="body.html" class="btn btn-neutral float-right" title="Body" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="body.html" class="btn btn-neutral float-right" title="Body" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../celestial_bodies.html" class="btn btn-neutral" title="Celestial Bodies" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../celestial_bodies.html" class="btn btn-neutral" title="Celestial Bodies" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -421,16 +450,17 @@ documentation, so this section below this point has been removed.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'1.1.3.0',
+            VERSION:'1.1.3.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
