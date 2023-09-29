@@ -55,10 +55,10 @@ like its apoapsis, periapsis, etc.
 
 It is also possible to create an orbit from a position and a velocity using the ``CREATEORBIT()`` function described below:
 
-.. function:: CREATEORBIT(pos, vel, body, ut)
+.. function:: CREATEORBIT(vel, pos, body, ut)
 
-    :parameter pos: (:struct:`Vector`) position (relative to center of body, NOT the usual relative to current ship most positions in kOS use.  Remember to offset a kOS position from the body's position when calculating what to pass in here.)
     :parameter vel: (:struct:`Vector`) velocity
+    :parameter pos: (:struct:`Vector`) position (relative to center of body, NOT the usual relative to current ship most positions in kOS use.  Remember to offset a kOS position from the body's position when calculating what to pass in here.)
     :parameter body: (:struct:`Body`) body to orbit around
     :parameter ut: (:struct:`Scalar`) time (universal)
     :return: :struct:`Orbit`
